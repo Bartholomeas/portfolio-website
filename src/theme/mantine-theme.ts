@@ -9,6 +9,7 @@ export const darkThemeColors: MantineThemeOther = {
   black: '#000000',
   white: '#FFFFFF',
 
+  textPrimary: '#ffffff',
   textSecondary: '#9B9BAE',
 
   error: '#FF4264',

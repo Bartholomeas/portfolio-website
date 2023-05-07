@@ -1,13 +1,9 @@
-'use client';
-
-
-import React from 'react';
+import LandingSection from '@/components/home/landing/LandingSection';
 
 const Home = () => {
-  console.log('dziala');
   return (
     <div>
-      <p>ebeb</p>
+      <LandingSection />
     </div>
   );
 };

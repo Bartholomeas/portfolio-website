@@ -25,9 +25,7 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
               color: 'inherit',
               textDecoration: 'none',
             },
-            'a, button': {
-              fontFamily: 'Merriweather',
-            },
+
             'h1,h2,h3,h4,h5,h6': {
               fontFamily: 'Merriweather, serif',
             },

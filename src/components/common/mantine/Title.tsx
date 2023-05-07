@@ -6,7 +6,7 @@ type StylesProps = {
 };
 
 const useStyles = createStyles((theme, { textColor }: StylesProps) => ({
-  textColor: { color: theme.other[textColor] },
+  textColor: { color: theme.other[textColor], fontFamily: 'Merriweather, serif' },
 }));
 
 type TextComponentProps = {
