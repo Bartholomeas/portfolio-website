@@ -19,11 +19,12 @@ const useStyles = createStyles(() => ({
 const Header = () => {
   const { classes } = useStyles();
 
-  const largerThanMd = useMediaQuery(`(min-width: 768px)`);
+  // const largerThanMd = useMediaQuery(`(min-width: 768px)`);
 
   return (
     <MantineHeader height={'auto'} withBorder={false} px={16} className={classes.wrapper}>
-      {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />}
+      {/* {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />} */}
+      <HeaderDesktop />
     </MantineHeader>
   );
 };

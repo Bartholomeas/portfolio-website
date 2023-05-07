@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="pl">
-      <body suppressHydrationWarning={true}>
+      <body>
         <ThemeProvider>
           <AppShell>{children}</AppShell>
         </ThemeProvider>

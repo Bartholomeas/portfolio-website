@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Button, Stack, createStyles } from '@mantine/core';
 
@@ -25,7 +23,7 @@ const LandingSection = () => {
   return (
     <section className={classes.wrapper}>
       <Stack align="center" spacing={8}>
-        <ShapeWithGlow />
+        {/* <ShapeWithGlow /> */}
         <Title order={1}>bartosz stefaniak</Title>
         <Text textColor="textSecondary">front-end development</Text>
         <Text textColor="textSecondary">design</Text>

@@ -32,7 +32,7 @@ const ShapeWithGlow = ({ size = 100 }: ShapeWithGlowProps) => {
           borderRadius: '426px',
         }}
       />
-      {/* <Image src={'/ball.svg'} height={size} fit="contain" alt="Abstract shape" /> */}
+      <Image src={'/ball.svg'} height={size} fit="contain" alt="Abstract shape" />
     </div>
   );
 };

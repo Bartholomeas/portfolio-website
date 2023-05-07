@@ -1,3 +1,4 @@
+'use client';
 import LandingSection from '@/components/home/landing/LandingSection';
 
 const Home = () => {
