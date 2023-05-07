@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import ThemeProvider from '@/components/templates/ThemeProvider';
 import AppShell from '@/components/templates/AppShell';
+import RootStyleRegistry from './emotion';
 
 export const metadata: Metadata = {
   title: 'bartholomeas',
@@ -12,9 +13,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="pl">
       <body>
-        <ThemeProvider>
+        <RootStyleRegistry>
+          {/* <ThemeProvider> */}
           <AppShell>{children}</AppShell>
-        </ThemeProvider>
+          {/* </ThemeProvider> */}
+        </RootStyleRegistry>
       </body>
     </html>
   );

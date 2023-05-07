@@ -1,30 +1,12 @@
 'use client';
 
-import React, { PropsWithChildren, useState } from 'react';
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  Global,
-  MantineProvider,
-  createEmotionCache,
-} from '@mantine/core';
+import React, { PropsWithChildren } from 'react';
+import { Global, MantineProvider, createEmotionCache } from '@mantine/core';
 import { basicTheme } from '@/theme/mantine-theme';
 
 const ThemeProvider = ({ children }: PropsWithChildren) => {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-  };
-
-  const myCache = createEmotionCache({
-    key: 'mantine',
-    prepend: false,
-  });
-
   return (
-    // <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-    <MantineProvider emotionCache={myCache} theme={basicTheme} withGlobalStyles withNormalizeCSS>
+    <MantineProvider theme={basicTheme} withGlobalStyles withNormalizeCSS>
       <Global
         styles={theme => ({
           body: {
@@ -44,7 +26,6 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
       />
       {children}
     </MantineProvider>
-    // </ColorSchemeProvider>
   );
 };
 

@@ -1,16 +1,22 @@
 import React from 'react';
 import { Box, Image, createStyles } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 const useStyles = createStyles(() => ({
   wrapper: {
     position: 'relative',
-    backgroundColor: 'transparent',
+    padding: '35px',
   },
   glow: {
-    background: 'radial-gradient(50% 50% at 50% 50%, #14FFFF 0%, rgba(120, 216, 23, 0) 100%)',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    background: 'radial-gradient(50% 50% at 50% 50%, #14FFFF 0%, #00F680 100%)',
     opacity: 0.4,
     filter: 'blur(95.5px)',
-    borderRadius: '426px',
+    borderRadius: '100%',
   },
 }));
 
@@ -18,21 +24,18 @@ type ShapeWithGlowProps = {
   size?: number;
 };
 
-const ShapeWithGlow = ({ size = 100 }: ShapeWithGlowProps) => {
+const ShapeWithGlow = ({ size = 150 }: ShapeWithGlowProps) => {
   const { classes } = useStyles();
-
+  const desktop = useMediaQuery(`(min-width: 576px)`);
   return (
     <div className={classes.wrapper}>
-      <Box
-        sx={{
-          position: 'absolute',
-          background: 'radial-gradient(50% 50% at 50% 50%, #14FFFF 0%, rgba(120, 216, 23, 0) 100%)',
-          opacity: 0.4,
-          filter: 'blur(95.5px)',
-          borderRadius: '426px',
-        }}
+      <span className={classes.glow} />
+      <Image
+        src={'/ball.svg'}
+        height={desktop ? size : size * 0.6}
+        fit="contain"
+        alt="Abstract shape"
       />
-      <Image src={'/ball.svg'} height={size} fit="contain" alt="Abstract shape" />
     </div>
   );
 };
