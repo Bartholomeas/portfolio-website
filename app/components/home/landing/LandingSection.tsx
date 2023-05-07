@@ -1,12 +1,11 @@
-'use client';
+import React from 'react';
+import { ChevronIcon, Stack, createStyles } from '@mantine/core';
 
-import React, { Suspense } from 'react';
-import { Button, ChevronIcon, Stack, UnstyledButton, createStyles } from '@mantine/core';
-
-import Text from '@/components/common/mantine/Text';
-import { Title } from '@/components/common/mantine/Title';
-import ShapeWithGlow from '@/components/common/ShapeWithGlow';
-import { Anchor } from '@/components/common/mantine/Anchor';
+import Text from '../../common/mantine/Text';
+import { Title } from '../../common/mantine/Title';
+import ShapeWithGlow from '../../common/ShapeWithGlow';
+import { Anchor } from '../../common/mantine/Anchor';
+import { ButtonLink } from '../../common/mantine/ButtonLink';
 
 const useStyles = createStyles(() => ({
   wrapper: {
@@ -29,11 +28,16 @@ const LandingSection = () => {
       <Stack align="center" spacing={8}>
         <ShapeWithGlow size={250} />
         <Title order={1}>bartosz stefaniak</Title>
-        <Text textColor="textSecondary">front-end development</Text>
-        <Text textColor="textSecondary">design</Text>
-        <Button variant="outline" color="black">
+        <Title order={2} textColor="textSecondary">
+          front-end development
+        </Title>
+        <Title order={2} textColor="textSecondary">
+          design
+        </Title>
+
+        <ButtonLink size="md" variant="outline" href="/blog" mt={16}>
           Zajrzyj na blog
-        </Button>
+        </ButtonLink>
       </Stack>
       <Anchor
         href="#about"

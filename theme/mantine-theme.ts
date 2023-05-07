@@ -16,11 +16,25 @@ export const darkThemeColors: MantineThemeOther = {
   success: '#00F680',
 };
 
-const themeSizes: MantineThemeOther = {};
+const themeSizes: MantineThemeOther = {
+  fontSizes: {
+    xs: 10,
+    sm: 12,
+    md: 14,
+    lg: 18,
+    xl: 24,
+  },
+
+  headings: {
+    sizes: {
+      h1: { fontWeight: 700, fontSize: '3rem', lineHeight: 1.4 },
+      h2: { fontWeight: 400, fontSize: '1.5rem', lineHeight: 1 },
+    },
+  },
+};
 
 export const basicTheme: MantineThemeOther = {
   colorScheme: 'dark',
-  fontFamily: ['Poppins, sans-serif', 'Merriweather, serif'],
   other: darkThemeColors,
   ...themeSizes,
   primaryColor: 'primary',

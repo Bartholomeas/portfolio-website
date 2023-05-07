@@ -1,6 +1,6 @@
 import { AnchorProps, Anchor as MantineAnchor, createStyles } from '@mantine/core';
 import { LinkProps } from 'next/link';
-import { ThemeColors } from '@/theme/types';
+import { ThemeColors } from '../../../../theme/types';
 
 type AnchorLinkProps = {
   href: string | undefined;

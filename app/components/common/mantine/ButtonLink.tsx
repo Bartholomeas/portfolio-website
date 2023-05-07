@@ -16,7 +16,7 @@ type TextComponentProps = {
 } & ButtonProps;
 
 export const ButtonLink = ({
-  variant,
+  variant = 'default',
   className,
   href,
   children,
@@ -25,7 +25,12 @@ export const ButtonLink = ({
   const { classes, cx } = useStyles();
 
   return (
-    <MantineButton component="a" href={href} className={cx(classes.children, className)} {...props}>
+    <MantineButton
+      component="a"
+      href={href}
+      className={cx(classes.children, className)}
+      variant={variant}
+      {...props}>
       {children}
     </MantineButton>
   );

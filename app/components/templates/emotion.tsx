@@ -6,7 +6,7 @@ import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider } from '@emotion/react';
 import { useEmotionCache } from '@mantine/core';
 
-import ThemeProvider from '@/components/templates/ThemeProvider';
+import ThemeProvider from './ThemeProvider';
 
 const RootStyleRegistry = ({ children }: PropsWithChildren) => {
   const cache = useEmotionCache();

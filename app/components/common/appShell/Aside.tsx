@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 import { ActionIcon, Aside as MantineAside, Stack, createStyles } from '@mantine/core';
 import { Dribbble, GitHub, Linkedin, Mail } from 'react-feather';
 
 const useStyles = createStyles(theme => ({
   wrapper: {
-    right: 0,
+    right: 24,
     bottom: 24,
     width: 'fit-content',
     background: 'none',
