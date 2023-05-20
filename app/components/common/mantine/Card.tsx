@@ -9,8 +9,9 @@ const Card = ({ children, ...props }: CardComponentProps) => {
   return (
     <MantineCard
       sx={theme => ({
-        backdropFilter: 'blur(20px)',
-        backgroundColor: theme.fn.rgba('#15151E', 0.6),
+        backdropFilter: 'blur(10px)',
+        backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.4),
+        width: '100%',
       })}
       {...props}>
       {children}

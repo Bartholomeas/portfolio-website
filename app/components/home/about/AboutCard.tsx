@@ -5,9 +5,9 @@ import Card from '../../common/mantine/Card';
 import Text from '../../common/mantine/Text';
 import { Title } from '../../common/mantine/Title';
 
-type ProfitsCardProps = React.PropsWithChildren<{ title: string }>;
+type AboutCardProps = React.PropsWithChildren<{ title: string }>;
 
-const ProfitsCard = ({ title, children }: ProfitsCardProps) => {
+const AboutCard = ({ title, children }: AboutCardProps) => {
   return (
     <Card>
       <Stack align="center">
@@ -22,4 +22,4 @@ const ProfitsCard = ({ title, children }: ProfitsCardProps) => {
   );
 };
 
-export default ProfitsCard;
+export default AboutCard;

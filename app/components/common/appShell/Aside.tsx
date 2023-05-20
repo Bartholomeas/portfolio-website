@@ -6,8 +6,6 @@ import { Dribbble, GitHub, Linkedin, Mail } from 'react-feather';
 
 const useStyles = createStyles(theme => ({
   wrapper: {
-    right: 24,
-    bottom: 24,
     width: 'fit-content',
     background: 'none',
   },
@@ -15,13 +13,19 @@ const useStyles = createStyles(theme => ({
   icon: {
     color: theme.other.textSecondary,
   },
+
+  iconsContainer: {
+    position: 'fixed',
+    right: 16,
+    bottom: 16,
+  },
 }));
 const Aside = () => {
   const { classes } = useStyles();
 
   return (
     <MantineAside fixed className={classes.wrapper} withBorder={false}>
-      <Stack align={'center'} spacing={8}>
+      <Stack align={'center'} spacing={8} className={classes.iconsContainer}>
         <ActionIcon
           className={classes.icon}
           component="a"

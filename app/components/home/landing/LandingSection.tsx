@@ -1,7 +1,6 @@
 import React from 'react';
 import { ChevronIcon, Stack, createStyles } from '@mantine/core';
 
-import Text from '../../common/mantine/Text';
 import { Title } from '../../common/mantine/Title';
 import ShapeWithGlow from '../../common/ShapeWithGlow';
 import { Anchor } from '../../common/mantine/Anchor';

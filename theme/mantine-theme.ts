@@ -27,7 +27,7 @@ const themeSizes: MantineThemeOther = {
 
   headings: {
     sizes: {
-      h1: { fontWeight: 700, fontSize: '3rem', lineHeight: 1.4 },
+      h1: { fontWeight: 700, fontSize: '2.5rem', lineHeight: 1.4 },
       h2: { fontWeight: 400, fontSize: '1.5rem', lineHeight: 1 },
     },
   },

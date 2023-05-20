@@ -10,7 +10,7 @@ import Aside from '../common/appShell/Aside';
 const AppShell = ({ children }: PropsWithChildren) => {
   return (
     <MantineAppShell header={<Header />} footer={<Footer />} aside={<Aside />}>
-      <Container size={'md'}>
+      <Container size={'md'} p={0}>
         <main>{children}</main>
       </Container>
     </MantineAppShell>

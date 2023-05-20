@@ -5,13 +5,28 @@ import { Burger, Drawer, Group, Header as MantineHeader, Stack, createStyles } f
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import Link from '../Link';
+import { ModalBaseCloseButtonProps } from '@mantine/core';
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles(theme => ({
   wrapper: {
     backgroundColor: 'transparent',
   },
 
-  drawerBg: {
+  drawerContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.5),
+    backdropFilter: 'blur(10px)',
+  },
+  drawerBody: {
+    background: 'none',
+    width: '100%',
+    height: '100%',
+  },
+  drawerHeader: {
+    width: '100%',
     background: 'none',
   },
 }));
@@ -24,7 +39,7 @@ const Header = () => {
   });
 
   return (
-    <MantineHeader height={'auto'} withBorder={false} px={16} className={classes.wrapper}>
+    <MantineHeader height={'auto'} withBorder={false} p={16} className={classes.wrapper}>
       {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />}
     </MantineHeader>
   );
@@ -44,16 +59,21 @@ const HeaderMobile = () => {
         opened={opened}
         onClose={close}
         position="top"
-        transitionProps={{ transition: 'slide-down', duration: 200, timingFunction: 'ease-out' }}
-        sx={{
-          background: 'none',
-        }}
-        withCloseButton={false}
-        classNames={{ content: classes.drawerBg }}>
-        <Stack align="center" justify="center" spacing={32} w={'100%'} h={'100%'}>
+        transitionProps={{ transition: 'skew-up', duration: 200, timingFunction: 'ease-out' }}
+        classNames={{
+          content: classes.drawerContent,
+          body: classes.drawerBody,
+          header: classes.drawerHeader,
+        }}>
+        <Stack
+          onClick={() => close()}
+          align="center"
+          justify="center"
+          spacing={32}
+          w={'100%'}
+          h={'100%'}>
           <Link href="/">strona główna</Link>
           <Link href="/blog">blog</Link>
-          <Link href="/about">o mnie</Link>
           <Link href="/recommended">polecane</Link>
           <Link href="/contact">kontakt</Link>
         </Stack>
@@ -67,7 +87,6 @@ const HeaderDesktop = () => {
     <Group position="center" spacing={32} w={'100%'}>
       <Link href="/">strona główna</Link>
       <Link href="/blog">blog</Link>
-      <Link href="/about">o mnie</Link>
       <Link href="/recommended">polecane</Link>
       <Link href="/contact">kontakt</Link>
     </Group>
