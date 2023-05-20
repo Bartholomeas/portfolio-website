@@ -18,7 +18,7 @@ const useStyles = createStyles(() => ({
     right: 0,
     bottom: 0,
     background: 'radial-gradient(50% 50% at 50% 50%, #14FFFF 0%, #00F680 100%)',
-    opacity: 0.4,
+    opacity: 0.7,
     filter: 'blur(95.5px)',
     borderRadius: '100%',
   },

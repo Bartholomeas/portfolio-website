@@ -10,7 +10,7 @@ import {
 } from '@mantine/core';
 
 import { ArrowRight, PenTool, Terminal } from 'react-feather';
-import { Heading } from '../../common/core/Heading';
+import { SectionHeading } from '../../common/core/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
 import { Button } from '../../common/mantine/Button';
@@ -20,12 +20,14 @@ import { Glow } from '../../common/core/Glow';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: '100vh',
+    minHeight: '70vh',
     height: '100%',
     width: '100%',
+    padding: '100px 0',
   },
 
   grid: {
@@ -65,50 +67,51 @@ export function AboutSection() {
         <ShapeWithGlow className={classes.shapePosition} />
 
         <Stack>
-          <Card>
-            <div className={classes.grid}>
-              <Image
-                src="./man.jpg"
-                alt="my portrait photo"
-                sx={{ borderRadius: 8, overflow: 'hidden' }}
+          <div className={classes.grid}>
+            <Image
+              src="./man.jpg"
+              alt="my portrait photo"
+              sx={{ borderRadius: 8, overflow: 'hidden' }}
+            />
+            <Stack justify="center">
+              <SectionHeading
+                title="Cześć, jestem Bartek!"
+                subtext="Kim jestem?"
               />
-              <Stack>
-                <Heading />
-                <Text textColor="textSecondary">
-                  Lorem ipsum dolor sit amet consectetur. Sit in amet amet dui
-                  orci feugiat diam. Condimentum turpis tortor lorem blandit
-                  orci morbi. Malesuada purus vel commodo iaculis semper lacinia
-                  tortor lectus. Lorem consequat ultricies diam enim.Lorem ipsum
-                  dolor sit Loreorem consequat ultricies diam enim.Lorem ipsum
-                  dolor sit Lorem ipsum.Lorem ipsum dolor sit amet consectetur.
-                  Sit in amet amet dui orci feugiat diam. Condimentum turpis
-                  tortor lorem blandit orci morbi. Malesuada purus vel commodo
-                  iaculis semper lacinia tortor lectus. Lorem consequat
-                  ultricies diam enim.Lorem ipsum dolor sit Lorem ipsum.
-                </Text>
-                <Button
-                  onClick={() => {
-                    console.log('contact');
-                  }}
-                  size="md"
-                  variant="subtle"
-                  color="primary"
-                  sx={{ alignSelf: 'end' }}
-                  rightIcon={<ArrowRight />}
-                >
-                  Skontaktuj się
-                </Button>
-                <Glow
-                  position={{ top: 0, left: 0, right: 0, bottom: 0 }}
-                  size={150}
-                  zIndex={-10}
-                />
-              </Stack>
-            </div>
-          </Card>
+              <Text size={16}>
+                Lorem ipsum dolor sit amet consectetur. Sit in amet amet dui
+                orci feugiat diam. Condimentum turpis tortor lorem blandit orci
+                morbi. Malesuada purus vel commodo iaculis semper lacinia tortor
+                lectus. Lorem consequat ultricies diam enim.Lorem ipsum dolor
+                sit Loreorem consequat ultricies diam enim.Lorem ipsum dolor sit
+                Lorem ipsum.Lorem ipsum dolor sit amet consectetur. Sit in amet
+                amet dui orci feugiat diam. Condimentum turpis tortor lorem
+                blandit orci morbi. Malesuada purus vel commodo iaculis semper
+                lacinia tortor lectus. Lorem consequat ultricies diam enim.Lorem
+                ipsum dolor sit Lorem ipsum.
+              </Text>
+              <Button
+                onClick={() => {
+                  console.log('contact');
+                }}
+                size="lg"
+                variant="subtle"
+                color="primary"
+                sx={{ alignSelf: 'end' }}
+                rightIcon={<ArrowRight />}
+              >
+                Skontaktuj się
+              </Button>
+            </Stack>
+          </div>
           <AboutSpecializationsGrid />
         </Stack>
       </Box>
+      <Glow
+        position={{ top: 200, left: -50, right: 0, bottom: 0 }}
+        size={500}
+        zIndex={-10}
+      />
     </section>
   );
 }

@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+
 import {
   Burger,
   Drawer,
@@ -9,13 +12,13 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import Link from '../Link';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme.fn.rgba(theme.other.bg, 0.8),
+    backdropFilter: 'blur(10px)',
   },
 
   drawerContent: {
@@ -48,7 +51,8 @@ function Header() {
     <MantineHeader
       height="auto"
       withBorder={false}
-      p={16}
+      px={16}
+      py={8}
       className={classes.wrapper}
     >
       {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />}
