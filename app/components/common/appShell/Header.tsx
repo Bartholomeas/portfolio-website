@@ -8,7 +8,6 @@ import {
   Header as MantineHeader,
   Stack,
   createStyles,
-  ModalBaseCloseButtonProps,
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 

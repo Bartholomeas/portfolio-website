@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   AnchorProps,
   Anchor as MantineAnchor,

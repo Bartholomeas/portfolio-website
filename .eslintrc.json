@@ -9,7 +9,10 @@
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off",
     "object-curly-newline": "off",
-    "arrow-parens": ["error", "as-needed"],
-    "react/require-default-props": "off"
+    "arrow-parens": 1,
+    "no-use-before-define": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }
