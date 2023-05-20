@@ -20,7 +20,7 @@ type TextComponentProps = {
   children: React.ReactNode;
 } & ButtonProps;
 
-export function ButtonLink({
+export const ButtonLink = ({
   variant = 'default',
   className,
   href,
@@ -35,8 +35,7 @@ export function ButtonLink({
       href={href}
       className={cx(classes.children, className)}
       variant={variant}
-      {...props}
-    >
+      {...props}>
       {children}
     </MantineButton>
   );

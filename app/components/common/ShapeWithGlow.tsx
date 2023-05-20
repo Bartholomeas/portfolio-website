@@ -24,9 +24,9 @@ type ShapeWithGlowProps = {
   size?: number;
 };
 
-export function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
+function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
   const { classes } = useStyles();
-  const desktop = useMediaQuery('(min-width: 576px)');
+  const desktop = useMediaQuery(`(min-width: 576px)`);
   return (
     <div className={classes.wrapper}>
       <span className={classes.glow} />
@@ -40,4 +40,4 @@ export function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
   );
 }
 
-// export default ShapeWithGlow;
+export default ShapeWithGlow;

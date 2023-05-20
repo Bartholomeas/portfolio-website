@@ -1,8 +1,8 @@
-import React from 'react';
 import { Metadata } from 'next';
 
 import { Poppins } from 'next/font/google';
 
+import React from 'react';
 import AppShell from './components/templates/AppShell';
 import RootStyleRegistry from './components/templates/emotion';
 

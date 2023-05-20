@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => ({
 function Header() {
   const { classes } = useStyles();
 
-  const largerThanMd = useMediaQuery('(min-width: 768px)', true, {
+  const largerThanMd = useMediaQuery(`(min-width: 768px)`, true, {
     getInitialValueInEffect: false,
   });
 

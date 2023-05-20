@@ -8,7 +8,7 @@ const useStyles = createStyles(
     link: {
       color: isCurrent ? theme.other.white : theme.other.textSecondary,
       fontSize: 24,
-      '&:hover': {
+      [`&:hover`]: {
         color: theme.other.textPrimary,
       },
 

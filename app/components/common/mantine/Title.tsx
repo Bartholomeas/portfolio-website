@@ -1,6 +1,5 @@
 import React from 'react';
 import { Title as MantineTitle, TitleProps, createStyles } from '@mantine/core';
-
 import { ThemeColors } from '../../../../theme/types';
 
 type StylesProps = {
@@ -8,7 +7,9 @@ type StylesProps = {
 };
 
 const useStyles = createStyles((theme, { textColor }: StylesProps) => ({
-  textColor: { color: theme.other[textColor] },
+  textColor: {
+    color: theme.other[textColor],
+  },
 }));
 
 type TextComponentProps = {
