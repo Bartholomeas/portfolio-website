@@ -1,10 +1,14 @@
 import React from 'react';
-import { Image, createStyles } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+
+import { Box, BoxProps, Image, createStyles } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   wrapper: {
     position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: '35px',
   },
   glow: {
@@ -22,13 +26,13 @@ const useStyles = createStyles(() => ({
 
 type ShapeWithGlowProps = {
   size?: number;
-};
+} & BoxProps;
 
-function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
+export function ShapeWithGlow({ size = 150, ...props }: ShapeWithGlowProps) {
   const { classes } = useStyles();
   const desktop = useMediaQuery(`(min-width: 576px)`);
   return (
-    <div className={classes.wrapper}>
+    <Box className={classes.wrapper} {...props}>
       <span className={classes.glow} />
       <Image
         src="/ball.svg"
@@ -36,8 +40,6 @@ function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
         fit="contain"
         alt="Abstract shape"
       />
-    </div>
+    </Box>
   );
 }
-
-export default ShapeWithGlow;

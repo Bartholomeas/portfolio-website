@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
     height: '100%',
-    backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.5),
+    backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.7),
     backdropFilter: 'blur(10px)',
   },
   drawerBody: {

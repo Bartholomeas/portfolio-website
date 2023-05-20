@@ -2,6 +2,7 @@ import { MantineThemeOther } from '@mantine/core';
 
 export const darkThemeColors: MantineThemeOther = {
   primary: '#00F680',
+  secondary: '#00FFE0',
 
   bg: '#0A0F0D',
   bgDark: '#15151E',
@@ -17,6 +18,14 @@ export const darkThemeColors: MantineThemeOther = {
 };
 
 const themeSizes: MantineThemeOther = {
+  breakpoints: {
+    xs: '30em',
+    sm: '36em',
+    md: '48em',
+    lg: '62em',
+    xl: '75em',
+  },
+
   fontSizes: {
     xs: 10,
     sm: 12,
@@ -39,6 +48,7 @@ export const basicTheme: MantineThemeOther = {
   ...themeSizes,
   primaryColor: 'primary',
   primaryShade: 6,
+  fontFamily: 'Poppins, sans-serif',
   colors: {
     primary: [
       '#95F9C9',

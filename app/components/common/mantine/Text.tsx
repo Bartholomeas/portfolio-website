@@ -21,7 +21,7 @@ type TextComponentProps = {
   children: React.ReactNode;
 } & TextProps;
 
-function Text({
+export function Text({
   textColor = 'textPrimary',
   className,
   children,
@@ -38,5 +38,3 @@ function Text({
     </MantineText>
   );
 }
-
-export default Text;

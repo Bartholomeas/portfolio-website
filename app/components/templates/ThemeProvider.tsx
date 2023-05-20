@@ -12,6 +12,7 @@ function ThemeProvider({ children }: PropsWithChildren) {
           body: {
             backgroundColor: theme.other.bg,
             color: theme.white,
+            fontFamily: 'Poppins, sans-serif',
           },
           a: {
             color: 'inherit',
@@ -19,7 +20,7 @@ function ThemeProvider({ children }: PropsWithChildren) {
           },
 
           'h1,h2,h3,h4,h5,h6': {
-            fontFamily: 'Merriweather, serif',
+            fontFamily: 'Poppins, sans-serif',
           },
         })}
       />
