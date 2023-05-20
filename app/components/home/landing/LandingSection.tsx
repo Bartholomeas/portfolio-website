@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronIcon, Stack, createStyles } from '@mantine/core';
 
 import { Title } from '../../common/mantine/Title';
-import ShapeWithGlow from '../../common/ShapeWithGlow';
+import { ShapeWithGlow } from '../../common/ShapeWithGlow';
 import { Anchor } from '../../common/mantine/Anchor';
 import { ButtonLink } from '../../common/mantine/ButtonLink';
 
@@ -17,7 +17,7 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-const LandingSection = () => {
+function LandingSection() {
   const { classes } = useStyles();
   {
   }
@@ -47,11 +47,12 @@ const LandingSection = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-        }}>
+        }}
+      >
         Dowiedz się więcej <ChevronIcon />
       </Anchor>
     </section>
   );
-};
+}
 
 export default LandingSection;

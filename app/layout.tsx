@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   keywords: 'front-end, web design, javascript, css, react, nextjs',
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" suppressHydrationWarning>
       <body className={poppins.className}>
@@ -26,5 +26,5 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </body>
     </html>
   );
-};
+}
 export default RootLayout;

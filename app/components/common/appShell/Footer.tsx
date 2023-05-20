@@ -1,14 +1,14 @@
 import React from 'react';
 import { Footer as MantineFooter, createStyles } from '@mantine/core';
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'static',
     backgroundColor: theme.other.bgDark,
   },
 }));
 
-const Footer = () => {
+function Footer() {
   const { classes } = useStyles();
 
   return (
@@ -16,6 +16,6 @@ const Footer = () => {
       footer
     </MantineFooter>
   );
-};
+}
 
 export default Footer;

@@ -5,18 +5,19 @@ type CardComponentProps = {
   children: React.ReactNode;
 } & CardProps;
 
-const Card = ({ children, ...props }: CardComponentProps) => {
+function Card({ children, ...props }: CardComponentProps) {
   return (
     <MantineCard
-      sx={theme => ({
+      sx={(theme) => ({
         backdropFilter: 'blur(10px)',
         backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.4),
         width: '100%',
       })}
-      {...props}>
+      {...props}
+    >
       {children}
     </MantineCard>
   );
-};
+}
 
 export default Card;

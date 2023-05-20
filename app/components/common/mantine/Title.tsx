@@ -6,7 +6,7 @@ type StylesProps = {
 };
 
 const useStyles = createStyles((theme, { textColor }: StylesProps) => ({
-  textColor: { color: theme.other[textColor], fontFamily: 'Merriweather, serif' },
+  textColor: { color: theme.other[textColor] },
 }));
 
 type TextComponentProps = {
@@ -14,7 +14,11 @@ type TextComponentProps = {
   textColor?: ThemeColors;
 } & TitleProps;
 
-export const Title = ({ children, textColor = 'textPrimary', ...props }: TextComponentProps) => {
+export function Title({
+  children,
+  textColor = 'textPrimary',
+  ...props
+}: TextComponentProps) {
   const { classes } = useStyles({ textColor });
 
   return (
@@ -22,4 +26,4 @@ export const Title = ({ children, textColor = 'textPrimary', ...props }: TextCom
       {children}
     </MantineTitle>
   );
-};
+}

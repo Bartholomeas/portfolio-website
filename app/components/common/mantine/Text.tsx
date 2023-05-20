@@ -1,7 +1,7 @@
 import { Text as MantineText, TextProps, createStyles } from '@mantine/core';
 
-import { ThemeColors } from '../../../../theme/types';
 import React from 'react';
+import { ThemeColors } from '../../../../theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;
@@ -21,14 +21,22 @@ type TextComponentProps = {
   children: React.ReactNode;
 } & TextProps;
 
-const Text = ({ textColor = 'textPrimary', className, children, ...props }: TextComponentProps) => {
+function Text({
+  textColor = 'textPrimary',
+  className,
+  children,
+  ...props
+}: TextComponentProps) {
   const { classes, cx } = useStyles({ textColor });
 
   return (
-    <MantineText className={cx(classes.children, classes.textColor, className)} {...props}>
+    <MantineText
+      className={cx(classes.children, classes.textColor, className)}
+      {...props}
+    >
       {children}
     </MantineText>
   );
-};
+}
 
 export default Text;

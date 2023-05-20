@@ -3,23 +3,25 @@ import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { createStyles } from '@mantine/core';
 
-const useStyles = createStyles((theme, { isCurrent }: { isCurrent: boolean }) => ({
-  link: {
-    color: isCurrent ? theme.other.white : theme.other.textSecondary,
-    fontSize: 24,
-    [`&:hover`]: {
-      color: theme.other.textPrimary,
-    },
+const useStyles = createStyles(
+  (theme, { isCurrent }: { isCurrent: boolean }) => ({
+    link: {
+      color: isCurrent ? theme.other.white : theme.other.textSecondary,
+      fontSize: 24,
+      '&:hover': {
+        color: theme.other.textPrimary,
+      },
 
-    [theme.fn.largerThan('sm')]: {
-      fontSize: 16,
+      [theme.fn.largerThan('sm')]: {
+        fontSize: 16,
+      },
     },
-  },
-}));
+  })
+);
 
 type LinkProps = React.PropsWithChildren<{ href: string }>;
 
-const Link = ({ href, children }: LinkProps) => {
+function Link({ href, children }: LinkProps) {
   const pathname = usePathname();
   const isCurrent = pathname === href;
   const { classes } = useStyles({ isCurrent });
@@ -29,6 +31,6 @@ const Link = ({ href, children }: LinkProps) => {
       {children}
     </NextLink>
   );
-};
+}
 
 export default Link;

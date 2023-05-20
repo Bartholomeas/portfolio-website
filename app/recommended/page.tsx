@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Recommended = () => {
+function Recommended() {
   return (
     <div>
       <p>Rekomendacja</p>
     </div>
   );
-};
+}
 
 export default Recommended;

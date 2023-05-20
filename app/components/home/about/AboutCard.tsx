@@ -7,11 +7,11 @@ import { Title } from '../../common/mantine/Title';
 
 type AboutCardProps = React.PropsWithChildren<{ title: string }>;
 
-const AboutCard = ({ title, children }: AboutCardProps) => {
+function AboutCard({ title, children }: AboutCardProps) {
   return (
     <Card>
       <Stack align="center">
-        <Title mx={'auto'} order={3} textColor="primary">
+        <Title mx="auto" order={3} textColor="primary">
           {title}
         </Title>
         <Text size={14} ta="center" textColor="textSecondary">
@@ -20,6 +20,6 @@ const AboutCard = ({ title, children }: AboutCardProps) => {
       </Stack>
     </Card>
   );
-};
+}
 
 export default AboutCard;

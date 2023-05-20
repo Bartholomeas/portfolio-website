@@ -3,7 +3,7 @@ import { MantineThemeOther } from '@mantine/core';
 export const darkThemeColors: MantineThemeOther = {
   primary: '#00F680',
 
-  bg: '#1A1A25',
+  bg: '#0A0F0D',
   bgDark: '#15151E',
 
   black: '#000000',

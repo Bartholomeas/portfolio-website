@@ -22,7 +22,7 @@ const useStyles = createStyles(() => ({
   fullWidth: { width: '100%' },
 }));
 
-const AboutSection = () => {
+function AboutSection() {
   const { classes } = useStyles();
 
   return (
@@ -30,24 +30,29 @@ const AboutSection = () => {
       <SimpleGrid
         cols={1}
         breakpoints={[{ minWidth: 'xs', cols: 2 }]}
-        className={classes.fullWidth}>
-        <AboutCard title={'Front-end'}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic qui, alias tempore pariatur
-          in rerum labore quia delectus expedita, quibusdam aspernatur repellat esse voluptatem
-          ducimus ratione accusantium natus a itaque! Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Officia doloremque quae quos expedita excepturi ipsam necessitatibus
-          sequi accusamus quod, deleniti ad doloribus error enim a ut odit natus minus facilis!
+        className={classes.fullWidth}
+      >
+        <AboutCard title="Front-end">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic qui,
+          alias tempore pariatur in rerum labore quia delectus expedita,
+          quibusdam aspernatur repellat esse voluptatem ducimus ratione
+          accusantium natus a itaque! Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Officia doloremque quae quos expedita excepturi
+          ipsam necessitatibus sequi accusamus quod, deleniti ad doloribus error
+          enim a ut odit natus minus facilis!
         </AboutCard>
-        <AboutCard title={'Design'}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic qui, alias tempore pariatur
-          in rerum labore quia delectus expedita, quibusdam aspernatur repellat esse voluptatem
-          ducimus ratione accusantium natus a itaque! Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Officia doloremque quae quos expedita excepturi ipsam necessitatibus
-          sequi accusamus quod, deleniti ad doloribus error enim a ut odit natus minus facilis!
+        <AboutCard title="Design">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic qui,
+          alias tempore pariatur in rerum labore quia delectus expedita,
+          quibusdam aspernatur repellat esse voluptatem ducimus ratione
+          accusantium natus a itaque! Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Officia doloremque quae quos expedita excepturi
+          ipsam necessitatibus sequi accusamus quod, deleniti ad doloribus error
+          enim a ut odit natus minus facilis!
         </AboutCard>
       </SimpleGrid>
     </section>
   );
-};
+}
 
 export default AboutSection;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, createStyles } from '@mantine/core';
+import { Image, createStyles } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 const useStyles = createStyles(() => ({
@@ -24,20 +24,20 @@ type ShapeWithGlowProps = {
   size?: number;
 };
 
-const ShapeWithGlow = ({ size = 150 }: ShapeWithGlowProps) => {
+export function ShapeWithGlow({ size = 150 }: ShapeWithGlowProps) {
   const { classes } = useStyles();
-  const desktop = useMediaQuery(`(min-width: 576px)`);
+  const desktop = useMediaQuery('(min-width: 576px)');
   return (
     <div className={classes.wrapper}>
       <span className={classes.glow} />
       <Image
-        src={'/ball.svg'}
+        src="/ball.svg"
         height={desktop ? size : size * 0.6}
         fit="contain"
         alt="Abstract shape"
       />
     </div>
   );
-};
+}
 
-export default ShapeWithGlow;
+// export default ShapeWithGlow;

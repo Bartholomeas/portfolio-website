@@ -1,4 +1,8 @@
-import { ButtonProps, Button as MantineButton, createStyles } from '@mantine/core';
+import {
+  ButtonProps,
+  Button as MantineButton,
+  createStyles,
+} from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   children: {
@@ -15,13 +19,13 @@ type TextComponentProps = {
   children: React.ReactNode;
 } & ButtonProps;
 
-export const ButtonLink = ({
+export function ButtonLink({
   variant = 'default',
   className,
   href,
   children,
   ...props
-}: TextComponentProps) => {
+}: TextComponentProps) {
   const { classes, cx } = useStyles();
 
   return (
@@ -30,8 +34,9 @@ export const ButtonLink = ({
       href={href}
       className={cx(classes.children, className)}
       variant={variant}
-      {...props}>
+      {...props}
+    >
       {children}
     </MantineButton>
   );
-};
+}

@@ -8,7 +8,7 @@ import { useEmotionCache } from '@mantine/core';
 
 import ThemeProvider from './ThemeProvider';
 
-const RootStyleRegistry = ({ children }: PropsWithChildren) => {
+function RootStyleRegistry({ children }: PropsWithChildren) {
   const cache = useEmotionCache();
   cache.compat = true;
 
@@ -26,6 +26,6 @@ const RootStyleRegistry = ({ children }: PropsWithChildren) => {
       <ThemeProvider>{children}</ThemeProvider>
     </CacheProvider>
   );
-};
+}
 
 export default RootStyleRegistry;

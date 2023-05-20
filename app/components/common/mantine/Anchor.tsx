@@ -1,4 +1,8 @@
-import { AnchorProps, Anchor as MantineAnchor, createStyles } from '@mantine/core';
+import {
+  AnchorProps,
+  Anchor as MantineAnchor,
+  createStyles,
+} from '@mantine/core';
 import { LinkProps } from 'next/link';
 import { ThemeColors } from '../../../../theme/types';
 
@@ -25,20 +29,21 @@ type AnchorComponentProps = {
 } & AnchorProps &
   AnchorLinkProps;
 
-export const Anchor = ({
+export function Anchor({
   children,
   textColor = 'textPrimary',
   className,
   ...props
-}: AnchorComponentProps) => {
+}: AnchorComponentProps) {
   const { classes, cx } = useStyles({ textColor });
 
   return (
     <MantineAnchor
       component="a"
       className={cx(classes.children, classes.textColor, className)}
-      {...props}>
+      {...props}
+    >
       {children}
     </MantineAnchor>
   );
-};
+}
