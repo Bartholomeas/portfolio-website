@@ -19,8 +19,6 @@ const useStyles = createStyles(() => ({
 
 function LandingSection() {
   const { classes } = useStyles();
-  {
-  }
 
   return (
     <section className={classes.wrapper}>

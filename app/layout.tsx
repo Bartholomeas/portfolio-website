@@ -1,3 +1,4 @@
+import React from 'react';
 import { Metadata } from 'next';
 
 import { Poppins } from 'next/font/google';
