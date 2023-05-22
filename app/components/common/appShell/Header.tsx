@@ -14,6 +14,7 @@ import {
 } from '@mantine/core';
 
 import Link from '../Link';
+import { Button } from '../mantine/Button';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -109,7 +110,16 @@ function HeaderDesktop() {
       <Link href="/">strona główna</Link>
       <Link href="/blog">blog</Link>
       <Link href="/recommended">polecane</Link>
-      <Link href="/contact">kontakt</Link>
+      <Button
+        variant="outline"
+        color="primary"
+        size="md"
+        compact
+        fw={400}
+        onClick={() => console.log('git')}
+      >
+        kontakt
+      </Button>
     </Group>
   );
 }

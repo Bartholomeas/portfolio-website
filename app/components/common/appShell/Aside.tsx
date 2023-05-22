@@ -7,7 +7,12 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
-import { Dribbble, GitHub, Linkedin, Mail } from 'react-feather';
+import {
+  IconBrandDribbble,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+} from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -30,14 +35,14 @@ function Aside() {
 
   return (
     <MantineAside fixed className={classes.wrapper} withBorder={false}>
-      <Stack align="center" spacing={8} className={classes.iconsContainer}>
+      <Stack align="center" spacing={16} className={classes.iconsContainer}>
         <ActionIcon
           className={classes.icon}
           component="a"
           href="https://linkedin.com"
           target="_blank"
         >
-          <Linkedin size={16} />
+          <IconBrandLinkedin size={32} />
         </ActionIcon>
         <ActionIcon
           className={classes.icon}
@@ -45,7 +50,7 @@ function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <GitHub size={16} />
+          <IconBrandGithub size={32} />
         </ActionIcon>
         <ActionIcon
           className={classes.icon}
@@ -53,7 +58,7 @@ function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <Dribbble size={16} />
+          <IconBrandDribbble size={32} />
         </ActionIcon>
         <ActionIcon
           className={classes.icon}
@@ -61,7 +66,7 @@ function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <Mail size={16} />
+          <IconMail size={32} />
         </ActionIcon>
       </Stack>
     </MantineAside>

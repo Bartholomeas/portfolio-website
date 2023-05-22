@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Icon } from 'react-feather';
-
 import { Box, Stack, createStyles } from '@mantine/core';
 
+import { Icon } from '@tabler/icons-react';
 import { Title } from '../../common/mantine/Title';
 import { Text } from '../../common/mantine/Text';
 import { Card } from '../../common/mantine/Card';

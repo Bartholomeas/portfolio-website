@@ -49,6 +49,7 @@ export const basicTheme: MantineThemeOther = {
   primaryColor: 'primary',
   primaryShade: 6,
   fontFamily: 'Poppins, sans-serif',
+
   colors: {
     primary: [
       '#95F9C9',

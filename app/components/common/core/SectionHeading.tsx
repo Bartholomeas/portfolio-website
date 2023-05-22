@@ -11,6 +11,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
     fontSize: 36,
     backgroundClip: 'text',
+    paddingBottom: 4,
     WebkitTextFillColor: 'transparent',
   },
 }));

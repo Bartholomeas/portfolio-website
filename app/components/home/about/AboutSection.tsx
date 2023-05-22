@@ -9,7 +9,7 @@ import {
   createStyles,
 } from '@mantine/core';
 
-import { ArrowRight, PenTool, Terminal } from 'react-feather';
+import { IconArrowRight, IconPencil, IconTerminal } from '@tabler/icons-react';
 import { SectionHeading } from '../../common/core/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
@@ -98,7 +98,7 @@ export function AboutSection() {
                 variant="subtle"
                 color="primary"
                 sx={{ alignSelf: 'end' }}
-                rightIcon={<ArrowRight />}
+                rightIcon={<IconArrowRight />}
               >
                 Skontaktuj się
               </Button>
@@ -126,7 +126,7 @@ function AboutSpecializationsGrid() {
               Front-end
             </Title>
             <Box sx={(theme) => ({ color: theme.other.primary })}>
-              <Terminal size={32} />
+              <IconTerminal size={32} />
             </Box>
           </Group>
           <Text textColor="textSecondary">
@@ -144,7 +144,7 @@ function AboutSpecializationsGrid() {
               Design
             </Title>
             <Box sx={(theme) => ({ color: theme.other.primary })}>
-              <PenTool size={32} />
+              <IconPencil size={32} />
             </Box>
           </Group>
           <Text textColor="textSecondary">
