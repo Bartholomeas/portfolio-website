@@ -11,7 +11,7 @@ import {
   IconTrendingUp,
 } from '@tabler/icons-react';
 
-import { SectionHeading } from '../../common/core/SectionHeading';
+import { SectionHeading } from '../../common/design/SectionHeading';
 import { BenefitsBox } from './BenefitsBox';
 
 export function BenefitsSection() {

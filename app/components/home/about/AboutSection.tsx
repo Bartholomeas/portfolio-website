@@ -10,13 +10,13 @@ import {
 } from '@mantine/core';
 
 import { IconArrowRight, IconPencil, IconTerminal } from '@tabler/icons-react';
-import { SectionHeading } from '../../common/core/SectionHeading';
+import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
 import { Button } from '../../common/mantine/Button';
 import { Card } from '../../common/mantine/Card';
 import { Title } from '../../common/mantine/Title';
-import { Glow } from '../../common/core/Glow';
+import { Glow } from '../../common/design/Glow';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

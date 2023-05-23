@@ -10,7 +10,7 @@ import {
   IconMoodCheck,
   IconProgress,
 } from '@tabler/icons-react';
-import { SectionHeading } from '../../common/core/SectionHeading';
+import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { Title } from '../../common/mantine/Title';
 

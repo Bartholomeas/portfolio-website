@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function Footer() {
+export function Footer() {
   const { classes } = useStyles();
 
   return (
@@ -17,5 +17,3 @@ function Footer() {
     </MantineFooter>
   );
 }
-
-export default Footer;

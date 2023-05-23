@@ -30,7 +30,8 @@ const useStyles = createStyles((theme) => ({
     bottom: 16,
   },
 }));
-function Aside() {
+
+export function Aside() {
   const { classes } = useStyles();
 
   return (
@@ -72,5 +73,3 @@ function Aside() {
     </MantineAside>
   );
 }
-
-export default Aside;
