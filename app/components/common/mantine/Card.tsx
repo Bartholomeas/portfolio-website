@@ -5,13 +5,16 @@ type CardComponentProps = {
   children: React.ReactNode;
 } & CardProps;
 
-function Card({ children, ...props }: CardComponentProps) {
+export function Card({ children, ...props }: CardComponentProps) {
   return (
     <MantineCard
       sx={(theme) => ({
-        backdropFilter: 'blur(10px)',
-        backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.4),
         width: '100%',
+        backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+        borderRadius: 8,
+        border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+        backdropFilter: 'blur(10px)',
+        overflow: 'none',
       })}
       {...props}
     >
@@ -19,5 +22,3 @@ function Card({ children, ...props }: CardComponentProps) {
     </MantineCard>
   );
 }
-
-export default Card;

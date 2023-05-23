@@ -2,9 +2,10 @@ import React from 'react';
 import { ChevronIcon, Stack, createStyles } from '@mantine/core';
 
 import { Title } from '../../common/mantine/Title';
-import ShapeWithGlow from '../../common/ShapeWithGlow';
 import { Anchor } from '../../common/mantine/Anchor';
-import { ButtonLink } from '../../common/mantine/ButtonLink';
+import { ButtonLink } from '../../common/mantine/Button';
+
+import { ShapeWithGlow } from '../../common/ShapeWithGlow';
 
 const useStyles = createStyles(() => ({
   wrapper: {
@@ -17,7 +18,7 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-function LandingSection() {
+export function LandingSection() {
   const { classes } = useStyles();
 
   return (
@@ -52,5 +53,3 @@ function LandingSection() {
     </section>
   );
 }
-
-export default LandingSection;

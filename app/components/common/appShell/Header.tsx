@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+
 import {
   Burger,
   Drawer,
@@ -9,13 +12,15 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import Link from '../Link';
+import { Button } from '../mantine/Button';
+import { ContactModal } from '../modals/ContactModal';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme.fn.rgba(theme.other.bg, 0.8),
+    backdropFilter: 'blur(10px)',
   },
 
   drawerContent: {
@@ -23,7 +28,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
     height: '100%',
-    backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.5),
+    backgroundColor: theme.fn.rgba(theme.other.bgDark, 0.7),
     backdropFilter: 'blur(10px)',
   },
   drawerBody: {
@@ -37,28 +42,36 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function Header() {
+export function Header() {
   const { classes } = useStyles();
 
   const largerThanMd = useMediaQuery(`(min-width: 768px)`, true, {
     getInitialValueInEffect: false,
   });
 
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <MantineHeader
       height="auto"
       withBorder={false}
-      p={16}
+      px={16}
+      py={8}
       className={classes.wrapper}
     >
-      {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />}
+      {largerThanMd ? (
+        <HeaderDesktop open={open} />
+      ) : (
+        <HeaderMobile open={open} />
+      )}
+      <ContactModal opened={opened} onClose={close} />
     </MantineHeader>
   );
 }
 
-export default Header;
+// export default Header;
 
-function HeaderMobile() {
+function HeaderMobile({ open }: { open: () => void }) {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const { classes } = useStyles();
@@ -92,20 +105,38 @@ function HeaderMobile() {
           <Link href="/">strona główna</Link>
           <Link href="/blog">blog</Link>
           <Link href="/recommended">polecane</Link>
-          <Link href="/contact">kontakt</Link>
+          <Button
+            variant="outline"
+            color="primary"
+            size="md"
+            compact
+            fw={400}
+            onClick={open}
+          >
+            kontakt
+          </Button>
         </Stack>
       </Drawer>
       <Burger opened={opened} onClick={toggle} />
     </Group>
   );
 }
-function HeaderDesktop() {
+function HeaderDesktop({ open }: { open: () => void }) {
   return (
     <Group position="center" spacing={32} w="100%">
       <Link href="/">strona główna</Link>
       <Link href="/blog">blog</Link>
       <Link href="/recommended">polecane</Link>
-      <Link href="/contact">kontakt</Link>
+      <Button
+        variant="outline"
+        color="primary"
+        size="md"
+        compact
+        fw={400}
+        onClick={open}
+      >
+        kontakt
+      </Button>
     </Group>
   );
 }

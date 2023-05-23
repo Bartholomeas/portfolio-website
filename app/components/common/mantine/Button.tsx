@@ -14,7 +14,34 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-type TextComponentProps = {
+type ButtonDefaultProps = {
+  variant?: string;
+  onClick: () => void;
+  children: React.ReactNode;
+} & ButtonProps;
+
+export function Button({
+  variant = 'default',
+  className,
+  onClick,
+  children,
+  ...props
+}: ButtonDefaultProps) {
+  const { classes, cx } = useStyles();
+
+  return (
+    <MantineButton
+      onClick={onClick}
+      className={cx(classes.children, className)}
+      variant={variant}
+      {...props}
+    >
+      {children}
+    </MantineButton>
+  );
+}
+
+type ButtonLinkProps = {
   variant: string;
   href: string;
   children: React.ReactNode;
@@ -26,7 +53,7 @@ export function ButtonLink({
   href,
   children,
   ...props
-}: TextComponentProps) {
+}: ButtonLinkProps) {
   const { classes, cx } = useStyles();
 
   return (
