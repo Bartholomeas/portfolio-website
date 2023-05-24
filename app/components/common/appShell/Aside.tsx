@@ -7,11 +7,12 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
+
 import {
+  IconBrandDiscord,
   IconBrandDribbble,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconMail,
 } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -67,7 +68,7 @@ export function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <IconMail size={32} />
+          <IconBrandDiscord size={32} />
         </ActionIcon>
       </Stack>
     </MantineAside>
