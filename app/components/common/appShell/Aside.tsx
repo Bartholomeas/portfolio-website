@@ -7,11 +7,12 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
+
 import {
-  IconBrandDribbble,
+  IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconMail,
+  IconBrandMedium,
 } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -40,7 +41,7 @@ export function Aside() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
           target="_blank"
         >
           <IconBrandLinkedin size={32} />
@@ -48,7 +49,7 @@ export function Aside() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://github.com/Bartholomeas"
           target="_blank"
         >
           <IconBrandGithub size={32} />
@@ -59,15 +60,15 @@ export function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <IconBrandDribbble size={32} />
+          <IconBrandMedium size={32} />
         </ActionIcon>
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
           target="_blank"
         >
-          <IconMail size={32} />
+          <IconBrandDiscord size={32} />
         </ActionIcon>
       </Stack>
     </MantineAside>

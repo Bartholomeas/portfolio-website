@@ -24,18 +24,31 @@ const useStyles = createStyles(() => ({
   },
 }));
 
+type Shapes = 'circle1' | 'circle2';
+
 type ShapeWithGlowProps = {
   size?: number;
+  shape?: Shapes;
 } & BoxProps;
 
-export function ShapeWithGlow({ size = 150, ...props }: ShapeWithGlowProps) {
+export function ShapeWithGlow({
+  size = 150,
+  shape = 'circle1',
+  ...props
+}: ShapeWithGlowProps) {
   const { classes } = useStyles();
   const desktop = useMediaQuery(`(min-width: 576px)`);
+
+  const shapes: Record<Shapes, string> = {
+    circle1: '/ball.svg',
+    circle2: '/ball2.svg',
+  };
+
   return (
     <Box className={classes.wrapper} {...props}>
       <span className={classes.glow} />
       <Image
-        src="/ball.svg"
+        src={shapes[shape]}
         height={desktop ? size : size * 0.6}
         fit="contain"
         alt="Abstract shape"

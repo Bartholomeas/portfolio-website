@@ -108,7 +108,7 @@ function HeaderMobile({ open }: { open: () => void }) {
           <Button
             variant="outline"
             color="primary"
-            size="md"
+            size="xl"
             compact
             fw={400}
             onClick={open}

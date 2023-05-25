@@ -17,7 +17,7 @@ import { BenefitsBox } from './BenefitsBox';
 export function BenefitsSection() {
   return (
     <section>
-      <Stack mih="50vh" spacing={64}>
+      <Stack py={64} mih="50vh" spacing={64}>
         <SectionHeading
           title="Zyskujesz szereg korzyści"
           subtext="Co do czego masz pewność?"

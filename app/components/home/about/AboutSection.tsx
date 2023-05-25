@@ -9,11 +9,10 @@ import {
   createStyles,
 } from '@mantine/core';
 
-import { IconArrowRight, IconPencil, IconTerminal } from '@tabler/icons-react';
+import { IconPencil, IconTerminal } from '@tabler/icons-react';
 import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
-import { Button } from '../../common/mantine/Button';
 import { Card } from '../../common/mantine/Card';
 import { Title } from '../../common/mantine/Title';
 import { Glow } from '../../common/design/Glow';
@@ -64,8 +63,12 @@ export function AboutSection() {
   return (
     <section className={classes.wrapper}>
       <Box sx={{ position: 'relative' }}>
-        <ShapeWithGlow className={classes.shapePosition} />
-
+        <ShapeWithGlow className={classes.shapePosition} size={120} />
+        <Glow
+          position={{ top: 200, left: -50, right: 0, bottom: 0 }}
+          size={400}
+          zIndex={-10}
+        />
         <Stack>
           <div className={classes.grid}>
             <Image
@@ -90,28 +93,11 @@ export function AboutSection() {
                 lacinia tortor lectus. Lorem consequat ultricies diam enim.Lorem
                 ipsum dolor sit Lorem ipsum.
               </Text>
-              <Button
-                onClick={() => {
-                  console.log('contact');
-                }}
-                size="lg"
-                variant="subtle"
-                color="primary"
-                sx={{ alignSelf: 'end' }}
-                rightIcon={<IconArrowRight />}
-              >
-                Skontaktuj się
-              </Button>
             </Stack>
           </div>
           <AboutSpecializationsGrid />
         </Stack>
       </Box>
-      <Glow
-        position={{ top: 200, left: -50, right: 0, bottom: 0 }}
-        size={500}
-        zIndex={-10}
-      />
     </section>
   );
 }

@@ -3,10 +3,10 @@ import React from 'react';
 import { Box, createStyles } from '@mantine/core';
 
 type Positions = {
-  top: number | string;
-  right: number | string;
-  bottom: number | string;
-  left: number | string;
+  top?: number | string;
+  right?: number | string;
+  bottom?: number | string;
+  left?: number | string;
 };
 type StylesProps = {
   position: Positions;
@@ -21,8 +21,8 @@ const useStyles = createStyles(
       bottom: position.bottom ?? 0,
       left: position.left ?? 0,
       right: position.right ?? 0,
-      height: size ?? 'auto',
-      width: size ?? 'auto',
+      height: size ?? 0,
+      width: size ?? 0,
       background: `radial-gradient(50% 50% at 50% 50%, ${theme.other.primary} 0%, ${theme.other.secondary} 100%)`,
       opacity: 0.1,
       filter: 'blur(95.5px)',
