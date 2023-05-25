@@ -7,10 +7,6 @@ import {
 import { LinkProps } from 'next/link';
 import { ThemeColors } from '../../../../theme/types';
 
-type AnchorLinkProps = {
-  href: string | undefined;
-} & Omit<LinkProps, 'href'>;
-
 type StylesProps = {
   textColor: ThemeColors;
 };
@@ -23,6 +19,11 @@ const useStyles = createStyles((theme, { textColor }: StylesProps) => ({
   },
   textColor: { color: theme.other[textColor] },
 }));
+
+type AnchorLinkProps = {
+  href: string | undefined;
+  target?: string;
+} & Omit<LinkProps, 'href'>;
 
 type AnchorComponentProps = {
   children: React.ReactNode;

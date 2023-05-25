@@ -10,9 +10,9 @@ import {
 
 import {
   IconBrandDiscord,
-  IconBrandDribbble,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconBrandMedium,
 } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -41,7 +41,7 @@ export function Aside() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
           target="_blank"
         >
           <IconBrandLinkedin size={32} />
@@ -49,7 +49,7 @@ export function Aside() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://github.com/Bartholomeas"
           target="_blank"
         >
           <IconBrandGithub size={32} />
@@ -60,12 +60,12 @@ export function Aside() {
           href="https://linkedin.com"
           target="_blank"
         >
-          <IconBrandDribbble size={32} />
+          <IconBrandMedium size={32} />
         </ActionIcon>
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
           target="_blank"
         >
           <IconBrandDiscord size={32} />
