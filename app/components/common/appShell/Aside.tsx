@@ -19,6 +19,10 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     width: 'fit-content',
     background: 'none',
+
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
   },
 
   icon: {

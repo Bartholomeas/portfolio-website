@@ -5,6 +5,13 @@ import React from 'react';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import {
+  IconBrandDiscord,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandMedium,
+} from '@tabler/icons-react';
+import {
+  ActionIcon,
   Burger,
   Drawer,
   Group,
@@ -12,10 +19,10 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
+import { openContactModal, useModalStyles } from '../../../utils/modalsHandler';
 
 import Link from '../Link';
 import { Button } from '../mantine/Button';
-import { ContactModal } from '../modals/ContactModal';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -40,16 +47,25 @@ const useStyles = createStyles((theme) => ({
     width: '100%',
     background: 'none',
   },
+
+  iconsWrapper: {
+    position: 'absolute',
+
+    bottom: 16,
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  icon: {
+    color: theme.other.textSecondary,
+  },
 }));
 
 export function Header() {
   const { classes } = useStyles();
 
-  const largerThanMd = useMediaQuery(`(min-width: 768px)`, true, {
-    getInitialValueInEffect: false,
-  });
-
-  const [opened, { open, close }] = useDisclosure(false);
+  const largerThanMd = useMediaQuery(`(min-width: 768px)`);
 
   return (
     <MantineHeader
@@ -59,22 +75,16 @@ export function Header() {
       py={8}
       className={classes.wrapper}
     >
-      {largerThanMd ? (
-        <HeaderDesktop open={open} />
-      ) : (
-        <HeaderMobile open={open} />
-      )}
-      <ContactModal opened={opened} onClose={close} />
+      {largerThanMd ? <HeaderDesktop /> : <HeaderMobile />}
     </MantineHeader>
   );
 }
 
-// export default Header;
-
-function HeaderMobile({ open }: { open: () => void }) {
+function HeaderMobile() {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const { classes } = useStyles();
+  const { classes: modalClasses } = useModalStyles();
 
   return (
     <Group position="apart" w="100%">
@@ -111,17 +121,28 @@ function HeaderMobile({ open }: { open: () => void }) {
             size="xl"
             compact
             fw={400}
-            onClick={open}
+            onClick={() =>
+              openContactModal({
+                title: modalClasses.title,
+                content: modalClasses.body,
+                header: modalClasses.header,
+                overlay: modalClasses.overlay,
+              })
+            }
           >
             kontakt
           </Button>
+
+          <HeaderSocialsGroup />
         </Stack>
       </Drawer>
       <Burger opened={opened} onClick={toggle} />
     </Group>
   );
 }
-function HeaderDesktop({ open }: { open: () => void }) {
+function HeaderDesktop() {
+  const { classes: modalClasses } = useModalStyles();
+
   return (
     <Group position="center" spacing={32} w="100%">
       <Link href="/">strona główna</Link>
@@ -133,10 +154,64 @@ function HeaderDesktop({ open }: { open: () => void }) {
         size="md"
         compact
         fw={400}
-        onClick={open}
+        onClick={() =>
+          openContactModal({
+            title: modalClasses.title,
+            content: modalClasses.body,
+            header: modalClasses.header,
+            overlay: modalClasses.overlay,
+          })
+        }
       >
         kontakt
       </Button>
+    </Group>
+  );
+}
+
+function HeaderSocialsGroup() {
+  const { classes } = useStyles();
+
+  return (
+    <Group
+      w="100%"
+      position="apart"
+      align="center"
+      px={16}
+      className={classes.iconsWrapper}
+    >
+      <ActionIcon
+        className={classes.icon}
+        component="a"
+        href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+        target="_blank"
+      >
+        <IconBrandLinkedin size={32} />
+      </ActionIcon>
+      <ActionIcon
+        className={classes.icon}
+        component="a"
+        href="https://github.com/Bartholomeas"
+        target="_blank"
+      >
+        <IconBrandGithub size={32} />
+      </ActionIcon>
+      <ActionIcon
+        className={classes.icon}
+        component="a"
+        href="https://linkedin.com"
+        target="_blank"
+      >
+        <IconBrandMedium size={32} />
+      </ActionIcon>
+      <ActionIcon
+        className={classes.icon}
+        component="a"
+        href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+        target="_blank"
+      >
+        <IconBrandDiscord size={32} />
+      </ActionIcon>
     </Group>
   );
 }
