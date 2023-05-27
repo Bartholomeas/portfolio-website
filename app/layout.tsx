@@ -5,6 +5,7 @@ import { Poppins } from 'next/font/google';
 
 import AppShell from './components/templates/AppShell';
 import RootStyleRegistry from './components/templates/emotion';
+import { AppModalsProvider } from './components/templates/AppModalsProvider';
 
 const poppins = Poppins({
   weight: ['400', '700'],
@@ -26,7 +27,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         style={{ overflowX: 'hidden', width: '100vw' }}
       >
         <RootStyleRegistry>
-          <AppShell>{children}</AppShell>
+          <AppModalsProvider>
+            <AppShell>{children}</AppShell>
+          </AppModalsProvider>
         </RootStyleRegistry>
       </body>
     </html>

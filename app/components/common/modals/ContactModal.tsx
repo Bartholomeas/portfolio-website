@@ -1,17 +1,6 @@
 import React from 'react';
 
 import {
-  Box,
-  Checkbox,
-  Flex,
-  Group,
-  Modal,
-  ModalProps,
-  Stack,
-  createStyles,
-} from '@mantine/core';
-
-import {
   Icon,
   IconAt,
   IconBrandGithub,
@@ -27,6 +16,9 @@ import {
 
 import Link from 'next/link';
 
+import { ContextModalProps } from '@mantine/modals';
+import { Box, Checkbox, Flex, Group, Stack, createStyles } from '@mantine/core';
+
 import { Button } from '../mantine/Button';
 import { TextInput } from '../mantine/TextInput';
 import { Textarea } from '../mantine/Textarea';
@@ -35,7 +27,7 @@ import { Text } from '../mantine/Text';
 
 import { ShapeWithGlow } from '../ShapeWithGlow';
 
-const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.other.bg,
   },
@@ -77,111 +69,83 @@ const socials = [
     icon: IconBrandMedium,
   },
 ];
-export function ContactModal({ opened, onClose }: ModalProps) {
-  const { classes } = useStyles();
-
+export function ContactModal({ context, id }: ContextModalProps) {
   return (
-    <Modal
-      opened={opened}
-      onClose={onClose}
-      title="Skontaktuj się ze mną!"
-      centered
-      size="lg"
-      classNames={{
-        title: classes.title,
-        content: classes.body,
-        header: classes.header,
-        overlay: classes.overlay,
-      }}
-      transitionProps={{
-        transition: 'pop',
-        duration: 200,
-        timingFunction: 'ease-out',
-      }}
-    >
-      <Stack sx={{ position: 'relative' }}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            transform: 'translate(-60%, -120%)',
-            zIndex: 1000,
-          }}
-        >
-          <ShapeWithGlow shape="circle1" size={100} />
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            transform: 'translate(0, 140%)',
-            zIndex: 1000,
-            filter: 'blur(5px)',
-            opacity: 0.6,
-          }}
-        >
-          <ShapeWithGlow shape="circle2" size={80} />
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            transform: 'translate(70%, 95%)',
-            zIndex: 1000,
-          }}
-        >
-          <ShapeWithGlow shape="circle2" size={80} />
-        </Box>
+    <Stack sx={{ position: 'relative' }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          transform: 'translate(-60%, -120%)',
+          zIndex: 1000,
+        }}
+      >
+        <ShapeWithGlow shape="circle1" size={100} />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          transform: 'translate(0, 140%)',
+          zIndex: 1000,
+          filter: 'blur(5px)',
+          opacity: 0.6,
+        }}
+      >
+        <ShapeWithGlow shape="circle2" size={80} />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          transform: 'translate(70%, 95%)',
+          zIndex: 1000,
+        }}
+      >
+        <ShapeWithGlow shape="circle2" size={80} />
+      </Box>
 
-        <Stack py={24} spacing={16}>
-          <TextInput label="Twoje imie" icon={<IconUser size={16} />} />
-          <TextInput label="Twój e-mail" icon={<IconAt size={16} />} />
-          <TextInput
-            label="Tytuł wiadomości"
-            icon={<IconHeading size={16} />}
-          />
-          <Textarea label="Treść wiadomości" icon={<IconMessage size={16} />} />
-          <Checkbox label="Zgadzam się na przetwarzanie moich danych osobowych" />
-        </Stack>
-        <Flex direction={{ base: 'column', sm: 'row' }} gap={16} justify="end">
-          <Button
-            onClick={onClose}
-            color="gray"
-            variant="outline"
-            leftIcon={<IconX size={16} />}
-          >
-            Anuluj
-          </Button>
-          <Button
-            onClick={() => console.log('contact')}
-            color="primary"
-            variant="outline"
-            leftIcon={<IconSend size={16} />}
-          >
-            Wyślij wiadomość
-          </Button>
-        </Flex>
-        <Card>
-          <Group position="apart">
-            {socials.map(({ text, href, icon }) => (
-              <ContactSocialLink
-                key={href}
-                text={text}
-                href={href}
-                icon={icon}
-              />
-            ))}
-            <Group spacing={8}>
-              <IconMail />
-              <Text>barth.webdesign@gmail.com</Text>
-            </Group>
-          </Group>
-        </Card>
+      <Stack py={24} spacing={16}>
+        <TextInput label="Twoje imie" icon={<IconUser size={16} />} />
+        <TextInput label="Twój e-mail" icon={<IconAt size={16} />} />
+        <TextInput label="Tytuł wiadomości" icon={<IconHeading size={16} />} />
+        <Textarea label="Treść wiadomości" icon={<IconMessage size={16} />} />
+        <Checkbox label="Zgadzam się na przetwarzanie moich danych osobowych" />
       </Stack>
-    </Modal>
+      <Flex direction={{ base: 'column', sm: 'row' }} gap={16} justify="end">
+        <Button
+          onClick={() => context.closeContextModal(id)}
+          color="gray"
+          variant="outline"
+          leftIcon={<IconX size={16} />}
+        >
+          Anuluj
+        </Button>
+        <Button
+          onClick={() => console.log('contact')}
+          color="primary"
+          variant="outline"
+          leftIcon={<IconSend size={16} />}
+        >
+          Wyślij wiadomość
+        </Button>
+      </Flex>
+      <Card>
+        <Group position="apart">
+          {socials.map(({ text, href, icon }) => (
+            <ContactSocialLink key={href} text={text} href={href} icon={icon} />
+          ))}
+          <Group spacing={8}>
+            <IconMail />
+            <Text>barth.webdesign@gmail.com</Text>
+          </Group>
+        </Group>
+      </Card>
+    </Stack>
+    // </Modal>
   );
 }
 

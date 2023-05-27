@@ -1,5 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
+
 import { usePathname } from 'next/navigation';
 import { createStyles } from '@mantine/core';
 
@@ -12,7 +13,7 @@ const useStyles = createStyles(
         color: theme.other.textPrimary,
       },
 
-      [theme.fn.largerThan('sm')]: {
+      [theme.fn.largerThan('md')]: {
         fontSize: 16,
       },
     },
