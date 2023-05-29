@@ -17,7 +17,7 @@ import {
 import Link from 'next/link';
 
 import { ContextModalProps } from '@mantine/modals';
-import { Box, Checkbox, Flex, Group, Stack, createStyles } from '@mantine/core';
+import { Box, Checkbox, Flex, Group, Stack } from '@mantine/core';
 
 import { Button } from '../mantine/Button';
 import { TextInput } from '../mantine/TextInput';
@@ -26,31 +26,6 @@ import { Card } from '../mantine/Card';
 import { Text } from '../mantine/Text';
 
 import { ShapeWithGlow } from '../ShapeWithGlow';
-
-export const useStyles = createStyles((theme) => ({
-  header: {
-    backgroundColor: theme.other.bg,
-  },
-
-  body: {
-    position: 'relative',
-    overflowY: 'visible',
-    backgroundColor: theme.other.bg,
-    borderRadius: 8,
-    border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-    backdropFilter: 'blur(10px)',
-  },
-  title: {
-    color: theme.other.textPrimary,
-    fontWeight: 700,
-    fontSize: theme.fontSizes.lg,
-  },
-  overlay: {
-    backgroundColor: theme.fn.rgba(theme.other.bg, 0.7),
-
-    backdropFilter: 'blur(10px)',
-  },
-}));
 
 const socials = [
   {
@@ -108,7 +83,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
         <ShapeWithGlow shape="circle2" size={80} />
       </Box>
 
-      <Stack py={24} spacing={16}>
+      <Stack py={24} spacing={24}>
         <TextInput label="Twoje imie" icon={<IconUser size={16} />} />
         <TextInput label="Twój e-mail" icon={<IconAt size={16} />} />
         <TextInput label="Tytuł wiadomości" icon={<IconHeading size={16} />} />

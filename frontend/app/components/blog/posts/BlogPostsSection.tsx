@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Stack } from '@mantine/core';
+
 import { BlogPostsList } from './BlogPostsList';
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { SectionHeading } from '../../common/design/SectionHeading';
