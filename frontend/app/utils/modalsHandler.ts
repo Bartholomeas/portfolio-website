@@ -21,7 +21,6 @@ export const useModalStyles = createStyles((theme) => ({
   },
   overlay: {
     backgroundColor: theme.fn.rgba(theme.other.bg, 0.7),
-
     backdropFilter: 'blur(10px)',
   },
 }));

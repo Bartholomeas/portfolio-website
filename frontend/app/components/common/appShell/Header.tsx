@@ -50,7 +50,6 @@ const useStyles = createStyles((theme) => ({
 
   iconsWrapper: {
     position: 'absolute',
-
     bottom: 16,
     [theme.fn.largerThan('sm')]: {
       display: 'none',
@@ -69,7 +68,8 @@ export function Header() {
 
   return (
     <MantineHeader
-      height="auto"
+      height={56}
+      zIndex={99999}
       withBorder={false}
       px={16}
       py={8}
@@ -93,6 +93,8 @@ function HeaderMobile() {
         opened={opened}
         onClose={close}
         position="top"
+        withCloseButton={false}
+        zIndex={999}
         transitionProps={{
           transition: 'skew-up',
           duration: 200,

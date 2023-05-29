@@ -45,7 +45,7 @@ export function ShapeWithGlow({
   };
 
   return (
-    <Box className={classes.wrapper} {...props}>
+    <Box sx={{ zIndex: -10000 }} className={classes.wrapper} {...props}>
       <span className={classes.glow} />
       <Image
         src={shapes[shape]}

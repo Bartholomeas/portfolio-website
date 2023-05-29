@@ -4,6 +4,7 @@ import {
   Button as MantineButton,
   createStyles,
 } from '@mantine/core';
+import Link from 'next/link';
 
 const useStyles = createStyles(() => ({
   children: {
@@ -58,7 +59,7 @@ export function ButtonLink({
 
   return (
     <MantineButton
-      component="a"
+      component={Link}
       href={href}
       className={cx(classes.children, className)}
       variant={variant}

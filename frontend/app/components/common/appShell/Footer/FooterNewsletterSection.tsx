@@ -9,7 +9,6 @@ import { Text } from '../../mantine/Text';
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'static',
-    margin: '0 -16px  ',
     padding: 16,
     backgroundColor: theme.other.primary,
   },

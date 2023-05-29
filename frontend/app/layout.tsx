@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
 import AppShell from './components/templates/AppShell';
-import RootStyleRegistry from './components/templates/emotion';
+import RootStyleRegistry from './components/templates/RootStyleRegistry';
 import { AppModalsProvider } from './components/templates/AppModalsProvider';
 
 const poppins = Poppins({
