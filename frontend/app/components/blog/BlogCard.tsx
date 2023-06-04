@@ -107,15 +107,15 @@ function BlogCardTopGroup({
 }: BlogCardTopGroupProps) {
   return (
     <Group position="apart" align="start">
-      <Stack spacing={0}>
-        <Title order={2} textColor="primary">
+      <Stack spacing={8}>
+        <Title order={2} fw={700} textColor="primary">
           {title}
         </Title>
         <Group>
-          <Text textColor="textSecondary" size="sm">
+          <Text textColor="textSecondary" size="md">
             {dayjs(createdAt).format('DD.MM.YYYY')}
           </Text>
-          <Text textColor="textSecondary" size="sm">
+          <Text textColor="textSecondary" size="md">
             ~ {readTime} min
           </Text>
         </Group>

@@ -15,8 +15,10 @@ export function BlogPostsSection() {
           subtext="Z pewnością znajdziesz coś dla siebie, sprawdź"
           centered
         />
-        <BlogPostsFilters />
-        <BlogPostsList />
+        <Stack spacing={96}>
+          <BlogPostsFilters />
+          <BlogPostsList />
+        </Stack>
       </Stack>
     </section>
   );
