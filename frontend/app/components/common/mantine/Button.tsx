@@ -7,11 +7,23 @@ import {
 import Link from 'next/link';
 
 const useStyles = createStyles(() => ({
-  children: {
+  buttonBody: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
+  },
+  buttonSubtle: {
+    '&:hover': {
+      background: 'none',
+    },
+
+    '& svg': {
+      transition: 'transform 0.2s ease',
+    },
+    '&:hover svg': {
+      transform: 'translateX(5px)',
+    },
   },
 }));
 
@@ -33,7 +45,11 @@ export function Button({
   return (
     <MantineButton
       onClick={onClick}
-      className={cx(classes.children, className)}
+      className={cx(
+        classes.buttonBody,
+        variant === 'subtle' && classes.buttonSubtle,
+        className
+      )}
       variant={variant}
       {...props}
     >
@@ -61,7 +77,11 @@ export function ButtonLink({
     <MantineButton
       component={Link}
       href={href}
-      className={cx(classes.children, className)}
+      className={cx(
+        classes.buttonBody,
+        variant === 'subtle' && classes.buttonSubtle,
+        className
+      )}
       variant={variant}
       {...props}
     >

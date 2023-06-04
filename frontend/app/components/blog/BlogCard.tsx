@@ -1,28 +1,49 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import { Badge, Box, Group, Stack, createStyles } from '@mantine/core';
+import { Box, Group, Stack, createStyles } from '@mantine/core';
 
 import Image from 'next/image';
 
 import { IconArrowRight } from '@tabler/icons-react';
+
+import { BlogCategory } from '../../types';
+
 import { Card } from '../common/mantine/Card';
 import { Title } from '../common/mantine/Title';
 import { Text } from '../common/mantine/Text';
 import { ButtonLink } from '../common/mantine/Button';
 
+import { BlogPostCategoryBadge } from './posts/BlogPostCategoryBadge';
+
 const useStyles = createStyles((theme) => ({
   grid: {
     display: 'grid',
     gridTemplateColumns: '1fr',
-    gap: theme.spacing.md,
+    gap: theme.spacing.xl,
     [theme.fn.largerThan('sm')]: {
-      gridTemplateColumns: '1fr 3fr',
+      gridTemplateColumns: '1.5fr 3fr',
     },
   },
 }));
 
-export function BlogCard() {
+type BlogCardProps = {
+  title: string;
+  content: string;
+  createdAt: string;
+  readTime: number;
+  categories: BlogCategory[];
+  imgSrc: string;
+};
+
+export function BlogCard({
+  title,
+  content,
+  createdAt,
+  readTime,
+  categories,
+  imgSrc,
+}: BlogCardProps) {
   const { classes } = useStyles();
 
   return (
@@ -40,21 +61,21 @@ export function BlogCard() {
         >
           <Image
             style={{ objectFit: 'cover' }}
-            src="/blog.jpg"
+            src={imgSrc}
             fill
             loading="lazy"
             alt="Zdjęcie główne postu="
           />
         </Box>
         <Stack justify="space-between">
-          <BlogCardTopGroup />
+          <BlogCardTopGroup
+            title={title}
+            categories={categories}
+            readTime={readTime}
+            createdAt={createdAt}
+          />
           <Stack>
-            <Text textColor="textPrimary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit id
-              quis doloremque possimus dolores, optio saepe, fugiat qui
-              excepturi error laboriosam iusto dolor ullam voluptate
-              perspiciatis exercitationem veritatis eius vitae.
-            </Text>
+            <Text textColor="textPrimary">{content}</Text>
             <ButtonLink
               href="/blog/1"
               sx={{ alignSelf: 'end' }}
@@ -72,29 +93,37 @@ export function BlogCard() {
   );
 }
 
-function BlogCardTopGroup() {
+type BlogCardTopGroupProps = {
+  title: string;
+  createdAt: string;
+  readTime: number;
+  categories: BlogCategory[];
+};
+function BlogCardTopGroup({
+  title,
+  createdAt,
+  readTime,
+  categories,
+}: BlogCardTopGroupProps) {
   return (
     <Group position="apart" align="start">
       <Stack spacing={0}>
-        <Title order={3} textColor="primary">
-          Tytuł wpisu
+        <Title order={2} textColor="primary">
+          {title}
         </Title>
         <Group>
           <Text textColor="textSecondary" size="sm">
-            {dayjs().format('DD.MM.YYYY')}
+            {dayjs(createdAt).format('DD.MM.YYYY')}
           </Text>
           <Text textColor="textSecondary" size="sm">
-            ~ 5 min
+            ~ {readTime} min
           </Text>
         </Group>
       </Stack>
       <Group spacing={4}>
-        <Badge color="blue" variant="light" size="xs">
-          javascript
-        </Badge>
-        <Badge color="red" variant="light" size="xs">
-          html
-        </Badge>
+        {categories.map((category) => (
+          <BlogPostCategoryBadge category={category} />
+        ))}
       </Group>
     </Group>
   );
