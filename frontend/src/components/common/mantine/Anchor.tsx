@@ -5,7 +5,7 @@ import {
   createStyles,
 } from '@mantine/core';
 import { LinkProps } from 'next/link';
-import { ThemeColors } from '../../../../theme/types';
+import { ThemeColors } from '../../../theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;

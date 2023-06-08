@@ -1,6 +1,8 @@
 import { Stack } from '@mantine/core';
 import React from 'react';
 import { BlogCard } from '../BlogCard';
+import { getAllPosts } from '../../../services/services';
+import { useFetch } from '../../../services/useFetch';
 
 const mockPostsArr = {
   title: 'Testowy wpis',
@@ -13,10 +15,12 @@ const mockPostsArr = {
 };
 
 export function BlogPostsList() {
+  const { data, isLoading, error } = useFetch(getAllPosts);
+  console.log(data);
   return (
     <Stack spacing={32}>
       {new Array(10).fill(mockPostsArr).map((post) => (
-        <BlogCard key={post.title} {...post} />
+        <BlogCard key={Math.random()} {...post} />
       ))}
     </Stack>
   );

@@ -1,7 +1,7 @@
 import { Text as MantineText, TextProps, createStyles } from '@mantine/core';
 
 import React from 'react';
-import { ThemeColors } from '../../../../theme/types';
+import { ThemeColors } from '../../../theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;
