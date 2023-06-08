@@ -19,7 +19,10 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
-import { openContactModal, useModalStyles } from '../../../utils/modalsHandler';
+import {
+  openContactModal,
+  useModalStyles,
+} from '../../../utils/modalsHandler';
 
 import Link from '../Link';
 import { Button } from '../mantine/Button';

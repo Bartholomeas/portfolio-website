@@ -4,9 +4,9 @@ import React from 'react';
 
 import { Container, Stack } from '@mantine/core';
 
-import { BlogHeader } from '../components/blog/BlogHeader';
-import { BlogPostsSection } from '../components/blog/posts/BlogPostsSection';
-import { BlogFeaturedPostSection } from '../components/blog/BlogFeaturedPostSection';
+import { BlogHeader } from '../../components/blog/BlogHeader';
+import { BlogPostsSection } from '../../components/blog/posts/BlogPostsSection';
+import { BlogFeaturedPostSection } from '../../components/blog/BlogFeaturedPostSection';
 
 function Blog() {
   return (
