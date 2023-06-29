@@ -120,11 +120,12 @@ function BlogCardTopGroup({
           </Text>
         </Group>
       </Stack>
-      <Group spacing={4}>
-        {categories.map((category) => (
-          <BlogPostCategoryBadge category={category} />
-        ))}
-      </Group>
+      {/* <Group spacing={4}>
+        {categories &&
+          categories.map((category) => (
+            <BlogPostCategoryBadge category={category} />
+          ))}
+      </Group> */}
     </Group>
   );
 }

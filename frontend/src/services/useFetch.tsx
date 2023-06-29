@@ -1,29 +1,27 @@
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { StrapiArrResponse } from '../types';
 
 export const useFetch = <T,>(
-  request: () => Promise<AxiosResponse<unknown>['data']>
+  request: () => Promise<AxiosResponse<T>['data']>
 ) => {
-  type Data = {
-    data: T | undefined;
-    // meta: {
-    //   pagination: {
-    //     page: number;
-    //     pageCount: number;
-    //     pageSize: number;
-    //     total: number;
-    //   };
-    // };
-  };
-  const [data, setData] = useState<Data>({} as Data);
+  const [data, setData] = useState<StrapiArrResponse<T>[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState({ message: '', isError: false });
+  const [error, setError] = useState<{
+    message: unknown;
+    isError: boolean;
+  }>({
+    message: '',
+    isError: false,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const { data: res } = await request();
+        const { data: res } = (await request()) as AxiosResponse<
+          StrapiArrResponse<T>[]
+        >;
         setData(res);
       } catch (err) {
         setError({ message: err, isError: true });

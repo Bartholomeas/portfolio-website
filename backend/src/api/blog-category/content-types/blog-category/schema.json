@@ -12,14 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "CategoryName": {
+    "category": {
       "type": "string"
     },
-    "blog_posts": {
+    "blogPosts": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
-      "mappedBy": "blog_categories"
+      "mappedBy": "blogCategories"
     }
   }
 }
