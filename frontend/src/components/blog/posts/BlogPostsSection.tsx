@@ -2,13 +2,19 @@
 
 import React from 'react';
 
-import { Stack } from '@mantine/core';
+import { Post } from '@/types';
 
-import { BlogPostsList } from './BlogPostsList';
 import { BlogPostsFilters } from './BlogPostsFilters';
-import { SectionHeading } from '../../common/design/SectionHeading';
+import { BlogCard } from '../BlogCard';
 
-export function BlogPostsSection() {
+import { Stack } from '@/components/common/mantine';
+import { SectionHeading } from '@/components/common/design/SectionHeading';
+
+type BlogPostsSectionProps = {
+  posts: Post[] | undefined;
+};
+export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
+  console.log(posts);
   return (
     <section>
       <Stack>
@@ -19,7 +25,18 @@ export function BlogPostsSection() {
         />
         <Stack spacing={96}>
           <BlogPostsFilters />
-          <BlogPostsList />
+
+          {posts?.map((post) => (
+            <BlogCard
+              key={post.id}
+              title={post?.title}
+              shortDescription={post?.shortDescription}
+              createdAt={post?.publishedDate}
+              readTime={post?.readTime}
+              imgSrc={post?.headerImg?.url}
+              categories={post?.blogCategories}
+            />
+          ))}
         </Stack>
       </Stack>
     </section>

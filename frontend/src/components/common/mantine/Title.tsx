@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Title as MantineTitle, TitleProps, createStyles } from '@mantine/core';
-import { ThemeColors } from '../../../theme/types';
+
+import { TitleProps, createStyles } from '@mantine/core';
+import { ThemeColors } from '@/theme/types';
+
+import { Title as MantineTitle } from '@/components/common/mantine';
 
 type StylesProps = {
   textColor: ThemeColors;

@@ -1,4 +1,4 @@
-import { MantineThemeOther } from '@mantine/core';
+import { MantineTheme, MantineThemeOther } from '@mantine/core';
 
 export const darkThemeColors: MantineThemeOther = {
   primary: '#00F680',
@@ -63,5 +63,20 @@ export const basicTheme: MantineThemeOther = {
       '#08C46A',
       '#0BAD5F',
     ],
+  },
+
+  components: {
+    Card: {
+      styles: (theme: MantineTheme) => ({
+        root: {
+          width: '100%',
+          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+          borderRadius: 8,
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.02)}`,
+          backdropFilter: 'blur(10px)',
+          overflow: 'none',
+        },
+      }),
+    },
   },
 };

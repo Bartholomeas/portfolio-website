@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  ButtonProps,
-  Button as MantineButton,
-  createStyles,
-} from '@mantine/core';
+
+import { ButtonProps, createStyles } from '@mantine/core';
+import { Button as MantineButton } from '@/components/common/mantine/index';
 import Link from 'next/link';
 
 const useStyles = createStyles(() => ({

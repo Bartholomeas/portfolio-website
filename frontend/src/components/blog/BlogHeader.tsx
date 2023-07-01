@@ -1,10 +1,9 @@
-'use client';
-
 import React from 'react';
 
-import { Box, Flex } from '@mantine/core';
-import { Title } from '../common/mantine/Title';
+import { Box, Flex } from '@/components/common/mantine';
+
 import { ShapeWithGlow } from '../common/ShapeWithGlow';
+import { Title } from '../common/mantine/Title';
 
 export function BlogHeader() {
   return (
@@ -32,7 +31,9 @@ export function BlogHeader() {
       >
         <ShapeWithGlow size={80} shape="circle2" />
       </Box>
-      <Title order={1}>Przeglądaj Bloga</Title>
+      <Title order={1} textColor="textPrimary">
+        Przeglądaj Bloga
+      </Title>
     </Flex>
   );
 }

@@ -13,6 +13,8 @@
     "no-use-before-define": "off",
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": ["warning", { "devDependencies": true }],
+    "no-console": "off"
   }
 }

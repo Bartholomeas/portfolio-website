@@ -22,10 +22,11 @@ import { Box, Checkbox, Flex, Group, Stack } from '@mantine/core';
 import { Button } from '../mantine/Button';
 import { TextInput } from '../mantine/TextInput';
 import { Textarea } from '../mantine/Textarea';
-import { Card } from '../mantine/Card';
+
 import { Text } from '../mantine/Text';
 
 import { ShapeWithGlow } from '../ShapeWithGlow';
+import { Card } from '../mantine';
 
 const socials = [
   {

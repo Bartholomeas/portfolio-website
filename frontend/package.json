@@ -11,7 +11,7 @@
     "lint": "next lint",
     "_lint": "eslint --config ./.eslintrc.json --ext js --ext jsx --ext tsx --ext ts",
     "lint:fix": "npm run _lint -- --fix ./",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
+    "format": "prettier --write './2**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
     "prepare": "cd .. && husky install frontend/.husky"
   },
   "dependencies": {

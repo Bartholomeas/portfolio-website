@@ -1,10 +1,7 @@
 import React from 'react';
-import {
-  AnchorProps,
-  Anchor as MantineAnchor,
-  createStyles,
-} from '@mantine/core';
+import { AnchorProps, createStyles } from '@mantine/core';
 import { LinkProps } from 'next/link';
+import { Anchor as MantineAnchor } from '@/components/common/mantine/index';
 import { ThemeColors } from '../../../theme/types';
 
 type StylesProps = {
