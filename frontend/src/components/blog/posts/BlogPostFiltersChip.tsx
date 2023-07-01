@@ -7,7 +7,7 @@ type BlogPostFiltersChipProps = {
 
 export function BlogPostFiltersChip({ value }: BlogPostFiltersChipProps) {
   return (
-    <Chip variant="light" value={value}>
+    <Chip variant="outline" value={value}>
       {value.toUpperCase()}
     </Chip>
   );

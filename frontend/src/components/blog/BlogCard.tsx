@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
 
 type BlogCardProps = {
   title: string;
-  content: string;
+  shortDescription: string;
   createdAt: string;
   readTime: number;
   categories: BlogCategory[];
@@ -38,7 +38,7 @@ type BlogCardProps = {
 
 export function BlogCard({
   title,
-  content,
+  shortDescription,
   createdAt,
   readTime,
   categories,
@@ -61,7 +61,7 @@ export function BlogCard({
         >
           <Image
             style={{ objectFit: 'cover' }}
-            src={imgSrc}
+            src={`http://localhost:1337${imgSrc}`}
             fill
             loading="lazy"
             alt="Zdjęcie główne postu="
@@ -75,7 +75,7 @@ export function BlogCard({
             createdAt={createdAt}
           />
           <Stack>
-            <Text textColor="textPrimary">{content}</Text>
+            <Text textColor="textPrimary">{shortDescription}</Text>
             <ButtonLink
               href="/blog/1"
               sx={{ alignSelf: 'end' }}
@@ -120,12 +120,13 @@ function BlogCardTopGroup({
           </Text>
         </Group>
       </Stack>
-      {/* <Group spacing={4}>
+      <Group spacing={4}>
         {categories &&
-          categories.map((category) => (
-            <BlogPostCategoryBadge category={category} />
-          ))}
-      </Group> */}
+          categories.map(({ category }) => {
+            console.log(category);
+            return <BlogPostCategoryBadge category={category} />;
+          })}
+      </Group>
     </Group>
   );
 }

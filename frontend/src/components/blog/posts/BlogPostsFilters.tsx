@@ -20,6 +20,13 @@ const postsCategories = [
 export function BlogPostsFilters() {
   return (
     <Stack>
+      <Chip.Group multiple>
+        <Group>
+          {postsCategories.map((category) => (
+            <BlogPostFiltersChip key={category} value={category} />
+          ))}
+        </Group>
+      </Chip.Group>
       <Group>
         <TextInput
           sx={{ flexGrow: 1 }}
@@ -36,14 +43,6 @@ export function BlogPostsFilters() {
           ]}
         />
       </Group>
-
-      <Chip.Group multiple>
-        <Group>
-          {postsCategories.map((category) => (
-            <BlogPostFiltersChip key={category} value={category} />
-          ))}
-        </Group>
-      </Chip.Group>
     </Stack>
   );
 }

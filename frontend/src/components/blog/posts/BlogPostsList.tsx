@@ -1,26 +1,36 @@
 import { Stack } from '@mantine/core';
 import React from 'react';
 import { BlogCard } from '../BlogCard';
-import { getAllPosts } from '../../../services/services';
-import { useFetch } from '../../../services/useFetch';
-import { Post } from '../../../types';
+
+// async function getBlogPosts() {
+//   const res = await fetch(
+//     `${API_URL}/api/blog-posts?populate[0]=blogCategories&populate[1]=headerImg`
+//   );
+
+//   if (!res.ok) throw new Error('getBlogPosts: Failed to fetch');
+
+//   return res.json();
+// }
 
 export function BlogPostsList() {
-  const { data, isLoading } = useFetch<Post>(getAllPosts);
-  console.log(data);
+  // const { data } = useFetch<Post>(getAllPosts);
+  // const { data } = await getBlogPosts();
+
+  // console.log(meta);
+
   return (
     <Stack spacing={32}>
-      {data?.map(({ id, attributes: post }) => (
+      {/* {data?.map((post) => (
         <BlogCard
-          key={id}
+          key={post.id}
           title={post?.title}
-          content={post?.content}
-          createdAt={post?.publishDate}
+          shortDescription={post?.shortDescription}
+          createdAt={post?.publishedDate}
           readTime={post?.readTime}
-          imgSrc="/blog.jpg"
+          imgSrc={post?.headerImg?.url}
           categories={post?.blogCategories}
         />
-      ))}
+      ))} */}
     </Stack>
   );
 }

@@ -1,27 +1,30 @@
 import React from 'react';
 
 import { Badge } from '@mantine/core';
-import { BlogCategory } from '../../../types';
+import { BlogCategoryCodes } from '../../../types';
 
-type CategoryColors = Record<BlogCategory, string>;
+type CategoryColors = Record<keyof BlogCategoryCodes, string>;
 
 const categoryColors: CategoryColors = {
   javascript: 'yellow',
   html: 'red',
   css: 'blue',
+  react: 'lightblue',
   frameworki: 'green',
   lifestyle: 'pink',
   inne: 'gray',
 };
 
 type BlogPostCategoryBadgeProps = {
-  category: BlogCategory;
+  category: keyof BlogCategoryCodes;
 };
 
 export function BlogPostCategoryBadge({
   category,
 }: BlogPostCategoryBadgeProps) {
   return (
-    <Badge color={categoryColors[category]}>{category.toUpperCase()}</Badge>
+    <Badge color={categoryColors[category as keyof BlogCategoryCodes]}>
+      {category}
+    </Badge>
   );
 }

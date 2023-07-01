@@ -5,9 +5,5 @@ const api = axios.create({ baseURL: API_URL });
 
 export const getAllPosts = () =>
   api
-    .get(
-      '/api/blog-posts?fields[0]=readTime&fields[1]=createdAt&populate=blogCategories'
-    )
+    .get('/api/blog-posts?populate[0]=blogCategories&populate[1]=headerImg')
     .then(({ data }) => data);
-
-// GET /api/users?fields[0]=title&fields[1]=body
