@@ -23,7 +23,11 @@ export function BlogPostCategoryBadge({
   category,
 }: BlogPostCategoryBadgeProps) {
   return (
-    <Badge color={categoryColors[category as keyof BlogCategoryCodes]}>
+    <Badge
+      size="xs"
+      variant="outline"
+      color={categoryColors[category as keyof BlogCategoryCodes]}
+    >
       {category}
     </Badge>
   );

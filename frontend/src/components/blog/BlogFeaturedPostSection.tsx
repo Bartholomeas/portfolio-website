@@ -7,8 +7,14 @@ import { Stack } from '@mantine/core';
 import { SectionHeading } from '../common/design/SectionHeading';
 import { Glow } from '../common/design/Glow';
 import { BlogCard } from './BlogCard';
+import { Post } from '@/types';
 
-export function BlogFeaturedPostSection() {
+type BlogFeaturedPostSectionProps = {
+  featuredPost: Post;
+};
+export function BlogFeaturedPostSection({
+  featuredPost,
+}: BlogFeaturedPostSectionProps) {
   return (
     <Stack
       spacing={32}
@@ -19,12 +25,12 @@ export function BlogFeaturedPostSection() {
       <Glow position={{ top: 50, left: 0, right: 0, bottom: 0 }} size={300} />
       <SectionHeading title="Najnowszy wpis" subtext="Koniecznie sprawdź" />
       <BlogCard
-        title="Testowy wpis"
-        shortDescription="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui deserunt doloribus, corrupti quis enim excepturi sequi sunt nobis. Quos debitis nemo fugiat, labore iusto nesciunt atque! Ab ipsa maiores atque! Lorem ipsum dolor, sit amet"
-        imgSrc=""
-        createdAt="2021-08-01"
-        readTime={5}
-        categories={['javascript', 'html', 'css'] as any}
+        title={featuredPost?.title}
+        shortDescription={featuredPost?.shortDescription}
+        imgSrc={featuredPost?.headerImg.url}
+        createdAt={featuredPost?.publishedDate}
+        readTime={featuredPost.readTime}
+        categories={featuredPost.blogCategories}
       />
     </Stack>
   );

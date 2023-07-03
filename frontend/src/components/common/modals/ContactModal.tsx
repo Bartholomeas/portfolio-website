@@ -85,10 +85,26 @@ export function ContactModal({ context, id }: ContextModalProps) {
       </Box>
 
       <Stack py={24} spacing={24}>
-        <TextInput label="Twoje imie" icon={<IconUser size={16} />} />
-        <TextInput label="Twój e-mail" icon={<IconAt size={16} />} />
-        <TextInput label="Tytuł wiadomości" icon={<IconHeading size={16} />} />
-        <Textarea label="Treść wiadomości" icon={<IconMessage size={16} />} />
+        <TextInput
+          label="Twoje imie"
+          placeholder="Wpisz swoje imie"
+          icon={<IconUser size={16} />}
+        />
+        <TextInput
+          label="Twój e-mail"
+          placeholder="Oraz swój e-mail!"
+          icon={<IconAt size={16} />}
+        />
+        <TextInput
+          label="Tytuł wiadomości"
+          placeholder="Jak chcesz zatytułować tę wiadomość?"
+          icon={<IconHeading size={16} />}
+        />
+        <Textarea
+          label="Treść wiadomości"
+          placeholder="Tutaj jest miejsce na Twoją wiadomość! Daj się poznać! :)"
+          icon={<IconMessage size={16} />}
+        />
         <Checkbox label="Zgadzam się na przetwarzanie moich danych osobowych" />
       </Stack>
       <Flex direction={{ base: 'column', sm: 'row' }} gap={16} justify="end">
@@ -121,7 +137,6 @@ export function ContactModal({ context, id }: ContextModalProps) {
         </Group>
       </Card>
     </Stack>
-    // </Modal>
   );
 }
 

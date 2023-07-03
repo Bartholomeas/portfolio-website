@@ -19,17 +19,14 @@ import {
   Stack,
   createStyles,
 } from '@mantine/core';
-import {
-  openContactModal,
-  useModalStyles,
-} from '../../../utils/modalsHandler';
+import { openContactModal, useModalStyles } from '../../../utils/modalsHandler';
 
 import Link from '../Link';
 import { Button } from '../mantine/Button';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    backgroundColor: theme.fn.rgba(theme.other.bg, 0.8),
+    backgroundColor: theme.fn.rgba(theme.other.bg, 0.5),
     backdropFilter: 'blur(10px)',
   },
 

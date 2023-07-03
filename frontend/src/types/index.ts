@@ -14,10 +14,10 @@ export type Post = {
   id: number;
   title: string;
   readTime: number;
-  publishedDate: string;
+  publishedAt: string;
   blogCategories: BlogCategory[];
   headerImg: { url: string };
-  shortDescription: any;
+  shortDescription: string;
 };
 
 export type FetchResponse<T> = {

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Select, SelectProps, createStyles } from '@mantine/core';
+import { Select, SelectProps, createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-  root: { position: 'relative' },
+  root: { position: 'relative', marginTop: rem(8) },
 
   input: {
     background: 'none',

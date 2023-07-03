@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Chip, Group, Stack } from '@mantine/core';
 
-import { IconFilter, IconSearch } from '@tabler/icons-react';
 import { TextInput } from '../../common/mantine/TextInput';
 import { SelectInput } from '../../common/mantine/SelectInput';
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
+
+import { IconFilter, IconSearch } from '@tabler/icons-react';
 
 const postsCategories = [
   'html',
@@ -16,8 +17,10 @@ const postsCategories = [
   'tricki',
   'inne',
 ];
-
-export function BlogPostsFilters() {
+type BlogPostsFiltersProps = {
+  onChange: (value: string) => void;
+};
+export function BlogPostsFilters({ onChange }: BlogPostsFiltersProps) {
   return (
     <Stack>
       <Chip.Group multiple>
@@ -29,10 +32,12 @@ export function BlogPostsFilters() {
       </Chip.Group>
       <Group>
         <TextInput
+          icon={<IconSearch size={16} />}
+          onChange={(event) => onChange(event.target.value)}
           sx={{ flexGrow: 1 }}
           label="Szukaj"
+          placeholder="Wyszukaj wpis!"
           color="primary"
-          icon={<IconSearch size={16} />}
         />
         <SelectInput
           placeholder="Wybierz filtry"

@@ -72,7 +72,7 @@ export const basicTheme: MantineThemeOther = {
           width: '100%',
           backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
           borderRadius: 8,
-          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.02)}`,
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
           backdropFilter: 'blur(10px)',
           overflow: 'none',
         },
