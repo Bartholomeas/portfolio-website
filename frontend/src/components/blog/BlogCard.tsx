@@ -1,10 +1,18 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
+import {
+  IconBookmark,
+  IconArrowRight,
+  IconHeart,
+  IconShare,
+} from '@tabler/icons-react';
+import Image from 'next/image';
+import { createStyles, rem } from '@mantine/core';
 import { API_URL } from '@/utils/variables';
 import { BlogCategory } from '../../types';
 
-import { createStyles, rem } from '@mantine/core';
+// import { createStyles, rem } from '@mantine/core';
 
 import { Title } from '../common/mantine/Title';
 import { Text } from '../common/mantine/Text';
@@ -19,14 +27,6 @@ import {
 } from '../common/mantine';
 
 import { BlogPostCategoryBadge } from './posts/BlogPostCategoryBadge';
-
-import {
-  IconBookmark,
-  IconArrowRight,
-  IconHeart,
-  IconShare,
-} from '@tabler/icons-react';
-import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   grid: {
@@ -66,7 +66,7 @@ export function BlogCard({
         <Card.Section>
           <Box
             mih={250}
-            h={'100%'}
+            h="100%"
             sx={{
               position: 'relative',
             }}
@@ -117,9 +117,9 @@ export function BlogCard({
               </Group>
               <Group spacing={4} align="center">
                 {categories &&
-                  categories.map(({ category }, index) => (
+                  categories.map(({ category }) => (
                     <BlogPostCategoryBadge
-                      key={`${category}-${index}`}
+                      key={`${category}-${title}`}
                       category={category}
                     />
                   ))}

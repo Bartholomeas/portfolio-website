@@ -1,26 +1,26 @@
 'use client';
 
-import React, { Suspense, useState } from 'react';
-
-import { Post } from '@/types';
-import { useSearchParams } from 'next/navigation';
+import React, { Suspense } from 'react';
 
 import { Loader } from '@mantine/core';
+
+import { useDebouncedState } from '@mantine/hooks';
+import { Post } from '@/types';
 
 import { Stack } from '@/components/common/mantine';
 import { SectionHeading } from '@/components/common/design/SectionHeading';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogCard } from '../BlogCard';
-import { useDebouncedState } from '@mantine/hooks';
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
 };
 export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
-  const [postsArr, setPostsArr] = useState<Post[] | undefined>(posts);
+  // const [postsArr, setPostsArr] = useState<Post[] | undefined>(posts);
   const [value, setValue] = useDebouncedState('', 400);
-  const filteredPosts = posts;
+  console.log(value);
+  // const filteredPosts = posts;
 
   return (
     <section>
@@ -40,7 +40,7 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
               key={post.id}
               title={post?.title}
               shortDescription={post?.shortDescription}
-              createdAt={post?.publishedAt}
+              publishedAt={post?.publishedAt}
               readTime={post?.readTime}
               imgSrc={post?.headerImg?.url}
               categories={post?.blogCategories}

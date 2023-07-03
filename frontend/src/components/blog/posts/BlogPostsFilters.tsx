@@ -2,11 +2,10 @@ import React from 'react';
 
 import { Chip, Group, Stack } from '@mantine/core';
 
+import { IconFilter, IconSearch } from '@tabler/icons-react';
 import { TextInput } from '../../common/mantine/TextInput';
 import { SelectInput } from '../../common/mantine/SelectInput';
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
-
-import { IconFilter, IconSearch } from '@tabler/icons-react';
 
 const postsCategories = [
   'html',

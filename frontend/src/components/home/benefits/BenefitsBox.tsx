@@ -3,9 +3,9 @@ import React from 'react';
 import { Box, Stack, createStyles } from '@mantine/core';
 
 import { Icon } from '@tabler/icons-react';
-import { Title } from '../../common/mantine/Title';
-import { Text } from '../../common/mantine/Text';
 import { Card } from '@/components/common/mantine';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
 
 type BenefitsBoxProps = {
   icon: Icon;

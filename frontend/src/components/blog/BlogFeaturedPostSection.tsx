@@ -4,10 +4,10 @@ import React from 'react';
 
 import { Stack } from '@mantine/core';
 
+import { Post } from '@/types';
 import { SectionHeading } from '../common/design/SectionHeading';
 import { Glow } from '../common/design/Glow';
 import { BlogCard } from './BlogCard';
-import { Post } from '@/types';
 
 type BlogFeaturedPostSectionProps = {
   featuredPost: Post;

@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "airbnb", "prettier"],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
     "react/jsx-filename-extension": [
       2,
@@ -11,10 +11,19 @@
     "object-curly-newline": "off",
     "arrow-parens": 1,
     "no-use-before-define": "off",
+    "no-unused-vars": 1,
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-unresolved": [1, { "devDependencies": true }],
+    "import/no-unresolved": "error",
     "no-console": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "import/no-unresolved": "off"
+      }
+    }
+  ]
 }

@@ -6,7 +6,7 @@ import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
 import { Glow } from '../../common/design/Glow';
-import { AboutSpecializationsGrid } from './AboutSpeciatlizationsGrid';
+import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

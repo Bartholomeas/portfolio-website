@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { FetchResponse, Post } from '@/types';
-import { API_URL } from '@/utils/variables';
 
 import { Container, Stack } from '@/components/common/mantine';
 
 import { BlogHeader } from '@/components/blog/BlogHeader';
 import { BlogFeaturedPostSection } from '@/components/blog/BlogFeaturedPostSection';
 import { BlogPostsSection } from '@/components/blog/posts/BlogPostsSection';
+import { API_URL } from '@/utils/variables';
 
 async function getBlogPosts(
   queryParams: string
