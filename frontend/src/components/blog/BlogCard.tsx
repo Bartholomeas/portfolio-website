@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
 type BlogCardProps = {
   title: string | undefined;
   shortDescription: string | undefined;
-  createdAt: string | undefined;
+  publishedAt: string | undefined;
   readTime: number | undefined;
   categories: BlogCategory[] | undefined;
   imgSrc: string | undefined;
@@ -54,7 +54,7 @@ type BlogCardProps = {
 export function BlogCard({
   title,
   shortDescription,
-  createdAt,
+  publishedAt,
   readTime,
   categories,
   imgSrc,
@@ -86,7 +86,7 @@ export function BlogCard({
             <BlogCardTopGroup
               title={title ?? ''}
               readTime={readTime ?? 0}
-              createdAt={createdAt ?? ''}
+              publishedAt={publishedAt ?? ''}
             />
             <Text textColor="textSecondary">{shortDescription}</Text>
             <ButtonLink
@@ -134,12 +134,12 @@ export function BlogCard({
 
 type BlogCardTopGroupProps = {
   title: string;
-  createdAt: string;
+  publishedAt: string;
   readTime: number;
 };
 function BlogCardTopGroup({
   title,
-  createdAt,
+  publishedAt,
   readTime,
 }: BlogCardTopGroupProps) {
   return (
@@ -149,7 +149,7 @@ function BlogCardTopGroup({
       </Title>
       <Group align="end">
         <Text textColor="textSecondary" size="sm">
-          {dayjs(createdAt).format('DD.MM.YYYY')}
+          {dayjs(publishedAt).format('DD.MM.YYYY')}
         </Text>
         <Text textColor="textSecondary" size="sm">
           ~ {readTime} min

@@ -28,7 +28,7 @@ export function BlogFeaturedPostSection({
         title={featuredPost?.title}
         shortDescription={featuredPost?.shortDescription}
         imgSrc={featuredPost?.headerImg.url}
-        createdAt={featuredPost?.publishedDate}
+        publishedAt={featuredPost?.publishedAt}
         readTime={featuredPost.readTime}
         categories={featuredPost.blogCategories}
       />
