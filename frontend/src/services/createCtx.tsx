@@ -7,7 +7,7 @@ type CreateContextProps<T> = {
 
 export const createCtx = <T extends unknown>({
   defaultValue,
-  displayName,
+  displayName,  
 }: CreateContextProps<T>) => {
   const Context = createContext<T | undefined>(undefined);
 

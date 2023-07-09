@@ -4,7 +4,6 @@ import React, { Suspense } from 'react';
 
 import { Loader } from '@mantine/core';
 
-import { useDebouncedState } from '@mantine/hooks';
 import { Post } from '@/types';
 
 import { Stack } from '@/components/common/mantine';
@@ -16,12 +15,9 @@ import { BlogCard } from '../BlogCard';
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
 };
-export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
-  // const [postsArr, setPostsArr] = useState<Post[] | undefined>(posts);
-  const [value, setValue] = useDebouncedState('', 400);
-  console.log(value);
-  // const filteredPosts = posts;
 
+export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
+  
   return (
     <section>
       <Stack>
@@ -32,7 +28,7 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
         />
         <Stack spacing={32}>
           <Suspense fallback={<Loader />}>
-            <BlogPostsFilters onChange={setValue} />
+            <BlogPostsFilters />
           </Suspense>
 
           {posts?.map((post) => (

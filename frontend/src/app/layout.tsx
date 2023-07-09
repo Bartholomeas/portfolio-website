@@ -6,6 +6,7 @@ import { Poppins } from 'next/font/google';
 import AppShell from '../components/templates/AppShell';
 import RootStyleRegistry from '../components/templates/RootStyleRegistry';
 import { AppModalsProvider } from '../components/templates/AppModalsProvider';
+import { FiltersContextProvider } from '@/components/templates/FiltersContextProvider';
 
 const poppins = Poppins({
   weight: ['400', '700'],
@@ -28,7 +29,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       >
         <RootStyleRegistry>
           <AppModalsProvider>
-            <AppShell>{children}</AppShell>
+            <FiltersContextProvider>
+              <AppShell>{children}</AppShell>
+            </FiltersContextProvider>
           </AppModalsProvider>
         </RootStyleRegistry>
       </body>

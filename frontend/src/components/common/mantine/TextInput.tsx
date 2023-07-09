@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MutableRefObject, Ref, useState } from 'react';
 
 import {
   TextInput as MantineTextInput,
@@ -43,19 +43,19 @@ const useStyles = createStyles(
   })
 );
 
-export function TextInput({ ...props }: TextInputProps) {
+export function TextInput({ onChange, ...props }: TextInputProps) {
   const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState('');
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
   const { classes } = useStyles({
-    floating: value.trim().length !== 0 || focused,
+    floating: inputRef?.current?.value.trim().length !== 0 || focused,
   });
 
   return (
     <MantineTextInput
       {...props}
+      ref={inputRef}
       classNames={classes}
-      value={value}
-      onChange={(event) => setValue(event.currentTarget.value)}
+      onChange={onChange}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       autoComplete="nope"

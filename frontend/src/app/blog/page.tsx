@@ -9,10 +9,7 @@ import { BlogFeaturedPostSection } from '@/components/blog/BlogFeaturedPostSecti
 import { BlogPostsSection } from '@/components/blog/posts/BlogPostsSection';
 import { API_URL } from '@/utils/variables';
 
-async function getBlogPosts(
-  queryParams: string
-): Promise<FetchResponse<Post[]>> {
-  console.log(queryParams);
+async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(
       `${API_URL}/api/blog-posts?populate[blogCategories]=blogCategories&populate[headerImg]=headerImg&fields[0]=title&fields[1]=readTime&fields[2]=shortDescription&fields[3]=publishedAt`
@@ -35,18 +32,16 @@ async function getLastPost(): Promise<FetchResponse<Post[]>> {
 
     return res.json();
   } catch (err) {
-    throw new Error('getLasPost: error');
+    throw new Error('getLastPost: error');
   }
 }
 
-export default async function Blog({ params }: { params: any }) {
-  const blogPostsPromise = getBlogPosts('ese');
+export default async function Blog() {
+  const blogPostsPromise = getBlogPosts();
   const { data } = await blogPostsPromise;
 
   const featuredPostPromise = getLastPost();
   const { data: featuredPost } = await featuredPostPromise;
-
-  console.log(params);
 
   return (
     <Container size="md">
