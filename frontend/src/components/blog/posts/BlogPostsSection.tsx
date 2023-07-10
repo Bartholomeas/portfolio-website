@@ -10,14 +10,13 @@ import { Stack } from '@/components/common/mantine';
 import { SectionHeading } from '@/components/common/design/SectionHeading';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
-import { BlogCard } from '../BlogCard';
+import { BlogPostsList } from './BlogPostsList';
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
 };
 
 export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
-  
   return (
     <section>
       <Stack>
@@ -31,17 +30,7 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
             <BlogPostsFilters />
           </Suspense>
 
-          {posts?.map((post) => (
-            <BlogCard
-              key={post.id}
-              title={post?.title}
-              shortDescription={post?.shortDescription}
-              publishedAt={post?.publishedAt}
-              readTime={post?.readTime}
-              imgSrc={post?.headerImg?.url}
-              categories={post?.blogCategories}
-            />
-          ))}
+          <BlogPostsList posts={posts} />
         </Stack>
       </Stack>
     </section>

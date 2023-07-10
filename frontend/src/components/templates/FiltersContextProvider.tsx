@@ -1,10 +1,10 @@
 'use client';
 
-import { PropsWithChildren, useReducer } from 'react';
+import { PropsWithChildren } from 'react';
 import { createCtx } from '@/services/createCtx';
-import { useFilters } from '@/hooks/useFilters';
+import { FiltersContext, useFilters } from '@/hooks/useFilters';
 
-const [FiltersProvider, useFiltersCtx] = createCtx<any>({
+const [FiltersProvider, useFiltersCtx] = createCtx<FiltersContext>({
   defaultValue: {},
   displayName: 'FiltersProvider',
 });
@@ -12,13 +12,7 @@ const [FiltersProvider, useFiltersCtx] = createCtx<any>({
 export { useFiltersCtx };
 
 export function FiltersContextProvider({ children }: PropsWithChildren) {
-  function reducer(state: any, action: any) {
-    return { ...state, ...action };
-  }
-  const [state, dispatch] = useReducer(reducer, { test: 32 });
-  const { handleFilters } = useFilters();
+  const filters = useFilters();
 
-  return (
-    <FiltersProvider value={{ handleFilters }}>{children}</FiltersProvider>
-  );
+  return <FiltersProvider value={{ ...filters }}>{children}</FiltersProvider>;
 }

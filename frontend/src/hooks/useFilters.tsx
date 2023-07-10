@@ -1,88 +1,93 @@
 import { useEffect, useState } from 'react';
 import { useDebouncedValue } from '@mantine/hooks';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 type SearchParamsCodes = { Search: 'Search'; Categories: 'Categories' };
-// type SearchParams = 'Search' | 'Categories';
 
-// export const useFilters = (searchParam: string) => {
+type SearchParams = Record<keyof SearchParamsCodes, string>;
+
+export type FiltersContext = {
+  handleFilters?: (
+    searchParam: keyof SearchParamsCodes,
+    value: string | string[]
+  ) => void;
+  searchParams?: SearchParams;
+  filterArray?: <T>(
+    searchParam: keyof SearchParamsCodes,
+    arr: T[] | undefined,
+    filterName: keyof T
+  ) => T[] | [];
+};
+
 export const useFilters = () => {
-  const [searchPhrase, setSearchPhrase] = useState<{
-    [key: string]: string;
-  }>({});
-  const [debouncedSearchPhrase] = useDebouncedValue(searchPhrase, 500);
-
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [searchParams, setSearchParams] = useState<SearchParams>({
+    Search: '',
+    Categories: '',
+  });
 
-  const params = new URLSearchParams(Array.from(searchParams.entries()));
+  const [debouncedSearchParams] = useDebouncedValue(searchParams, 500);
 
-  const createQueryString = (name: string, value: string) => {
-    params.set(name, value);
-    return params.toString();
+  const [filteredData, setFilteredData] = useState<any>([]);
+
+  // const filteredPosts = searchParams.Search
+  //   ? currentPosts?.filter((post) =>
+  //       post.title.toLowerCase().includes(searchParams.Search.toLowerCase())
+  //     )
+  //   : posts ?? [];
+
+  // setCurrentPosts(filteredPosts);
+  // console.log(filteredPosts);
+  const filterArray = <T extends Record<keyof T, string>>(
+    searchParam: keyof SearchParamsCodes | keyof SearchParamsCodes[],
+    arr: T[] | undefined,
+    filterName: keyof T
+  ) => {
+    if (typeof searchParam === 'string') {
+      const newData = searchParams[searchParam]
+        ? arr?.filter((item) =>
+            item[filterName]
+              .toLowerCase()
+              .includes(searchParams.Search.toLowerCase())
+          )
+        : arr ?? [];
+
+      setFilteredData(newData);
+    } else if (Array.isArray(searchParam)) {
+      console.log('tablica', searchParam);
+    }
+
+    // setFilteredData(filteredData);
+    console.log(filteredData);
+    return filteredData as T[] | [];
   };
 
   const handleFilters = (
     searchParam: keyof SearchParamsCodes,
     value: string | string[]
   ) => {
-    setSearchPhrase((prev) => ({
+    setSearchParams((prev) => ({
       ...prev,
       [searchParam]: Array.isArray(value) ? value.join(',') : value.trim(),
     }));
-    // params.set(searchParam, value.join(','));
-
-    // if (!debouncedSearchPhrase && params.has(searchParam)) {
-    //   params.delete(searchParam);
-    // } else {
-    //   params.set(searchParam, debouncedSearchPhrase[searchParam]);
-    //   console.log(debouncedSearchPhrase);
-    // }
-
-    // if (typeof value === 'string') {
-    //   const searchQuery = createQueryString(searchParam, value);
-    //   window.history.pushState(null, '', `${pathname}?${searchQuery}`);
-    // } else if (Array.isArray(value)) {
-    //   const searchQuery = createQueryString(searchParam, value.join(','));
-    //   window.history.pushState(null, '', `${pathname}?${searchQuery}`);
-    // }
   };
 
   useEffect(() => {
-    console.log(Object.entries(debouncedSearchPhrase));
-
     const newParams = new URLSearchParams();
 
-    Object.entries(debouncedSearchPhrase).forEach(([key, value]) => {
-      newParams.set(key, value);
-    });
+    Object.entries(debouncedSearchParams).forEach(
+      ([key, value]: [string, string]) => {
+        if (value) {
+          newParams.set(key, value);
+        } else {
+          newParams.delete(key);
+        }
+      }
+    );
 
     const searchQuery = newParams.toString() ? `?${newParams.toString()}` : '';
     window.history.replaceState(null, '', `${pathname}${searchQuery}`);
-  }, [debouncedSearchPhrase, pathname]);
+  }, [debouncedSearchParams, pathname]);
 
-  // useEffect(() => {
-  //   console.log(searchPhrase);
-  //   window.history.pushState(null, '', `${pathname}${searchQuery}`);
-  // }, [searchPhrase, debouncedSearchPhrase]);
-
-  // useEffect(() => {
-  //   if (!debouncedSearchPhrase && params.has(searchParam)) {
-  //     params.delete(searchParam);
-  //   } else {
-  //     params.set(searchParam, debouncedSearchPhrase);
-  //   }
-
-  //   const searchQuery = params.toString()
-  //     ? `?${createQueryString(searchParam, searchPhrase)}`
-  //     : '';
-
-  //   // params.set(searchParam, searchPhrase);
-  //   // router.push(`${pathname}${searchQuery}`, { shallow: true });
-  //   // window.history.pushState(null, '', `${pathname}${searchQuery}`);
-  //   window.history.replaceState(null, '', `${pathname}${searchQuery}`);
-  //   console.log('jest');
-  // }, [debouncedSearchPhrase, pathname]);
-
-  return { handleFilters };
+  return { handleFilters, searchParams: debouncedSearchParams, filterArray };
 };
