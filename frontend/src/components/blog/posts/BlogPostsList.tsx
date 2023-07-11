@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Stack } from '@mantine/core';
 import { Post } from '@/types';
-import { BlogCard } from '../BlogCard';
 import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+import { BlogCard } from '../BlogCard';
 
 type BlogPostsListProps = {
   posts: Post[] | undefined;

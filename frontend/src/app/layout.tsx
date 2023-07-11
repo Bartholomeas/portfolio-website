@@ -3,10 +3,10 @@ import { Metadata } from 'next';
 
 import { Poppins } from 'next/font/google';
 
+import { FiltersContextProvider } from '@/components/templates/FiltersContextProvider';
 import AppShell from '../components/templates/AppShell';
 import RootStyleRegistry from '../components/templates/RootStyleRegistry';
 import { AppModalsProvider } from '../components/templates/AppModalsProvider';
-import { FiltersContextProvider } from '@/components/templates/FiltersContextProvider';
 
 const poppins = Poppins({
   weight: ['400', '700'],
