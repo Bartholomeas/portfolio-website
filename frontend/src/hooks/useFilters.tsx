@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDebouncedValue } from '@mantine/hooks';
 import { usePathname } from 'next/navigation';
+import { Post } from '@/types';
 
 type SearchParamsCodes = { Search: 'Search'; Categories: 'Categories' };
 
@@ -12,11 +13,12 @@ export type FiltersContext = {
     value: string | string[]
   ) => void;
   searchParams?: SearchParams;
-  filterArray?: <T>(
-    searchParam: keyof SearchParamsCodes,
-    arr: T[] | undefined,
-    filterName: keyof T
-  ) => T[] | [];
+  filterArray?: (
+    searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
+    arr: Post[] | undefined,
+    filterName: keyof Post
+  ) => void;
+  filteredData?: Post[] | [];
 };
 
 export const useFilters = () => {
@@ -28,38 +30,31 @@ export const useFilters = () => {
 
   const [debouncedSearchParams] = useDebouncedValue(searchParams, 500);
 
-  const [filteredData, setFilteredData] = useState<any>([]);
+  const [filteredData, setFilteredData] = useState<Post[] | []>([]);
 
-  // const filteredPosts = searchParams.Search
-  //   ? currentPosts?.filter((post) =>
-  //       post.title.toLowerCase().includes(searchParams.Search.toLowerCase())
-  //     )
-  //   : posts ?? [];
-
-  // setCurrentPosts(filteredPosts);
-  // console.log(filteredPosts);
-  const filterArray = <T extends Record<keyof T, string>>(
-    searchParam: keyof SearchParamsCodes | keyof SearchParamsCodes[],
-    arr: T[] | undefined,
-    filterName: keyof T
+  const filterArray = (
+    searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
+    arr: Post[] | undefined,
+    filterName: keyof Post
   ) => {
-    if (typeof searchParam === 'string') {
-      const newData = searchParams[searchParam]
-        ? arr?.filter((item) =>
-            item[filterName]
-              .toLowerCase()
-              .includes(searchParams.Search.toLowerCase())
-          )
-        : arr ?? [];
-
-      setFilteredData(newData);
+    if (
+      typeof searchParams[searchParam as keyof SearchParamsCodes] === 'string'
+    ) {
+      const filteredArr = arr?.filter((item) => {
+        if (typeof item[filterName] === 'string') {
+          return item[filterName]
+            .toString()
+            .toLowerCase()
+            .includes(
+              searchParams[searchParam as keyof SearchParamsCodes].toLowerCase()
+            );
+        }
+        return [];
+      }) as Post[];
+      setFilteredData(filteredArr);
     } else if (Array.isArray(searchParam)) {
-      console.log('tablica', searchParam);
+      console.log('arr');
     }
-
-    // setFilteredData(filteredData);
-    console.log(filteredData);
-    return filteredData as T[] | [];
   };
 
   const handleFilters = (
@@ -89,5 +84,10 @@ export const useFilters = () => {
     window.history.replaceState(null, '', `${pathname}${searchQuery}`);
   }, [debouncedSearchParams, pathname]);
 
-  return { handleFilters, searchParams: debouncedSearchParams, filterArray };
+  return {
+    handleFilters,
+    searchParams: debouncedSearchParams,
+    filterArray,
+    filteredData,
+  };
 };

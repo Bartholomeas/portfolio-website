@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Stack } from '@mantine/core';
 import { Post } from '@/types';
 import { BlogCard } from '../BlogCard';
@@ -9,20 +9,16 @@ type BlogPostsListProps = {
 };
 
 export function BlogPostsList({ posts }: BlogPostsListProps) {
-  const { searchParams, filterArray } = useFiltersCtx();
-
-  const [currentPosts, setCurrentPosts] = useState<Post[] | undefined>(posts);
+  const { searchParams, filterArray, filteredData } = useFiltersCtx();
 
   useEffect(() => {
-    const filteredData =
-      filterArray && filterArray<Post>('Search', posts, 'title');
-    setCurrentPosts(filteredData);
+    if (filterArray) filterArray(['Search', 'Categories'], posts, 'title');
   }, [searchParams]);
 
   return (
     <Stack spacing={32}>
-      {currentPosts &&
-        currentPosts?.map((post) => (
+      {filteredData &&
+        filteredData?.map((post) => (
           <BlogCard
             key={post.id}
             title={post?.title}
