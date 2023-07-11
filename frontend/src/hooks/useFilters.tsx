@@ -79,7 +79,9 @@ export const useFilters = () => {
             .includes(searchParams[param].toLowerCase());
         }
         if (param === 'Categories') {
+          if (!searchParams.Categories) return true;
           const categoriesArr = searchParams.Categories.split(',');
+          console.log(categoriesArr);
           return item.blogCategories.some((category) =>
             categoriesArr.includes(category.category)
           );

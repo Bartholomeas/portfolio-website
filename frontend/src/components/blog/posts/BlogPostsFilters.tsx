@@ -15,10 +15,10 @@ const postsCategories = [
   'html',
   'javascript',
   'css',
-  'frameworki',
+  'framework',
   'lifestyle',
-  'tricki',
-  'inne',
+  'tricks',
+  'other',
 ];
 
 export function BlogPostsFilters() {
@@ -29,7 +29,7 @@ export function BlogPostsFilters() {
       <Group align="end">
         <TextInput
           icon={<IconSearch size={16} />}
-          onChange={(e) => handleFilters('Search', e.target.value)}
+          onChange={(e) => handleFilters!('Search', e.target.value)}
           sx={{ flexGrow: 1 }}
           label="Szukaj"
           placeholder="Wyszukaj wpis!"
@@ -47,7 +47,7 @@ export function BlogPostsFilters() {
       <Chip.Group
         multiple
         onChange={(e) => {
-          handleFilters('Categories', e);
+          handleFilters!('Categories', e);
         }}
       >
         <Group>

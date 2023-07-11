@@ -2,10 +2,10 @@ export type BlogCategoryCodes = {
   html: 'html';
   javascript: 'javascript';
   css: 'css';
-  frameworki: 'frameworki';
+  framework: 'framework';
   react: 'react';
   lifestyle: 'lifestyle';
-  inne: 'inne';
+  other: 'other';
 };
 
 export type BlogCategory = { category: keyof BlogCategoryCodes };
