@@ -12,7 +12,7 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
   const { searchParams, filterArray, filteredData } = useFiltersCtx();
 
   useEffect(() => {
-    if (filterArray) filterArray(['Search', 'Categories'], posts, 'title');
+    if (filterArray) filterArray(['Search', 'Categories'], posts);
   }, [searchParams]);
 
   return (

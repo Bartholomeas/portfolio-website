@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useDebouncedValue } from '@mantine/hooks';
 import { usePathname } from 'next/navigation';
+
+import { useDebouncedValue } from '@mantine/hooks';
+
 import { Post } from '@/types';
+
+const filterProperties: Record<keyof SearchParamsCodes, keyof Post> = {
+  Search: 'title',
+  Categories: 'blogCategories',
+};
 
 type SearchParamsCodes = { Search: 'Search'; Categories: 'Categories' };
 
@@ -15,8 +22,7 @@ export type FiltersContext = {
   searchParams?: SearchParams;
   filterArray?: (
     searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
-    arr: Post[] | undefined,
-    filterName: keyof Post
+    arr: Post[] | undefined
   ) => void;
   filteredData?: Post[] | [];
 };
@@ -34,27 +40,54 @@ export const useFilters = () => {
 
   const filterArray = (
     searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
-    arr: Post[] | undefined,
-    filterName: keyof Post
+    arr: Post[] | undefined
   ) => {
-    if (
-      typeof searchParams[searchParam as keyof SearchParamsCodes] === 'string'
-    ) {
-      const filteredArr = arr?.filter((item) => {
-        if (typeof item[filterName] === 'string') {
-          return item[filterName]
-            .toString()
-            .toLowerCase()
-            .includes(
-              searchParams[searchParam as keyof SearchParamsCodes].toLowerCase()
-            );
-        }
-        return [];
-      }) as Post[];
-      setFilteredData(filteredArr);
+    if (typeof searchParam === 'string') {
+      filterArrayWithSingleParameter(searchParam, arr);
     } else if (Array.isArray(searchParam)) {
-      console.log('arr');
+      filterArrayWithArrayOfParameters(searchParam, arr);
     }
+  };
+
+  const filterArrayWithSingleParameter = (
+    searchParam: keyof SearchParamsCodes,
+    arr: Post[] | undefined
+  ) => {
+    const filteredArr = arr?.filter((item) => {
+      if (typeof searchParam === 'string') {
+        return item[filterProperties[searchParam]]
+          .toString()
+          .toLowerCase()
+          .includes(
+            searchParams[searchParam as keyof SearchParamsCodes].toLowerCase()
+          );
+      }
+      return [];
+    }) as Post[];
+    setFilteredData(filteredArr);
+  };
+  const filterArrayWithArrayOfParameters = (
+    searchParam: (keyof SearchParamsCodes)[],
+    arr: Post[] | undefined
+  ) => {
+    const filteredArr = arr?.filter((item) =>
+      searchParam.every((param) => {
+        if (searchParams[param] === '') return true;
+        if (param === 'Search') {
+          return item.title
+            .toLowerCase()
+            .includes(searchParams[param].toLowerCase());
+        }
+        if (param === 'Categories') {
+          const categoriesArr = searchParams.Categories.split(',');
+          return item.blogCategories.some((category) =>
+            categoriesArr.includes(category.category)
+          );
+        }
+        return true;
+      })
+    );
+    setFilteredData(filteredArr ?? []);
   };
 
   const handleFilters = (
