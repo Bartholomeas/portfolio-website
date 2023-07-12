@@ -48,9 +48,10 @@ const useStyles = createStyles(
 
 export function Textarea({ ...props }: TextareaProps) {
   const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState('');
+  const inputRef = React.useRef<HTMLTextAreaElement | null>(null);
+
   const { classes } = useStyles({
-    floating: value.trim().length !== 0 || focused,
+    floating: inputRef.current?.value.trim().length !== 0 || focused,
   });
 
   return (
@@ -59,8 +60,7 @@ export function Textarea({ ...props }: TextareaProps) {
       classNames={classes}
       autosize
       minRows={3}
-      value={value}
-      onChange={(event) => setValue(event.currentTarget.value)}
+      ref={inputRef}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       autoComplete="nope"

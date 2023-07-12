@@ -10,9 +10,9 @@ const categoryColors: CategoryColors = {
   html: 'red',
   css: 'blue',
   react: 'lightblue',
-  frameworki: 'green',
+  framework: 'green',
   lifestyle: 'pink',
-  inne: 'gray',
+  other: 'gray',
 };
 
 type BlogPostCategoryBadgeProps = {
