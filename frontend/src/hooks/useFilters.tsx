@@ -24,6 +24,8 @@ export type FiltersContext = {
 
 export const useFilters = () => {
   const pathname = usePathname();
+
+  const [filteredData, setFilteredData] = useState<Post[] | []>([]);
   const [searchParams, setSearchParams] = useState<SearchParams>({
     Search: '',
     Categories: '',
@@ -31,16 +33,7 @@ export const useFilters = () => {
 
   const [debouncedSearchParams] = useDebouncedValue(searchParams, 500);
 
-  const [filteredData, setFilteredData] = useState<Post[] | []>([]);
-
   const filterArray = (
-    searchParam: (keyof SearchParamsCodes)[],
-    arr: Post[] | undefined
-  ) => {
-    filterArrayWithArrayOfParameters(searchParam, arr);
-  };
-
-  const filterArrayWithArrayOfParameters = (
     searchParam: (keyof SearchParamsCodes)[],
     arr: Post[] | undefined
   ) => {
@@ -52,7 +45,7 @@ export const useFilters = () => {
             .toLowerCase()
             .includes(searchParams[param].toLowerCase());
         }
-        if (param === 'Categories') {
+        if (param.toLowerCase() === 'categories') {
           const choosenCategories = searchParams.Categories.split(
             ','
           ) as (keyof BlogCategoryCodes)[];
