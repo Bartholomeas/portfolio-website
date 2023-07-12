@@ -4,11 +4,10 @@ import React from 'react';
 
 import { Chip, Group, Stack } from '@mantine/core';
 
-import { IconFilter, IconSearch } from '@tabler/icons-react';
+import { IconSearch } from '@tabler/icons-react';
 import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 
 import { TextInput } from '../../common/mantine/TextInput';
-import { SelectInput } from '../../common/mantine/SelectInput';
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
 const postsCategories = [
@@ -34,14 +33,6 @@ export function BlogPostsFilters() {
           label="Szukaj"
           placeholder="Wyszukaj wpis!"
           color="primary"
-        />
-        <SelectInput
-          placeholder="Wybierz filtry"
-          icon={<IconFilter size={16} />}
-          data={[
-            { label: 'Data dodania rosnąco', value: 'asc' },
-            { label: 'Data dodania malejąco', value: 'dsc' },
-          ]}
         />
       </Group>
       <Chip.Group

@@ -3,12 +3,7 @@ import { usePathname } from 'next/navigation';
 
 import { useDebouncedValue } from '@mantine/hooks';
 
-import { Post } from '@/types';
-
-const filterProperties: Record<keyof SearchParamsCodes, keyof Post> = {
-  Search: 'title',
-  Categories: 'blogCategories',
-};
+import { BlogCategoryCodes, Post } from '@/types';
 
 type SearchParamsCodes = { Search: 'Search'; Categories: 'Categories' };
 
@@ -21,7 +16,7 @@ export type FiltersContext = {
   ) => void;
   searchParams?: SearchParams;
   filterArray?: (
-    searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
+    searchParam: (keyof SearchParamsCodes)[],
     arr: Post[] | undefined
   ) => void;
   filteredData?: Post[] | [];
@@ -39,33 +34,12 @@ export const useFilters = () => {
   const [filteredData, setFilteredData] = useState<Post[] | []>([]);
 
   const filterArray = (
-    searchParam: keyof SearchParamsCodes | (keyof SearchParamsCodes)[],
+    searchParam: (keyof SearchParamsCodes)[],
     arr: Post[] | undefined
   ) => {
-    if (typeof searchParam === 'string') {
-      filterArrayWithSingleParameter(searchParam, arr);
-    } else if (Array.isArray(searchParam)) {
-      filterArrayWithArrayOfParameters(searchParam, arr);
-    }
+    filterArrayWithArrayOfParameters(searchParam, arr);
   };
 
-  const filterArrayWithSingleParameter = (
-    searchParam: keyof SearchParamsCodes,
-    arr: Post[] | undefined
-  ) => {
-    const filteredArr = arr?.filter((item) => {
-      if (typeof searchParam === 'string') {
-        return item[filterProperties[searchParam]]
-          .toString()
-          .toLowerCase()
-          .includes(
-            searchParams[searchParam as keyof SearchParamsCodes].toLowerCase()
-          );
-      }
-      return [];
-    }) as Post[];
-    setFilteredData(filteredArr);
-  };
   const filterArrayWithArrayOfParameters = (
     searchParam: (keyof SearchParamsCodes)[],
     arr: Post[] | undefined
@@ -79,14 +53,16 @@ export const useFilters = () => {
             .includes(searchParams[param].toLowerCase());
         }
         if (param === 'Categories') {
-          if (!searchParams.Categories) return true;
-          const categoriesArr = searchParams.Categories.split(',');
-          console.log(categoriesArr);
-          return item.blogCategories.some((category) =>
-            categoriesArr.includes(category.category)
+          const choosenCategories = searchParams.Categories.split(
+            ','
+          ) as (keyof BlogCategoryCodes)[];
+          const itemCategories = item.blogCategories.map((cat) => cat.category);
+
+          return choosenCategories.every((category) =>
+            itemCategories.includes(category)
           );
         }
-        return true;
+        return false;
       })
     );
     setFilteredData(filteredArr ?? []);

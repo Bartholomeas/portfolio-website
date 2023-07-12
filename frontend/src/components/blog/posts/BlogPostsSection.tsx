@@ -18,7 +18,7 @@ type BlogPostsSectionProps = {
 
 export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
   return (
-    <section>
+    <section style={{ minHeight: '50vh' }}>
       <Stack>
         <SectionHeading
           title="Wszystkie wpisy"
