@@ -8,4 +8,15 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  slugify: {
+    enabled: true,
+    config: {
+      contentTypes: {
+        blogPost: {
+          field: "slug",
+          references: "title",
+        },
+      },
+    },
+  },
 });

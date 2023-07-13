@@ -14,21 +14,11 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
   useEffect(() => {
     if (filterArray) filterArray(['Search', 'Categories'], posts);
   }, [searchParams]);
-
+  console.log(posts);
   return (
     <Stack spacing={32}>
       {filteredData &&
-        filteredData?.map((post) => (
-          <BlogCard
-            key={post.id}
-            title={post?.title}
-            shortDescription={post?.shortDescription}
-            publishedAt={post?.publishedAt}
-            readTime={post?.readTime}
-            imgSrc={post?.headerImg?.url}
-            categories={post?.blogCategories}
-          />
-        ))}
+        filteredData?.map((post) => <BlogCard key={post.id} post={post} />)}
     </Stack>
   );
 }

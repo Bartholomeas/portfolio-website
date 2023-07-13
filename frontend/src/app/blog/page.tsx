@@ -12,7 +12,7 @@ import { API_URL } from '@/utils/variables';
 async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/blog-posts?populate[blogCategories]=blogCategories&populate[headerImg]=headerImg&fields[0]=title&fields[1]=readTime&fields[2]=shortDescription&fields[3]=publishedAt`
+      `${API_URL}/api/blog-posts?populate[blogCategories]=blogCategories&populate[headerImg]=headerImg&fields[0]=title&fields[1]=readTime&fields[2]=shortDescription&fields[3]=publishedAt&fields[4]=slug`
     );
 
     return res.json();
@@ -24,10 +24,7 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
 async function getLastPost(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[headerImg]=headerImg&pagination[limit]=1`,
-      {
-        cache: 'no-cache',
-      }
+      `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[headerImg]=headerImg&pagination[limit]=1`
     );
 
     return res.json();
@@ -39,7 +36,7 @@ async function getLastPost(): Promise<FetchResponse<Post[]>> {
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();
   const { data } = await blogPostsPromise;
-
+  console.log(data);
   const featuredPostPromise = getLastPost();
   const { data: featuredPost } = await featuredPostPromise;
 

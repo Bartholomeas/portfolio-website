@@ -24,14 +24,7 @@ export function BlogFeaturedPostSection({
     >
       <Glow position={{ top: 50, left: 0, right: 0, bottom: 0 }} size={300} />
       <SectionHeading title="Najnowszy wpis" subtext="Koniecznie sprawdź" />
-      <BlogCard
-        title={featuredPost?.title}
-        shortDescription={featuredPost?.shortDescription}
-        imgSrc={featuredPost?.headerImg.url}
-        publishedAt={featuredPost?.publishedAt}
-        readTime={featuredPost.readTime}
-        categories={featuredPost.blogCategories}
-      />
+      <BlogCard post={featuredPost} />
     </Stack>
   );
 }

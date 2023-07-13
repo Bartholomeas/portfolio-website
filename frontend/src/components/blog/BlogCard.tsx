@@ -10,9 +10,7 @@ import {
 import Image from 'next/image';
 import { createStyles, rem } from '@mantine/core';
 import { API_URL } from '@/utils/variables';
-import { BlogCategory } from '../../types';
-
-// import { createStyles, rem } from '@mantine/core';
+import { Post } from '../../types';
 
 import { Title } from '../common/mantine/Title';
 import { Text } from '../common/mantine/Text';
@@ -43,22 +41,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 type BlogCardProps = {
-  title: string | undefined;
-  shortDescription: string | undefined;
-  publishedAt: string | undefined;
-  readTime: number | undefined;
-  categories: BlogCategory[] | undefined;
-  imgSrc: string | undefined;
+  post: Post | undefined;
 };
 
-export function BlogCard({
-  title,
-  shortDescription,
-  publishedAt,
-  readTime,
-  categories,
-  imgSrc,
-}: BlogCardProps) {
+export function BlogCard({ post }: BlogCardProps) {
   const { classes } = useStyles();
   return (
     <Card p={0}>
@@ -71,26 +57,28 @@ export function BlogCard({
               position: 'relative',
             }}
           >
-            <Image
-              src={`${API_URL}${imgSrc}`}
-              alt={title ?? 'Image of blog post'}
-              fill
-              loading="lazy"
-              className={classes.image}
-            />
+            {post && post.headerImg && post.headerImg.url && (
+              <Image
+                src={`${API_URL}${post.headerImg.url.trim()}`}
+                alt={post.title ?? 'Image of blog post'}
+                fill
+                loading="lazy"
+                className={classes.image}
+              />
+            )}
           </Box>
         </Card.Section>
 
         <Stack justify="space-between" p={16}>
           <Stack spacing={8}>
             <BlogCardTopGroup
-              title={title ?? ''}
-              readTime={readTime ?? 0}
-              publishedAt={publishedAt ?? ''}
+              title={post?.title ?? ''}
+              readTime={post?.readTime ?? 0}
+              publishedAt={post?.publishedAt ?? ''}
             />
-            <Text textColor="textSecondary">{shortDescription}</Text>
+            <Text textColor="textSecondary">{post?.shortDescription}</Text>
             <ButtonLink
-              href="/blog/1"
+              href={`/blog/${post?.slug}`}
               sx={{ alignSelf: 'end' }}
               color="primary"
               variant="subtle"
@@ -116,10 +104,10 @@ export function BlogCard({
                 </ActionIcon>
               </Group>
               <Group spacing={4} align="center">
-                {categories &&
-                  categories.map(({ category }) => (
+                {post?.blogCategories &&
+                  post?.blogCategories.map(({ category }) => (
                     <BlogPostCategoryBadge
-                      key={`${category}-${title}`}
+                      key={`${category}-${post?.title}`}
                       category={category}
                     />
                   ))}
