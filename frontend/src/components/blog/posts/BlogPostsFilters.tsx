@@ -1,11 +1,9 @@
 'use client';
 
-import React from 'react';
-
-import { Chip, Group, Stack } from '@mantine/core';
-
-import { IconSearch } from '@tabler/icons-react';
 import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+import { Chip, Group, Stack } from '@mantine/core';
+import { IconSearch } from '@tabler/icons-react';
+import React from 'react';
 
 import { TextInput } from '../../common/mantine/TextInput';
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';

@@ -1,12 +1,11 @@
 'use client';
 
+import { Post } from '@/types';
+import { Stack } from '@mantine/core';
 import React from 'react';
 
-import { Stack } from '@mantine/core';
-
-import { Post } from '@/types';
-import { SectionHeading } from '../common/design/SectionHeading';
 import { Glow } from '../common/design/Glow';
+import { SectionHeading } from '../common/design/SectionHeading';
 import { BlogCard } from './BlogCard';
 
 type BlogFeaturedPostSectionProps = {

@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { FetchResponse, Post } from '@/types';
-
+import { BlogFeaturedPostSection } from '@/components/blog/BlogFeaturedPostSection';
+import { BlogHeader } from '@/components/blog/BlogHeader';
+import { BlogPostsSection } from '@/components/blog/posts/BlogPostsSection';
 import { Container, Stack } from '@/components/common/mantine';
 
-import { BlogHeader } from '@/components/blog/BlogHeader';
-import { BlogFeaturedPostSection } from '@/components/blog/BlogFeaturedPostSection';
-import { BlogPostsSection } from '@/components/blog/posts/BlogPostsSection';
+import { FetchResponse, Post } from '@/types';
 import { API_URL } from '@/utils/variables';
 
 async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
@@ -36,7 +35,6 @@ async function getLastPost(): Promise<FetchResponse<Post[]>> {
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();
   const { data } = await blogPostsPromise;
-  console.log(data);
   const featuredPostPromise = getLastPost();
   const { data: featuredPost } = await featuredPostPromise;
 

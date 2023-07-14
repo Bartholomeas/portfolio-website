@@ -1,8 +1,7 @@
 'use client';
 
-import React, { PropsWithChildren } from 'react';
-
 import { Global, MantineProvider } from '@mantine/core';
+import React, { PropsWithChildren } from 'react';
 
 import { basicTheme } from '../../theme/mantine-theme';
 

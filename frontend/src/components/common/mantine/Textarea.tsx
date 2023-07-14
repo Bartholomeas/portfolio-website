@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-
 import {
-  Textarea as MantineTextarea,
-  TextareaProps,
   createStyles,
+  Textarea as MantineTextarea,
   rem,
+  TextareaProps,
 } from '@mantine/core';
+import React, { useState } from 'react';
 
 const useStyles = createStyles(
   (theme, { floating }: { floating: boolean }) => ({

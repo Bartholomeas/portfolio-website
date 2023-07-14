@@ -1,5 +1,5 @@
-import React from 'react';
-
+import { Box, Checkbox, Flex, Group, Stack } from '@mantine/core';
+import { ContextModalProps } from '@mantine/modals';
 import {
   Icon,
   IconAt,
@@ -13,20 +13,16 @@ import {
   IconUser,
   IconX,
 } from '@tabler/icons-react';
-
 import Link from 'next/link';
+import React from 'react';
 
-import { ContextModalProps } from '@mantine/modals';
-import { Box, Checkbox, Flex, Group, Stack } from '@mantine/core';
-
+import { Card } from '../mantine';
 import { Button } from '../mantine/Button';
-import { TextInput } from '../mantine/TextInput';
-import { Textarea } from '../mantine/Textarea';
-
 import { Text } from '../mantine/Text';
+import { Textarea } from '../mantine/Textarea';
+import { TextInput } from '../mantine/TextInput';
 
 import { ShapeWithGlow } from '../ShapeWithGlow';
-import { Card } from '../mantine';
 
 const socials = [
   {

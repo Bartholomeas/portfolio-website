@@ -1,8 +1,7 @@
-import React from 'react';
-import NextLink from 'next/link';
-
-import { usePathname } from 'next/navigation';
 import { createStyles } from '@mantine/core';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 
 const useStyles = createStyles(
   (theme, { isCurrent }: { isCurrent: boolean }) => ({

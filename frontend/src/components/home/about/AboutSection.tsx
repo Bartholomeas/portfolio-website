@@ -1,11 +1,10 @@
+import { Box, createStyles, Image, Stack } from '@mantine/core';
 import React from 'react';
 
-import { Box, Image, Stack, createStyles } from '@mantine/core';
-
+import { Glow } from '../../common/design/Glow';
 import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { ShapeWithGlow } from '../../common/ShapeWithGlow';
-import { Glow } from '../../common/design/Glow';
 import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
 
 const useStyles = createStyles((theme) => ({

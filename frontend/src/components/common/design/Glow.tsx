@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { Box, createStyles } from '@mantine/core';
+import React from 'react';
 
 type Positions = {
   top?: number | string;

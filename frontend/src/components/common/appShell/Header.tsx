@@ -1,24 +1,23 @@
 'use client';
 
-import React from 'react';
-
+import {
+  ActionIcon,
+  Burger,
+  createStyles,
+  Drawer,
+  Group,
+  Header as MantineHeader,
+  Stack,
+} from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-
 import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandMedium,
 } from '@tabler/icons-react';
-import {
-  ActionIcon,
-  Burger,
-  Drawer,
-  Group,
-  Header as MantineHeader,
-  Stack,
-  createStyles,
-} from '@mantine/core';
+import React from 'react';
+
 import { openContactModal, useModalStyles } from '../../../utils/modalsHandler';
 
 import Link from '../Link';

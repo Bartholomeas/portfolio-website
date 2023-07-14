@@ -1,5 +1,5 @@
-import React from 'react';
 import { Chip } from '@mantine/core';
+import React from 'react';
 
 type BlogPostFiltersChipProps = {
   value: string;

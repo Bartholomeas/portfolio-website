@@ -1,13 +1,10 @@
 'use client';
 
-import React, { Suspense } from 'react';
-
-import { Loader } from '@mantine/core';
-
-import { Post } from '@/types';
-
-import { Stack } from '@/components/common/mantine';
 import { SectionHeading } from '@/components/common/design/SectionHeading';
+import { Stack } from '@/components/common/mantine';
+import { Post } from '@/types';
+import { Loader } from '@mantine/core';
+import React, { Suspense } from 'react';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';

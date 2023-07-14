@@ -1,20 +1,16 @@
-import React from 'react';
-import dayjs from 'dayjs';
-
+import { API_URL } from '@/utils/variables';
+import { createStyles, rem } from '@mantine/core';
 import {
-  IconBookmark,
   IconArrowRight,
+  IconBookmark,
   IconHeart,
   IconShare,
 } from '@tabler/icons-react';
+import dayjs from 'dayjs';
 import Image from 'next/image';
-import { createStyles, rem } from '@mantine/core';
-import { API_URL } from '@/utils/variables';
+import React from 'react';
 import { Post } from '../../types';
 
-import { Title } from '../common/mantine/Title';
-import { Text } from '../common/mantine/Text';
-import { ButtonLink } from '../common/mantine/Button';
 import {
   ActionIcon,
   Box,
@@ -23,7 +19,9 @@ import {
   Group,
   Stack,
 } from '../common/mantine';
-
+import { ButtonLink } from '../common/mantine/Button';
+import { Text } from '../common/mantine/Text';
+import { Title } from '../common/mantine/Title';
 import { BlogPostCategoryBadge } from './posts/BlogPostCategoryBadge';
 
 const useStyles = createStyles((theme) => ({
@@ -46,6 +44,7 @@ type BlogCardProps = {
 
 export function BlogCard({ post }: BlogCardProps) {
   const { classes } = useStyles();
+
   return (
     <Card p={0}>
       <div className={classes.grid}>

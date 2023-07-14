@@ -1,6 +1,6 @@
+import { Badge } from '@mantine/core';
 import React from 'react';
 
-import { Badge } from '@mantine/core';
 import { BlogCategoryCodes } from '../../../types';
 
 type CategoryColors = Record<keyof BlogCategoryCodes, string>;

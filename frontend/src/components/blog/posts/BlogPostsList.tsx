@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
 import { Stack } from '@mantine/core';
-import { Post } from '@/types';
-import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+import React, { useEffect } from 'react';
 import { BlogCard } from '../BlogCard';
+import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+import { Post } from '@/types';
 
 type BlogPostsListProps = {
   posts: Post[] | undefined;
@@ -14,7 +14,7 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
   useEffect(() => {
     if (filterArray) filterArray(['Search', 'Categories'], posts);
   }, [searchParams]);
-  console.log(posts);
+
   return (
     <Stack spacing={32}>
       {filteredData &&

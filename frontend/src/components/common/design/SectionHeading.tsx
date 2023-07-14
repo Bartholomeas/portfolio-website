@@ -1,9 +1,8 @@
+import { createStyles, Stack } from '@mantine/core';
 import React from 'react';
 
-import { Stack, createStyles } from '@mantine/core';
-
-import { Title } from '../mantine/Title';
 import { Text } from '../mantine/Text';
+import { Title } from '../mantine/Title';
 
 const useStyles = createStyles((theme) => ({
   heading: {
