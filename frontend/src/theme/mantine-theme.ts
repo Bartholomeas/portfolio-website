@@ -10,7 +10,7 @@ export const darkThemeColors: MantineThemeOther = {
   black: '#000000',
   white: '#FFFFFF',
 
-  textPrimary: '#ffffff',
+  textPrimary: '#e6e6e6',
   textSecondary: '#9B9BAE',
 
   error: '#FF4264',
@@ -51,6 +51,7 @@ export const basicTheme: MantineThemeOther = {
   ...themeSizes,
   primaryColor: 'primary',
   primaryShade: 6,
+  lineHeight: 1.7,
   fontFamily: 'Poppins, sans-serif',
 
   colors: {

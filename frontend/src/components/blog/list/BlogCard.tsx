@@ -1,4 +1,4 @@
-import { createStyles, rem } from '@mantine/core';
+import { Image } from '@mantine/core';
 import {
   IconArrowRight,
   IconBookmark,
@@ -6,142 +6,89 @@ import {
   IconShare,
 } from '@tabler/icons-react';
 import dayjs from 'dayjs';
-import Image from 'next/image';
 import React from 'react';
-import { Post } from '../../../types';
 
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+
+import Link from '@/components/common/Link';
 import {
   ActionIcon,
-  Box,
   Card,
   Divider,
   Group,
   Stack,
-} from '../../common/mantine';
-import { ButtonLink } from '../../common/mantine/Button';
-import { Text } from '../../common/mantine/Text';
-import { Title } from '../../common/mantine/Title';
-import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
-import { API_URL } from '@/utils/variables';
+} from '@/components/common/mantine';
+import { ButtonLink } from '@/components/common/mantine/Button';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
 
-const useStyles = createStyles((theme) => ({
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: rem(16),
-    [theme.fn.largerThan('md')]: {
-      gridTemplateColumns: '2fr 3fr',
-    },
-  },
-  image: {
-    objectFit: 'cover',
-  },
-}));
+import { Post } from '@/types';
+import { API_URL } from '@/utils/variables';
 
 type BlogCardProps = {
   post: Post | undefined;
 };
 
 export function BlogCard({ post }: BlogCardProps) {
-  const { classes } = useStyles();
-
   return (
-    <Card p={0}>
-      <div className={classes.grid}>
+    <Card withBorder pb={8} pt={0}>
+      <Stack justify="space-between" h="100%">
         <Card.Section>
-          <Box
-            mih={250}
-            h="100%"
-            sx={{
-              position: 'relative',
-            }}
-          >
-            {post && post.headerImg && post.headerImg.url && (
-              <Image
-                src={`${API_URL}${post.headerImg.url.trim()}`}
-                alt={post.title ?? 'Image of blog post'}
-                fill
-                loading="lazy"
-                className={classes.image}
-              />
-            )}
-          </Box>
+          <Link href={`/blog/${post?.slug}`}>
+            <Image src={`${API_URL}${post?.headerImg.url}`} height={180} />
+          </Link>
         </Card.Section>
 
-        <Stack justify="space-between" p={16}>
-          <Stack spacing={8}>
-            <BlogCardTopGroup
-              title={post?.title ?? ''}
-              readTime={post?.readTime ?? 0}
-              publishedAt={post?.publishedAt ?? ''}
-            />
-            <Text textColor="textSecondary">{post?.shortDescription}</Text>
-            <ButtonLink
-              href={`/blog/${post?.slug}`}
-              sx={{ alignSelf: 'end' }}
-              color="primary"
-              variant="subtle"
-              px={0}
-              size="md"
-              rightIcon={<IconArrowRight size={18} />}
-            >
-              Przeczytaj
-            </ButtonLink>
-          </Stack>
-          <Stack>
-            <Divider my={0} />
-            <Group position="apart">
-              <Group spacing={8}>
-                <ActionIcon>
-                  <IconHeart size="1.2rem" stroke={1.5} />
-                </ActionIcon>
-                <ActionIcon>
-                  <IconBookmark size="1.2rem" stroke={1.5} />
-                </ActionIcon>
-                <ActionIcon>
-                  <IconShare size="1.2rem" stroke={1.5} />
-                </ActionIcon>
-              </Group>
-              <Group spacing={4} align="center">
-                {post?.blogCategories &&
-                  post?.blogCategories.map(({ category }) => (
-                    <BlogPostCategoryBadge
-                      key={`${category}-${post?.title}`}
-                      category={category}
-                    />
-                  ))}
-              </Group>
-            </Group>
-          </Stack>
-        </Stack>
-      </div>
-    </Card>
-  );
-}
+        <Stack h="100%" spacing={16}>
+          <Group spacing={4} align="center">
+            {post?.blogCategories &&
+              post?.blogCategories.map(({ category }) => (
+                <BlogPostCategoryBadge
+                  key={`${category}-${post?.title}`}
+                  category={category}
+                />
+              ))}
+          </Group>
 
-type BlogCardTopGroupProps = {
-  title: string;
-  publishedAt: string;
-  readTime: number;
-};
-function BlogCardTopGroup({
-  title,
-  publishedAt,
-  readTime,
-}: BlogCardTopGroupProps) {
-  return (
-    <Stack spacing={8}>
-      <Title order={2} fw={700} textColor="primary">
-        {title}
-      </Title>
-      <Group align="end">
-        <Text textColor="textSecondary" size="sm">
-          {dayjs(publishedAt).format('DD.MM.YYYY')}
-        </Text>
-        <Text textColor="textSecondary" size="sm">
-          ~ {readTime} min
-        </Text>
-      </Group>
-    </Stack>
+          <Title order={3} textColor="primary">
+            {post?.title}
+          </Title>
+
+          <Text textColor="textPrimary" size="sm">
+            {post?.shortDescription}
+          </Text>
+          <ButtonLink
+            href={`/blog/${post?.slug}`}
+            variant="subtle"
+            sx={{ alignSelf: 'end' }}
+            compact
+            rightIcon={<IconArrowRight size={16} />}
+          >
+            Przeczytaj
+          </ButtonLink>
+        </Stack>
+        <Stack spacing={8}>
+          <Divider />
+          <Group position="apart">
+            <Text size="sm" textColor="textSecondary">
+              {dayjs(post?.publishedAt).format('DD.MM.YYYY')}, ~{' '}
+              {post?.readTime}
+              min
+            </Text>
+            <Group spacing={8} mr={0}>
+              <ActionIcon>
+                <IconHeart size="1rem" />
+              </ActionIcon>
+              <ActionIcon>
+                <IconBookmark size="1rem" />
+              </ActionIcon>
+              <ActionIcon>
+                <IconShare size="1rem" />
+              </ActionIcon>
+            </Group>
+          </Group>
+        </Stack>
+      </Stack>
+    </Card>
   );
 }

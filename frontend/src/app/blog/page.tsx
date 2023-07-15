@@ -6,7 +6,7 @@ import { BlogPostsSection } from '@/components/blog/list/BlogPostsSection';
 import { Container, Stack } from '@/components/common/mantine';
 
 import { FetchResponse, Post } from '@/types';
-import { API_URL } from '@/utils/variables';
+import { API_TOKEN, API_URL } from '@/utils/variables';
 
 async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   try {
@@ -23,7 +23,10 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
 async function getLastPost(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[headerImg]=headerImg&pagination[limit]=1`
+      `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[headerImg]=headerImg&pagination[limit]=1`,
+      {
+        headers: { Authorization: `Bearer ${API_TOKEN}` },
+      }
     );
 
     return res.json();

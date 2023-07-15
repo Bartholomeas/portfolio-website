@@ -5,6 +5,7 @@ import * as MantineComponents from '@mantine/core';
 export const { Box } = MantineComponents;
 export const { Breadcrumbs } = MantineComponents;
 export const { Flex } = MantineComponents;
+export const { SimpleGrid } = MantineComponents;
 export const { Container } = MantineComponents;
 export const { Card } = MantineComponents;
 export const { Paper } = MantineComponents;

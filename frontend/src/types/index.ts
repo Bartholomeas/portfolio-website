@@ -3,7 +3,6 @@ export type BlogCategoryCodes = {
   javascript: 'javascript';
   css: 'css';
   framework: 'framework';
-  react: 'react';
   lifestyle: 'lifestyle';
   other: 'other';
 };
@@ -11,6 +10,7 @@ export type BlogCategoryCodes = {
 export type BlogCategory = { category: keyof BlogCategoryCodes };
 
 export type Post = {
+  content: string;
   blogCategories: BlogCategory[];
   headerImg: { url: string };
   id: number;

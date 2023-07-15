@@ -16,7 +16,7 @@ module.exports = createCoreController(
         where: {
           slug: id,
         },
-        populate: ["headerImg"],
+        populate: ["headerImg", "blogCategories"],
       });
 
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);

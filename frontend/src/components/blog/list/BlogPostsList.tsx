@@ -1,7 +1,10 @@
-import { Stack } from '@mantine/core';
 import React, { useEffect } from 'react';
+
 import { BlogCard } from './BlogCard';
+
+import { SimpleGrid } from '@/components/common/mantine';
 import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+
 import { Post } from '@/types';
 
 type BlogPostsListProps = {
@@ -16,9 +19,15 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
   }, [searchParams]);
 
   return (
-    <Stack spacing={32}>
+    <SimpleGrid
+      cols={1}
+      breakpoints={[
+        { minWidth: 'sm', cols: 2 },
+        { minWidth: 'lg', cols: 3 },
+      ]}
+    >
       {filteredData &&
         filteredData?.map((post) => <BlogCard key={post.id} post={post} />)}
-    </Stack>
+    </SimpleGrid>
   );
 }
