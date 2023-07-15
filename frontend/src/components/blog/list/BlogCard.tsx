@@ -1,4 +1,3 @@
-import { API_URL } from '@/utils/variables';
 import { createStyles, rem } from '@mantine/core';
 import {
   IconArrowRight,
@@ -9,7 +8,7 @@ import {
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
-import { Post } from '../../types';
+import { Post } from '../../../types';
 
 import {
   ActionIcon,
@@ -18,11 +17,12 @@ import {
   Divider,
   Group,
   Stack,
-} from '../common/mantine';
-import { ButtonLink } from '../common/mantine/Button';
-import { Text } from '../common/mantine/Text';
-import { Title } from '../common/mantine/Title';
-import { BlogPostCategoryBadge } from './posts/BlogPostCategoryBadge';
+} from '../../common/mantine';
+import { ButtonLink } from '../../common/mantine/Button';
+import { Text } from '../../common/mantine/Text';
+import { Title } from '../../common/mantine/Title';
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+import { API_URL } from '@/utils/variables';
 
 const useStyles = createStyles((theme) => ({
   grid: {

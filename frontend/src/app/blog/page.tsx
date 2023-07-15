@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { BlogFeaturedPostSection } from '@/components/blog/BlogFeaturedPostSection';
-import { BlogHeader } from '@/components/blog/BlogHeader';
-import { BlogPostsSection } from '@/components/blog/posts/BlogPostsSection';
+import { BlogFeaturedPostSection } from '@/components/blog/list/BlogFeaturedPostSection';
+import { BlogHeader } from '@/components/blog/list/BlogHeader';
+import { BlogPostsSection } from '@/components/blog/list/BlogPostsSection';
 import { Container, Stack } from '@/components/common/mantine';
 
 import { FetchResponse, Post } from '@/types';

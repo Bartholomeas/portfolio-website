@@ -29,10 +29,10 @@
       {
         "groups": [
           "builtin",
-          "sibling",
           "internal",
           "external",
           "parent",
+          "sibling",
           "index"
         ],
         "pathGroups": [

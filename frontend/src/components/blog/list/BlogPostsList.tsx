@@ -1,6 +1,6 @@
 import { Stack } from '@mantine/core';
 import React, { useEffect } from 'react';
-import { BlogCard } from '../BlogCard';
+import { BlogCard } from './BlogCard';
 import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 import { Post } from '@/types';
 
