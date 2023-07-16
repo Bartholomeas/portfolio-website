@@ -10,6 +10,8 @@ import {
 
 const useStyles = createStyles((theme) => ({
   item: {
+    // fontSize: theme.fontSizes.md,
+    fontSize: 13,
     color: theme.other.textPrimary,
   },
 }));
@@ -20,7 +22,7 @@ type Props = {
 export function Breadcrumbs({ items }: Props) {
   const { classes } = useStyles();
   return (
-    <MantineBreadcrumbs separator="→">
+    <MantineBreadcrumbs separator="→" my={32}>
       {items.map((item) =>
         item.href ? (
           <Link href={item.href} key={item.title} className={classes.item}>

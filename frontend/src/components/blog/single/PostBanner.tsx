@@ -39,48 +39,47 @@ export function PostBanner({ data }: Props) {
   return (
     <Stack>
       <Stack spacing={8}>
+        <Box
+          w="100%"
+          h="auto"
+          sx={{
+            aspectRatio: '16/8',
+            position: 'relative',
+          }}
+        >
+          <Image
+            src={`${API_URL}${imgUrl}` ?? '/'}
+            alt={`${slug}-photo` ?? '/'}
+            fill
+            loading="lazy"
+            className={classes.image}
+          />
+        </Box>
+        <Group w="100%" position="apart">
+          <Group spacing={4} align="center">
+            {blogCategories &&
+              blogCategories.map(({ category }) => (
+                <BlogPostCategoryBadge
+                  size="md"
+                  key={`${category}-${title}`}
+                  category={category}
+                />
+              ))}
+          </Group>
+          <Group>
+            <Text textColor="textSecondary" size="md">
+              {dayjs(publishedAt).format('DD.MM.YYYY')}
+            </Text>
+            <Text textColor="textSecondary" size="md">
+              ~ {readTime} min
+            </Text>
+          </Group>
+        </Group>
         <Title order={1} textColor="primary">
           {title}
         </Title>
         <Text textColor="textPrimary">{shortDescription}</Text>
       </Stack>
-      <Box
-        w="100%"
-        h="auto"
-        sx={{
-          aspectRatio: '16/8',
-          position: 'relative',
-        }}
-      >
-        <Image
-          src={`${API_URL}${imgUrl}` ?? '/'}
-          alt={`${slug}-photo` ?? '/'}
-          fill
-          loading="lazy"
-          className={classes.image}
-        />
-      </Box>
-
-      <Group w="100%" position="apart">
-        <Group spacing={4} align="center">
-          {blogCategories &&
-            blogCategories.map(({ category }) => (
-              <BlogPostCategoryBadge
-                size="md"
-                key={`${category}-${title}`}
-                category={category}
-              />
-            ))}
-        </Group>
-        <Group>
-          <Text textColor="textSecondary" size="md">
-            {dayjs(publishedAt).format('DD.MM.YYYY')}
-          </Text>
-          <Text textColor="textSecondary" size="md">
-            ~ {readTime} min
-          </Text>
-        </Group>
-      </Group>
     </Stack>
   );
 }

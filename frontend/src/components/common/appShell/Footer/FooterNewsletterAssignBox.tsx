@@ -21,12 +21,8 @@ export function FooterNewsletterAssignBox() {
         Zapisz się do newslettera
       </Title>
       <Group spacing={4} noWrap>
-        <TextInput
-          placeholder="E-mail"
-          icon={<IconMail size={16} />}
-          w="100%"
-        />
-        <TextInput placeholder="Imie" icon={<IconUser size={16} />} w="100%" />
+        <TextInput label="E-mail" icon={<IconMail size={16} />} w="100%" />
+        <TextInput label="Imie" icon={<IconUser size={16} />} w="100%" />
       </Group>
       <Button
         variant="outline"

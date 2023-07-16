@@ -7,13 +7,13 @@ const useStyles = createStyles(
   (theme, { isCurrent }: { isCurrent: boolean }) => ({
     link: {
       color: isCurrent ? theme.other.white : theme.other.textSecondary,
-      fontSize: 24,
+      // fontSize: 24,
       [`&:hover`]: {
         color: theme.other.textPrimary,
       },
 
       [theme.fn.largerThan('md')]: {
-        fontSize: 16,
+        // fontSize: 16,
       },
     },
   })

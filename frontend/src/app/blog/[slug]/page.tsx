@@ -4,9 +4,10 @@ import { Stack, TypographyStylesProvider } from '@mantine/core';
 
 import React, { Suspense, use } from 'react';
 import Markdown from 'react-markdown';
-
 import remarkGfm from 'remark-gfm';
+
 import { PostBanner } from '@/components/blog/single/PostBanner';
+import { Divider } from '@/components/common/mantine';
 import { Breadcrumbs } from '@/components/common/mantine/Breadcrumbs';
 
 import { FetchResponse, Post } from '@/types';
@@ -43,6 +44,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <Suspense fallback={<p>loading..</p>}>
         <Stack>
           <PostBanner data={data} />
+          <Divider />
           <TypographyStylesProvider>
             <Markdown
               transformImageUri={(src) => `${API_URL}${src}`}

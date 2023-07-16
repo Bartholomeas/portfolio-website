@@ -7,9 +7,11 @@ import {
   Drawer,
   Group,
   Header as MantineHeader,
+  rem,
   Stack,
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+
 import {
   IconBrandDiscord,
   IconBrandGithub,
@@ -17,11 +19,9 @@ import {
   IconBrandMedium,
 } from '@tabler/icons-react';
 import React from 'react';
-
-import { openContactModal, useModalStyles } from '../../../utils/modalsHandler';
-
 import Link from '../Link';
 import { Button } from '../mantine/Button';
+import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -52,6 +52,12 @@ const useStyles = createStyles((theme) => ({
     bottom: 16,
     [theme.fn.largerThan('sm')]: {
       display: 'none',
+    },
+  },
+  link: {
+    fontSize: rem(24),
+    [theme.fn.largerThan('md')]: {
+      fontSize: rem(16),
     },
   },
 
@@ -113,9 +119,15 @@ function HeaderMobile() {
           w="100%"
           h="100%"
         >
-          <Link href="/">strona główna</Link>
-          <Link href="/blog">blog</Link>
-          <Link href="/recommended">polecane</Link>
+          <Link className={classes.link} href="/">
+            strona główna
+          </Link>
+          <Link className={classes.link} href="/blog">
+            blog
+          </Link>
+          <Link className={classes.link} href="/recommended">
+            polecane
+          </Link>
           <Button
             variant="outline"
             color="primary"

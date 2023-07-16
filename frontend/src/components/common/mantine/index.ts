@@ -14,6 +14,7 @@ export const { Stack } = MantineComponents;
 export const { Group } = MantineComponents;
 export const { Anchor } = MantineComponents;
 export const { ActionIcon } = MantineComponents;
+export const { ThemeIcon } = MantineComponents;
 export const { Avatar } = MantineComponents;
 export const { Button } = MantineComponents;
 export const { Badge } = MantineComponents;
