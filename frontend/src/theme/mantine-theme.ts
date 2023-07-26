@@ -51,7 +51,7 @@ export const basicTheme: MantineThemeOther = {
   ...themeSizes,
   primaryColor: 'primary',
   primaryShade: 6,
-  lineHeight: 1.7,
+  lineHeight: 1.8,
   fontFamily: 'Poppins, sans-serif',
 
   colors: {

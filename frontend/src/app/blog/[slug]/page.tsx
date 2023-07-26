@@ -1,19 +1,38 @@
 'use client';
 
-import { Stack, TypographyStylesProvider } from '@mantine/core';
+import {
+  createStyles,
+  rem,
+  Stack,
+  TypographyStylesProvider,
+} from '@mantine/core';
 
+import Image from 'next/image';
 import React, { Suspense, use } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 import { PostBanner } from '@/components/blog/single/PostBanner';
-import { Divider } from '@/components/common/mantine';
+import { Box, Divider } from '@/components/common/mantine';
 import { Breadcrumbs } from '@/components/common/mantine/Breadcrumbs';
 
 import { FetchResponse, Post } from '@/types';
 
 import { createQueryClient } from '@/utils/createQueryClient';
 import { API_TOKEN, API_URL } from '@/utils/variables';
+
+const useStyles = createStyles((theme) => ({
+  image: {
+    objectFit: 'cover',
+    width: '100%',
+  },
+
+  postContent: {
+    backgroundColor: theme.other.bgDark,
+    borderRadius: rem(8),
+    transform: 'translateY(-100px)',
+  },
+}));
 
 async function getBlogPost(slug: string): Promise<FetchResponse<Post>> {
   try {
@@ -32,17 +51,44 @@ export default function Page({ params }: { params: { slug: string } }) {
   const { data } = use(
     queryClient(`blogPost-${params.slug}`, () => getBlogPost(params.slug))
   );
+  const { classes } = useStyles();
 
   const items = [
     { title: 'Blog', href: '/blog' },
     { title: data?.title ?? '' },
   ];
+  const imgUrl = data.headerImg?.url ?? '';
 
   return (
-    <Stack w="100%" maw={800} mx="auto" px={16}>
+    <Stack maw={1000} mx="auto">
       <Breadcrumbs items={items} />
-      <Suspense fallback={<p>loading..</p>}>
-        <Stack>
+
+      <Box
+        w="100%"
+        h="auto"
+        sx={{
+          aspectRatio: '16/8',
+          position: 'relative',
+          borderRadius: rem(8),
+          overflow: 'hidden',
+        }}
+      >
+        <Image
+          src={`${API_URL}${imgUrl}` ?? '/'}
+          alt={`${data?.slug}-blog-photo`}
+          fill
+          loading="lazy"
+          className={classes.image}
+        />
+      </Box>
+      <Stack
+        w="100%"
+        maw={800}
+        mx="auto"
+        p={24}
+        className={classes.postContent}
+      >
+        <Suspense fallback={<p>loading..</p>}>
           <PostBanner data={data} />
           <Divider />
           <TypographyStylesProvider>
@@ -53,8 +99,8 @@ export default function Page({ params }: { params: { slug: string } }) {
               {data?.content}
             </Markdown>
           </TypographyStylesProvider>
-        </Stack>
-      </Suspense>
+        </Suspense>
+      </Stack>
     </Stack>
   );
 }
