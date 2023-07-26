@@ -1,11 +1,10 @@
 'use client';
 
-import React from 'react';
 import {
   ActionIcon,
+  createStyles,
   Aside as MantineAside,
   Stack,
-  createStyles,
 } from '@mantine/core';
 
 import {
@@ -14,6 +13,7 @@ import {
   IconBrandLinkedin,
   IconBrandMedium,
 } from '@tabler/icons-react';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

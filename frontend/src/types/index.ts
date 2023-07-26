@@ -3,7 +3,6 @@ export type BlogCategoryCodes = {
   javascript: 'javascript';
   css: 'css';
   framework: 'framework';
-  react: 'react';
   lifestyle: 'lifestyle';
   other: 'other';
 };
@@ -11,23 +10,27 @@ export type BlogCategoryCodes = {
 export type BlogCategory = { category: keyof BlogCategoryCodes };
 
 export type Post = {
-  id: number;
-  title: string;
-  readTime: number;
-  publishedAt: string;
+  content: string;
   blogCategories: BlogCategory[];
   headerImg: { url: string };
+  id: number;
+  publishedAt: string;
+  readTime: number;
   shortDescription: string;
+  title: string;
+  slug: string;
 };
 
-export type FetchResponse<T> = {
-  data: T;
-  meta: {
-    pagination: {
-      page: number;
-      pageCount: number;
-      pageSize: number;
-      total: number;
-    };
-  };
-};
+export type FetchResponse<T> = T extends any[]
+  ? {
+      data: T;
+      meta: {
+        pagination: {
+          page: number;
+          pageCount: number;
+          pageSize: number;
+          total: number;
+        };
+      };
+    }
+  : { data: T };

@@ -2592,7 +2592,7 @@
     "@strapi/utils" "4.10.6"
     "fs-extra" "10.0.0"
 
-"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.0.7", "@strapi/strapi@^4.10.1", "@strapi/strapi@^4.3.4", "@strapi/strapi@^4.9.0", "@strapi/strapi@4.10.6":
+"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.0.7", "@strapi/strapi@^4.3.4", "@strapi/strapi@^4.9.0", "@strapi/strapi@4.10.6":
   "integrity" "sha512-sdjK5aIJjM/UhMHko3DcUrHJ9Tu9fhR8dFyumJ+/C4w7aPPYrCnm8UvNrbEvECosixInO0bPf8WjikPY7vreoQ=="
   "resolved" "https://registry.npmjs.org/@strapi/strapi/-/strapi-4.10.6.tgz"
   "version" "4.10.6"
@@ -5068,11 +5068,6 @@
   "integrity" "sha512-qC1FbhCH7UH7B+BcRNUDhAk04d/n+tnGGB1ctwndZkVFeehYJOn39pRWWzmdzpFqImyX1KB8tO0DCHLf8yRaYQ=="
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-8.5.1.tgz"
   "version" "8.5.1"
-
-"drange@^1.0.2":
-  "integrity" "sha512-pYxfDYpued//QpnLIm4Avk7rsNtAtQkUES2cwAYSvD/wd2pKD71gN2Ebj3e7klzXwjocvE8c5vx/1fxwpqmSxA=="
-  "resolved" "https://registry.npmjs.org/drange/-/drange-1.1.1.tgz"
-  "version" "1.1.1"
 
 "ecdsa-sig-formatter@1.0.11":
   "integrity" "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ=="
@@ -8622,14 +8617,6 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
-"randexp@^0.5.3":
-  "integrity" "sha512-U+5l2KrcMNOUPYvazA3h5ekF80FHTUG+87SEAmHZmolh1M+i/WyTCxVzmi+tidIa1tM4BSe8g2Y/D3loWDjj+w=="
-  "resolved" "https://registry.npmjs.org/randexp/-/randexp-0.5.3.tgz"
-  "version" "0.5.3"
-  dependencies:
-    "drange" "^1.0.2"
-    "ret" "^0.2.0"
-
 "randombytes@^2.1.0":
   "integrity" "sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ=="
   "resolved" "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"
@@ -9208,11 +9195,6 @@
     "onetime" "^5.1.0"
     "signal-exit" "^3.0.2"
 
-"ret@^0.2.0":
-  "integrity" "sha512-M0b3YWQs7R3Z917WRQy1HHA7Ba7D8hvZg6UE5mLykJxQVE2ju0IXbGlaHPPlkY+WN7wFP+wUMXmBFA0aV6vYGQ=="
-  "resolved" "https://registry.npmjs.org/ret/-/ret-0.2.2.tgz"
-  "version" "0.2.2"
-
 "ret@~0.1.10":
   "integrity" "sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg=="
   "resolved" "https://registry.npmjs.org/ret/-/ret-0.1.15.tgz"
@@ -9786,14 +9768,6 @@
   "resolved" "https://registry.npmjs.org/std-env/-/std-env-3.3.3.tgz"
   "version" "3.3.3"
 
-"strapi-advanced-uuid@^1.0.11":
-  "integrity" "sha512-o6r1nBHHn+rxApGWf5bo1T/aBaPSsohZ1Qbm95bSRIRAVJd07iChPVLDVxg3nTm0GxIYYr0JCWvQnOK/TatwnA=="
-  "resolved" "https://registry.npmjs.org/strapi-advanced-uuid/-/strapi-advanced-uuid-1.0.11.tgz"
-  "version" "1.0.11"
-  dependencies:
-    "randexp" "^0.5.3"
-    "uuid" "^9.0.0"
-
 "strapi-plugin-transformer@^3.1.0":
   "integrity" "sha512-wSWntxTeyx+9gTLsR7/rxAcx13PG+AGaLFUHARXu0cZOeULCtLHTgVbGnn0TvzlL/hUq21IKFZRuGF1amsgrzA=="
   "resolved" "https://registry.npmjs.org/strapi-plugin-transformer/-/strapi-plugin-transformer-3.1.0.tgz"
@@ -9900,7 +9874,7 @@
   "resolved" "https://registry.npmjs.org/style-mod/-/style-mod-4.0.3.tgz"
   "version" "4.0.3"
 
-"styled-components@^5.2.1", "styled-components@^5.3.3", "styled-components@^5.3.6", "styled-components@>= 2":
+"styled-components@^5.2.1", "styled-components@^5.3.3", "styled-components@>= 2":
   "integrity" "sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw=="
   "resolved" "https://registry.npmjs.org/styled-components/-/styled-components-5.3.11.tgz"
   "version" "5.3.11"

@@ -1,10 +1,8 @@
-import { IconTerminal, IconPencil } from '@tabler/icons-react';
-
-import { SimpleGrid, Stack, Group, Box } from '@mantine/core';
-
 import { Card } from '@/components/common/mantine';
-import { Title } from '@/components/common/mantine/Title';
 import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
+import { Box, Group, SimpleGrid, Stack } from '@mantine/core';
+import { IconPencil, IconTerminal } from '@tabler/icons-react';
 
 export function AboutSpecializationsGrid() {
   return (

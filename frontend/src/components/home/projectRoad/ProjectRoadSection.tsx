@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { Box, Group, Stack, createStyles } from '@mantine/core';
+import { Box, createStyles, Group, Stack } from '@mantine/core';
 
 import {
   Icon,
@@ -10,6 +8,7 @@ import {
   IconMoodCheck,
   IconProgress,
 } from '@tabler/icons-react';
+import React from 'react';
 import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { Title } from '../../common/mantine/Title';

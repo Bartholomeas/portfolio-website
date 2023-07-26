@@ -10,7 +10,7 @@ export const darkThemeColors: MantineThemeOther = {
   black: '#000000',
   white: '#FFFFFF',
 
-  textPrimary: '#ffffff',
+  textPrimary: '#e6e6e6',
   textSecondary: '#9B9BAE',
 
   error: '#FF4264',
@@ -36,8 +36,11 @@ const themeSizes: MantineThemeOther = {
 
   headings: {
     sizes: {
-      h1: { fontWeight: 700, fontSize: '2.5rem', lineHeight: 1.4 },
-      h2: { fontWeight: 400, fontSize: '1.5rem', lineHeight: 1 },
+      h1: { fontWeight: 700, fontSize: '2rem', lineHeight: 1.4 },
+      h2: { fontWeight: 700, fontSize: '1.6rem', lineHeight: 1 },
+      h3: { fontWeight: 700, fontSize: '1.2rem', lineHeight: 1 },
+      h4: { fontWeight: 700, fontSize: '1rem', lineHeight: 1 },
+      h5: { fontWeight: 700, fontSize: '.8rem', lineHeight: 1 },
     },
   },
 };
@@ -48,6 +51,7 @@ export const basicTheme: MantineThemeOther = {
   ...themeSizes,
   primaryColor: 'primary',
   primaryShade: 6,
+  lineHeight: 1.8,
   fontFamily: 'Poppins, sans-serif',
 
   colors: {

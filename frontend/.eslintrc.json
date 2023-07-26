@@ -16,7 +16,51 @@
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "error",
-    "no-console": "off"
+    "no-console": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      1,
+      {
+        "groups": [
+          "builtin",
+          "internal",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "src/components/**/*",
+            "group": "internal"
+          },
+          {
+            "pattern": "src/hooks/**/*",
+            "group": "internal"
+          },
+          {
+            "pattern": "src/**/**/*",
+            "group": "internal"
+          },
+          {
+            "pattern": "assets/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["internal"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   },
   "overrides": [
     {

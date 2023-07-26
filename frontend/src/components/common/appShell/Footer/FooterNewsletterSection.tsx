@@ -1,10 +1,9 @@
+import { Container, createStyles, Stack } from '@mantine/core';
 import React from 'react';
 
-import { Container, Stack, createStyles } from '@mantine/core';
-import { FooterNewsletterAssignBox } from './FooterNewsletterAssignBox';
-
-import { Title } from '../../mantine/Title';
 import { Text } from '../../mantine/Text';
+import { Title } from '../../mantine/Title';
+import { FooterNewsletterAssignBox } from './FooterNewsletterAssignBox';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

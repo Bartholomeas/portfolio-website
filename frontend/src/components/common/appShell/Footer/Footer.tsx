@@ -1,10 +1,9 @@
-import React from 'react';
-import dayjs from 'dayjs';
-
 import { Stack } from '@mantine/core';
+import dayjs from 'dayjs';
+import React from 'react';
 
-import { FooterNewsletterSection } from './FooterNewsletterSection';
 import { Text } from '../../mantine/Text';
+import { FooterNewsletterSection } from './FooterNewsletterSection';
 
 export function Footer() {
   return (

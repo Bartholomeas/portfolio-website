@@ -1,4 +1,4 @@
-import { ModalBaseStylesNames, createStyles } from '@mantine/core';
+import { createStyles, ModalBaseStylesNames } from '@mantine/core';
 import { modals } from '@mantine/modals';
 
 export const useModalStyles = createStyles((theme) => ({
