@@ -1,33 +1,47 @@
-import { createStyles } from '@mantine/core';
-import NextLink from 'next/link';
+import { createStyles, rem } from '@mantine/core';
+
+import NextLink, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
+
 import React from 'react';
 
-const useStyles = createStyles(
-  (theme, { isCurrent }: { isCurrent: boolean }) => ({
-    link: {
-      color: isCurrent ? theme.other.white : theme.other.textSecondary,
-      // fontSize: 24,
-      [`&:hover`]: {
-        color: theme.other.textPrimary,
-      },
+const useStyles = createStyles((theme) => ({
+  link: {
+    color: theme.other.textSecondary,
 
-      [theme.fn.largerThan('md')]: {
-        // fontSize: 16,
-      },
+    [`&:hover`]: {
+      color: theme.other.textPrimary,
     },
-  })
-);
 
-type LinkProps = React.PropsWithChildren<{ href: string; className?: string }>;
+    fontSize: rem(24),
+    [theme.fn.largerThan('md')]: {
+      fontSize: rem(14),
+    },
+  },
+  linkActive: {
+    color: theme.other.textPrimary,
+  },
+}));
 
-function Link({ href, className, children }: LinkProps) {
+type Props = React.PropsWithChildren<
+  { href: string; className?: string } & LinkProps
+>;
+
+function Link({ href, className, children, ...props }: Props) {
+  const { cx, classes } = useStyles();
   const pathname = usePathname();
   const isCurrent = pathname === href;
-  const { cx, classes } = useStyles({ isCurrent });
 
   return (
-    <NextLink className={cx(classes.link, className)} href={href}>
+    <NextLink
+      className={cx(
+        classes.link,
+        { [classes.linkActive]: isCurrent },
+        className
+      )}
+      href={href}
+      {...props}
+    >
       {children}
     </NextLink>
   );

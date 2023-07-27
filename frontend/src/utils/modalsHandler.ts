@@ -4,6 +4,7 @@ import { modals } from '@mantine/modals';
 export const useModalStyles = createStyles((theme) => ({
   header: {
     backgroundColor: theme.other.bg,
+    borderRadius: '8px 8px 0 0',
   },
 
   body: {
@@ -31,7 +32,6 @@ export const openContactModal = (
   modals.openContextModal({
     modal: 'contactModal',
     title: 'Skontaktuj się ze mną!',
-    size: 'lg',
     centered: true,
     transitionProps: {
       transition: 'pop',
