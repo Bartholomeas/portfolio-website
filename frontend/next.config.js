@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -11,6 +13,7 @@ const nextConfig = {
   },
 
   webpack(config) {
+    config.resolve.alias['@'] = path.join(__dirname, 'app');
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
