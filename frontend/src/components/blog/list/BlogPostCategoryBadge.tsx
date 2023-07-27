@@ -23,7 +23,6 @@ export function BlogPostCategoryBadge({
   category,
   size = 'xs',
 }: BlogPostCategoryBadgeProps) {
-  console.log(category);
   return (
     <Badge
       size={size}

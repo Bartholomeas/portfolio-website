@@ -25,7 +25,7 @@ export function LandingSection() {
     <section className={classes.wrapper}>
       <Stack align="center" spacing={8}>
         <ShapeWithGlow size={250} />
-        <Title order={1}>bartosz stefaniak</Title>
+        <Title order={1}>bstfnc.</Title>
         <Title order={2} textColor="textSecondary">
           front-end development
         </Title>

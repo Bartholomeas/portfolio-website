@@ -1,46 +1,23 @@
-import { Box, Checkbox, Flex, Group, Stack } from '@mantine/core';
+import { Box, Checkbox, Flex, Stack } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
+
 import {
-  Icon,
   IconAt,
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandMedium,
   IconHeading,
-  IconMail,
   IconMessage,
   IconSend,
   IconUser,
   IconX,
 } from '@tabler/icons-react';
-import Link from 'next/link';
+
 import React from 'react';
 
-import { Card } from '../mantine';
 import { Button } from '../mantine/Button';
-import { Text } from '../mantine/Text';
 import { Textarea } from '../mantine/Textarea';
 import { TextInput } from '../mantine/TextInput';
 
 import { ShapeWithGlow } from '../ShapeWithGlow';
 
-const socials = [
-  {
-    text: 'Linkedin',
-    href: 'https://www.linkedin.com/in/bartosz-stefaniak-a82727222/',
-    icon: IconBrandLinkedin,
-  },
-  {
-    text: 'Github',
-    href: 'https://github.com/Bartholomeas',
-    icon: IconBrandGithub,
-  },
-  {
-    text: 'Medium',
-    href: 'https://www.medium.com',
-    icon: IconBrandMedium,
-  },
-];
 export function ContactModal({ context, id }: ContextModalProps) {
   return (
     <Stack sx={{ position: 'relative' }}>
@@ -121,35 +98,6 @@ export function ContactModal({ context, id }: ContextModalProps) {
           Wyślij wiadomość
         </Button>
       </Flex>
-      <Card>
-        <Group position="apart">
-          {socials.map(({ text, href, icon }) => (
-            <ContactSocialLink key={href} text={text} href={href} icon={icon} />
-          ))}
-          <Group spacing={8}>
-            <IconMail />
-            <Text>barth.webdesign@gmail.com</Text>
-          </Group>
-        </Group>
-      </Card>
     </Stack>
-  );
-}
-
-type ContactSocialLinkProps = {
-  text: string;
-  href: string;
-  icon: Icon;
-};
-
-function ContactSocialLink({ text, href, icon }: ContactSocialLinkProps) {
-  const IconElement = icon;
-  return (
-    <Link target="_blank" href={href}>
-      <Group spacing={8}>
-        <IconElement />
-        <Text>{text}</Text>
-      </Group>
-    </Link>
   );
 }
