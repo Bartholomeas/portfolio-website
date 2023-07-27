@@ -3,11 +3,11 @@
 import { Loader } from '@mantine/core';
 import React, { Suspense } from 'react';
 
-import { BlogPostsFilters } from './BlogPostsFilters';
-import { BlogPostsList } from './BlogPostsList';
-
 import { SectionHeading } from '@/components/common/design/SectionHeading';
 import { Stack } from '@/components/common/mantine';
+
+import { BlogPostsFilters } from './BlogPostsFilters';
+import { BlogPostsList } from './BlogPostsList';
 
 import { Post } from '@/types';
 

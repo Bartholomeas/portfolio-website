@@ -2,6 +2,7 @@ import { Group, Stack } from '@mantine/core';
 
 import { IconMail, IconSend, IconUser } from '@tabler/icons-react';
 import React from 'react';
+
 import { Button } from '../../mantine/Button';
 import { TextInput } from '../../mantine/TextInput';
 import { Title } from '../../mantine/Title';

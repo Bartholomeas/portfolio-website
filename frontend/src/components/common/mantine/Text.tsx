@@ -1,9 +1,13 @@
 'use client';
 
 import { Text as MantineText } from '@/components/common/mantine';
+
 import { ThemeColors } from '@/theme/types';
+
 import { createStyles, TextProps } from '@mantine/core';
+
 import React from 'react';
+
 
 type StylesProps = {
   textColor: ThemeColors;

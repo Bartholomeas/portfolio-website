@@ -8,8 +8,11 @@ import {
 } from '@mantine/core';
 
 import Image from 'next/image';
+
 import React, { Suspense, use } from 'react';
+
 import Markdown from 'react-markdown';
+
 import remarkGfm from 'remark-gfm';
 
 import { PostBanner } from '@/components/blog/single/PostBanner';

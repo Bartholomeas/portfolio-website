@@ -8,9 +8,11 @@ import {
   IconNavigation,
   IconTrendingUp,
 } from '@tabler/icons-react';
+
 import React from 'react';
 
-import { SectionHeading } from '../../common/design/SectionHeading';
+import { SectionHeading } from '@/components/common/design/SectionHeading';
+
 import { BenefitsBox } from './BenefitsBox';
 
 export function BenefitsSection() {

@@ -1,6 +1,7 @@
 'use client';
 
 import { createStyles, Stack } from '@mantine/core';
+
 import {
   IconFlame,
   IconMail,
@@ -8,9 +9,8 @@ import {
   IconSend,
   IconUser,
 } from '@tabler/icons-react';
-import React from 'react';
 
-import { BlogCard } from './BlogCard';
+import React from 'react';
 
 import { Glow } from '@/components/common/design/Glow';
 import { SectionHeading } from '@/components/common/design/SectionHeading';
@@ -23,6 +23,8 @@ import {
 import { Button } from '@/components/common/mantine/Button';
 import { TextInput } from '@/components/common/mantine/TextInput';
 import { Title } from '@/components/common/mantine/Title';
+
+import { BlogCard } from './BlogCard';
 
 import { Post } from '@/types';
 

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
+
 import { Poppins } from 'next/font/google';
+
 import React from 'react';
 
 import { AppModalsProvider } from '@/components/templates/AppModalsProvider';

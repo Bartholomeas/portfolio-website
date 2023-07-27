@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Text } from '../../mantine/Text';
 import { Title } from '../../mantine/Title';
+
 import { FooterNewsletterAssignBox } from './FooterNewsletterAssignBox';
 
 const useStyles = createStyles((theme) => ({

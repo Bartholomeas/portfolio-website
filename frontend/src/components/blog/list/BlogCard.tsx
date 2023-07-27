@@ -4,11 +4,12 @@ import {
   IconHeart,
   IconShare,
 } from '@tabler/icons-react';
-import dayjs from 'dayjs';
-import Image from 'next/image';
-import React from 'react';
 
-import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+import dayjs from 'dayjs';
+
+import Image from 'next/image';
+
+import React from 'react';
 
 import Link from '@/components/common/Link';
 import {
@@ -22,6 +23,8 @@ import {
 import { ButtonLink } from '@/components/common/mantine/Button';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
+
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
 
 import { Post } from '@/types';
 import { API_URL } from '@/utils/variables';

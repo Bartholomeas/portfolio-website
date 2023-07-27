@@ -9,6 +9,7 @@ import {
   IconProgress,
 } from '@tabler/icons-react';
 import React from 'react';
+
 import { SectionHeading } from '../../common/design/SectionHeading';
 import { Text } from '../../common/mantine/Text';
 import { Title } from '../../common/mantine/Title';

@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 
 import { Text } from '../../mantine/Text';
+
 import { FooterNewsletterSection } from './FooterNewsletterSection';
 
 export function Footer() {

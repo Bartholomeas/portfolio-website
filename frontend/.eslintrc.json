@@ -33,27 +33,17 @@
           "external",
           "parent",
           "sibling",
-          "index"
+          "index",
+          "object",
+          "type"
         ],
         "pathGroups": [
           {
-            "pattern": "src/components/**/*",
-            "group": "internal"
-          },
-          {
-            "pattern": "src/hooks/**/*",
-            "group": "internal"
-          },
-          {
-            "pattern": "src/**/**/*",
-            "group": "internal"
-          },
-          {
-            "pattern": "assets/**",
-            "group": "internal",
-            "position": "after"
+            "pattern": "@/components/**",
+            "group": "parent"
           }
         ],
+        "newlines-between": "always-and-inside-groups",
         "pathGroupsExcludedImportTypes": ["internal"],
         "alphabetize": {
           "order": "asc",

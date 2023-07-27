@@ -1,9 +1,12 @@
+import { Box, createStyles, Stack } from '@mantine/core';
+
+import { Icon } from '@tabler/icons-react';
+
+import React from 'react';
+
 import { Card } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
-import { Box, createStyles, Stack } from '@mantine/core';
-import { Icon } from '@tabler/icons-react';
-import React from 'react';
 
 type BenefitsBoxProps = {
   icon: Icon;

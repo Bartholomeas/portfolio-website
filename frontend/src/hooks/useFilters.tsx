@@ -1,6 +1,7 @@
 import { useDebouncedValue } from '@mantine/hooks';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
 import { BlogCategoryCodes, Post } from '@/types';
 
 type SearchParamsCodes = { Search: 'Search'; Categories: 'Categories' };

@@ -1,11 +1,12 @@
 'use client';
 
-import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 import { Chip, Group, Stack } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import React from 'react';
 
-import { TextInput } from '../../common/mantine/TextInput';
+import { TextInput } from '@/components/common/mantine/TextInput';
+import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
+
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
 const postsCategories = [

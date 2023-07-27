@@ -1,12 +1,15 @@
 'use client';
 
-import { createStyles } from '@mantine/core';
-import React from 'react';
 import Link from '@/components/common/Link';
+
 import {
   Breadcrumbs as MantineBreadcrumbs,
   Text,
 } from '@/components/common/mantine';
+
+import { createStyles } from '@mantine/core';
+import React from 'react';
+
 
 const useStyles = createStyles((theme) => ({
   item: {

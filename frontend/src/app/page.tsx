@@ -1,6 +1,7 @@
 'use client';
 
 import { Container, Stack } from '@mantine/core';
+
 import { AboutSection } from '@/components/home/about/AboutSection';
 import { BenefitsSection } from '@/components/home/benefits/BenefitsSection';
 import { LandingSection } from '@/components/home/landing/LandingSection';

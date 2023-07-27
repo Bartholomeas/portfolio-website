@@ -1,5 +1,7 @@
 'use client';
 
+import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
+
 import {
   ActionIcon,
   Burger,
@@ -24,8 +26,6 @@ import React from 'react';
 import Link from '../Link';
 import { Container } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
-
-import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
