@@ -4,10 +4,10 @@ import { Poppins } from 'next/font/google';
 
 import React from 'react';
 
-import { AppModalsProvider } from '../_components/templates/AppModalsProvider';
-import AppShell from '../_components/templates/AppShell';
-import { FiltersContextProvider } from '../_components/templates/FiltersContextProvider';
-import RootStyleRegistry from '../_components/templates/RootStyleRegistry';
+import { AppModalsProvider } from '@/_components/templates/AppModalsProvider';
+import AppShell from '@/_components/templates/AppShell';
+import { FiltersContextProvider } from '@/_components/templates/FiltersContextProvider';
+import RootStyleRegistry from '@/_components/templates/RootStyleRegistry';
 
 const poppins = Poppins({
   weight: ['400', '700'],

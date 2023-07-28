@@ -3,13 +3,12 @@
 import { Loader } from '@mantine/core';
 import React, { Suspense } from 'react';
 
-import { Post } from '../../../_types';
-import { SectionHeading } from '../../common/design/SectionHeading';
-
-import { Stack } from '../../common/mantine';
-
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
+
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
+import { Stack } from '@/_components/common/mantine';
+import { Post } from '@/_types';
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;

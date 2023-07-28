@@ -4,9 +4,9 @@ import { createStyles, TitleProps } from '@mantine/core';
 
 import React from 'react';
 
-import { ThemeColors } from '../../../_theme/types';
-
 import { Title as MantineTitle } from '.';
+
+import { ThemeColors } from '@/_theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;

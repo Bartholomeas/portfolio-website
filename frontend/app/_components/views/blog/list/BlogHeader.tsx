@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Box, Flex } from '../../common/mantine';
-import { Title } from '../../common/mantine/Title';
-import { ShapeWithGlow } from '../../common/ShapeWithGlow';
+import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
+import { Box, Flex } from '@/_components/common/mantine';
+import { Title } from '@/_components/common/mantine/Title';
 
 export function BlogHeader() {
   return (

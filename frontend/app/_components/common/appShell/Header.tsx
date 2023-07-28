@@ -26,7 +26,7 @@ import {
   useModalStyles,
 } from '../../../_utils/modalsHandler';
 
-import Link from '../Link';
+import { Link } from '../Link';
 import { Container } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
 

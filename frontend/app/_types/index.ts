@@ -1,13 +1,12 @@
 export type BlogCategoryCodes = {
-  html: 'html';
-  javascript: 'javascript';
-  css: 'css';
+  tutorial: 'tutorial';
   framework: 'framework';
-  lifestyle: 'lifestyle';
+  styles: 'styles';
+  tools: 'tools';
   other: 'other';
 };
 
-export type BlogCategory = { category: keyof BlogCategoryCodes };
+export type BlogCategory = { name: string; code: keyof BlogCategoryCodes };
 
 export type Post = {
   content: string;

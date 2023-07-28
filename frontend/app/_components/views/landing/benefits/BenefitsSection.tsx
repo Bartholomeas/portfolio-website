@@ -11,9 +11,9 @@ import {
 
 import React from 'react';
 
-import { SectionHeading } from '../../common/design/SectionHeading';
-
 import { BenefitsBox } from './BenefitsBox';
+
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
 
 export function BenefitsSection() {
   return (

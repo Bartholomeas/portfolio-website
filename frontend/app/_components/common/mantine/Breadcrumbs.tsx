@@ -4,7 +4,7 @@ import { createStyles } from '@mantine/core';
 
 import React from 'react';
 
-import Link from '../Link';
+import { Link } from '../Link';
 
 import { Breadcrumbs as MantineBreadcrumbs, Text } from '.';
 

@@ -5,7 +5,7 @@ import { useMediaQuery } from '@mantine/hooks';
 
 import React from 'react';
 
-import { Box } from './mantine';
+import { Box } from '../mantine';
 
 const useStyles = createStyles(() => ({
   wrapper: {

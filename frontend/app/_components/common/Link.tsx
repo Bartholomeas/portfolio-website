@@ -27,7 +27,7 @@ type Props = React.PropsWithChildren<
   { href: string; className?: string } & LinkProps
 >;
 
-function Link({ href, className, children, ...props }: Props) {
+export function Link({ href, className, children, ...props }: Props) {
   const { cx, classes } = useStyles();
   const pathname = usePathname();
   const isCurrent = pathname === href;
@@ -46,5 +46,3 @@ function Link({ href, className, children, ...props }: Props) {
     </NextLink>
   );
 }
-
-export default Link;

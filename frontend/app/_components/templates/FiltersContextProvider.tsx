@@ -3,7 +3,7 @@
 import { PropsWithChildren } from 'react';
 
 import { FiltersContext, useFilters } from '@/_hooks/useFilters';
-import { createCtx } from '@/_services/createCtx';
+import { createCtx } from '@/_utils/createCtx';
 
 const [FiltersProvider, useFiltersCtx] = createCtx<FiltersContext>({
   defaultValue: {},

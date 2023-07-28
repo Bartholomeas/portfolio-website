@@ -3,7 +3,7 @@
 import { AppShell as MantineAppShell } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
 
-import { Footer } from '../common/appShell/Footer/Footer';
+import { Footer } from '../common/appShell/footer/Footer';
 import { Header } from '../common/appShell/Header';
 
 function AppShell({ children }: PropsWithChildren) {

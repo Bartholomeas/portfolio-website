@@ -15,7 +15,7 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { PostBanner } from '../../../_components/blog/single/PostBanner';
+import { PostBanner } from '../../../_components/views/blog/single/PostBanner';
 import { Box, Divider } from '../../../_components/common/mantine';
 import { Breadcrumbs } from '../../../_components/common/mantine/Breadcrumbs';
 import { FetchResponse, Post } from '../../../_types';
@@ -59,7 +59,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     { title: 'Blog', href: '/blog' },
     { title: data?.title ?? '' },
   ];
-  const imgUrl = data.headerImg?.url ?? '';
+  const imgUrl = data?.headerImg?.url ?? '';
 
   return (
     <Stack maw={1000} mx="auto">

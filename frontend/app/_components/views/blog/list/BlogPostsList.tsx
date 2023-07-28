@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 
-import { Post } from '../../../_types';
-import { SimpleGrid } from '../../common/mantine';
-
-import { useFiltersCtx } from '../../templates/FiltersContextProvider';
-
 import { BlogCard } from './BlogCard';
+
+import { SimpleGrid } from '@/_components/common/mantine';
+import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
+
+import { Post } from '@/_types';
 
 type BlogPostsListProps = {
   posts: Post[] | undefined;

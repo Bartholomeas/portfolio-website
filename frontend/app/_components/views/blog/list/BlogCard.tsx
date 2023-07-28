@@ -11,9 +11,9 @@ import Image from 'next/image';
 
 import React from 'react';
 
-import { Post } from '../../../_types';
-import { API_URL } from '../../../_utils/variables';
-import Link from '../../common/Link';
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+
+import { Link } from '@/_components/common/Link';
 import {
   ActionIcon,
   Box,
@@ -21,12 +21,13 @@ import {
   Divider,
   Group,
   Stack,
-} from '../../common/mantine';
-import { ButtonLink } from '../../common/mantine/Button';
-import { Text } from '../../common/mantine/Text';
-import { Title } from '../../common/mantine/Title';
+} from '@/_components/common/mantine';
+import { ButtonLink } from '@/_components/common/mantine/Button';
+import { Text } from '@/_components/common/mantine/Text';
+import { Title } from '@/_components/common/mantine/Title';
 
-import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+import { Post } from '@/_types';
+import { API_URL } from "@/_utils/variables";
 
 type BlogCardProps = {
   post: Post | undefined;
@@ -47,7 +48,7 @@ export function BlogCard({ post }: BlogCardProps) {
               }}
             >
               <Image
-                src={`${API_URL}${post?.headerImg.url}`}
+                src={`${API_URL}${post?.headerImg?.url ?? ''}`}
                 alt={`${post?.title}`}
                 fill
                 style={{ objectFit: 'cover' }}
@@ -59,10 +60,11 @@ export function BlogCard({ post }: BlogCardProps) {
         <Stack h="100%" spacing={16} justify="space-between">
           <Group spacing={4} align="center">
             {post?.blogCategories &&
-              post?.blogCategories.map(({ category }) => (
+              post?.blogCategories.map(({ code, name }) => (
                 <BlogPostCategoryBadge
-                  key={`${category}-${post?.title}`}
-                  category={category}
+                  key={`${code}-${post?.title}`}
+                  code={code}
+                  name={name}
                 />
               ))}
           </Group>

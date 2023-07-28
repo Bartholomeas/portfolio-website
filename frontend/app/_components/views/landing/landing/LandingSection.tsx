@@ -2,10 +2,10 @@ import { ChevronIcon, createStyles, Stack } from '@mantine/core';
 
 import React from 'react';
 
-import { Anchor } from '../../common/mantine/Anchor';
-import { ButtonLink } from '../../common/mantine/Button';
-import { Title } from '../../common/mantine/Title';
-import { ShapeWithGlow } from '../../common/ShapeWithGlow';
+import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
+import { Anchor } from '@/_components/common/mantine/Anchor';
+import { ButtonLink } from '@/_components/common/mantine/Button';
+import { Title } from '@/_components/common/mantine/Title';
 
 const useStyles = createStyles(() => ({
   wrapper: {

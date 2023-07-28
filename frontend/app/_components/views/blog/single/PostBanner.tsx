@@ -33,11 +33,12 @@ export function PostBanner({ data }: Props) {
       <Group w="100%" position="apart">
         <Group spacing={4} align="center">
           {blogCategories &&
-            blogCategories.map(({ category }) => (
+            blogCategories.map(({ code, name }) => (
               <BlogPostCategoryBadge
                 size="md"
-                key={`${category}-${title}`}
-                category={category}
+                key={`${code}-${title}`}
+                code={code}
+                name={name}
               />
             ))}
         </Group>

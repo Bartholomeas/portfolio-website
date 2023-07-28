@@ -8,11 +8,12 @@ import {
   IconMoodCheck,
   IconProgress,
 } from '@tabler/icons-react';
+
 import React from 'react';
 
-import { SectionHeading } from '../../common/design/SectionHeading';
-import { Text } from '../../common/mantine/Text';
-import { Title } from '../../common/mantine/Title';
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
+import { Text } from '@/_components/common/mantine/Text';
+import { Title } from '@/_components/common/mantine/Title';
 
 const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({

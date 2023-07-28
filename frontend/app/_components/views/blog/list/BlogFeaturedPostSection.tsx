@@ -1,7 +1,6 @@
 'use client';
 
-import { createStyles, Stack } from '@mantine/core';
-
+import { createStyles } from '@mantine/core';
 import {
   IconFlame,
   IconMail,
@@ -12,16 +11,23 @@ import {
 
 import React from 'react';
 
-import { Post } from '../../../_types';
-import { Glow } from '../../common/design/Glow';
-
-import { SectionHeading } from '../../common/design/SectionHeading';
-import { Flex, Group, SimpleGrid, ThemeIcon } from '../../common/mantine';
-import { Button } from '../../common/mantine/Button';
-import { TextInput } from '../../common/mantine/TextInput';
-import { Title } from '../../common/mantine/Title';
-
 import { BlogCard } from './BlogCard';
+
+import { Glow } from '@/_components/common/design/Glow';
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
+
+import {
+  Flex,
+  Group,
+  SimpleGrid,
+  Stack,
+  ThemeIcon,
+} from '@/_components/common/mantine';
+import { Button } from '@/_components/common/mantine/Button';
+import { TextInput } from '@/_components/common/mantine/TextInput';
+import { Title } from '@/_components/common/mantine/Title';
+
+import { Post } from '@/_types';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -44,13 +50,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 type BlogFeaturedPostSectionProps = {
-  featuredPost: Post;
+  featuredPost: Post | undefined;
 };
 export function BlogFeaturedPostSection({
   featuredPost,
 }: BlogFeaturedPostSectionProps) {
   const { cx, classes } = useStyles();
-
+  console.log(featuredPost);
   return (
     <Stack
       spacing={32}

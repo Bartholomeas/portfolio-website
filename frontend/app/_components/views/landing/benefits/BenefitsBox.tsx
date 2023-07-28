@@ -4,11 +4,9 @@ import { Icon } from '@tabler/icons-react';
 
 import React from 'react';
 
-import { Card } from '../../common/mantine';
-
-import { Text } from '../../common/mantine/Text';
-
-import { Title } from '../../common/mantine/Title';
+import { Card } from '@/_components/common/mantine';
+import { Text } from '@/_components/common/mantine/Text';
+import { Title } from '@/_components/common/mantine/Title';
 
 type BenefitsBoxProps = {
   icon: Icon;
