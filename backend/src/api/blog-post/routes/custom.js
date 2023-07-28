@@ -8,5 +8,13 @@ module.exports = {
         auth: false,
       },
     },
+    {
+      method: "GET",
+      path: "/blog-posts/latest",
+      handler: "blog-post.findLatest",
+      config: {
+        auth: false,
+      },
+    },
   ],
 };

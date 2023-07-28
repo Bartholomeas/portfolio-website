@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "category": {
+    "name": {
       "type": "string"
     },
     "blogPosts": {
@@ -20,6 +20,11 @@
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
       "mappedBy": "blogCategories"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
