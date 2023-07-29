@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Container, Stack } from '@/_components/common/mantine';
-// import { BlogFeaturedPostSection } from '@/_components/views/blog/list/BlogFeaturedPostSection';
+import { BlogFeaturedPostSection } from '@/_components/views/blog/list/BlogFeaturedPostSection';
 import { BlogHeader } from '@/_components/views/blog/list/BlogHeader';
-// import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection';
+import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection';
 
 import { FetchResponse, Post } from '@/_types';
 import { API_URL } from '@/_utils/variables';
@@ -64,8 +64,8 @@ export default async function Blog() {
         <BlogHeader />
 
         <Stack spacing={128}>
-          {/* <BlogFeaturedPostSection featuredPost={(data && data[0]) ?? {}} /> */}
-          {/* <BlogPostsSection posts={data} /> */}
+          <BlogFeaturedPostSection featuredPost={(data && data[0]) ?? {}} />
+          <BlogPostsSection posts={data} />
         </Stack>
       </Stack>
     </Container>
