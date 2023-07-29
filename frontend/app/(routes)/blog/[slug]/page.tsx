@@ -15,9 +15,9 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { PostBanner } from '../../../_components/views/blog/single/PostBanner';
 import { Box, Divider } from '../../../_components/common/mantine';
 import { Breadcrumbs } from '../../../_components/common/mantine/Breadcrumbs';
+import { PostBanner } from '../../../_components/views/blog/single/PostBanner';
 import { FetchResponse, Post } from '../../../_types';
 import { createQueryClient } from '../../../_utils/createQueryClient';
 
@@ -76,7 +76,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         }}
       >
         <Image
-          src={`${API_URL}${imgUrl}` ?? '/'}
+          src={`${imgUrl}` ?? '/'}
           alt={`${data?.slug}-blog-photo`}
           fill
           loading="lazy"

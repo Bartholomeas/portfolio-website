@@ -27,7 +27,6 @@ import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';
 
 import { Post } from '@/_types';
-import { API_URL } from "@/_utils/variables";
 
 type BlogCardProps = {
   post: Post | undefined;
@@ -48,7 +47,7 @@ export function BlogCard({ post }: BlogCardProps) {
               }}
             >
               <Image
-                src={`${API_URL}${post?.headerImg?.url ?? ''}`}
+                src={`${post?.headerImg?.url ?? ''}`}
                 alt={`${post?.title}`}
                 fill
                 style={{ objectFit: 'cover' }}

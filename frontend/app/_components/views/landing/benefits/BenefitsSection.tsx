@@ -1,3 +1,5 @@
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
+
 import { SimpleGrid, Stack } from '@mantine/core';
 
 import {
@@ -13,7 +15,6 @@ import React from 'react';
 
 import { BenefitsBox } from './BenefitsBox';
 
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
 
 export function BenefitsSection() {
   return (

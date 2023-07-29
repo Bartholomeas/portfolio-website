@@ -1,17 +1,7 @@
 'use client';
 
-import { createStyles } from '@mantine/core';
-import {
-  IconFlame,
-  IconMail,
-  IconMoodWink2,
-  IconSend,
-  IconUser,
-} from '@tabler/icons-react';
 
-import React from 'react';
 
-import { BlogCard } from './BlogCard';
 
 import { Glow } from '@/_components/common/design/Glow';
 import { SectionHeading } from '@/_components/common/design/SectionHeading';
@@ -28,6 +18,18 @@ import { TextInput } from '@/_components/common/mantine/TextInput';
 import { Title } from '@/_components/common/mantine/Title';
 
 import { Post } from '@/_types';
+
+import { createStyles } from '@mantine/core';
+import {
+  IconFlame,
+  IconMail,
+  IconMoodWink2,
+  IconSend,
+  IconUser,
+} from '@tabler/icons-react';
+import React from 'react';
+
+import { BlogCard } from './BlogCard';
 
 const useStyles = createStyles((theme) => ({
   card: {

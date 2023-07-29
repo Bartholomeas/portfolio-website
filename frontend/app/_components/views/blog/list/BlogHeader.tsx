@@ -1,8 +1,9 @@
-import React from 'react';
 
 import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
 import { Box, Flex } from '@/_components/common/mantine';
 import { Title } from '@/_components/common/mantine/Title';
+
+import React from 'react';
 
 export function BlogHeader() {
   return (
