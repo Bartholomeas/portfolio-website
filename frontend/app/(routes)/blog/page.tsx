@@ -12,7 +12,7 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(
       `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[blogCategories]=blogCategories&populate[headerImg]=headerImg&fields[0]=title&fields[1]=readTime&fields[2]=shortDescription&fields[3]=publishedAt&fields[4]=slug&populate[slug]=slug`
-      // { headers: { Authorization: `Bearer ${API_TOKEN}` } }
+      { headers: { Authorization: `Bearer ${API_TOKEN}` } }
     );
 
     return res.json();
@@ -23,7 +23,7 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
 async function getLatestPost(): Promise<FetchResponse<Post[]>> {
   try {
     const res = await fetch(`${API_URL}/api/blog-posts/latest`, {
-      // headers: { Authorization: `Bearer ${API_TOKEN}` },
+      headers: { Authorization: `Bearer ${API_TOKEN}` },
     });
 
     return res.json();
@@ -34,12 +34,12 @@ async function getLatestPost(): Promise<FetchResponse<Post[]>> {
 
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();
-  // const latestPostPromise = getLatestPost();
+  const latestPostPromise = getLatestPost();
 
   const { data } = await blogPostsPromise;
-  // const { data: latestPostData } = await latestPostPromise;
+  const { data: latestPostData } = await latestPostPromise;
 
-  // console.log(latestPostData);
+  console.log(latestPostData);
   console.log(API_URL);
 
   return (

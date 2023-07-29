@@ -48,7 +48,7 @@ export const useFilters = () => {
           const choosenCategories = searchParams.Categories.split(
             ','
           ) as (keyof BlogCategoryCodes)[];
-          const itemCategories = item.blogCategories.map((cat) => cat.category);
+          const itemCategories = item.blogCategories.map((cat) => cat.code);
 
           return choosenCategories.every((category) =>
             itemCategories.includes(category)

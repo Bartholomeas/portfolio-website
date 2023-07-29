@@ -1,7 +1,8 @@
 import { ButtonProps, createStyles } from '@mantine/core';
-import { Link } from 'next/link';
 
 import React from 'react';
+
+import { Link } from '../Link';
 
 import { Button as MantineButton } from './index';
 

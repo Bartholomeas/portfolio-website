@@ -4,7 +4,6 @@ export type BlogCategoryCodes = {
   styles: 'styles';
   tools: 'tools';
   other: 'other';
-  javascript: 'javascript';
 };
 
 export type BlogCategory = { name: string; code: keyof BlogCategoryCodes };
