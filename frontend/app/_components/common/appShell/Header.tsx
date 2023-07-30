@@ -124,7 +124,7 @@ function HeaderMobile() {
 
   return (
     <Group align="center" position="apart" w="100%">
-      <ButtonLink variant="subtle" href="/" size="lg">
+      <ButtonLink variant="subtle" href="/" size="lg" pl={0}>
         bstfnc.
       </ButtonLink>
       <Burger

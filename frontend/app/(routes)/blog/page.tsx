@@ -16,18 +16,7 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
     );
 
     if (!res.ok) {
-      return {
-        data: [],
-        error: `Error: ${res.status}`,
-        meta: {
-          pagination: {
-            page: 0,
-            pageCount: 0,
-            pageSize: 0,
-            total: 0,
-          },
-        },
-      };
+      throw new Error('getBlogPosts: error');
     }
 
     return await res.json();
@@ -53,10 +42,9 @@ export default async function Blog() {
   // const latestPostPromise = getLatestPost();
 
   const { data } = await blogPostsPromise;
-  // const { data: latestPostData } = await latestPostPromise;
+  // const { postData: latestPostpostData } = await latestPostPromise;
 
-  // console.log(latestPostData);
-  console.log(data);
+  // console.log(latestPostpostData);
 
   return (
     <Container size="md">

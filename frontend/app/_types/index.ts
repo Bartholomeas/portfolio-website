@@ -23,7 +23,6 @@ export type Post = {
 export type FetchResponse<T> = T extends any[]
   ? {
       data: T;
-      error?: string;
       meta: {
         pagination: {
           page: number;
@@ -33,4 +32,4 @@ export type FetchResponse<T> = T extends any[]
         };
       };
     }
-  : { data: T; error?: string };
+  : { data: T };

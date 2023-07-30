@@ -1,7 +1,17 @@
+import {
+  IconArrowRight,
+  IconBookmark,
+  IconHeart,
+  IconShare,
+} from '@tabler/icons-react';
 
+import dayjs from 'dayjs';
 
+import Image from 'next/image';
 
+import React from 'react';
 
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
 
 import { Link } from '@/_components/common/Link';
 import {
@@ -18,18 +28,6 @@ import { Title } from '@/_components/common/mantine/Title';
 
 import { Post } from '@/_types';
 
-import {
-  IconArrowRight,
-  IconBookmark,
-  IconHeart,
-  IconShare,
-} from '@tabler/icons-react';
-import dayjs from 'dayjs';
-import Image from 'next/image';
-import React from 'react';
-
-import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
-
 type BlogCardProps = {
   post: Post | undefined;
 };
@@ -42,7 +40,6 @@ export function BlogCard({ post }: BlogCardProps) {
           <Link href={`/blog/${post?.slug}`}>
             <Box
               w="100%"
-              // mih={200}
               sx={{
                 position: 'relative',
                 aspectRatio: '16/9',
@@ -60,14 +57,13 @@ export function BlogCard({ post }: BlogCardProps) {
 
         <Stack h="100%" spacing={16} justify="space-between">
           <Group spacing={4} align="center">
-            {post?.blogCategories &&
-              post?.blogCategories.map(({ code, name }) => (
-                <BlogPostCategoryBadge
-                  key={`${code}-${post?.title}`}
-                  code={code}
-                  name={name}
-                />
-              ))}
+            {post?.blogCategories.map(({ code, name }) => (
+              <BlogPostCategoryBadge
+                key={`${code}-${post?.title}`}
+                code={code}
+                name={name}
+              />
+            ))}
           </Group>
 
           <Link href={`/blog/${post?.slug}`}>
