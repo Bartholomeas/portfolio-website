@@ -15,7 +15,7 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { Box, Card, Divider } from '@/_components/common/mantine';
+import { Box, Divider } from '@/_components/common/mantine';
 import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
 import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
 

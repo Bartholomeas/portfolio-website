@@ -1,6 +1,3 @@
-
-
-
 import { Glow } from '@/_components/common/design/Glow';
 import { SectionHeading } from '@/_components/common/design/SectionHeading';
 import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
