@@ -1,17 +1,14 @@
 'use client';
 
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
-
-import { Stack } from '@/_components/common/mantine';
-
-import { Post } from '@/_types';
-
 import { Loader } from '@mantine/core';
 import React, { Suspense } from 'react';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
 
+import { SectionHeading } from '@/_components/common/design/SectionHeading';
+import { Stack } from '@/_components/common/mantine';
+import { Post } from '@/_types';
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
@@ -24,7 +21,6 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
         <SectionHeading
           title="Wszystkie wpisy"
           subtext="Z pewnością znajdziesz coś dla siebie, sprawdź"
-          centered
         />
         <Stack spacing={32}>
           <Suspense fallback={<Loader />}>

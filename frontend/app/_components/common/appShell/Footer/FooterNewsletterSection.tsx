@@ -31,7 +31,7 @@ export function FooterNewsletterSection() {
   const { classes } = useStyles();
 
   return (
-    <section className={classes.wrapper}>
+    <section className={classes.wrapper} id="newsletter">
       <Stack>
         <Container size="md">
           <div className={classes.grid}>

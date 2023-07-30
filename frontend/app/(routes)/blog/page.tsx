@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Container, Stack } from '@/_components/common/mantine';
+import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
+import { Box, Card, Container, Stack } from '@/_components/common/mantine';
+
 import { BlogFeaturedPostSection } from '@/_components/views/blog/list/BlogFeaturedPostSection';
 import { BlogHeader } from '@/_components/views/blog/list/BlogHeader';
 import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection';
@@ -25,36 +27,37 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   }
 }
 
-// async function getLatestPost(): Promise<FetchResponse<Post[]>> {
-//   try {
-//     const res = await fetch(`${API_URL}/api/blog-posts/latest`, {
-//       headers: { Authorization: `Bearer ${API_TOKEN}` },
-//     });
-
-//     return res.json();
-//   } catch (err) {
-//     throw new Error('getLatestPost: error');
-//   }
-// }
-
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();
-  // const latestPostPromise = getLatestPost();
 
   const { data } = await blogPostsPromise;
-  // const { postData: latestPostpostData } = await latestPostPromise;
-
-  // console.log(latestPostpostData);
 
   return (
-    <Container size="md">
+    <Container size="md" mt={32}>
       <Stack spacing={128}>
-        <BlogHeader />
+        <Box sx={{ position: 'relative' }}>
+          <BlogHeader featuredPost={(data && data[0]) ?? {}} />
+          <Box
+            sx={{
+              position: 'absolute',
+              top: -20,
+              left: 32,
+            }}
+          >
+            <ShapeWithGlow size={100} />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              right: 24,
+            }}
+          >
+            <ShapeWithGlow size={80} shape="circle2" />
+          </Box>
+        </Box>
 
-        <Stack spacing={128}>
-          <BlogFeaturedPostSection featuredPost={(data && data[0]) ?? {}} />
-          <BlogPostsSection posts={data} />
-        </Stack>
+        <BlogPostsSection posts={data} />
       </Stack>
     </Container>
   );

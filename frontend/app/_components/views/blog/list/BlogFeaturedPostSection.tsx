@@ -1,7 +1,18 @@
 'use client';
 
+import { createStyles } from '@mantine/core';
 
+import {
+  IconFlame,
+  IconMail,
+  IconMoodWink2,
+  IconSend,
+  IconUser,
+} from '@tabler/icons-react';
 
+import React from 'react';
+
+import { BlogCard } from './BlogCard';
 
 import { Glow } from '@/_components/common/design/Glow';
 import { SectionHeading } from '@/_components/common/design/SectionHeading';
@@ -18,18 +29,6 @@ import { TextInput } from '@/_components/common/mantine/TextInput';
 import { Title } from '@/_components/common/mantine/Title';
 
 import { Post } from '@/_types';
-
-import { createStyles } from '@mantine/core';
-import {
-  IconFlame,
-  IconMail,
-  IconMoodWink2,
-  IconSend,
-  IconUser,
-} from '@tabler/icons-react';
-import React from 'react';
-
-import { BlogCard } from './BlogCard';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -62,18 +61,21 @@ export function BlogFeaturedPostSection({
   return (
     <Stack
       spacing={32}
+      align="flex-start"
       sx={{
         position: 'relative',
       }}
     >
       <Glow position={{ top: 50, left: 0, right: 0, bottom: 0 }} size={300} />
-      <SectionHeading
-        title="Najnowszy wpis"
-        subtext="Koniecznie sprawdź"
-        centered
-      />
+      <SectionHeading title="Najnowszy wpis" subtext="Koniecznie sprawdź" />
 
       <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
+        <Glow
+          position={{ top: 50, left: 0, right: 0, bottom: 0 }}
+          zIndex={-999}
+          size={300}
+        />
+        <BlogCard post={featuredPost} />
         <Stack h="100%" justify="space-between">
           <Flex
             align="center"
@@ -82,13 +84,13 @@ export function BlogFeaturedPostSection({
             direction="row"
             gap={16}
           >
-            <ThemeIcon
+            {/* <ThemeIcon
               variant="outline"
               size={84}
               className={cx(classes.icon, classes.flameOne)}
             >
               <IconFlame size={64} />
-            </ThemeIcon>
+            </ThemeIcon> */}
             <ThemeIcon
               variant="outline"
               size={96}
@@ -136,13 +138,6 @@ export function BlogFeaturedPostSection({
             </Stack>
           </Stack>
         </Stack>
-
-        <Glow
-          position={{ top: 50, left: 0, right: 0, bottom: 0 }}
-          zIndex={-999}
-          size={300}
-        />
-        <BlogCard post={featuredPost} />
       </SimpleGrid>
     </Stack>
   );
