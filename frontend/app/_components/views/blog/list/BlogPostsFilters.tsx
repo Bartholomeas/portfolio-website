@@ -1,29 +1,42 @@
 'use client';
 
+
+
+
 import { Chip, Group, Stack } from '@/_components/common/mantine';
-
 import { TextInput } from '@/_components/common/mantine/TextInput';
-
 import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
 
+import { BlogCategory, FetchResponse } from '@/_types';
+
+import { createQueryClient } from '@/_utils/createQueryClient';
+import { API_TOKEN, API_URL } from '@/_utils/variables';
+
 import { IconSearch } from '@tabler/icons-react';
-import React from 'react';
+import React, { use } from 'react';
 
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
+async function getCategories(): Promise<FetchResponse<BlogCategory[]>> {
+  try {
+    const res = await fetch(
+      `${API_URL}/api/blog-categories?fields[0]=code&fields[1]=name`,
+      {
+        headers: { Authorization: `Bearer ${API_TOKEN}` },
+      }
+    );
+    return res.json();
+  } catch (err) {
+    throw new Error('getCategories: error');
+  }
+}
 
-const postsCategories = [
-  'html',
-  'javascript',
-  'css',
-  'framework',
-  'lifestyle',
-  'tricks',
-  'other',
-];
+const queryClient = createQueryClient();
 
 export function BlogPostsFilters() {
   const { handleFilters } = useFiltersCtx();
+
+  const { data } = use(queryClient('blogCategories', () => getCategories()));
 
   return (
     <Stack>
@@ -44,8 +57,12 @@ export function BlogPostsFilters() {
         }}
       >
         <Group>
-          {postsCategories.map((category) => (
-            <BlogPostFiltersChip key={category} value={category} />
+          {data.map((category) => (
+            <BlogPostFiltersChip
+              key={category.code}
+              value={category.code}
+              name={category.name}
+            />
           ))}
         </Group>
       </Chip.Group>

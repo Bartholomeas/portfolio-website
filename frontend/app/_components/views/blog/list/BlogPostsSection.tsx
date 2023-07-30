@@ -24,7 +24,6 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
         <SectionHeading
           title="Wszystkie wpisy"
           subtext="Z pewnością znajdziesz coś dla siebie, sprawdź"
-          centered
         />
         <Stack spacing={32}>
           <Suspense fallback={<Loader />}>

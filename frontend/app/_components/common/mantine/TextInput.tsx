@@ -49,7 +49,7 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
   const [focused, setFocused] = useState(false);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const { classes } = useStyles({
-    floating: inputRef?.current?.value.trim().length !== 0 || focused,
+    floating: focused,
   });
 
   return (

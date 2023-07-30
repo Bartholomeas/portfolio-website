@@ -1,6 +1,5 @@
 'use client';
 
-
 import { FiltersContext, useFilters } from '@/_hooks/useFilters';
 import { createCtx } from '@/_utils/createCtx';
 

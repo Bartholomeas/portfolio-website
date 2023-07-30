@@ -1,16 +1,18 @@
+
 import { Chip } from '@/_components/common/mantine';
+import { BlogCategoryCodes } from '@/_types';
 
 import React from 'react';
 
-
 type BlogPostFiltersChipProps = {
-  value: string;
+  value: keyof BlogCategoryCodes;
+  name: string;
 };
 
-export function BlogPostFiltersChip({ value }: BlogPostFiltersChipProps) {
+export function BlogPostFiltersChip({ value, name }: BlogPostFiltersChipProps) {
   return (
     <Chip variant="outline" value={value}>
-      {value.toUpperCase()}
+      {name.toUpperCase()}
     </Chip>
   );
 }

@@ -15,7 +15,6 @@ import React from 'react';
 
 import { BenefitsBox } from './BenefitsBox';
 
-
 export function BenefitsSection() {
   return (
     <section>

@@ -6,7 +6,11 @@ export type BlogCategoryCodes = {
   other: 'other';
 };
 
-export type BlogCategory = { name: string; code: keyof BlogCategoryCodes };
+export type BlogCategory = {
+  id: number;
+  name: string;
+  code: keyof BlogCategoryCodes;
+};
 
 export type Post = {
   content: string;

@@ -17,7 +17,6 @@ import {
 
 import React from 'react';
 
-
 const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({
     wrapper: {

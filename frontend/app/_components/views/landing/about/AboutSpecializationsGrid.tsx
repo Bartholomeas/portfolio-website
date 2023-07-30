@@ -1,5 +1,3 @@
-
-
 import { Card } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';

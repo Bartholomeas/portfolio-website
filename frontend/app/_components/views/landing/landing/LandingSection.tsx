@@ -1,5 +1,3 @@
-
-
 import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
 import { Anchor } from '@/_components/common/mantine/Anchor';
 import { ButtonLink } from '@/_components/common/mantine/Button';

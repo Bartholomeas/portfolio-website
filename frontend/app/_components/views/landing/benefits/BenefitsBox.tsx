@@ -10,7 +10,6 @@ import { Icon } from '@tabler/icons-react';
 
 import React from 'react';
 
-
 type BenefitsBoxProps = {
   icon: Icon;
   title: string;

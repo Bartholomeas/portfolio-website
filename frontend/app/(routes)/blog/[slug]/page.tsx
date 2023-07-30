@@ -63,7 +63,6 @@ export default function Page({ params }: { params: { slug: string } }) {
     { title: data?.title ?? '' },
   ];
   const imgUrl = data?.headerImg?.url ?? '';
-  console.log(data);
 
   return (
     <Stack maw={1000} mx="auto" px={16}>
@@ -97,6 +96,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <Suspense fallback={<p>loading..</p>}>
           <BlogPostBanner data={data} />
           <Divider />
+
           <TypographyStylesProvider>
             <Markdown
               // transformImageUri={(src) => `${API_URL}${src}`}

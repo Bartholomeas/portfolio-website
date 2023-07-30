@@ -10,6 +10,7 @@ export const { Header } = MantineComponents;
 export const { Chip } = MantineComponents;
 export const { Drawer } = MantineComponents;
 export const { Burger } = MantineComponents;
+export const { List } = MantineComponents;
 export const { SimpleGrid } = MantineComponents;
 export const { Container } = MantineComponents;
 export const { Card } = MantineComponents;
