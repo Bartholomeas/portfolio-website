@@ -13,7 +13,7 @@ type Props = {
   data: Post | undefined;
 };
 
-export function PostBanner({ data }: Props) {
+export function BlogPostBanner({ data }: Props) {
   const { publishedAt, readTime, title, shortDescription, blogCategories } =
     data ?? {};
 

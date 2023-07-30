@@ -1,13 +1,16 @@
 'use client';
 
+import { Chip, Group, Stack } from '@/_components/common/mantine';
+
+import { TextInput } from '@/_components/common/mantine/TextInput';
+
+import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
+
 import { IconSearch } from '@tabler/icons-react';
 import React from 'react';
 
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
-import { Chip, Group, Stack } from '@/_components/common/mantine';
-import { TextInput } from '@/_components/common/mantine/TextInput';
-import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
 
 const postsCategories = [
   'html',

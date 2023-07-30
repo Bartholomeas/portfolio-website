@@ -15,13 +15,14 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { PostBanner } from '../../../_components/views/blog/single/PostBanner';
-import { Box, Divider } from '../../../_components/common/mantine';
-import { Breadcrumbs } from '../../../_components/common/mantine/Breadcrumbs';
-import { FetchResponse, Post } from '../../../_types';
-import { createQueryClient } from '../../../_utils/createQueryClient';
+import { Box, Divider } from '@/_components/common/mantine';
+import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
+import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
 
-import { API_TOKEN, API_URL } from '../../../_utils/variables';
+import { FetchResponse, Post } from '@/_types';
+
+import { createQueryClient } from '@/_utils/createQueryClient';
+import { API_TOKEN, API_URL } from '@/_utils/variables';
 
 const useStyles = createStyles((theme) => ({
   image: {
@@ -32,7 +33,9 @@ const useStyles = createStyles((theme) => ({
   postContent: {
     backgroundColor: theme.other.bgDark,
     borderRadius: rem(8),
-    transform: 'translateY(-100px)',
+    [theme.fn.largerThan('sm')]: {
+      transform: 'translateY(-100px)',
+    },
   },
 }));
 
@@ -60,9 +63,10 @@ export default function Page({ params }: { params: { slug: string } }) {
     { title: data?.title ?? '' },
   ];
   const imgUrl = data?.headerImg?.url ?? '';
+  console.log(data);
 
   return (
-    <Stack maw={1000} mx="auto">
+    <Stack maw={1000} mx="auto" px={16}>
       <Breadcrumbs items={items} />
 
       <Box
@@ -76,7 +80,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         }}
       >
         <Image
-          src={`${API_URL}${imgUrl}` ?? '/'}
+          src={`${imgUrl}` ?? '/'}
           alt={`${data?.slug}-blog-photo`}
           fill
           loading="lazy"
@@ -91,11 +95,11 @@ export default function Page({ params }: { params: { slug: string } }) {
         className={classes.postContent}
       >
         <Suspense fallback={<p>loading..</p>}>
-          <PostBanner data={data} />
+          <BlogPostBanner data={data} />
           <Divider />
           <TypographyStylesProvider>
             <Markdown
-              transformImageUri={(src) => `${API_URL}${src}`}
+              // transformImageUri={(src) => `${API_URL}${src}`}
               remarkPlugins={[remarkGfm]}
             >
               {data?.content}

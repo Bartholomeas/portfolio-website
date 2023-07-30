@@ -27,7 +27,6 @@ import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';
 
 import { Post } from '@/_types';
-import { API_URL } from "@/_utils/variables";
 
 type BlogCardProps = {
   post: Post | undefined;
@@ -41,14 +40,13 @@ export function BlogCard({ post }: BlogCardProps) {
           <Link href={`/blog/${post?.slug}`}>
             <Box
               w="100%"
-              // mih={200}
               sx={{
                 position: 'relative',
                 aspectRatio: '16/9',
               }}
             >
               <Image
-                src={`${API_URL}${post?.headerImg?.url ?? ''}`}
+                src={`${post?.headerImg?.url ?? ''}`}
                 alt={`${post?.title}`}
                 fill
                 style={{ objectFit: 'cover' }}
@@ -59,14 +57,13 @@ export function BlogCard({ post }: BlogCardProps) {
 
         <Stack h="100%" spacing={16} justify="space-between">
           <Group spacing={4} align="center">
-            {post?.blogCategories &&
-              post?.blogCategories.map(({ code, name }) => (
-                <BlogPostCategoryBadge
-                  key={`${code}-${post?.title}`}
-                  code={code}
-                  name={name}
-                />
-              ))}
+            {post?.blogCategories.map(({ code, name }) => (
+              <BlogPostCategoryBadge
+                key={`${code}-${post?.title}`}
+                code={code}
+                name={name}
+              />
+            ))}
           </Group>
 
           <Link href={`/blog/${post?.slug}`}>

@@ -2,6 +2,7 @@
 
 import * as MantineComponents from '@mantine/core';
 
+export const { AppShell } = MantineComponents;
 export const { Box } = MantineComponents;
 export const { Breadcrumbs } = MantineComponents;
 export const { Flex } = MantineComponents;
