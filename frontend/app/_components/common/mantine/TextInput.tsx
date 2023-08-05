@@ -11,7 +11,10 @@ import React, { useState } from 'react';
 
 const useStyles = createStyles(
   (theme, { floating }: { floating: boolean }) => ({
-    root: { position: 'relative', marginTop: rem(8) },
+    root: {
+      position: 'relative',
+      marginTop: rem(8),
+    },
     label: {
       position: 'absolute',
       zIndex: 2,
