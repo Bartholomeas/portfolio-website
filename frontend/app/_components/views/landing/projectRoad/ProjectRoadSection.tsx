@@ -1,4 +1,4 @@
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 import { Text } from '@/_components/common/mantine/Text';
 

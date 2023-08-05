@@ -1,4 +1,4 @@
-import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
+import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 import { Anchor } from '@/_components/common/mantine/Anchor';
 import { ButtonLink } from '@/_components/common/mantine/Button';
 import { Title } from '@/_components/common/mantine/Title';

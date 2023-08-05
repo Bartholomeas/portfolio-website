@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_recommended_groups",
+  "info": {
+    "displayName": "RecommendedGroup"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

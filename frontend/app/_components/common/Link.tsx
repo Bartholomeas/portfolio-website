@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
       color: theme.other.textPrimary,
     },
 
-    fontSize: rem(24),
+    fontSize: rem(16),
     [theme.fn.largerThan('md')]: {
       fontSize: rem(14),
     },

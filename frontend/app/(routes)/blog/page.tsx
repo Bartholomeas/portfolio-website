@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ShapeWithGlow } from '@/_components/common/design/ShapeWithGlow';
+import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 import { Box, Container, Stack } from '@/_components/common/mantine';
 
 import { BlogHeader } from '@/_components/views/blog/list/BlogHeader';
