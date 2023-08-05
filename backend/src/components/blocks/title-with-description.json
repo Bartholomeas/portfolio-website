@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_title_with_descriptions",
+  "info": {
+    "displayName": "TitleWithDescription",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

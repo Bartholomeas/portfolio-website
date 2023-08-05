@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_homepage_aboutme_sections",
+  "info": {
+    "displayName": "AboutmeSection",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "aboutmeDescription": {
+      "type": "text"
+    },
+    "skillsCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.title-with-description"
+    },
+    "sectionHeading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.about-me"
+    }
+  }
+}

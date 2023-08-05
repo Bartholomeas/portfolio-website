@@ -1,4 +1,3 @@
-
 import { Text } from '@/_components/common/mantine/Text';
 
 import { Title } from '@/_components/common/mantine/Title';
@@ -83,7 +82,6 @@ export function ProjectRoadSection() {
       <SectionHeading
         title="Jak wygląda droga projektu?"
         subtext="Droga od pomysłu do produktu"
-        centered
       />
 
       <Stack className={classes.wrapper} spacing={64}>
