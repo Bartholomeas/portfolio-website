@@ -1,3 +1,9 @@
+import { Text } from '@/_components/common/mantine/Text';
+
+import { Title } from '@/_components/common/mantine/Title';
+
+import { Post } from '@/_types';
+
 import { Group, Stack } from '@mantine/core';
 import dayjs from 'dayjs';
 
@@ -5,9 +11,6 @@ import React from 'react';
 
 import { BlogPostCategoryBadge } from '../list/BlogPostCategoryBadge';
 
-import { Text } from '@/_components/common/mantine/Text';
-import { Title } from '@/_components/common/mantine/Title';
-import { Post } from '@/_types';
 
 type Props = {
   data: Post | undefined;

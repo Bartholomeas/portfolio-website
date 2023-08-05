@@ -1,7 +1,7 @@
+import { Text } from '@/_components/common/mantine/Text';
 import { Glow } from '@/_components/common/ornaments/Glow';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
-import { Text } from '@/_components/common/mantine/Text';
 
 import { Box, createStyles, Image, Stack } from '@mantine/core';
 import React from 'react';

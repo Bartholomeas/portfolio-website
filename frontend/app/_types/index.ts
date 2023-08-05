@@ -12,6 +12,18 @@ export type BlogCategory = {
   code: keyof BlogCategoryCodes;
 };
 
+export type RecommendedItems = {
+  id: number;
+  title: string;
+  items: {
+    id: number;
+    title: string;
+    description: string;
+    link: string;
+    __component: string;
+  }[];
+};
+
 export type Post = {
   content: string;
   blogCategories: BlogCategory[];

@@ -1,8 +1,8 @@
 'use client';
 
+import { Stack } from '@/_components/common/mantine';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
-import { Stack } from '@/_components/common/mantine';
 
 import { Post } from '@/_types';
 

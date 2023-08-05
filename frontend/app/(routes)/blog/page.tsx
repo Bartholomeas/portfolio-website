@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 import { Box, Container, Stack } from '@/_components/common/mantine';
+import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 
 import { BlogHeader } from '@/_components/views/blog/list/BlogHeader';
 import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection';
@@ -28,7 +28,6 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
 
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();
-
   const { data } = await blogPostsPromise;
 
   return (
