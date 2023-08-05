@@ -1,5 +1,3 @@
-// 'use client';
-
 import { Container, Stack } from '@/_components/common/mantine';
 import { Glow } from '@/_components/common/ornaments/Glow';
 import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHeader';
