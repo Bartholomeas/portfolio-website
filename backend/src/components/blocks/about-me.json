@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_landing_page_about_mes",
+  "info": {
+    "displayName": "SectionHeading",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Subtitle": {
+      "type": "string"
+    }
+  }
+}

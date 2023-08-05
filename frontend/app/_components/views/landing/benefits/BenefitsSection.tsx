@@ -1,4 +1,4 @@
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 import { SimpleGrid, Stack } from '@mantine/core';
 

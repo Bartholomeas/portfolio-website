@@ -12,10 +12,10 @@ import {
 
 import React from 'react';
 
-import { ShapeWithGlow } from '../design/ShapeWithGlow';
 import { Button } from '../mantine/Button';
 import { Textarea } from '../mantine/Textarea';
 import { TextInput } from '../mantine/TextInput';
+import { ShapeWithGlow } from '../ornaments/ShapeWithGlow';
 
 export function ContactModal({ context, id }: ContextModalProps) {
   return (

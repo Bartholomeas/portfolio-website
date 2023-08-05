@@ -1,15 +1,8 @@
 'use client';
 
-import {
-  ActionIcon,
-  Burger,
-  createStyles,
-  Drawer,
-  Group,
-  Header as MantineHeader,
-  rem,
-  Stack,
-} from '@mantine/core';
+import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
+
+import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import {
@@ -21,20 +14,29 @@ import {
 
 import React from 'react';
 
-import {
-  openContactModal,
-  useModalStyles,
-} from '../../../_utils/modalsHandler';
-
 import { Link } from '../Link';
-import { Container } from '../mantine';
+import {
+  ActionIcon,
+  Burger,
+  Container,
+  Drawer,
+  Group,
+  Header as MantineHeader,
+  Stack,
+} from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
+
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     backgroundColor: theme.fn.rgba(theme.other.bg, 0.5),
     backdropFilter: 'blur(10px)',
     borderBottom: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+  },
+  desktopWrapper: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    width: '100%',
   },
 
   drawerContent: {
@@ -78,7 +80,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   contactButton: {
-    fontSize: rem(24),
+    fontSize: rem(16),
     [theme.fn.largerThan('md')]: {
       fontSize: rem(16),
     },
@@ -163,9 +165,8 @@ function HeaderMobile() {
             {items}
 
             <Button
-              variant="outline"
+              variant="subtle"
               color="primary"
-              leftIcon={<IconPhone />}
               fw={400}
               className={classes.contactButton}
               onClick={() =>
@@ -197,9 +198,17 @@ function HeaderDesktop() {
   ));
 
   return (
-    <Group w="100%" position="apart">
-      <Group spacing={16}>{items}</Group>
-      <ButtonLink variant="subtle" href="/" size="lg">
+    <div className={classes.desktopWrapper}>
+      <Group spacing={16} noWrap>
+        {items}
+      </Group>
+      <ButtonLink
+        variant="subtle"
+        href="/"
+        size="lg"
+        mx="auto"
+        sx={{ width: 'fit-content' }}
+      >
         bstfnc.
       </ButtonLink>
       <Group spacing={16} position="right" noWrap>
@@ -242,7 +251,7 @@ function HeaderDesktop() {
           <IconPhone size={18} />
         </ActionIcon>
       </Group>
-    </Group>
+    </div>
   );
 }
 

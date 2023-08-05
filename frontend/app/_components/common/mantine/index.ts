@@ -5,6 +5,8 @@ import * as MantineComponents from '@mantine/core';
 export const { AppShell } = MantineComponents;
 export const { Box } = MantineComponents;
 export const { Breadcrumbs } = MantineComponents;
+export const { Timeline } = MantineComponents;
+export const { TimelineItem } = MantineComponents;
 export const { Flex } = MantineComponents;
 export const { Header } = MantineComponents;
 export const { Chip } = MantineComponents;

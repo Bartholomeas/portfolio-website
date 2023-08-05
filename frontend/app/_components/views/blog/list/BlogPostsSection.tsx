@@ -1,8 +1,8 @@
 'use client';
 
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
-
 import { Stack } from '@/_components/common/mantine';
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
+
 
 import { Post } from '@/_types';
 
@@ -11,7 +11,6 @@ import React, { Suspense } from 'react';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
-
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;

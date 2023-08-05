@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recommended_pages",
+  "info": {
+    "singularName": "recommended-page",
+    "pluralName": "recommended-pages",
+    "displayName": "RecommendedPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.recommended-group"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

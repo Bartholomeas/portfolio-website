@@ -1,8 +1,8 @@
-import { SectionHeading } from '@/_components/common/design/SectionHeading';
 
 import { Text } from '@/_components/common/mantine/Text';
 
 import { Title } from '@/_components/common/mantine/Title';
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 import { Box, createStyles, Group, Stack } from '@mantine/core';
 
