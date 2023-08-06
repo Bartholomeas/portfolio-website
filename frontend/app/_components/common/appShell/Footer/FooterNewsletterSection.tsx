@@ -58,23 +58,6 @@ const useStyles = createStyles((theme) => ({
     color: theme.other.primary,
     marginBottom: rem(8),
   },
-
-  control: {
-    position: 'relative',
-    backgroundColor: theme.other.primary,
-    color: theme.other.bg,
-
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      left: -10,
-      width: 15,
-      height: '100%',
-      backgroundColor: theme.other.primary,
-    },
-  },
 }));
 
 export function FooterNewsletterSection() {
