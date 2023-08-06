@@ -11,6 +11,7 @@ import {
   Stack,
   Timeline,
   TimelineItem,
+  Tooltip,
 } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';
@@ -55,18 +56,22 @@ export function RecommendedList({ list }: RecommendedListProps) {
                   <Text fw={600} textColor="textPrimary" size="sm">
                     {item.title}
                   </Text>
-                  <ActionIcon
-                    component="a"
-                    href={item.link ?? '/'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="subtle"
-                    color="primary"
-                    radius={999}
-                    size="xs"
-                  >
-                    <IconExternalLink size={12} />
-                  </ActionIcon>
+                  {item.link && (
+                    <Tooltip label={item.link}>
+                      <ActionIcon
+                        component="a"
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="subtle"
+                        color="primary"
+                        radius={999}
+                        size="xs"
+                      >
+                        <IconExternalLink size={12} />
+                      </ActionIcon>
+                    </Tooltip>
+                  )}
                 </Group>
               }
             >
