@@ -1,11 +1,11 @@
 'use client';
 
-import { BoxProps, createStyles, Image } from '@mantine/core';
+import { BoxProps, createStyles } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 import React from 'react';
 
-import { Box } from '../mantine';
+import { Box, Image } from '../mantine';
 
 const useStyles = createStyles(() => ({
   wrapper: {

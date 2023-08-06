@@ -57,13 +57,14 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
 
   return (
     <MantineTextInput
-      {...props}
       ref={inputRef}
       classNames={classes}
       onChange={onChange}
       onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
-      autoComplete="nope"
+      onBlur={() => {
+        if (!inputRef?.current?.value) setFocused(false);
+      }}
+      {...props}
     />
   );
 }
