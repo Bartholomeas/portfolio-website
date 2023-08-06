@@ -5,9 +5,9 @@ import { IconMail, IconSend } from '@tabler/icons-react';
 
 import { useState } from 'react';
 
-import { Container, Image, Stack } from '../../mantine';
+import { Container, Image, Stack } from '../mantine';
 
-import { Button } from '../../mantine/Button';
+import { Button } from '../mantine/Button';
 
 import { Text } from '@/_components/common/mantine/Text';
 import { TextInput } from '@/_components/common/mantine/TextInput';

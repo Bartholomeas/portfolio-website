@@ -7,8 +7,8 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 
-import { ActionIcon, Container, Group, Stack } from '../../mantine';
-import { Text } from '../../mantine/Text';
+import { ActionIcon, Container, Group, Stack } from '../mantine';
+import { Text } from '../mantine/Text';
 
 import { FooterNewsletterSection } from './FooterNewsletterSection';
 

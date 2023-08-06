@@ -2,7 +2,7 @@
 
 import React, { PropsWithChildren } from 'react';
 
-import { Footer } from '../common/appShell/footer/Footer';
+import { Footer } from '../common/appShell/Footer';
 import { Header } from '../common/appShell/Header';
 import { AppShell as MantineAppShell } from '../common/mantine';
 
