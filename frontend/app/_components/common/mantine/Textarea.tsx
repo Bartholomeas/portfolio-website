@@ -19,7 +19,7 @@ const useStyles = createStyles(
       color: floating ? theme.other.textPrimary : theme.other.textSecondary,
       transition:
         'transform 0.15s ease, color 0.15s ease, font-size 0.15s ease',
-      transform: floating ? `translate(-${rem(32)}, ${rem(-26)})` : 'none',
+      transform: floating ? `translate(-${rem(32)}, ${rem(-28)})` : 'none',
       fontSize: floating ? theme.fontSizes.xs : theme.fontSizes.sm,
     },
 
