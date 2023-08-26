@@ -11,7 +11,10 @@ import React, { useState } from 'react';
 
 const useStyles = createStyles(
   (theme, { floating }: { floating: boolean }) => ({
-    root: { position: 'relative', marginTop: rem(8) },
+    root: {
+      position: 'relative',
+      marginTop: rem(8),
+    },
     label: {
       position: 'absolute',
       zIndex: 2,
@@ -54,13 +57,14 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
 
   return (
     <MantineTextInput
-      {...props}
       ref={inputRef}
       classNames={classes}
       onChange={onChange}
       onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
-      autoComplete="nope"
+      onBlur={() => {
+        if (!inputRef?.current?.value) setFocused(false);
+      }}
+      {...props}
     />
   );
 }

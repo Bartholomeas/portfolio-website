@@ -1,5 +1,3 @@
-import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
-
 import { SimpleGrid, Stack } from '@mantine/core';
 
 import {
@@ -15,6 +13,8 @@ import React from 'react';
 
 import { BenefitsBox } from './BenefitsBox';
 
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
+
 export function BenefitsSection() {
   return (
     <section>
@@ -22,7 +22,6 @@ export function BenefitsSection() {
         <SectionHeading
           title="Zyskujesz szereg korzyści"
           subtext="Co do czego masz pewność?"
-          centered
         />
 
         <SimpleGrid

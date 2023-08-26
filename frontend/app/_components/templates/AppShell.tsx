@@ -1,10 +1,10 @@
 'use client';
 
-import { AppShell as MantineAppShell } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
 
-import { Footer } from '../common/appShell/Footer/Footer';
+import { Footer } from '../common/appShell/Footer';
 import { Header } from '../common/appShell/Header';
+import { AppShell as MantineAppShell } from '../common/mantine';
 
 export function AppShell({ children }: PropsWithChildren) {
   return (

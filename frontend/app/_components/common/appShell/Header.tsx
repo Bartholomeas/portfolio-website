@@ -1,7 +1,5 @@
 'use client';
 
-import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
-
 import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
@@ -9,6 +7,7 @@ import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconBrandTwitter,
   IconPhone,
 } from '@tabler/icons-react';
 
@@ -26,6 +25,7 @@ import {
 } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
 
+import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -218,6 +218,14 @@ function HeaderDesktop() {
           href="https://github.com/Bartholomeas"
           target="_blank"
         >
+          <IconBrandTwitter size={18} />
+        </ActionIcon>
+        <ActionIcon
+          className={classes.icon}
+          component="a"
+          href="https://github.com/Bartholomeas"
+          target="_blank"
+        >
           <IconBrandGithub size={18} />
         </ActionIcon>
         <ActionIcon
@@ -267,6 +275,14 @@ function HeaderSocialsGroup() {
         target="_blank"
       >
         <IconBrandLinkedin size={32} />
+      </ActionIcon>
+      <ActionIcon
+        className={classes.icon}
+        component="a"
+        href="https://github.com/Bartholomeas"
+        target="_blank"
+      >
+        <IconBrandTwitter size={32} />
       </ActionIcon>
       <ActionIcon
         className={classes.icon}
