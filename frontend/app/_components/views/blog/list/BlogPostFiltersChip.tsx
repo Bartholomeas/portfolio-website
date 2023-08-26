@@ -1,8 +1,7 @@
+import React from 'react';
 
 import { Chip } from '@/_components/common/mantine';
 import { BlogCategoryCodes } from '@/_types';
-
-import React from 'react';
 
 type BlogPostFiltersChipProps = {
   value: keyof BlogCategoryCodes;
@@ -11,8 +10,8 @@ type BlogPostFiltersChipProps = {
 
 export function BlogPostFiltersChip({ value, name }: BlogPostFiltersChipProps) {
   return (
-    <Chip variant="outline" value={value}>
-      {name.toUpperCase()}
+    <Chip variant="outline" value={value} sx={{ textTransform: 'capitalize' }}>
+      {name}
     </Chip>
   );
 }

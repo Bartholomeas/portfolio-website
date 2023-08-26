@@ -1,8 +1,3 @@
-import { Text } from '@/_components/common/mantine/Text';
-
-import { Title } from '@/_components/common/mantine/Title';
-import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
-
 import { Box, createStyles, Group, Stack } from '@mantine/core';
 
 import {
@@ -15,6 +10,11 @@ import {
 } from '@tabler/icons-react';
 
 import React from 'react';
+
+import { Text } from '@/_components/common/mantine/Text';
+
+import { Title } from '@/_components/common/mantine/Title';
+import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({
@@ -85,7 +85,7 @@ export function ProjectRoadSection() {
       />
 
       <Stack className={classes.wrapper} spacing={64}>
-        {itemsData.map(({ title, text, icon }) => (
+        {itemsData?.map(({ title, text, icon }) => (
           <ProjectRoadItem key={title} title={title} text={text} icon={icon} />
         ))}
       </Stack>

@@ -34,7 +34,7 @@ export default async function Recommended() {
       <Glow size={500} position={{ top: -150, left: -150 }} />
       <RecommendedHeader />
       <Stack spacing={48}>
-        {data.map((list) => (
+        {data?.map((list) => (
           <RecommendedList list={list} />
         ))}
       </Stack>
