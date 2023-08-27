@@ -1,7 +1,10 @@
+'use client';
+
 import { Container } from '@/_components/common/mantine';
 import { Glow } from '@/_components/common/ornaments/Glow';
+
 import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHeader';
-// import { RecommendedListsSection } from '@/_components/views/recommended/RecommendedListsSection';
+import { RecommendedListsSection } from '@/_components/views/recommended/RecommendedListsSection';
 
 import { FetchResponse, RecommendedItems } from '@/_types';
 import { API_TOKEN, API_URL } from '@/_utils/variables';
@@ -15,9 +18,9 @@ async function getRecommendedPage(): Promise<
       { headers: { Authorization: `Bearer ${API_TOKEN}` } }
     );
 
-    if (!res.ok) {
-      throw new Error('getRecommendedPage: error');
-    }
+    // if (!res.ok) {
+    //   throw new Error('getRecommendedPage: error');
+    // }
 
     return await res.json();
   } catch (err: any) {
@@ -33,8 +36,7 @@ export default async function Recommended() {
     <Container size="sm" mt={32} sx={{ position: 'relative' }}>
       <Glow size={500} position={{ top: -150, left: -150 }} />
       <RecommendedHeader />
-      <p>test</p>
-      {/* <RecommendedListsSection data={data} /> */}
+      <RecommendedListsSection data={data} />
       <Glow size={350} position={{ bottom: -150, right: -200 }} />
     </Container>
   );
