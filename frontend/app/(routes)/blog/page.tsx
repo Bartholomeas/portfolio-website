@@ -21,8 +21,8 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
     }
 
     return await res.json();
-  } catch (err) {
-    throw new Error('getBlogPosts: error');
+  } catch (err: any) {
+    throw new Error(`getBlogPosts: ${err.message}`);
   }
 }
 

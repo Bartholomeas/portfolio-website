@@ -14,6 +14,7 @@ import React from 'react';
 import { Text } from '@/_components/common/mantine/Text';
 
 import { Title } from '@/_components/common/mantine/Title';
+
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 const useStyles = createStyles(
@@ -85,7 +86,7 @@ export function ProjectRoadSection() {
       />
 
       <Stack className={classes.wrapper} spacing={64}>
-        {itemsData?.map(({ title, text, icon }) => (
+        {itemsData.map(({ title, text, icon }) => (
           <ProjectRoadItem key={title} title={title} text={text} icon={icon} />
         ))}
       </Stack>

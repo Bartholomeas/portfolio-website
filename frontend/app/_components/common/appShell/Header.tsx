@@ -1,5 +1,7 @@
 'use client';
 
+import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
+
 import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
@@ -24,8 +26,6 @@ import {
   Stack,
 } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
-
-import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

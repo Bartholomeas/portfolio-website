@@ -55,7 +55,7 @@ export function BlogPostsFilters() {
         }}
       >
         <Group>
-          {data?.map((category) => (
+          {data.map((category) => (
             <BlogPostFiltersChip
               key={category.code}
               value={category.code}

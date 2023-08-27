@@ -7,7 +7,6 @@ import React from 'react';
 
 import { Anchor as MantineAnchor } from './index';
 
-
 type StylesProps = {
   textColor: ThemeColors;
 };

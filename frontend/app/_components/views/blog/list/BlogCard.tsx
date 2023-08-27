@@ -1,8 +1,3 @@
-
-
-
-
-
 import { Link } from '@/_components/common/Link';
 import {
   ActionIcon,
