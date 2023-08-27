@@ -18,9 +18,11 @@ async function getRecommendedPage(): Promise<
       { headers: { Authorization: `Bearer ${API_TOKEN}` } }
     );
 
-    // if (!res.ok) {
-    //   throw new Error('getRecommendedPage: error');
-    // }
+    if (!res.ok) {
+      console.error('Error status:', res.status);
+      console.error('Error text:', await res.text());
+      throw new Error('getRecommendedPage: error');
+    }
 
     return await res.json();
   } catch (err: any) {
