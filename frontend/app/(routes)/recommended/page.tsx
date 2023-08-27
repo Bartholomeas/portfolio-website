@@ -1,4 +1,5 @@
 import { Container, Stack } from '@/_components/common/mantine';
+import { Text } from '@/_components/common/mantine/Text';
 import { Glow } from '@/_components/common/ornaments/Glow';
 import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHeader';
 import { RecommendedList } from '@/_components/views/recommended/RecommendedList';
@@ -34,9 +35,11 @@ export default async function Recommended() {
       <Glow size={500} position={{ top: -150, left: -150 }} />
       <RecommendedHeader />
       <Stack spacing={48}>
-        {data?.map((list) => (
-          <RecommendedList list={list} key={list.id} />
-        ))}
+        {data.length > 0 ? (
+          data?.map((list) => <RecommendedList list={list} key={list.id} />)
+        ) : (
+          <Text>Brak danych</Text>
+        )}
       </Stack>
       <Glow size={350} position={{ bottom: -150, right: -200 }} />
     </Container>
