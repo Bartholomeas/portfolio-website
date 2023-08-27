@@ -1,7 +1,7 @@
-import React from 'react';
-
 import { Chip } from '@/_components/common/mantine';
 import { BlogCategoryCodes } from '@/_types';
+
+import React from 'react';
 
 type BlogPostFiltersChipProps = {
   value: keyof BlogCategoryCodes;

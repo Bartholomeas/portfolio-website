@@ -8,7 +8,6 @@ import React from 'react';
 
 import { Title as MantineTitle } from '.';
 
-
 type StylesProps = {
   textColor: ThemeColors;
 };

@@ -1,5 +1,3 @@
-
-
 import { SimpleGrid } from '@/_components/common/mantine';
 import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
 

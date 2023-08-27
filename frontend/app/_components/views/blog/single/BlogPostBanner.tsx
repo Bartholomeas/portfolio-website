@@ -11,7 +11,6 @@ import React from 'react';
 
 import { BlogPostCategoryBadge } from '../list/BlogPostCategoryBadge';
 
-
 type Props = {
   data: Post | undefined;
 };

@@ -1,20 +1,5 @@
 'use client';
 
-import {
-  createStyles,
-  rem,
-  Stack,
-  TypographyStylesProvider,
-} from '@mantine/core';
-
-import Image from 'next/image';
-
-import React, { Suspense, use } from 'react';
-
-import Markdown from 'react-markdown';
-
-import remarkGfm from 'remark-gfm';
-
 import { Box, Divider } from '@/_components/common/mantine';
 import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
 import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
@@ -23,6 +8,17 @@ import { FetchResponse, Post } from '@/_types';
 
 import { createQueryClient } from '@/_utils/createQueryClient';
 import { API_TOKEN, API_URL } from '@/_utils/variables';
+
+import {
+  createStyles,
+  rem,
+  Stack,
+  TypographyStylesProvider,
+} from '@mantine/core';
+import Image from 'next/image';
+import React, { Suspense, use } from 'react';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const useStyles = createStyles((theme) => ({
   image: {

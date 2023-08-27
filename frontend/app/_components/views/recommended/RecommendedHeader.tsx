@@ -1,8 +1,8 @@
 'use client';
 
-import { createStyles, rem } from '@mantine/core';
-
 import { Title } from '@/_components/common/mantine/Title';
+
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   inner: {

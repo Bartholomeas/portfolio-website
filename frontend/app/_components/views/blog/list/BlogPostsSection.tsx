@@ -3,7 +3,6 @@
 import { Stack } from '@/_components/common/mantine';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
-
 import { Post } from '@/_types';
 
 import { Loader } from '@mantine/core';
