@@ -1,6 +1,6 @@
 import { createStyles, rem } from '@mantine/core';
-import { subscribeUser } from '@strapi-newsletter/react';
 
+import { notifications } from '@mantine/notifications';
 import { IconMail, IconSend } from '@tabler/icons-react';
 
 import { useState } from 'react';
@@ -12,8 +12,6 @@ import { Button } from '../mantine/Button';
 import { Text } from '@/_components/common/mantine/Text';
 import { TextInput } from '@/_components/common/mantine/TextInput';
 import { Title } from '@/_components/common/mantine/Title';
-
-import { API_URL } from '@/_utils/variables';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -62,7 +60,27 @@ const useStyles = createStyles((theme) => ({
 
 export function FooterNewsletterSection() {
   const { classes } = useStyles();
+
   const [userEmail, setUserEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubscribe = (email: string) => {
+    setIsLoading(true);
+    setError('');
+    if (checkEmailIsValid(email)) {
+      subscribeToNewsletter(email)
+        .then(() => {
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoading(false);
+        });
+    } else {
+      setIsLoading(false);
+      setError('Email jest niepoprawny');
+    }
+  };
 
   return (
     <div className={classes.wrapper}>
@@ -89,19 +107,19 @@ export function FooterNewsletterSection() {
 
             <div className={classes.signupBox}>
               <TextInput
+                error={error}
                 miw={100}
                 icon={<IconMail size={16} />}
-                label="Your email"
+                label="Twój e-mail"
                 onChange={(val) => setUserEmail(val.target.value)}
               />
               <Button
                 variant="filled"
                 sx={(theme) => ({ color: theme.other.bg })}
                 onClick={() => {
-                  if (checkEmailIsValid(userEmail)) {
-                    handleUserSubscribe(userEmail);
-                  }
+                  handleSubscribe(userEmail);
                 }}
+                loading={isLoading}
                 rightIcon={<IconSend />}
               >
                 Zapisz się
@@ -121,11 +139,69 @@ export function FooterNewsletterSection() {
   );
 }
 
-const handleUserSubscribe = async (email: string) => {
-  await subscribeUser(email, API_URL);
-};
-
 const checkEmailIsValid = (email: string) => {
+  if (!email.trim()) return false;
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$/;
   return regex.test(email);
+};
+
+const subscribeToNewsletter = async (email: string) => {
+  notifications.show({
+    id: 'fetching-newsletter',
+    title: 'Prosimy o cierpliwość',
+    message: 'Trwa zapisywanie do newslettera..',
+    loading: true,
+    color: 'teal',
+    autoClose: false,
+    withCloseButton: false,
+    sx: (theme) => ({
+      backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+      borderRadius: 8,
+      border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+      backdropFilter: 'blur(10px)',
+    }),
+  });
+  try {
+    const res = await fetch('/api/newsletter', {
+      body: JSON.stringify({ email }),
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      method: 'POST',
+    });
+
+    setTimeout(() => {
+      notifications.update({
+        id: 'fetching-newsletter',
+        title: 'Potwierdź zapisanie się do newslettera na swoim e-mailu!',
+        message:
+          'Dzieli Cię tylko jeden krok od otrzymywania wiadomości, potwierdź swoje członkostwo w newsletterze poprzez wiadomość, która wysłaliśmy na Twoją skrzynkę pocztową.',
+        sx: (theme) => ({
+          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+          borderRadius: 8,
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+          backdropFilter: 'blur(10px)',
+        }),
+      });
+    }, 100);
+    return res.json();
+  } catch (err: any) {
+    notifications.clean();
+    setTimeout(() => {
+      notifications.update({
+        id: 'fetching-newsletter',
+        title: 'Ajajaj',
+        message:
+          'Wystąpił jakiś błąd, nie mogliśmy zapisać Cię do newslettera. :(',
+        color: 'red',
+        sx: (theme) => ({
+          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+          borderRadius: 8,
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+          backdropFilter: 'blur(10px)',
+        }),
+      });
+    }, 100);
+    throw new Error(`Error${err.message}`);
+  }
 };
