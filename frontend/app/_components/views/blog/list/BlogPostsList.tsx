@@ -1,11 +1,11 @@
+import React, { useEffect } from 'react';
+
+import { BlogCard } from './BlogCard';
+
 import { SimpleGrid } from '@/_components/common/mantine';
 import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
 
 import { Post } from '@/_types';
-
-import React, { useEffect } from 'react';
-
-import { BlogCard } from './BlogCard';
 
 type BlogPostsListProps = {
   posts: Post[] | undefined;
@@ -27,7 +27,7 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
       ]}
     >
       {filteredData &&
-        filteredData?.map((post) => <BlogCard key={post.id} post={post} />)}
+        filteredData.map((post) => <BlogCard key={post.id} post={post} />)}
     </SimpleGrid>
   );
 }

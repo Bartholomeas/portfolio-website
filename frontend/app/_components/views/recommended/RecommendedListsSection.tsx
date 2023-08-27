@@ -14,8 +14,8 @@ type Props = {
 export function RecommendedListsSection({ data }: Props) {
   return (
     <Stack spacing={48}>
-      {data.length > 0 ? (
-        data?.map((list) => <RecommendedList list={list} key={list.id} />)
+      {data ? (
+        data.map((list) => <RecommendedList list={list} key={list.id} />)
       ) : (
         <Text>Brak danych</Text>
       )}

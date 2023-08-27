@@ -1,5 +1,11 @@
 'use client';
 
+import { IconSearch } from '@tabler/icons-react';
+
+import React, { use } from 'react';
+
+import { BlogPostFiltersChip } from './BlogPostFiltersChip';
+
 import { Chip, Group, Stack } from '@/_components/common/mantine';
 import { TextInput } from '@/_components/common/mantine/TextInput';
 import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
@@ -8,11 +14,6 @@ import { BlogCategory, FetchResponse } from '@/_types';
 
 import { createQueryClient } from '@/_utils/createQueryClient';
 import { API_TOKEN, API_URL } from '@/_utils/variables';
-
-import { IconSearch } from '@tabler/icons-react';
-import React, { use } from 'react';
-
-import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
 async function getCategories(): Promise<FetchResponse<BlogCategory[]>> {
   try {
@@ -54,7 +55,7 @@ export function BlogPostsFilters() {
         }}
       >
         <Group>
-          {data?.map((category) => (
+          {data.map((category) => (
             <BlogPostFiltersChip
               key={category.code}
               value={category.code}
