@@ -1,10 +1,7 @@
-'use client';
-
-import { Container, Stack } from '@/_components/common/mantine';
-import { Text } from '@/_components/common/mantine/Text';
+import { Container } from '@/_components/common/mantine';
 import { Glow } from '@/_components/common/ornaments/Glow';
 import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHeader';
-import { RecommendedList } from '@/_components/views/recommended/RecommendedList';
+import { RecommendedListsSection } from '@/_components/views/recommended/RecommendedListsSection';
 
 import { FetchResponse, RecommendedItems } from '@/_types';
 import { API_TOKEN, API_URL } from '@/_utils/variables';
@@ -31,18 +28,12 @@ async function getRecommendedPage(): Promise<
 export default async function Recommended() {
   const recommendedPromise = getRecommendedPage();
   const { data } = await recommendedPromise;
-  console.log(data);
+
   return (
     <Container size="sm" mt={32} sx={{ position: 'relative' }}>
       <Glow size={500} position={{ top: -150, left: -150 }} />
       <RecommendedHeader />
-      <Stack spacing={48}>
-        {data.length > 0 ? (
-          data?.map((list) => <RecommendedList list={list} key={list.id} />)
-        ) : (
-          <Text>Brak danych</Text>
-        )}
-      </Stack>
+      <RecommendedListsSection data={data} />
       <Glow size={350} position={{ bottom: -150, right: -200 }} />
     </Container>
   );
