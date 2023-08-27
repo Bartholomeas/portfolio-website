@@ -19,6 +19,7 @@ async function getRecommendedPage(): Promise<
     );
 
     if (!res.ok) {
+      console.log(API_URL, API_TOKEN);
       console.error('Error status:', res.status);
       console.error('Error text:', await res.text());
       throw new Error('getRecommendedPage: error');
