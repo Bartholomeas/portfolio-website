@@ -10,12 +10,16 @@ import {
 import React, { useState } from 'react';
 
 const useStyles = createStyles(
-  (theme, { floating }: { floating: boolean }) => ({
+  (theme, { floating, isError }: { floating: boolean; isError: boolean }) => ({
     root: {
       position: 'relative',
       marginTop: rem(8),
     },
+    wrapper: {
+      marginBottom: 0,
+    },
     label: {
+      display: isError ? 'none' : 'block',
       position: 'absolute',
       zIndex: 2,
       left: rem(32),
@@ -47,6 +51,12 @@ const useStyles = createStyles(
     icon: {
       width: 32,
     },
+    error: {
+      position: 'absolute',
+      top: 0,
+      transform: `translateY(calc(-100% - ${rem(8)}))`,
+      fontSize: theme.fontSizes.xs,
+    },
   })
 );
 
@@ -55,6 +65,7 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const { classes } = useStyles({
     floating: focused,
+    isError: !!props.error,
   });
 
   return (
@@ -62,7 +73,9 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
       ref={inputRef}
       classNames={classes}
       onChange={onChange}
-      onFocus={() => setFocused(true)}
+      onFocus={() => {
+        if (!props.error) setFocused(true);
+      }}
       onBlur={() => {
         if (!inputRef?.current?.value) setFocused(false);
       }}

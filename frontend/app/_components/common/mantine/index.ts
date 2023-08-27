@@ -1,6 +1,7 @@
 'use client';
 
 import * as MantineComponents from '@mantine/core';
+import * as MantineNotifications from '@mantine/notifications';
 
 export const { AppShell } = MantineComponents;
 export const { Box } = MantineComponents;
@@ -30,3 +31,6 @@ export const { Button } = MantineComponents;
 export const { Badge } = MantineComponents;
 export const { Title } = MantineComponents;
 export const { Text } = MantineComponents;
+export const { Notification } = MantineComponents;
+
+export const { Notifications } = MantineNotifications;
