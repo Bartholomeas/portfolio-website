@@ -20,8 +20,8 @@ async function getRecommendedPage(): Promise<
     }
 
     return await res.json();
-  } catch (err) {
-    throw new Error('getRecommendedPage: error');
+  } catch (err: any) {
+    throw new Error(`getRecommendedPage: ${err.message}`);
   }
 }
 

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Box, Container, Stack } from '@/_components/common/mantine';
 import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 
@@ -6,8 +8,6 @@ import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection
 
 import { FetchResponse, Post } from '@/_types';
 import { API_TOKEN, API_URL } from '@/_utils/variables';
-
-import React from 'react';
 
 async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
   try {
@@ -21,8 +21,8 @@ async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
     }
 
     return await res.json();
-  } catch (err) {
-    throw new Error('getBlogPosts: error');
+  } catch (err: any) {
+    throw new Error(`getBlogPosts: ${err.message}`);
   }
 }
 
