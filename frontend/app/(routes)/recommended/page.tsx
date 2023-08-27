@@ -1,3 +1,5 @@
+'use client';
+
 import { Container, Stack } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
 import { Glow } from '@/_components/common/ornaments/Glow';
@@ -29,7 +31,7 @@ async function getRecommendedPage(): Promise<
 export default async function Recommended() {
   const recommendedPromise = getRecommendedPage();
   const { data } = await recommendedPromise;
-
+  console.log(data);
   return (
     <Container size="sm" mt={32} sx={{ position: 'relative' }}>
       <Glow size={500} position={{ top: -150, left: -150 }} />
