@@ -1,9 +1,3 @@
-import { Text } from '@/_components/common/mantine/Text';
-
-import { TextInput } from '@/_components/common/mantine/TextInput';
-
-import { Title } from '@/_components/common/mantine/Title';
-
 import { createStyles, rem } from '@mantine/core';
 
 import { notifications } from '@mantine/notifications';
@@ -14,6 +8,10 @@ import { useState } from 'react';
 import { Container, Image, Stack } from '../mantine';
 
 import { Button } from '../mantine/Button';
+
+import { Text } from '@/_components/common/mantine/Text';
+import { TextInput } from '@/_components/common/mantine/TextInput';
+import { Title } from '@/_components/common/mantine/Title';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -37,7 +35,7 @@ const useStyles = createStyles((theme) => ({
     gap: rem(4),
     marginTop: rem(8),
     maxWidth: rem(450),
-    zIndex: 999,
+    zIndex: 99,
   },
 
   bgImg: {

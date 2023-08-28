@@ -2,6 +2,9 @@
 
 import {
   createStyles,
+  InputProps,
+  InputWrapperProps,
+  Input as MantineInput,
   TextInput as MantineTextInput,
   rem,
   TextInputProps,
@@ -73,6 +76,31 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
       ref={inputRef}
       classNames={classes}
       onChange={onChange}
+      onFocus={() => {
+        if (!props.error) setFocused(true);
+      }}
+      onBlur={() => {
+        if (!inputRef?.current?.value) setFocused(false);
+      }}
+      {...props}
+    />
+  );
+}
+
+export function TextCustomInput({
+  ...props
+}: Partial<InputWrapperProps> & Partial<InputProps>) {
+  const [focused, setFocused] = useState(false);
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
+  const { classes } = useStyles({
+    floating: focused,
+    isError: !!props.error,
+  });
+
+  return (
+    <MantineInput
+      ref={inputRef}
+      classNames={classes}
       onFocus={() => {
         if (!props.error) setFocused(true);
       }}
