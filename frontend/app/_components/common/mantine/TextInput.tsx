@@ -10,7 +10,7 @@ import {
   TextInputProps,
 } from '@mantine/core';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useStyles = createStyles(
   (theme, { floating, isError }: { floating: boolean; isError: boolean }) => ({
@@ -70,6 +70,12 @@ export function TextInput({ onChange, ...props }: TextInputProps) {
     floating: focused,
     isError: !!props.error,
   });
+
+  useEffect(() => {
+    if (inputRef?.current?.value) {
+      setFocused(true);
+    }
+  }, [props.error]);
 
   return (
     <MantineTextInput

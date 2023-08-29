@@ -4,16 +4,17 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { email, name, message } = await req.json();
+    const { email, title, name, message } = await req.json();
 
     const messageToSend: nodemailer.SendMailOptions = {
       from: email,
       replyTo: email,
       to: process.env.NEXT_PUBLIC_CONTACT_EMAIL_ADDRESS,
-      subject: `${email}: ${name}`,
+      subject: `${name}: ${title}`,
       text: message,
-      html: `<div>${message}</div>`,
+      html: `<div>Wiadomość od ${email}: ${message}</div>`,
     };
+
     const transporter: nodemailer.Transporter = nodemailer.createTransport({
       service: 'gmail',
       port: 587,
@@ -24,12 +25,10 @@ export async function POST(req: Request) {
       },
     });
 
-    transporter.sendMail(messageToSend, (error, info) => {
-      console.log(`PreviewUrl:${nodemailer.getTestMessageUrl(info)}`);
+    const res = await transporter.sendMail(messageToSend, (error, info) => {
       if (error) {
         return NextResponse.json({
           message: `Email sending failed: ${error.message}`,
-          status: 504,
         });
       }
       return NextResponse.json({
@@ -37,9 +36,9 @@ export async function POST(req: Request) {
         status: 200,
       });
     });
+    return NextResponse.json({ res });
   } catch (err: any) {
     return NextResponse.json({
-      status: err.status || 407,
       message: `Error: ${err?.message}`,
     });
   }

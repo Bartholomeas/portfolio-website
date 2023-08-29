@@ -4,7 +4,7 @@ import { Box, Checkbox, Flex, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import { ContextModalProps } from '@mantine/modals';
-
+import { notifications } from '@mantine/notifications';
 import {
   IconAt,
   IconHeading,
@@ -23,6 +23,8 @@ import { TextInput } from '../mantine/TextInput';
 import { ShapeWithGlow } from '../ornaments/ShapeWithGlow';
 
 export function ContactModal({ context, id }: ContextModalProps) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -31,6 +33,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
       message: '',
       agree: false,
     },
+
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Niepoprawny e-mail'),
       name: (value) =>
@@ -43,87 +46,37 @@ export function ContactModal({ context, id }: ContextModalProps) {
     },
   });
 
-  const contactStatuses = {
-    loading: 'loading',
-    submitted: 'submitted',
-    error: 'error',
-  };
-  const [status, setStatus] = useState();
-
-  const sendEmail = async (email: string, subject: string, message: string) => {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: 'ss@onet.pl',
-        title: 'title',
-        name: 'name',
-        message: 'message',
-      }),
-    });
-    return res.json();
-  };
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log('submittojest');
-    const abortLongFetch = new AbortController();
-    const abortTimeoutId = setTimeout(() => abortLongFetch.abort(), 7000);
+
+    if (!form.isValid()) return form.validate();
+    setIsLoading(true);
     try {
       const res = await fetch('/api/contact', {
-        signal: abortLongFetch.signal,
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        // body: JSON.stringify(data),
+        body: JSON.stringify({
+          email: form.values.email,
+          title: form.values.title,
+          name: form.values.name,
+          message: form.values.message,
+        }),
       });
-      if (res.ok) {
-        clearTimeout(abortTimeoutId);
-        return res.json();
-      }
+
+      notifications.show({
+        title: 'Dziękuję za kontakt!',
+        message:
+          'Wiadomość została wysłana, odpiszę najprędzej jak tylko będę mógł!',
+        color: 'teal',
+      });
+      return res.json();
     } catch (err: any) {
-      console.log(err);
-      throw new Error(`Error in handlesubmit email ${err.message}`);
+      throw new Error(`Error: ${err.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
     <Stack sx={{ position: 'relative' }}>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          transform: 'translate(-60%, -120%)',
-          zIndex: 1000,
-        }}
-      >
-        <ShapeWithGlow shape="circle1" size={100} />
-      </Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          transform: 'translate(0, 140%)',
-          zIndex: 1000,
-          filter: 'blur(5px)',
-          opacity: 0.6,
-        }}
-      >
-        <ShapeWithGlow shape="circle2" size={80} />
-      </Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          right: 0,
-          transform: 'translate(70%, 95%)',
-          zIndex: 1000,
-        }}
-      >
-        <ShapeWithGlow shape="circle2" size={80} />
-      </Box>
-
       <form onSubmit={handleSubmit}>
         <Stack py={24} spacing={24}>
           <TextInput
@@ -167,8 +120,8 @@ export function ContactModal({ context, id }: ContextModalProps) {
         <Flex direction={{ base: 'column', sm: 'row' }} gap={16} justify="end">
           <Button
             onClick={() => {
-              // context.closeContextModal(id);
-              console.log(form.validate());
+              context.closeModal(id);
+              form.reset();
             }}
             color="gray"
             variant="outline"
@@ -181,11 +134,48 @@ export function ContactModal({ context, id }: ContextModalProps) {
             color="primary"
             variant="outline"
             leftIcon={<IconSend size={16} />}
+            onClick={() => {}}
+            loading={isLoading}
           >
             Wyślij wiadomość
           </Button>
         </Flex>
       </form>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          transform: 'translate(-60%, -120%)',
+          zIndex: 1000,
+        }}
+      >
+        <ShapeWithGlow shape="circle1" size={100} />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          transform: 'translate(0, 140%)',
+          zIndex: 1000,
+          filter: 'blur(5px)',
+          opacity: 0.6,
+        }}
+      >
+        <ShapeWithGlow shape="circle2" size={80} />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          transform: 'translate(70%, 95%)',
+          zIndex: 1000,
+        }}
+      >
+        <ShapeWithGlow shape="circle2" size={80} />
+      </Box>
     </Stack>
   );
 }

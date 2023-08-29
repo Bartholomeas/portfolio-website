@@ -154,12 +154,6 @@ const subscribeToNewsletter = async (email: string) => {
     color: 'teal',
     autoClose: false,
     withCloseButton: false,
-    sx: (theme) => ({
-      backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
-      borderRadius: 8,
-      border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-      backdropFilter: 'blur(10px)',
-    }),
   });
   try {
     const res = await fetch('/api/newsletter', {
@@ -176,12 +170,6 @@ const subscribeToNewsletter = async (email: string) => {
         title: 'Potwierdź zapisanie się do newslettera na swoim e-mailu!',
         message:
           'Dzieli Cię tylko jeden krok od otrzymywania wiadomości, potwierdź swoje członkostwo w newsletterze poprzez wiadomość, która wysłaliśmy na Twoją skrzynkę pocztową.',
-        sx: (theme) => ({
-          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
-          borderRadius: 8,
-          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-          backdropFilter: 'blur(10px)',
-        }),
       });
     }, 100);
     return res.json();
@@ -194,12 +182,6 @@ const subscribeToNewsletter = async (email: string) => {
         message:
           'Wystąpił jakiś błąd, nie mogliśmy zapisać Cię do newslettera. :(',
         color: 'red',
-        sx: (theme) => ({
-          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
-          borderRadius: 8,
-          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-          backdropFilter: 'blur(10px)',
-        }),
       });
     }, 100);
     throw new Error(`Error${err.message}`);
