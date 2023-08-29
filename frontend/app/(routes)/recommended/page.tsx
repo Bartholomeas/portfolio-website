@@ -1,5 +1,3 @@
-'use client';
-
 import { Container } from '@/_components/common/mantine';
 import { Glow } from '@/_components/common/ornaments/Glow';
 
@@ -19,7 +17,6 @@ async function getRecommendedPage(): Promise<
     );
 
     if (!res.ok) {
-      console.log(API_URL, API_TOKEN);
       console.error('Error status:', res.status);
       console.error('Error text:', await res.text());
       throw new Error('getRecommendedPage: error');
@@ -34,7 +31,7 @@ async function getRecommendedPage(): Promise<
 export default async function Recommended() {
   const recommendedPromise = getRecommendedPage();
   const { data } = await recommendedPromise;
-  console.log(data);
+
   return (
     <Container size="sm" mt={32} sx={{ position: 'relative' }}>
       <Glow size={500} position={{ top: -150, left: -150 }} />

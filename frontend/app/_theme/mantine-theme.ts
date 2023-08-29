@@ -82,5 +82,15 @@ export const basicTheme: MantineThemeOther = {
         },
       }),
     },
+    Notification: {
+      styles: (theme: MantineTheme) => ({
+        root: {
+          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+          borderRadius: 8,
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+          backdropFilter: 'blur(10px)',
+        },
+      }),
+    },
   },
 };
