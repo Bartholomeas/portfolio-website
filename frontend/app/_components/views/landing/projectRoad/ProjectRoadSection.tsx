@@ -70,7 +70,7 @@ const itemsData = [
   },
   {
     title: 'Projekt w budowie',
-    text: 'Prace nad projektem ruszyły i nie zamierzają się zatrzymywać!',
+    text: 'Prace nad projektem ruszyły i nie zamierzają się zatrzymywać!',
     icon: IconProgress,
   },
 ];
