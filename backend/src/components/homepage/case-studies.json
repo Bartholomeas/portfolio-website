@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_homepage_case_studies",
+  "info": {
+    "displayName": "CaseStudies",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tool.tool"
+    },
+    "uuid": {
+      "type": "customField",
+      "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "customField": "plugin::field-uuid.uuid"
+    }
+  }
+}

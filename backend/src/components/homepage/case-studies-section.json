@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_case_studies_sections",
+  "info": {
+    "displayName": "CaseStudiesSection",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.about-me"
+    },
+    "caseStudies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.case-studies"
+    }
+  }
+}

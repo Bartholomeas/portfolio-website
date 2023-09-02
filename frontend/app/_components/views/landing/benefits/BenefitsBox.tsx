@@ -1,32 +1,13 @@
-import { Card } from '@/_components/common/mantine';
+'use client';
 
-import { Text } from '@/_components/common/mantine/Text';
-
-import { Title } from '@/_components/common/mantine/Title';
-
-import { Box, createStyles, Stack } from '@mantine/core';
-
-import { Icon } from '@tabler/icons-react';
-
+import { createStyles } from '@mantine/core';
 import React from 'react';
 
-type BenefitsBoxProps = {
-  icon: Icon;
-  title: string;
-  content: string;
-};
+import { Box, Card, Stack } from '@/_components/common/mantine';
 
-export function BenefitsBox({ icon, title, content }: BenefitsBoxProps) {
-  return (
-    <Stack align="center" spacing={16}>
-      <BenefitsBoxIcon icon={icon} />
-      <Title order={4}>{title}</Title>
-      <Text textColor="textSecondary" ta="center">
-        {content}
-      </Text>
-    </Stack>
-  );
-}
+import { Text } from '@/_components/common/mantine/Text';
+import { Title } from '@/_components/common/mantine/Title';
+import { IconComponent } from '@/_components/common/special/IconComponent';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -50,17 +31,27 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function BenefitsBoxIcon({ icon }: { icon: Icon }) {
+type BenefitsBoxProps = {
+  icon: string;
+  title: string;
+  content: string;
+};
+
+export function BenefitsBox({ icon, title, content }: BenefitsBoxProps) {
   const { classes } = useStyles();
 
-  const PropIcon = icon;
-
   return (
-    <div className={classes.wrapper}>
-      <Card h={70} w={70} p={0} className={classes.card}>
-        <PropIcon size={32} color="white" />
-      </Card>
-      <Box className={classes.box} />
-    </div>
+    <Stack align="center" spacing={16}>
+      <div className={classes.wrapper}>
+        <Card h={70} w={70} p={0} className={classes.card}>
+          <IconComponent icon={icon} size={32} color="white" />
+        </Card>
+        <Box className={classes.box} />
+      </div>
+      <Title order={4}>{title}</Title>
+      <Text textColor="textSecondary" ta="center">
+        {content}
+      </Text>
+    </Stack>
   );
 }

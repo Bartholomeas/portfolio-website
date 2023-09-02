@@ -1,4 +1,4 @@
-import { Link } from '@/_components/common/Link';
+import { Link } from '@/_components/common/special/Link';
 import {
   ActionIcon,
   Box,
