@@ -1,4 +1,6 @@
-import { Box, createStyles, Group, Stack } from '@mantine/core';
+'use client';
+
+import { createStyles } from '@mantine/core';
 
 import {
   Icon,
@@ -11,10 +13,9 @@ import {
 
 import React from 'react';
 
+import { Box, Group, Stack } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
-
 import { Title } from '@/_components/common/mantine/Title';
-
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 
 const useStyles = createStyles(

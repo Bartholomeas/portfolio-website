@@ -1,3 +1,5 @@
+'use client';
+
 import { createStyles, Stack } from '@mantine/core';
 import React from 'react';
 

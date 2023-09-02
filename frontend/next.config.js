@@ -6,7 +6,7 @@ const nextConfig = {
     domains: ['localhost', 'res.cloudinary.com'],
   },
   experimental: {
-    appDir: true,
+    serverActions: true,
   },
   compiler: {
     styledComponents: true,

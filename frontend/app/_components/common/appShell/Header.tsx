@@ -15,7 +15,7 @@ import {
 
 import React from 'react';
 
-import { Link } from '../Link';
+import { Link } from '../special/Link';
 import {
   ActionIcon,
   Burger,

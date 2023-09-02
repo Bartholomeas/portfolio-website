@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_recommended_groups",
   "info": {
-    "displayName": "RecommendedGroup"
+    "displayName": "RecommendedGroup",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,6 +14,11 @@
     },
     "link": {
       "type": "string"
+    },
+    "uuid": {
+      "type": "customField",
+      "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "customField": "plugin::field-uuid.uuid"
     }
   }
 }

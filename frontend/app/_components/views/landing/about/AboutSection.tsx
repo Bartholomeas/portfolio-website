@@ -1,12 +1,17 @@
+'use client';
+
+import { Box, createStyles, Image, Stack } from '@mantine/core';
+
+import React from 'react';
+
+import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
+
 import { Text } from '@/_components/common/mantine/Text';
 import { Glow } from '@/_components/common/ornaments/Glow';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
 import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
 
-import { Box, createStyles, Image, Stack } from '@mantine/core';
-import React from 'react';
-
-import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
+import { AboutMeSection } from '@/_types/pages';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -48,7 +53,10 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function AboutSection() {
+type Props = {
+  data: AboutMeSection;
+};
+export function AboutSection({ data }: Props) {
   const { classes } = useStyles();
 
   return (
@@ -63,30 +71,19 @@ export function AboutSection() {
         <Stack>
           <div className={classes.grid}>
             <Image
-              src="./man.jpg"
-              alt="my portrait photo"
+              src={data.sectionImage.url}
+              alt={data.sectionImage.alternativeText ?? 'Moje zdjęcie'}
               sx={{ borderRadius: 8, overflow: 'hidden' }}
             />
             <Stack justify="center">
               <SectionHeading
-                title="Cześć, jestem Bartek!"
-                subtext="Kim jestem?"
+                title={data.heading.title}
+                subtext={data.heading.subtitle}
               />
-              <Text size={16}>
-                Lorem ipsum dolor sit amet consectetur. Sit in amet amet dui
-                orci feugiat diam. Condimentum turpis tortor lorem blandit orci
-                morbi. Malesuada purus vel commodo iaculis semper lacinia tortor
-                lectus. Lorem consequat ultricies diam enim.Lorem ipsum dolor
-                sit Loreorem consequat ultricies diam enim.Lorem ipsum dolor sit
-                Lorem ipsum.Lorem ipsum dolor sit amet consectetur. Sit in amet
-                amet dui orci feugiat diam. Condimentum turpis tortor lorem
-                blandit orci morbi. Malesuada purus vel commodo iaculis semper
-                lacinia tortor lectus. Lorem consequat ultricies diam enim.Lorem
-                ipsum dolor sit Lorem ipsum.
-              </Text>
+              <Text size={16}>{data.aboutMeDescription}</Text>
             </Stack>
           </div>
-          <AboutSpecializationsGrid />
+          <AboutSpecializationsGrid skills={data.skillCards} />
         </Stack>
       </Box>
     </section>

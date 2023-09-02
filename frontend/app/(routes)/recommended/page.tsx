@@ -17,14 +17,12 @@ async function getRecommendedPage(): Promise<
     );
 
     if (!res.ok) {
-      console.error('Error status:', res.status);
-      console.error('Error text:', await res.text());
       throw new Error('getRecommendedPage: error');
     }
 
     return await res.json();
   } catch (err: any) {
-    throw new Error(`getRecommendedPage: ${err.message}`);
+    throw new Error(`getRecommendedPage: ${err}`);
   }
 }
 

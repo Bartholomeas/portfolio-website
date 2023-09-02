@@ -1,49 +1,38 @@
+import { Box, Group, SimpleGrid, Stack } from '@mantine/core';
+
+import { IconPencil, IconTerminal } from '@tabler/icons-react';
+
 import { Card } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';
 
-import { Box, Group, SimpleGrid, Stack } from '@mantine/core';
-import { IconPencil, IconTerminal } from '@tabler/icons-react';
+import { AboutMeSection } from '@/_types/pages';
 
-export function AboutSpecializationsGrid() {
+type Props = { skills: AboutMeSection['skillCards'] };
+
+export function AboutSpecializationsGrid({ skills }: Props) {
   return (
     <SimpleGrid cols={1} breakpoints={[{ minWidth: 'sm', cols: 2 }]}>
-      <Card>
-        <Stack spacing={8}>
-          <Group position="apart">
-            <Title order={4} textColor="primary">
-              Front-end
-            </Title>
-            <Box sx={(theme) => ({ color: theme.other.primary })}>
-              <IconTerminal size={32} />
-            </Box>
-          </Group>
-          <Text textColor="textSecondary">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quia
-            asperiores rem aut rerum modi eum fugiat, cupiditate perspiciatis
-            deserunt incidunt dolor molestias blanditiis necessitatibus aliquid
-            ut in maiores inventore?
-          </Text>
-        </Stack>
-      </Card>
-      <Card>
-        <Stack spacing={8}>
-          <Group position="apart">
-            <Title order={4} textColor="primary">
-              Design
-            </Title>
-            <Box sx={(theme) => ({ color: theme.other.primary })}>
-              <IconPencil size={32} />
-            </Box>
-          </Group>
-          <Text textColor="textSecondary">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit quia
-            asperiores rem aut rerum modi eum fugiat, cupiditate perspiciatis
-            deserunt incidunt dolor molestias blanditiis necessitatibus aliquid
-            ut in maiores inventore?
-          </Text>
-        </Stack>
-      </Card>
+      {skills &&
+        skills.map((item) => (
+          <Card key={item.title}>
+            <Stack spacing={8}>
+              <Group position="apart">
+                <Title order={4} textColor="primary">
+                  {item.title ?? ''}
+                </Title>
+                <Box sx={(theme) => ({ color: theme.other.primary })}>
+                  {item.title === 'Front-end' ? (
+                    <IconTerminal size={32} />
+                  ) : (
+                    <IconPencil size={32} />
+                  )}
+                </Box>
+              </Group>
+              <Text textColor="textSecondary">{item.description ?? ''}</Text>
+            </Stack>
+          </Card>
+        ))}
     </SimpleGrid>
   );
 }
