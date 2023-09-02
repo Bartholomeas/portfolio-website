@@ -17,9 +17,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'bartholomeas',
-  description: 'Bartholomeas website',
-  keywords: 'front-end, web design, javascript, css, react, nextjs',
+  title: 'Frontend Developer i freelancer | Bartosz Stefaniak',
+  description:
+    'Tworzę profesjonalne i kreatywne strony internetowe oraz projekty graficzne. Chcesz się przekonać? Napisz do mnie!',
+  keywords:
+    'Frontend Developer, Freelancer, Web Design, JavaScript, CSS, React, Next.js',
 };
 
 function RootLayout({ children }: { children: React.ReactNode }) {

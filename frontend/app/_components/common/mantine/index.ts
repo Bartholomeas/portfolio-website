@@ -1,5 +1,6 @@
 'use client';
 
+import * as MantineCarousel from '@mantine/carousel';
 import * as MantineComponents from '@mantine/core';
 import * as MantineNotifications from '@mantine/notifications';
 
@@ -34,3 +35,5 @@ export const { Text } = MantineComponents;
 export const { Notification } = MantineComponents;
 
 export const { Notifications } = MantineNotifications;
+
+export const { Carousel } = MantineCarousel;
