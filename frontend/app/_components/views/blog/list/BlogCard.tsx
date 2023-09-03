@@ -1,18 +1,3 @@
-import { Link } from '@/_components/common/special/Link';
-import {
-  ActionIcon,
-  Box,
-  Card,
-  Divider,
-  Group,
-  Stack,
-} from '@/_components/common/mantine';
-import { ButtonLink } from '@/_components/common/mantine/Button';
-import { Text } from '@/_components/common/mantine/Text';
-import { Title } from '@/_components/common/mantine/Title';
-
-import { Post } from '@/_types';
-
 import {
   IconArrowRight,
   IconBookmark,
@@ -24,6 +9,20 @@ import Image from 'next/image';
 import React from 'react';
 
 import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+
+import {
+  ActionIcon,
+  Box,
+  Card,
+  Divider,
+  Group,
+  Stack,
+} from '@/_components/common/mantine';
+import { ButtonLink } from '@/_components/common/mantine/Button';
+import { Text } from '@/_components/common/mantine/Text';
+import { Title } from '@/_components/common/mantine/Title';
+import { Link } from '@/_components/common/special/Link';
+import { Post } from '@/_types';
 
 type BlogCardProps = {
   post: Post | undefined;
@@ -54,12 +53,8 @@ export function BlogCard({ post }: BlogCardProps) {
 
         <Stack h="100%" spacing={16} justify="space-between">
           <Group spacing={4} align="center">
-            {post?.blogCategories.map(({ code, name }) => (
-              <BlogPostCategoryBadge
-                key={`${code}-${post?.title}`}
-                code={code}
-                name={name}
-              />
+            {post?.blogCategories.map(({ uuid, code, name }) => (
+              <BlogPostCategoryBadge key={uuid} code={code} name={name} />
             ))}
           </Group>
 

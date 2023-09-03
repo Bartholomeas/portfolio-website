@@ -1,9 +1,10 @@
 import { createStyles, rem } from '@mantine/core';
 
-import { Box, Paper } from '@/_components/common/mantine';
-import { Button } from '@/_components/common/mantine/Button';
+import { Box, Card, Divider, Group, Stack } from '@/_components/common/mantine';
 import { Text } from '@/_components/common/mantine/Text';
 import { Title } from '@/_components/common/mantine/Title';
+
+import { CaseStudiesItem } from '@/_types/pages';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -13,8 +14,10 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     height: rem(440),
+    minWidth: rem(300),
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    cursor: 'pointer',
 
     '&::before': {
       content: '""',
@@ -36,43 +39,42 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 900,
     lineHeight: 1.2,
   },
-
-  category: {
-    color: theme.white,
-    opacity: 0.7,
-    fontWeight: 700,
-    textTransform: 'uppercase',
-  },
 }));
 
 interface Props {
-  image: string;
-  title: string;
-  category: string;
+  item: CaseStudiesItem;
 }
 
-export function CaseStudiesCarouselCard({ image, title, category }: Props) {
+export function CaseStudiesCarouselCard({ item }: Props) {
   const { classes } = useStyles();
 
   return (
-    <Paper
-      shadow="md"
-      p="xl"
+    <Card
+      component="button"
+      p={16}
       radius="md"
-      sx={{ backgroundImage: `url(${image})` }}
+      onClick={() => console.log('klik')}
+      sx={{ backgroundImage: `url(${item?.mainImg?.url})` }}
       className={classes.card}
     >
-      <Box sx={{ zIndex: 99 }}>
-        <Text className={classes.category} size="xs">
-          {category}
-        </Text>
+      <Stack spacing={8} sx={{ zIndex: 99 }}>
         <Title order={3} className={classes.title}>
-          {title}
+          {item?.title}
         </Title>
-      </Box>
-      <Button onClick={() => console.log('read')} variant="white" color="dark">
-        Read article
-      </Button>
-    </Paper>
+        <Text textColor="white" size="lg">
+          {item?.shortDescription}
+        </Text>
+      </Stack>
+      <Stack spacing={8} w="100%" sx={{ zIndex: 99 }}>
+        {item.id && <Divider />}
+        <Group>
+          {item.tools.map((tool) => (
+            <Text textColor="white" size="md" key={tool.uuid}>
+              {tool.name}
+            </Text>
+          ))}
+        </Group>
+      </Stack>
+    </Card>
   );
 }

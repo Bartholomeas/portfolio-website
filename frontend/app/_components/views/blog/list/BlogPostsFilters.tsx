@@ -13,15 +13,12 @@ import { useFiltersCtx } from '@/_components/templates/FiltersContextProvider';
 import { BlogCategory, FetchResponse } from '@/_types';
 
 import { createQueryClient } from '@/_utils/createQueryClient';
-import { API_TOKEN, API_URL } from '@/_utils/variables';
+import { API_URL } from '@/_utils/variables';
 
 async function getCategories(): Promise<FetchResponse<BlogCategory[]>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/blog-categories?fields[0]=code&fields[1]=name`,
-      {
-        headers: { Authorization: `Bearer ${API_TOKEN}` },
-      }
+      `${API_URL}/api/blog-categories?fields[0]=code&fields[1]=name`
     );
     return res.json();
   } catch (err) {

@@ -29,6 +29,7 @@ export type Post = {
   blogCategories: BlogCategory[];
   headerImg: { url: string };
   id: number;
+  uuid: string;
   publishedAt: string;
   readTime: number;
   shortDescription: string;

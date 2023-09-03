@@ -5,15 +5,14 @@ import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHe
 import { RecommendedListsSection } from '@/_components/views/recommended/RecommendedListsSection';
 
 import { FetchResponse, RecommendedItems } from '@/_types';
-import { API_TOKEN, API_URL } from '@/_utils/variables';
+import { API_URL } from '@/_utils/variables';
 
 async function getRecommendedPage(): Promise<
   FetchResponse<RecommendedItems[]>
 > {
   try {
     const res = await fetch(
-      `${API_URL}/api/recommended-pages?fields[0]=title&populate[items]=items`,
-      { headers: { Authorization: `Bearer ${API_TOKEN}` } }
+      `${API_URL}/api/recommended-pages?fields[0]=title&populate[items]=items`
     );
 
     if (!res.ok) {

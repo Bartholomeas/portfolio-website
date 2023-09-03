@@ -17,9 +17,12 @@ export function CaseStudiesSection({ data }: Props) {
     <section>
       <Stack py={64} mih="50vh" spacing={64}>
         <Container size="md" w="100%">
-          <SectionHeading title="Case studies" subtext="Jak to powstaje?" />
+          <SectionHeading
+            title={data?.heading.title}
+            subtext={data?.heading.subtitle}
+          />
         </Container>
-        <CaseStudiesCarousel />
+        {data ? <CaseStudiesCarousel data={data?.caseStudies} /> : null}
       </Stack>
     </section>
   );

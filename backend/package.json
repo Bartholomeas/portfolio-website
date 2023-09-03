@@ -10,7 +10,6 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@bn-digital/strapi-plugin-field-uuid": "^1.2.12",
     "@strapi/plugin-graphql": "^4.12.1",
     "@strapi/plugin-i18n": "4.12.1",
     "@strapi/plugin-users-permissions": "4.12.1",
@@ -18,6 +17,7 @@
     "@strapi/strapi": "4.12.1",
     "better-sqlite3": "8.0.1",
     "pg": "^8.11.3",
+    "strapi-auto-uuid": "^0.0.8",
     "strapi-plugin-react-icons": "^0.2.0",
     "strapi-plugin-transformer": "^3.1.0"
   },
