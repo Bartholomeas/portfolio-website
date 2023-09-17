@@ -1,10 +1,7 @@
 'use client';
 
-import { IconSearch } from '@tabler/icons-react';
 
-import React, { use } from 'react';
 
-import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
 import { Chip, Group, Stack } from '@/components/common/mantine';
 import { TextInput } from '@/components/common/mantine/TextInput';
@@ -14,6 +11,11 @@ import { BlogCategory, FetchResponse } from '@/types';
 
 import { createQueryClient } from '@/utils/createQueryClient';
 import { API_URL } from '@/utils/variables';
+
+import { IconSearch } from '@tabler/icons-react';
+import React, { use } from 'react';
+
+import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
 async function getCategories(): Promise<FetchResponse<BlogCategory[]>> {
   try {

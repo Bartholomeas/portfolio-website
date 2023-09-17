@@ -1,12 +1,13 @@
-import { Box, Group, SimpleGrid, Stack } from '@mantine/core';
 
-import { IconPencil, IconTerminal } from '@tabler/icons-react';
 
 import { Card } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { AboutMeSection } from '@/types/pages';
+
+import { Box, Group, SimpleGrid, Stack } from '@mantine/core';
+import { IconPencil, IconTerminal } from '@tabler/icons-react';
 
 type Props = { skills: AboutMeSection['skillCards'] };
 

@@ -1,3 +1,9 @@
+import { Text } from '@/components/common/mantine/Text';
+
+import { TextInput } from '@/components/common/mantine/TextInput';
+
+import { Title } from '@/components/common/mantine/Title';
+
 import { createStyles, rem } from '@mantine/core';
 
 import { notifications } from '@mantine/notifications';
@@ -9,9 +15,6 @@ import { Container, Image, Stack } from '../mantine';
 
 import { Button } from '../mantine/Button';
 
-import { Text } from '@/components/common/mantine/Text';
-import { TextInput } from '@/components/common/mantine/TextInput';
-import { Title } from '@/components/common/mantine/Title';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

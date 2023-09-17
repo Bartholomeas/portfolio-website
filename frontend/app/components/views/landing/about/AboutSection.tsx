@@ -1,17 +1,19 @@
 'use client';
 
-import { Box, createStyles, Image, Stack } from '@mantine/core';
 
-import React from 'react';
 
 import { Text } from '@/components/common/mantine/Text';
 import { Glow } from '@/components/common/ornaments/Glow';
 import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
 
-import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
 
 import { AboutMeSection } from '@/types/pages';
+
+import { Box, createStyles, Image, Stack } from '@mantine/core';
+import React from 'react';
+
+import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

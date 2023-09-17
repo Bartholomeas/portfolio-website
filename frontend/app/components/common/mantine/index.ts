@@ -30,6 +30,7 @@ export const { ThemeIcon } = MantineComponents;
 export const { Avatar } = MantineComponents;
 export const { Image } = MantineComponents;
 export const { Tooltip } = MantineComponents;
+export const { TypographyStylesProvider } = MantineComponents;
 export const { Button } = MantineComponents;
 export const { Badge } = MantineComponents;
 export const { Title } = MantineComponents;

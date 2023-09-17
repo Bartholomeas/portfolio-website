@@ -1,15 +1,18 @@
 'use client';
 
+import { Stack } from '@/components/common/mantine';
+
+import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
+
+import { Post } from '@/types';
+
 import { Loader } from '@mantine/core';
 import React, { Suspense } from 'react';
 
-import { Stack } from '@/components/common/mantine';
-import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
 
-import { Post } from '@/types';
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;

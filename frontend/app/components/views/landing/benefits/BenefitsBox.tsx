@@ -1,13 +1,14 @@
 'use client';
 
-import { createStyles } from '@mantine/core';
-import React from 'react';
 
 import { Box, Card, Stack } from '@/components/common/mantine';
 
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 import { IconComponent } from '@/components/common/special/IconComponent';
+
+import { createStyles } from '@mantine/core';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

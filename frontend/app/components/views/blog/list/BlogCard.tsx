@@ -1,14 +1,4 @@
-import {
-  IconArrowRight,
-  IconBookmark,
-  IconHeart,
-  IconShare,
-} from '@tabler/icons-react';
-import dayjs from 'dayjs';
-import Image from 'next/image';
-import React from 'react';
 
-import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
 
 import {
   ActionIcon,
@@ -23,6 +13,18 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 import { Link } from '@/components/common/special/Link';
 import { Post } from '@/types';
+
+import {
+  IconArrowRight,
+  IconBookmark,
+  IconHeart,
+  IconShare,
+} from '@tabler/icons-react';
+import dayjs from 'dayjs';
+import Image from 'next/image';
+import React from 'react';
+
+import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
 
 type BlogCardProps = {
   post: Post | undefined;

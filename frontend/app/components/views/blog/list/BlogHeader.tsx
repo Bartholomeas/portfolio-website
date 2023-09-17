@@ -1,10 +1,7 @@
 'use client';
 
-import { createStyles, rem } from '@mantine/core';
 
-import { IconCheck } from '@tabler/icons-react';
 
-import { BlogCard } from './BlogCard';
 
 import { Box, List, Stack, ThemeIcon } from '@/components/common/mantine';
 
@@ -12,6 +9,11 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { Post } from '@/types';
+
+import { createStyles, rem } from '@mantine/core';
+import { IconCheck } from '@tabler/icons-react';
+
+import { BlogCard } from './BlogCard';
 
 const useStyles = createStyles((theme) => ({
   inner: {
