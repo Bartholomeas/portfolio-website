@@ -1,5 +1,3 @@
-// 'use client';
-
 import { Container, Stack } from '@/_components/common/mantine';
 
 import { AboutSection } from '@/_components/views/landing/about/AboutSection';
@@ -16,7 +14,7 @@ import { API_URL } from '@/_utils/variables';
 async function getHomePage(): Promise<FetchResponse<HomePageSections>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/home-page?populate[0]=caseStudiesSection.caseStudies.tools,caseStudiesSection.heading,caseStudiesSection.caseStudies.mainImg&populate[1]=aboutMeSection.heading,aboutMeSection.skillCards,aboutMeSection.sectionImage`
+      `${API_URL}/api/home-page?populate[0]=caseStudiesSection.caseStudies.tools,caseStudiesSection.heading,caseStudiesSection.caseStudies.mainImg,caseStudiesSection.caseStudies.description&populate[1]=aboutMeSection.heading,aboutMeSection.skillCards,aboutMeSection.sectionImage`
     );
 
     if (!res.ok) {

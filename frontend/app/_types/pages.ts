@@ -22,6 +22,7 @@ export type CaseStudiesItem = {
   id: number;
   uuid: string;
   title: string;
+  description: string;
   shortDescription: string;
   tools: Tool[];
   mainImg: StrapiImage;

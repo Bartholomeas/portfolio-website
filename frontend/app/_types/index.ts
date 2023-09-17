@@ -10,6 +10,7 @@ export type BlogCategory = {
   id: number;
   name: string;
   code: keyof BlogCategoryCodes;
+  uuid: string;
 };
 
 export type RecommendedItems = {

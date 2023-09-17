@@ -12,7 +12,6 @@ type Props = {
 };
 
 export function CaseStudiesSection({ data }: Props) {
-  console.log(data);
   return (
     <section>
       <Stack py={64} mih="50vh" spacing={64}>
@@ -21,8 +20,9 @@ export function CaseStudiesSection({ data }: Props) {
             title={data?.heading.title}
             subtext={data?.heading.subtitle}
           />
+
+          {data ? <CaseStudiesCarousel data={data?.caseStudies} /> : null}
         </Container>
-        {data ? <CaseStudiesCarousel data={data?.caseStudies} /> : null}
       </Stack>
     </section>
   );
