@@ -18,11 +18,14 @@ export type CaseStudiesSection = {
   heading: SectionHeading;
   caseStudies: CaseStudiesItem[];
 };
-type CaseStudiesItem = {
+export type CaseStudiesItem = {
   id: number;
+  uuid: string;
   title: string;
+  description: string;
   shortDescription: string;
   tools: Tool[];
+  mainImg: StrapiImage;
 };
 
 type Tool = {

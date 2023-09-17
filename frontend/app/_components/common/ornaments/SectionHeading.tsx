@@ -18,8 +18,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 type SectionHeadingProps = {
-  title: string;
-  subtext: string;
+  title: string | undefined;
+  subtext: string | undefined;
   centered?: boolean;
 };
 

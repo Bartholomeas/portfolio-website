@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CaseStudiesCarousel } from './CaseStudiesCarousel';
+import { CaseStudiesCards } from './CaseStudiesCards';
 
 import { Container, Stack } from '@/_components/common/mantine';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
@@ -12,14 +12,17 @@ type Props = {
 };
 
 export function CaseStudiesSection({ data }: Props) {
-  console.log(data);
   return (
     <section>
       <Stack py={64} mih="50vh" spacing={64}>
         <Container size="md" w="100%">
-          <SectionHeading title="Case studies" subtext="Jak to powstaje?" />
+          <SectionHeading
+            title={data?.heading.title}
+            subtext={data?.heading.subtitle}
+          />
+
+          {data ? <CaseStudiesCards data={data?.caseStudies} /> : null}
         </Container>
-        <CaseStudiesCarousel />
       </Stack>
     </section>
   );

@@ -10,6 +10,7 @@ export type BlogCategory = {
   id: number;
   name: string;
   code: keyof BlogCategoryCodes;
+  uuid: string;
 };
 
 export type RecommendedItems = {
@@ -29,6 +30,7 @@ export type Post = {
   blogCategories: BlogCategory[];
   headerImg: { url: string };
   id: number;
+  uuid: string;
   publishedAt: string;
   readTime: number;
   shortDescription: string;

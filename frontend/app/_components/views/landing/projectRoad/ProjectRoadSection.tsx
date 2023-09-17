@@ -80,7 +80,7 @@ export function ProjectRoadSection() {
   const { classes } = useStyles({ iconSize: 64 });
 
   return (
-    <Stack mih="60vh" spacing={64} align="center" justify="center">
+    <Stack mih="60vh" spacing={64} justify="center">
       <SectionHeading
         title="Jak wygląda droga projektu?"
         subtext="Droga od pomysłu do produktu"

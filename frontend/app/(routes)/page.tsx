@@ -1,5 +1,3 @@
-// 'use client';
-
 import { Container, Stack } from '@/_components/common/mantine';
 
 import { AboutSection } from '@/_components/views/landing/about/AboutSection';
@@ -11,15 +9,12 @@ import { ProjectRoadSection } from '@/_components/views/landing/projectRoad/Proj
 import { FetchResponse } from '@/_types';
 import { HomePageSections } from '@/_types/pages';
 
-import { API_TOKEN, API_URL } from '@/_utils/variables';
+import { API_URL } from '@/_utils/variables';
 
 async function getHomePage(): Promise<FetchResponse<HomePageSections>> {
   try {
     const res = await fetch(
-      `${API_URL}/api/home-page?populate[0]=caseStudiesSection.caseStudies.tools,caseStudiesSection.heading&populate[1]=aboutMeSection.heading,aboutMeSection.skillCards,aboutMeSection.sectionImage`,
-      {
-        headers: { Authorization: `Bearer ${API_TOKEN}` },
-      }
+      `${API_URL}/api/home-page?populate[0]=caseStudiesSection.caseStudies.tools,caseStudiesSection.heading,caseStudiesSection.caseStudies.mainImg,caseStudiesSection.caseStudies.description&populate[1]=aboutMeSection.heading,aboutMeSection.skillCards,aboutMeSection.sectionImage`
     );
 
     if (!res.ok) {

@@ -1,7 +1,5 @@
 'use client';
 
-import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
-
 import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
@@ -15,7 +13,6 @@ import {
 
 import React from 'react';
 
-import { Link } from '../special/Link';
 import {
   ActionIcon,
   Burger,
@@ -26,6 +23,9 @@ import {
   Stack,
 } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
+import { Link } from '../special/Link';
+
+import { openContactModal, useModalStyles } from '@/_utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -87,6 +87,8 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+export const HEADER_HEIGHT = 56;
+
 export function Header() {
   const { classes, theme } = useStyles();
 
@@ -94,7 +96,7 @@ export function Header() {
 
   return (
     <MantineHeader
-      height={56}
+      height={HEADER_HEIGHT}
       zIndex={99999}
       withBorder={false}
       className={classes.wrapper}

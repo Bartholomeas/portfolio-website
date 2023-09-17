@@ -15,14 +15,14 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { Box, Divider } from '@/_components/common/mantine';
+import { Box, Divider, Loader } from '@/_components/common/mantine';
 import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
 import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
 
 import { FetchResponse, Post } from '@/_types';
 
 import { createQueryClient } from '@/_utils/createQueryClient';
-import { API_TOKEN, API_URL } from '@/_utils/variables';
+import { API_URL } from '@/_utils/variables';
 
 const useStyles = createStyles((theme) => ({
   image: {
@@ -41,9 +41,7 @@ const useStyles = createStyles((theme) => ({
 
 async function getBlogPost(slug: string): Promise<FetchResponse<Post>> {
   try {
-    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {
-      headers: { Authorization: `Bearer ${API_TOKEN}` },
-    });
+    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {});
     return res.json();
   } catch (err) {
     throw new Error('getBlogPost: error');
@@ -93,7 +91,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         p={24}
         className={classes.postContent}
       >
-        <Suspense fallback={<p>loading..</p>}>
+        <Suspense fallback={<Loader />}>
           <BlogPostBanner data={data} />
           <Divider />
 
