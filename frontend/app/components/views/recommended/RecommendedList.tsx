@@ -1,6 +1,8 @@
 'use client';
 
+import { IconExternalLink } from '@tabler/icons-react';
 
+import React from 'react';
 
 import {
   ActionIcon,
@@ -15,9 +17,6 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { RecommendedItems } from '@/types';
-
-import { IconExternalLink } from '@tabler/icons-react';
-import React from 'react';
 
 type RecommendedListProps = {
   list: RecommendedItems;

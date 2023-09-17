@@ -11,7 +11,16 @@ export default async function Recommended() {
   const { data } = await recommendedPromise;
 
   return (
-    <Container size="sm" mt={32} sx={{ position: 'relative' }}>
+    <Container
+      size="sm"
+      sx={{
+        position: 'relative',
+        '@media (max-width: 576px)': {
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        },
+      }}
+    >
       <Glow size={500} position={{ top: -150, left: -150 }} />
       <RecommendedHeader />
       <RecommendedListsSection data={data} />
