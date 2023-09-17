@@ -15,14 +15,13 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { Box, Divider, Loader } from '@/_components/common/mantine';
-import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
-import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
+import { Box, Divider, Loader } from '@/components/common/mantine';
+import { Breadcrumbs } from '@/components/common/mantine/Breadcrumbs';
+import { BlogPostBanner } from '@/components/views/blog/single/BlogPostBanner';
 
-import { FetchResponse, Post } from '@/_types';
+import { getSingleBlogPost } from '@/lib/blog/getSingleBlogPost';
 
-import { createQueryClient } from '@/_utils/createQueryClient';
-import { API_URL } from '@/_utils/variables';
+import { createQueryClient } from '@/utils/createQueryClient';
 
 const useStyles = createStyles((theme) => ({
   image: {
@@ -39,20 +38,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-async function getBlogPost(slug: string): Promise<FetchResponse<Post>> {
-  try {
-    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {});
-    return res.json();
-  } catch (err) {
-    throw new Error('getBlogPost: error');
-  }
-}
-
 const queryClient = createQueryClient();
 
 export default function Page({ params }: { params: { slug: string } }) {
   const { data } = use(
-    queryClient(`blogPost-${params.slug}`, () => getBlogPost(params.slug))
+    queryClient(`blogPost-${params.slug}`, () => getSingleBlogPost(params.slug))
   );
   const { classes } = useStyles();
 

@@ -3,7 +3,7 @@
 import { Loader } from '@mantine/core';
 import React from 'react';
 
-import { Stack } from '@/_components/common/mantine';
+import { Stack } from '@/components/common/mantine';
 
 export default function Loading() {
   return (

@@ -1,29 +1,12 @@
 import React from 'react';
 
-import { Box, Container, Stack } from '@/_components/common/mantine';
-import { ShapeWithGlow } from '@/_components/common/ornaments/ShapeWithGlow';
+import { Box, Container, Stack } from '@/components/common/mantine';
+import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
 
-import { BlogHeader } from '@/_components/views/blog/list/BlogHeader';
-import { BlogPostsSection } from '@/_components/views/blog/list/BlogPostsSection';
+import { BlogHeader } from '@/components/views/blog/list/BlogHeader';
+import { BlogPostsSection } from '@/components/views/blog/list/BlogPostsSection';
 
-import { FetchResponse, Post } from '@/_types';
-import { API_URL } from '@/_utils/variables';
-
-async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
-  try {
-    const res = await fetch(
-      `${API_URL}/api/blog-posts?sort=createdAt%3Adesc&populate[blogCategories]=blogCategories&populate[headerImg]=headerImg&fields[0]=title&fields[1]=readTime&fields[2]=shortDescription&fields[3]=publishedAt&fields[4]=slug&populate[slug]=slug`
-    );
-
-    if (!res.ok) {
-      throw new Error('getBlogPosts: error');
-    }
-
-    return await res.json();
-  } catch (err: any) {
-    throw new Error(`getBlogPosts: ${err.message}`);
-  }
-}
+import { getBlogPosts } from '@/lib/blog/getBlogPosts';
 
 export default async function Blog() {
   const blogPostsPromise = getBlogPosts();

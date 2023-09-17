@@ -4,10 +4,10 @@ import { createStyles, rem } from '@mantine/core';
 import Error from 'next/error';
 import React, { useEffect } from 'react';
 
-import { Container, Group } from '@/_components/common/mantine';
-import { Button } from '@/_components/common/mantine/Button';
-import { Text } from '@/_components/common/mantine/Text';
-import { Title } from '@/_components/common/mantine/Title';
+import { Container, Group } from '@/components/common/mantine';
+import { Button } from '@/components/common/mantine/Button';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
 
 const useStyles = createStyles((theme) => ({
   root: {
