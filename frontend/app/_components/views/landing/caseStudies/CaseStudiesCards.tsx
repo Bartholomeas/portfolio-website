@@ -17,7 +17,7 @@ type Props = {
   data: CaseStudiesItem[];
 };
 
-export function CaseStudiesCarousel({ data }: Props) {
+export function CaseStudiesCards({ data }: Props) {
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
 
   const setCardId = (cardId: string | null) => {

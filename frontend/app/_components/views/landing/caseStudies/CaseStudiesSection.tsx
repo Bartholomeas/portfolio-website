@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CaseStudiesCarousel } from './CaseStudiesCarousel';
+import { CaseStudiesCards } from './CaseStudiesCards';
 
 import { Container, Stack } from '@/_components/common/mantine';
 import { SectionHeading } from '@/_components/common/ornaments/SectionHeading';
@@ -21,7 +21,7 @@ export function CaseStudiesSection({ data }: Props) {
             subtext={data?.heading.subtitle}
           />
 
-          {data ? <CaseStudiesCarousel data={data?.caseStudies} /> : null}
+          {data ? <CaseStudiesCards data={data?.caseStudies} /> : null}
         </Container>
       </Stack>
     </section>
