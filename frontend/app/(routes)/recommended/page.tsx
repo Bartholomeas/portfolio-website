@@ -1,29 +1,10 @@
-import { Container } from '@/_components/common/mantine';
-import { Glow } from '@/_components/common/ornaments/Glow';
+import { Container } from '@/components/common/mantine';
+import { Glow } from '@/components/common/ornaments/Glow';
 
-import { RecommendedHeader } from '@/_components/views/recommended/RecommendedHeader';
-import { RecommendedListsSection } from '@/_components/views/recommended/RecommendedListsSection';
+import { RecommendedHeader } from '@/components/views/recommended/RecommendedHeader';
+import { RecommendedListsSection } from '@/components/views/recommended/RecommendedListsSection';
 
-import { FetchResponse, RecommendedItems } from '@/_types';
-import { API_URL } from '@/_utils/variables';
-
-async function getRecommendedPage(): Promise<
-  FetchResponse<RecommendedItems[]>
-> {
-  try {
-    const res = await fetch(
-      `${API_URL}/api/recommended-pages?fields[0]=title&populate[items]=items`
-    );
-
-    if (!res.ok) {
-      throw new Error('getRecommendedPage: error');
-    }
-
-    return await res.json();
-  } catch (err: any) {
-    throw new Error(`getRecommendedPage: ${err}`);
-  }
-}
+import { getRecommendedPage } from '@/lib/getRecommendedPage';
 
 export default async function Recommended() {
   const recommendedPromise = getRecommendedPage();

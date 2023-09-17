@@ -1,66 +1,47 @@
-'use client';
+import React from 'react';
 
-import {
-  createStyles,
-  rem,
-  Stack,
-  TypographyStylesProvider,
-} from '@mantine/core';
+import { Box, Stack } from '@/components/common/mantine';
+import { Breadcrumbs } from '@/components/common/mantine/Breadcrumbs';
 
-import Image from 'next/image';
+import { BlogPostContent } from '@/components/views/blog/single/BlogPostContent';
+import { BlogPostHeaderImg } from '@/components/views/blog/single/BlogPostHeaderImg';
 
-import React, { Suspense, use } from 'react';
+import type { Metadata } from 'next';
 
-import Markdown from 'react-markdown';
+import { getBlogPosts } from '@/lib/blog/getBlogPosts';
+import { getSingleBlogPost } from '@/lib/blog/getSingleBlogPost';
 
-import remarkGfm from 'remark-gfm';
-
-import { Box, Divider, Loader } from '@/_components/common/mantine';
-import { Breadcrumbs } from '@/_components/common/mantine/Breadcrumbs';
-import { BlogPostBanner } from '@/_components/views/blog/single/BlogPostBanner';
-
-import { FetchResponse, Post } from '@/_types';
-
-import { createQueryClient } from '@/_utils/createQueryClient';
-import { API_URL } from '@/_utils/variables';
-
-const useStyles = createStyles((theme) => ({
-  image: {
-    objectFit: 'cover',
-    width: '100%',
-  },
-
-  postContent: {
-    backgroundColor: theme.other.bgDark,
-    borderRadius: rem(8),
-    [theme.fn.largerThan('sm')]: {
-      transform: 'translateY(-100px)',
-    },
-  },
-}));
-
-async function getBlogPost(slug: string): Promise<FetchResponse<Post>> {
-  try {
-    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {});
-    return res.json();
-  } catch (err) {
-    throw new Error('getBlogPost: error');
-  }
-}
+import { createQueryClient } from '@/utils/createQueryClient';
 
 const queryClient = createQueryClient();
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const { data } = use(
-    queryClient(`blogPost-${params.slug}`, () => getBlogPost(params.slug))
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  // const { data } = use(
+  //   queryClient(`blogPost-${params.slug}`, () => getSingleBlogPost(params.slug))
+  // );
+  const singleBlogPostData = getSingleBlogPost(params.slug);
+  const { data } = await singleBlogPostData;
+
+  return {
+    title: data.title,
+    description: data.shortDescription,
+  };
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const singleBlogPostData = queryClient(`blogPost-${params.slug}`, () =>
+    getSingleBlogPost(params.slug)
   );
-  const { classes } = useStyles();
+  const { data } = await singleBlogPostData;
 
   const items = [
     { title: 'Blog', href: '/blog' },
     { title: data?.title ?? '' },
   ];
-  const imgUrl = data?.headerImg?.url ?? '';
 
   return (
     <Stack maw={1000} mx="auto" px={16}>
@@ -72,39 +53,20 @@ export default function Page({ params }: { params: { slug: string } }) {
         sx={{
           aspectRatio: '16/8',
           position: 'relative',
-          borderRadius: rem(8),
+          borderRadius: 8,
           overflow: 'hidden',
         }}
       >
-        <Image
-          src={`${imgUrl}` ?? '/'}
-          alt={`${data?.slug}-blog-photo`}
-          fill
-          loading="lazy"
-          className={classes.image}
-        />
+        <BlogPostHeaderImg imgUrl={data.headerImg.url} imgAlt="alt text" />
       </Box>
-      <Stack
-        w="100%"
-        maw={800}
-        mx="auto"
-        p={24}
-        className={classes.postContent}
-      >
-        <Suspense fallback={<Loader />}>
-          <BlogPostBanner data={data} />
-          <Divider />
-
-          <TypographyStylesProvider>
-            <Markdown
-              // transformImageUri={(src) => `${API_URL}${src}`}
-              remarkPlugins={[remarkGfm]}
-            >
-              {data?.content}
-            </Markdown>
-          </TypographyStylesProvider>
-        </Suspense>
-      </Stack>
+      <BlogPostContent data={data} />
     </Stack>
   );
+}
+
+export async function generateStaticParams() {
+  const blogPostsPromise = getBlogPosts();
+  const { data } = await blogPostsPromise;
+
+  return data.map((post) => ({ slug: post.slug }));
 }
