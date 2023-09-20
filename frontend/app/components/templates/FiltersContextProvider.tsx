@@ -1,9 +1,9 @@
 'use client';
 
+import { PropsWithChildren } from 'react';
+
 import { FiltersContext, useFilters } from '@/hooks/useFilters';
 import { createCtx } from '@/utils/createCtx';
-
-import { PropsWithChildren } from 'react';
 
 const [FiltersProvider, useFiltersCtx] = createCtx<FiltersContext>({
   defaultValue: {},

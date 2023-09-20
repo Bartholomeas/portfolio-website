@@ -10,7 +10,7 @@ type SectionHeading = {
 export type HomePageSections = {
   homepageHeading: any;
   caseStudiesSection: CaseStudiesSection;
-  aboutMeSection: any;
+  aboutMeSection: AboutMeSection;
 };
 
 export type CaseStudiesSection = {
@@ -36,15 +36,15 @@ type Tool = {
 
 export type AboutMeSection = {
   id: number;
-  heading: SectionHeading;
-  aboutMeDescription: string;
-  sectionImage: StrapiImage;
-  skillCards: SkillCard[];
-  icon: string;
+  aboutmeCards: AboutMeCard[];
 };
 
-type SkillCard = {
+export type AboutMeCard = {
   id: number;
   title: string;
+  shortDescription: string;
   description: string;
+  image: StrapiImage;
+  uuid: string;
+  icon: string;
 };

@@ -1,20 +1,24 @@
-'use client';
-
 import { IconExternalLink } from '@tabler/icons-react';
 
 import React from 'react';
+
+import Markdown from 'react-markdown';
+
+import remarkGfm from 'remark-gfm';
 
 import {
   ActionIcon,
   Card,
   Group,
   Stack,
-  Timeline,
   TimelineItem,
   Tooltip,
+  TypographyStylesProvider,
 } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
+
+import { RecommendedTimeline } from './RecommendedTimeline';
 
 import { RecommendedItems } from '@/types';
 
@@ -28,19 +32,7 @@ export function RecommendedList({ list }: RecommendedListProps) {
         {list.title}
       </Title>
 
-      <Timeline
-        bulletSize={24}
-        lineWidth={2}
-        color="primary"
-        styles={(theme) => ({
-          itemBullet: {
-            [`&[data-with-child]`]: {
-              background: theme.other.bg,
-              border: `1px solid ${theme.other.primary}`,
-            },
-          },
-        })}
-      >
+      <RecommendedTimeline>
         {list.items.length > 0 ? (
           list.items.map((item, index) => (
             <TimelineItem
@@ -77,11 +69,11 @@ export function RecommendedList({ list }: RecommendedListProps) {
             >
               {item.description && (
                 <Card py={8} px={16}>
-                  <Stack spacing={4}>
-                    <Text textColor="textSecondary" size="xs">
+                  <TypographyStylesProvider color="white">
+                    <Markdown remarkPlugins={[remarkGfm]}>
                       {item.description}
-                    </Text>
-                  </Stack>
+                    </Markdown>
+                  </TypographyStylesProvider>
                 </Card>
               )}
             </TimelineItem>
@@ -89,7 +81,7 @@ export function RecommendedList({ list }: RecommendedListProps) {
         ) : (
           <Text textColor="textSecondary">Brak wyników</Text>
         )}
-      </Timeline>
+      </RecommendedTimeline>
     </Stack>
   );
 }

@@ -7,26 +7,10 @@
   },
   "options": {},
   "attributes": {
-    "aboutMeDescription": {
-      "type": "text"
-    },
-    "skillCards": {
+    "aboutmeCards": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.title-with-description"
-    },
-    "heading": {
-      "type": "component",
-      "repeatable": false,
-      "component": "blocks.about-me"
-    },
-    "sectionImage": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "component": "homepage.aboutme-card"
     }
   }
 }
