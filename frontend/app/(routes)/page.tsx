@@ -18,7 +18,7 @@ async function Home() {
       <Container size="xl">
         <LandingSection />
       </Container>
-      <Container size="xl">
+      <Container size="xl" sx={{ overflow: 'visible' }}>
         <AboutSection data={data.aboutMeSection} />
       </Container>
       <Container size="xl">

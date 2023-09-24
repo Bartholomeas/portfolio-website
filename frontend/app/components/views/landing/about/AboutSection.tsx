@@ -6,8 +6,10 @@ import { motion, useInView } from 'framer-motion';
 
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-import { Badge, Box } from '@/components/common/mantine';
+import { Box, Group } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
+import { IconComponent } from '@/components/common/special/IconComponent';
 
 import { AboutSectionSlider } from './AboutSectionSlider';
 
@@ -21,7 +23,7 @@ const useStyles = createStyles((theme) => ({
 
   displayOffset: {
     marginTop: '-100vh',
-    overflow: 'hidden',
+    // overflow: 'hidden',
     [theme.fn.largerThan('md')]: {
       display: 'block',
     },
@@ -29,9 +31,9 @@ const useStyles = createStyles((theme) => ({
 
   contentSectionWrapper: {
     position: 'relative',
-    zIndex: 0,
     display: 'flex',
     height: 'fit-content',
+    zIndex: 0,
     [theme.fn.largerThan('md')]: {
       height: '100vh',
     },
@@ -40,8 +42,8 @@ const useStyles = createStyles((theme) => ({
     display: 'grid',
     height: '100%',
     width: '100%',
-    placeContent: 'center',
     padding: '8px 16px',
+    placeContent: 'center',
     [theme.fn.largerThan('md')]: {
       width: '40%',
       padding: '12px 12px',
@@ -49,10 +51,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   contentMotionDiv: {
-    marginTop: 8,
     display: 'block',
+    marginTop: 8,
     [theme.fn.largerThan('md')]: {
-      overflow: 'hidden',
+      // overflow: 'hidden',
     },
   },
 }));
@@ -124,7 +126,6 @@ function AboutSectionBox({
     <Box
       component="section"
       ref={ref}
-      // className="relative z-0 flex h-fit md:h-screen"
       className={classes.contentSectionWrapper}
       style={{
         justifyContent: alignLeft ? 'flex-start' : 'flex-end',
@@ -135,14 +136,17 @@ function AboutSectionBox({
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
+          layout
         >
-          <Badge className="rounded-full bg-indigo-600 px-2 py-1.5 text-xs font-medium text-white">
-            {sectionCard.id}
-          </Badge>
-          <Text size="xl" fw={700} className="my-3 text-5xl font-bold">
-            {sectionCard.title}
-          </Text>
-          <Text fw={600} className="text-slate-600">
+          <Group noWrap>
+            <Title order={3} fw={700}>
+              {sectionCard.title}
+            </Title>
+            {sectionCard.icon && (
+              <IconComponent size={64} icon={sectionCard.icon} />
+            )}
+          </Group>
+          <Text textColor="textSecondary" size="md">
             {sectionCard.description}
           </Text>
         </motion.div>
@@ -151,9 +155,7 @@ function AboutSectionBox({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className={classes.contentMotionDiv}
-        >
-          {/* <ExampleFeature  sectionCard={sectionCard} /> */}
-        </motion.div>
+        />
       </div>
     </Box>
   );

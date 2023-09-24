@@ -44,7 +44,7 @@ export type AboutMeCard = {
   title: string;
   shortDescription: string;
   description: string;
-  image: StrapiImage;
+  image: StrapiImage | undefined;
   uuid: string;
   icon: string;
 };
