@@ -1,14 +1,14 @@
 'use client';
 
-import { ThemeColors } from '@/theme/types';
-
 import { createStyles, TitleProps } from '@mantine/core';
 
 import { motion } from 'framer-motion';
+
 import React from 'react';
 
 import { Title as MantineTitle } from '.';
 
+import { ThemeColors } from '@/theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;

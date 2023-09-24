@@ -3,6 +3,7 @@
 import * as MantineCarousel from '@mantine/carousel';
 import * as MantineComponents from '@mantine/core';
 import * as MantineNotifications from '@mantine/notifications';
+import * as MantinePrism from '@mantine/prism';
 
 export const { AppShell } = MantineComponents;
 export const { Box } = MantineComponents;
@@ -11,6 +12,7 @@ export const { Timeline } = MantineComponents;
 export const { TimelineItem } = MantineComponents;
 export const { Flex } = MantineComponents;
 export const { Header } = MantineComponents;
+export const { Code } = MantineComponents;
 export const { Chip } = MantineComponents;
 export const { Drawer } = MantineComponents;
 export const { Burger } = MantineComponents;
@@ -40,3 +42,5 @@ export const { Notification } = MantineComponents;
 export const { Notifications } = MantineNotifications;
 
 export const { Carousel } = MantineCarousel;
+
+export const { Prism } = MantinePrism;

@@ -1,15 +1,14 @@
 'use client';
 
-import { createStyles } from '@mantine/core';
+import { createStyles, Stack } from '@mantine/core';
 
 import { motion, useInView } from 'framer-motion';
 
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-import { Box, Group } from '@/components/common/mantine';
+import { Box } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
-import { Title } from '@/components/common/mantine/Title';
-import { IconComponent } from '@/components/common/special/IconComponent';
+import { MotionTitle } from '@/components/common/mantine/Title';
 
 import { AboutSectionSlider } from './AboutSectionSlider';
 
@@ -23,7 +22,6 @@ const useStyles = createStyles((theme) => ({
 
   displayOffset: {
     marginTop: '-100vh',
-    // overflow: 'hidden',
     [theme.fn.largerThan('md')]: {
       display: 'block',
     },
@@ -69,6 +67,7 @@ export function AboutSection({ data }: Props) {
   const { classes } = useStyles();
 
   const { aboutmeCards } = data;
+
   const mappedCards: AboutMeCardWithStyles[] = aboutmeCards.map(
     (card, index) => ({
       ...card,
@@ -138,15 +137,16 @@ function AboutSectionBox({
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           layout
         >
-          <Group noWrap>
-            <Title order={3} fw={700}>
+          <Stack spacing={4}>
+            <MotionTitle order={3} textColor="primary" size={32}>
               {sectionCard.title}
-            </Title>
-            {sectionCard.icon && (
-              <IconComponent size={64} icon={sectionCard.icon} />
-            )}
-          </Group>
-          <Text textColor="textSecondary" size="md">
+            </MotionTitle>
+            <MotionTitle order={4} textColor="textPrimary">
+              {sectionCard.shortDescription}
+            </MotionTitle>
+          </Stack>
+
+          <Text textColor="textPrimary" size="md" mt={16}>
             {sectionCard.description}
           </Text>
         </motion.div>

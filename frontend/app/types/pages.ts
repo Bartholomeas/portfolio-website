@@ -39,6 +39,13 @@ export type AboutMeSection = {
   aboutmeCards: AboutMeCard[];
 };
 
+export type AboutMeSectionCardCodes = {
+  first: 'first';
+  second: 'second';
+  third: 'third';
+  fourth: 'fourth';
+};
+
 export type AboutMeCard = {
   id: number;
   title: string;
@@ -47,4 +54,5 @@ export type AboutMeCard = {
   image: StrapiImage | undefined;
   uuid: string;
   icon: string;
+  code: keyof AboutMeSectionCardCodes;
 };

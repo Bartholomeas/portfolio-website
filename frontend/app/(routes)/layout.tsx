@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Poppins } from 'next/font/google';
+import { Oswald, Poppins } from 'next/font/google';
 
 import React from 'react';
 
@@ -13,6 +13,11 @@ import RootStyleRegistry from '@/components/templates/RootStyleRegistry';
 
 const poppins = Poppins({
   weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+const oswald = Oswald({
+  weight: ['600', '700'],
   subsets: ['latin'],
   display: 'swap',
 });
@@ -29,7 +34,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" suppressHydrationWarning>
       <body
-        className={poppins.className}
+        className={(poppins.className, oswald.className)}
         style={{ overflowX: 'hidden', width: '100vw' }}
       >
         <RootStyleRegistry>

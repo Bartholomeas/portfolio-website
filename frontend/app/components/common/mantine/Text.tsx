@@ -2,7 +2,7 @@
 
 import { createStyles, TextProps } from '@mantine/core';
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { Text as MantineText } from '.';
 
@@ -26,20 +26,18 @@ type TextComponentProps = {
   children: React.ReactNode;
 } & TextProps;
 
-export function Text({
-  textColor = 'textPrimary',
-  className,
-  children,
-  ...props
-}: TextComponentProps) {
-  const { classes, cx } = useStyles({ textColor });
+export const Text = forwardRef<HTMLParagraphElement, TextComponentProps>(
+  ({ textColor = 'textPrimary', className, children, ...props }, ref) => {
+    const { classes, cx } = useStyles({ textColor });
 
-  return (
-    <MantineText
-      className={cx(classes.children, classes.textColor, className)}
-      {...props}
-    >
-      {children}
-    </MantineText>
-  );
-}
+    return (
+      <MantineText
+        ref={ref}
+        className={cx(classes.children, classes.textColor, className)}
+        {...props}
+      >
+        {children}
+      </MantineText>
+    );
+  }
+);

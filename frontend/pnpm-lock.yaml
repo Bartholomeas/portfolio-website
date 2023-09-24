@@ -28,6 +28,9 @@ dependencies:
   '@mantine/notifications':
     specifier: ^6.0.19
     version: 6.0.19(@mantine/core@6.0.10)(@mantine/hooks@6.0.10)(react-dom@18.2.0)(react@18.2.0)
+  '@mantine/prism':
+    specifier: ^6.0.21
+    version: 6.0.21(@mantine/core@6.0.10)(@mantine/hooks@6.0.10)(react-dom@18.2.0)(react@18.2.0)
   '@tabler/icons-react':
     specifier: ^2.20.0
     version: 2.20.0(react@18.2.0)
@@ -1750,6 +1753,22 @@ packages:
       react-transition-group: 4.4.2(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
+  /@mantine/prism@6.0.21(@mantine/core@6.0.10)(@mantine/hooks@6.0.10)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-M9hDUAuuxiINI7f07V0qlX532UXlOTpBqNcG1WWm80t6C0fHjzkTvFj77QpnGS73+MI88mV8ru458y10bQjTBA==}
+    peerDependencies:
+      '@mantine/core': 6.0.21
+      '@mantine/hooks': 6.0.21
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 6.0.10(@emotion/react@11.10.8)(@mantine/hooks@6.0.10)(@types/react@18.2.5)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/hooks': 6.0.10(react@18.2.0)
+      '@mantine/utils': 6.0.21(react@18.2.0)
+      prism-react-renderer: 1.3.5(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@mantine/ssr@6.0.10(@emotion/react@11.10.8)(@emotion/server@11.10.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-roWmepeta6mXV4IhrTomOu2YCd9oezgId4SesSof0vgHX9bXzST4RJdDryEdjkcshipdwY3RklFWsDGXECtSyA==}
     peerDependencies:
@@ -1798,6 +1817,14 @@ packages:
 
   /@mantine/utils@6.0.19(react@18.2.0):
     resolution: {integrity: sha512-duvtnaW1gDR2gnvUqnWhl6DMW7sN0HEWqS8Z/BbwaMi75U+Xp17Q72R9JtiIrxQbzsq+KvH9L9B/pxMVwbLirg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@mantine/utils@6.0.21(react@18.2.0):
+    resolution: {integrity: sha512-33RVDRop5jiWFao3HKd3Yp7A9mEq4HAJxJPTuYm1NkdqX6aTKOQK7wT8v8itVodBp+sb4cJK6ZVdD1UurK/txQ==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -5430,6 +5457,14 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prism-react-renderer@1.3.5(react@18.2.0):
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}

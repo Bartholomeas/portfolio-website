@@ -1,15 +1,14 @@
 'use client';
 
+import { ChevronIcon, createStyles } from '@mantine/core';
+
+import React from 'react';
 
 import { Stack } from '@/components/common/mantine';
-
 import { Anchor } from '@/components/common/mantine/Anchor';
 import { ButtonLink } from '@/components/common/mantine/Button';
 import { Title } from '@/components/common/mantine/Title';
 import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
-
-import { ChevronIcon, createStyles } from '@mantine/core';
-import React from 'react';
 
 const useStyles = createStyles(() => ({
   wrapper: {

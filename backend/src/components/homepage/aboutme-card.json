@@ -21,9 +21,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "title": {
       "type": "string",
@@ -32,6 +30,11 @@
     "icon": {
       "type": "customField",
       "customField": "plugin::react-icons.icon"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": false
     }
   }
 }

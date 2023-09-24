@@ -20,9 +20,6 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  // const { data } = use(
-  //   queryClient(`blogPost-${params.slug}`, () => getSingleBlogPost(params.slug))
-  // );
   const singleBlogPostData = getSingleBlogPost(params.slug);
   const { data } = await singleBlogPostData;
 
