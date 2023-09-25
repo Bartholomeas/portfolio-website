@@ -1,3 +1,4 @@
+import { rem } from '@mantine/core';
 import React from 'react';
 
 import { Box } from '@/components/common/mantine';
@@ -8,10 +9,9 @@ import { StrapiImage } from '@/types';
 
 type Props = {
   image: StrapiImage | undefined;
-  alignLeft?: boolean;
 };
 
-export function AboutFirstSection({ image, alignLeft = false }: Props) {
+export function AboutFirstSection({ image }: Props) {
   return (
     <Box
       sx={{
@@ -25,7 +25,7 @@ export function AboutFirstSection({ image, alignLeft = false }: Props) {
         withGlassBg
         sx={{
           position: 'absolute',
-          right: alignLeft ? 0 : 'auto',
+          right: 0,
           top: 0,
           width: '80%',
           height: '100%',
@@ -49,8 +49,8 @@ export function AboutFirstSection({ image, alignLeft = false }: Props) {
       <MacWindow
         sx={{
           position: 'absolute',
-          height: 200,
-          width: 200,
+          height: rem(200),
+          width: rem(200),
           bottom: -50,
           left: 50,
           boxShadow: '8px 16px 40px #28282861',
@@ -71,29 +71,25 @@ export function AboutFirstSection({ image, alignLeft = false }: Props) {
       <MacWindow
         sx={(theme) => ({
           position: 'absolute',
-          height: 150,
-          width: 150,
+          height: rem(150),
+          width: rem(150),
           top: -50,
-          right: 50,
+          right: 16,
           backgroundColor: theme.fn.rgba(theme.other.white, 0.2),
           boxShadow: '8px 16px 40px #28282861',
-          padding: 16,
-          overflow: 'hidden',
+          // overflow: 'hidden',
         })}
         withGlassBg
       >
         {image && (
           <Image
             src="/Logo.svg"
-            alt="Logo mojej strony"
+            alt="Moje logo, litera B w okręgu o finezyjnych kształtach"
             loading="lazy"
-            // width={80}
-            // height={80}
             fill
             sx={{
               padding: 8,
-              marginTop: 0,
-              width: '60%',
+              // aspectRatio: '1 / 1',
               objectFit: 'contain',
             }}
           />

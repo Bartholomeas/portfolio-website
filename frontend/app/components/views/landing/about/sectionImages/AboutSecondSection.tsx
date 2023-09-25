@@ -10,10 +10,9 @@ import { StrapiImage } from '@/types';
 
 type Props = {
   image: StrapiImage | undefined;
-  alignLeft?: boolean;
 };
 
-export function AboutSecondSection({ image, alignLeft = false }: Props) {
+export function AboutSecondSection({ image }: Props) {
   const [displayedText, setDisplayedText] = useState('');
   const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -43,10 +42,9 @@ export function AboutSecondSection({ image, alignLeft = false }: Props) {
         withGlassBg
         sx={{
           position: 'absolute',
-          width: '100%',
-          height: '100%',
-          right: alignLeft ? 0 : 'auto',
-          top: 0,
+          width: '60%',
+          aspectRatio: '4 / 3',
+          right: 0,
         }}
       >
         {image && (
@@ -56,6 +54,7 @@ export function AboutSecondSection({ image, alignLeft = false }: Props) {
             loading="lazy"
             fill
             sx={{
+              objectPosition: 'right',
               objectFit: 'cover',
               width: '100%',
               height: '100%',
@@ -70,19 +69,19 @@ export function AboutSecondSection({ image, alignLeft = false }: Props) {
           position: 'absolute',
           width: '60%',
           height: '100%',
-          maxHeight: 200,
+          maxHeight: 300,
           bottom: -80,
           left: 25,
         }}
       >
         <Text
           ref={textRef}
-          size="xs"
+          size="sm"
           sx={{
-            color: 'limegreen',
-            height: 200,
+            height: '70%',
             width: '100%',
             bottom: 0,
+            color: 'limegreen',
             overflowY: 'auto',
             zIndex: 0,
           }}

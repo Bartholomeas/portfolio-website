@@ -10,10 +10,9 @@ import { StrapiImage } from '@/types';
 
 type Props = {
   image: StrapiImage | undefined;
-  alignLeft?: boolean;
 };
 
-export function AboutThirdSection({ image, alignLeft = false }: Props) {
+export function AboutThirdSection({ image }: Props) {
   return (
     <Box
       sx={{
@@ -29,7 +28,7 @@ export function AboutThirdSection({ image, alignLeft = false }: Props) {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          right: alignLeft ? 0 : 'auto',
+          right: 'auto',
           top: 0,
           padding: 0,
           overflow: 'visible',
@@ -54,8 +53,6 @@ export function AboutThirdSection({ image, alignLeft = false }: Props) {
               fill
               sx={{
                 objectFit: 'contain',
-                width: '100%',
-                height: '100%',
               }}
             />
           )}

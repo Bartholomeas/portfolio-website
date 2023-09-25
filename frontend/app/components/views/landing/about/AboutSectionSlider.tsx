@@ -81,39 +81,14 @@ export function AboutSectionSlider({ sectionCard }: Props) {
 const getCurrentContent = (sectionCard: AboutMeSectionCard) => {
   switch (sectionCard.code) {
     case 'first':
-      return (
-        <AboutFirstSection
-          image={sectionCard.image}
-          alignLeft={sectionCard.alignLeft}
-        />
-      );
+      return <AboutFirstSection image={sectionCard.image} />;
     case 'second':
-      return (
-        <AboutSecondSection
-          image={sectionCard.image}
-          alignLeft={sectionCard.alignLeft}
-        />
-      );
+      return <AboutSecondSection image={sectionCard.image} />;
     case 'third':
-      return (
-        <AboutThirdSection
-          image={sectionCard.image}
-          alignLeft={sectionCard.alignLeft}
-        />
-      );
+      return <AboutThirdSection image={sectionCard.image} />;
     case 'fourth':
-      return (
-        <AboutSecondSection
-          image={sectionCard.image}
-          alignLeft={sectionCard.alignLeft}
-        />
-      );
+      return <AboutSecondSection image={sectionCard.image} />;
     default:
-      return (
-        <AboutSecondSection
-          image={sectionCard.image}
-          alignLeft={sectionCard.alignLeft}
-        />
-      );
+      return <AboutSecondSection image={sectionCard.image} />;
   }
 };
