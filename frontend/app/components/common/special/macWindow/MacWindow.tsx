@@ -10,8 +10,8 @@ const useStyles = createStyles(
   (theme, { withGlassBg = false }: StyleProps) => ({
     windowBody: {
       position: 'relative',
-      minHeight: rem(200),
-      width: '100%',
+      minHeight: rem(100),
+      width: 'auto',
       backgroundColor: withGlassBg
         ? theme.fn.rgba(theme.other.bg, 0.6)
         : theme.other.bg,
@@ -66,7 +66,6 @@ export function MacWindow({ children, withGlassBg, ...props }: Props) {
           right: 0,
           bottom: 0,
           left: 0,
-          // paddingTop: 32,
         }}
       >
         {children}

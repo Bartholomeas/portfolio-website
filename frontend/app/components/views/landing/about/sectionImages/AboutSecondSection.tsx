@@ -4,7 +4,7 @@ import { Box } from '@/components/common/mantine';
 
 import { Image } from '@/components/common/mantine/Image';
 import { Text } from '@/components/common/mantine/Text';
-import { MacWindow } from '@/components/common/special/MacWindow';
+import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
 

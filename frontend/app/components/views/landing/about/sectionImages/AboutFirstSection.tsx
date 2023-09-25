@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
-import { MacWindow } from '@/components/common/special/MacWindow';
+import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
 

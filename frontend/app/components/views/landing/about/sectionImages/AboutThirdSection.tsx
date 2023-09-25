@@ -1,15 +1,12 @@
-import { motion } from 'framer-motion';
 import React from 'react';
 
 import { Box } from '@/components/common/mantine';
-import { MacWindow } from '@/components/common/special/MacWindow';
+import { Image } from '@/components/common/mantine/Image';
+
+import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
+import { MacWindowGraphicTools } from '@/components/common/special/macWindow/MacWindowGraphicTools';
 
 import { StrapiImage } from '@/types';
-
-const icon = {
-  hidden: { opacity: 0, pathLength: 0, fill: 'rgba(255, 255, 255, 0)' },
-  visible: { opacity: 1, pathLength: 1, fill: 'rgba(255, 255, 255, 1)' },
-};
 
 type Props = {
   image: StrapiImage | undefined;
@@ -34,40 +31,57 @@ export function AboutThirdSection({ image, alignLeft = false }: Props) {
           height: '100%',
           right: alignLeft ? 0 : 'auto',
           top: 0,
+          padding: 0,
+          overflow: 'visible',
         }}
       >
-        <Box className="container">
-          <motion.path
-            d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
-            variants={icon}
-            initial="hidden"
-            animate="visible"
-            transition={{
-              default: {
-                duration: 2,
-                ease: 'easeInOut',
-              },
-              fill: {
-                duration: 2,
-                ease: [1, 0, 0.8, 1],
-              },
-            }}
-          />
+        <MacWindowGraphicTools />
+        <Box
+          sx={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            transform: 'translateY(-40px)',
+            top: 0,
+            right: 0,
+          }}
+        >
+          {image && (
+            <Image
+              src="/abstract/spring_1.webp"
+              alt="Abstrakcyjny kolorowy kształt przypominający węża"
+              loading="lazy"
+              fill
+              sx={{
+                objectFit: 'contain',
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          )}
         </Box>
-
-        {/* {image && (
+      </MacWindow>
+      <MacWindow
+        withGlassBg
+        sx={{
+          position: 'absolute',
+          width: 'auto',
+          height: 'auto',
+          bottom: -100,
+          right: 32,
+          backgroundColor: '#fff',
+        }}
+      >
+        {image && (
           <Image
             src={image?.url}
-            alt={image?.alternativeText ?? 'Zdjęcie kodu'}
+            alt={image?.alternativeText ?? 'Zdjęcie'}
             loading="lazy"
-            fill
-            sx={{
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-            }}
+            width={250}
+            height={250}
+            sx={{ objectFit: 'contain' }}
           />
-        )} */}
+        )}
       </MacWindow>
     </Box>
   );
