@@ -11,7 +11,7 @@ type Props = {
   image: StrapiImage | undefined;
 };
 
-export function AboutFirstSection({ image }: Props) {
+export function AboutGeneralSlider({ image }: Props) {
   return (
     <Box
       sx={{
@@ -89,7 +89,7 @@ export function AboutFirstSection({ image }: Props) {
             fill
             sx={{
               padding: 8,
-              // aspectRatio: '1 / 1',
+
               objectFit: 'contain',
             }}
           />

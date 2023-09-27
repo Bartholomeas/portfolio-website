@@ -40,10 +40,10 @@ export type AboutMeSection = {
 };
 
 export type AboutMeSectionCardCodes = {
-  first: 'first';
-  second: 'second';
-  third: 'third';
-  fourth: 'fourth';
+  general: 'general';
+  frontend: 'frontend';
+  design: 'design';
+  summary: 'summary';
 };
 
 export type AboutMeCard = {

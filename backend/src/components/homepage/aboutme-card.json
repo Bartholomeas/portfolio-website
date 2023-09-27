@@ -11,9 +11,6 @@
       "type": "customField",
       "customField": "plugin::field-uuid.uuid"
     },
-    "shortDescription": {
-      "type": "string"
-    },
     "description": {
       "type": "richtext"
     },
@@ -21,7 +18,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "title": {
       "type": "string",
@@ -32,9 +31,14 @@
       "customField": "plugin::react-icons.icon"
     },
     "code": {
-      "type": "string",
-      "required": true,
-      "unique": false
+      "type": "enumeration",
+      "enum": [
+        "general",
+        "frontend",
+        "design",
+        "summary"
+      ],
+      "required": true
     }
   }
 }

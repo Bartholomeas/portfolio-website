@@ -10,6 +10,9 @@ const useStyles = createStyles(
   (theme, { withGlassBg = false }: StyleProps) => ({
     windowBody: {
       position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
       minHeight: rem(100),
       width: 'auto',
       backgroundColor: withGlassBg
@@ -49,7 +52,7 @@ export function MacWindow({ children, withGlassBg, ...props }: Props) {
         sx={(theme) => ({
           backgroundColor: theme.colors.dark[6],
           borderRadius: '8px 8px 0 0',
-          zIndex: 199,
+          zIndex: 0,
         })}
       >
         <Box className={cx(classes.actionMacButton, classes.red)} />
@@ -57,7 +60,7 @@ export function MacWindow({ children, withGlassBg, ...props }: Props) {
         <Box className={cx(classes.actionMacButton, classes.green)} />
       </Group>
       <Box
-        p={8}
+        // p={8}
         w="100%"
         h="100%"
         sx={{
@@ -66,6 +69,7 @@ export function MacWindow({ children, withGlassBg, ...props }: Props) {
           right: 0,
           bottom: 0,
           left: 0,
+          borderRadius: rem(8),
         }}
       >
         {children}

@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 
 import { Box } from '@/components/common/mantine';
 
-import { AboutFirstSection } from './sectionImages/AboutFirstSection';
-import { AboutSecondSection } from './sectionImages/AboutSecondSection';
-import { AboutThirdSection } from './sectionImages/AboutThirdSection';
+import { AboutDesignSlider } from './sliders/AboutDesignSlider';
+import { AboutFrontendSlider } from './sliders/AboutFrontendSlider';
+import { AboutGeneralSlider } from './sliders/AboutGeneralSlider';
+import { AboutSummarySlider } from './sliders/AboutSummarySlider';
 
 import { AboutMeCard } from '@/types/pages';
 
@@ -79,16 +80,16 @@ export function AboutSectionSlider({ sectionCard }: Props) {
 }
 
 const getCurrentContent = (sectionCard: AboutMeSectionCard) => {
-  switch (sectionCard.code) {
-    case 'first':
-      return <AboutFirstSection image={sectionCard.image} />;
-    case 'second':
-      return <AboutSecondSection image={sectionCard.image} />;
-    case 'third':
-      return <AboutThirdSection image={sectionCard.image} />;
-    case 'fourth':
-      return <AboutSecondSection image={sectionCard.image} />;
+  switch (sectionCard?.code) {
+    case 'general':
+      return <AboutGeneralSlider image={sectionCard.image} />;
+    case 'frontend':
+      return <AboutFrontendSlider image={sectionCard.image} />;
+    case 'design':
+      return <AboutDesignSlider image={sectionCard.image} />;
+    case 'summary':
+      return <AboutSummarySlider />;
     default:
-      return <AboutSecondSection image={sectionCard.image} />;
+      return null;
   }
 };

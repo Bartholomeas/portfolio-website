@@ -19,14 +19,10 @@ export function MacWindowGraphicTools({ ...props }: StackProps) {
       py={16}
       spacing={16}
       sx={(theme) => ({
-        // position: 'absolute',
-        top: 16, // 28 is height of mac window top bar any -8 because of paddings
-        left: 8,
-        height: 'calc(100% - 12px)',
+        height: '100%',
         borderRadius: '0 0 0 8px',
         width: 40,
         backgroundColor: theme.fn.rgba(theme.other.white, 0.2),
-        transform: 'translate(-8px,-8px)',
         zIndex: 0,
       })}
       {...props}

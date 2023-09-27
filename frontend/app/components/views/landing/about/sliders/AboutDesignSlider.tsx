@@ -12,7 +12,7 @@ type Props = {
   image: StrapiImage | undefined;
 };
 
-export function AboutThirdSection({ image }: Props) {
+export function AboutDesignSlider({ image }: Props) {
   return (
     <Box
       sx={{
@@ -48,7 +48,7 @@ export function AboutThirdSection({ image }: Props) {
           {image && (
             <Image
               src="/abstract/spring_1.webp"
-              alt="Abstrakcyjny kolorowy kształt przypominający węża"
+              alt="Abstrakcyjny kolorowy kształt przypominający sprężynę"
               loading="lazy"
               fill
               sx={{
@@ -66,7 +66,7 @@ export function AboutThirdSection({ image }: Props) {
           height: 'auto',
           bottom: -100,
           right: 32,
-          backgroundColor: '#fff',
+          backgroundColor: '#0b0866',
         }}
       >
         {image && (
@@ -74,8 +74,8 @@ export function AboutThirdSection({ image }: Props) {
             src={image?.url}
             alt={image?.alternativeText ?? 'Zdjęcie'}
             loading="lazy"
-            width={250}
-            height={250}
+            width={300}
+            height={300}
             sx={{ objectFit: 'contain' }}
           />
         )}

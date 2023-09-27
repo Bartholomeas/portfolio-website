@@ -12,7 +12,7 @@ type Props = {
   image: StrapiImage | undefined;
 };
 
-export function AboutSecondSection({ image }: Props) {
+export function AboutFrontendSlider({ image }: Props) {
   const [displayedText, setDisplayedText] = useState('');
   const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -22,6 +22,7 @@ export function AboutSecondSection({ image }: Props) {
         `${fakeCode} ${fakeCode} ${fakeCode}`.slice(0, displayedText.length + 1)
       );
     }, 10);
+
     if (textRef.current) {
       textRef.current.scrollTop = textRef.current.scrollHeight;
     }
@@ -50,7 +51,7 @@ export function AboutSecondSection({ image }: Props) {
         {image && (
           <Image
             src={image?.url}
-            alt={image?.alternativeText ?? 'Zdjęcie kodu'}
+            alt={image?.alternativeText ?? 'Zdjęcie w sliderze'}
             loading="lazy"
             fill
             sx={{
