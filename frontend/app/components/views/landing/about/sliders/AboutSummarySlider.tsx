@@ -1,19 +1,49 @@
-import React from 'react';
+import { createStyles } from '@mantine/core';
 
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
+const useStyles = createStyles(() => ({
+  root: {
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+    minHeight: 500,
+    overflow: 'visible',
+  },
+
+  firstWindow: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    overflow: 'visible',
+  },
+  emojiBox: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+  },
+
+  image: {
+    objectFit: 'contain',
+  },
+
+  firstImage: {
+    transform: 'translate(30%,-40%) scale(0.4) rotate(20deg)',
+  },
+  secondImage: {
+    transform: 'translate(-120px,-60%) scale(0.6) rotate(-10deg)',
+  },
+}));
+
 export function AboutSummarySlider() {
+  const { classes, cx } = useStyles();
+
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        display: 'flex',
-        width: '100%',
-        minHeight: 500,
-      }}
-    >
+    <Box className={classes.root}>
       <Image
         src="/abstract/serpent_2.webp"
         alt="Abstrakcyjny kolorowy kształt przypominający węża"
@@ -23,30 +53,23 @@ export function AboutSummarySlider() {
         }}
       />
 
-      <MacWindow
-        withGlassBg
-        sx={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0,
-          }}
-        >
+      <MacWindow withGlassBg className={classes.firstWindow}>
+        <Box className={classes.emojiBox}>
           <Image
             src="/avatars/me_hallo.webp"
             alt="Emoji wykonujące gest dzwonienia."
             loading="lazy"
-            fill
+            // fill
+            width="0"
+            height="0"
+            sizes="100vw"
+            className={classes.image}
             sx={{
-              objectFit: 'contain',
+              position: 'absolute',
+              width: '100%',
+              maxHeight: 500,
+              height: 'auto',
+              bottom: 0,
             }}
           />
           <Image
@@ -54,31 +77,14 @@ export function AboutSummarySlider() {
             alt="Emoji mrugające lewym okiem."
             loading="lazy"
             fill
-            sx={{
-              objectFit: 'contain',
-              transform: 'translate(30%,-40%) scale(0.4) rotate(20deg)',
-            }}
+            className={cx(classes.image, classes.firstImage)}
           />
           <Image
             src="/avatars/me_peace.webp"
             alt="Emoji pokazujące znak pokoju."
             loading="lazy"
             fill
-            sx={{
-              objectFit: 'contain',
-              transform: 'translate(-120px,-60%) scale(0.6) rotate(-10deg)',
-            }}
-          />
-        </Box>
-        <Box
-          sx={{ width: '100%', minHeight: 300, backgroundColor: 'royalblue' }}
-        >
-          <Image
-            width={100}
-            height={100}
-            src="/icons/css.svg"
-            alt=""
-            sx={{ fill: 'red', color: 'blue', backgroundColor: 'gold' }}
+            className={cx(classes.image, classes.secondImage)}
           />
         </Box>
       </MacWindow>

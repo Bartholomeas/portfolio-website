@@ -1,3 +1,4 @@
+import { createStyles, rem } from '@mantine/core';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { Box } from '@/components/common/mantine';
@@ -8,11 +9,64 @@ import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
 
+const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+    minHeight: rem(500),
+  },
+  firstWindow: {
+    position: 'absolute',
+    width: '100%',
+    aspectRatio: '4 / 3',
+    right: 0,
+
+    [theme.fn.largerThan('md')]: {
+      width: '80%',
+    },
+  },
+
+  firstImage: {
+    width: '100%',
+    height: '100%',
+    opacity: 0.6,
+    objectPosition: 'right',
+    objectFit: 'cover',
+  },
+
+  secondWindow: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    maxHeight: rem(300),
+    bottom: -48,
+    left: 0,
+    right: 0,
+
+    [theme.fn.largerThan('md')]: {
+      width: '60%',
+      left: 25,
+      bottom: -80,
+    },
+  },
+  codingText: {
+    height: '70%',
+    width: '100%',
+    bottom: 0,
+    color: 'limegreen',
+    overflowY: 'auto',
+    zIndex: 0,
+  },
+}));
+
 type Props = {
   image: StrapiImage | undefined;
 };
 
 export function AboutFrontendSlider({ image }: Props) {
+  const { classes } = useStyles();
+
   const [displayedText, setDisplayedText] = useState('');
   const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -31,62 +85,21 @@ export function AboutFrontendSlider({ image }: Props) {
   }, [displayedText]);
 
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        display: 'flex',
-        width: '100%',
-        minHeight: 500,
-      }}
-    >
-      <MacWindow
-        withGlassBg
-        sx={{
-          position: 'absolute',
-          width: '60%',
-          aspectRatio: '4 / 3',
-          right: 0,
-        }}
-      >
+    <Box className={classes.root}>
+      <MacWindow withGlassBg className={classes.firstWindow}>
         {image && (
           <Image
             src={image?.url}
             alt={image?.alternativeText ?? 'Zdjęcie w sliderze'}
             loading="lazy"
             fill
-            sx={{
-              objectPosition: 'right',
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-            }}
+            className={classes.firstImage}
           />
         )}
       </MacWindow>
 
-      <MacWindow
-        withGlassBg
-        sx={{
-          position: 'absolute',
-          width: '60%',
-          height: '100%',
-          maxHeight: 300,
-          bottom: -80,
-          left: 25,
-        }}
-      >
-        <Text
-          ref={textRef}
-          size="sm"
-          sx={{
-            height: '70%',
-            width: '100%',
-            bottom: 0,
-            color: 'limegreen',
-            overflowY: 'auto',
-            zIndex: 0,
-          }}
-        >
+      <MacWindow withGlassBg className={classes.secondWindow}>
+        <Text ref={textRef} size="sm" className={classes.codingText}>
           {displayedText}
         </Text>
       </MacWindow>

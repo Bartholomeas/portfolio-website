@@ -79,7 +79,7 @@ export function AboutSectionSlider({ sectionCard }: Props) {
   );
 }
 
-const getCurrentContent = (sectionCard: AboutMeSectionCard) => {
+export const getCurrentContent = (sectionCard: AboutMeSectionCard) => {
   switch (sectionCard?.code) {
     case 'general':
       return <AboutGeneralSlider image={sectionCard.image} />;

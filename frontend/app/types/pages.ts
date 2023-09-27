@@ -49,7 +49,6 @@ export type AboutMeSectionCardCodes = {
 export type AboutMeCard = {
   id: number;
   title: string;
-  shortDescription: string;
   description: string;
   image: StrapiImage | undefined;
   uuid: string;

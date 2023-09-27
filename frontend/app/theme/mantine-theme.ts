@@ -53,7 +53,6 @@ export const basicTheme: MantineThemeOther = {
   primaryShade: 6,
   lineHeight: 1.8,
   fontFamily: 'Poppins, sans-serif',
-  headings: { fontFamily: 'Oswald, sans-serif', fontWeight: 700 },
   colors: {
     primary: [
       '#95F9C9',

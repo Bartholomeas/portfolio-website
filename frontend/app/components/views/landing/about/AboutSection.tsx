@@ -1,6 +1,6 @@
 'use client';
 
-import { createStyles, Stack } from '@mantine/core';
+import { createStyles, rem, Stack } from '@mantine/core';
 import { motion, useInView } from 'framer-motion';
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
@@ -8,7 +8,7 @@ import { Box } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 import { MotionTitle } from '@/components/common/mantine/Title';
 
-import { AboutSectionSlider } from './AboutSectionSlider';
+import { AboutSectionSlider, getCurrentContent } from './AboutSectionSlider';
 
 import { AboutMeCard, AboutMeSection } from '@/types/pages';
 
@@ -18,8 +18,8 @@ const useStyles = createStyles((theme) => ({
     margin: '0 auto',
   },
   displayOffset: {
-    marginTop: '-100vh',
     [theme.fn.largerThan('md')]: {
+      marginTop: '-100vh',
       display: 'block',
     },
   },
@@ -36,18 +36,22 @@ const useStyles = createStyles((theme) => ({
     display: 'grid',
     height: '100%',
     width: '100%',
-    padding: '8px 16px',
+    padding: `${rem(8)} ${rem(16)}`,
     placeContent: 'center',
     [theme.fn.largerThan('md')]: {
       width: '40%',
-      padding: '12px 12px',
+      padding: `${rem(12)} ${rem(12)}`,
     },
   },
   contentMotionDiv: {
     display: 'block',
     marginTop: 8,
+    width: '100%',
+    [theme.fn.smallerThan('md')]: {
+      marginTop: '40%',
+    },
     [theme.fn.largerThan('md')]: {
-      // overflow: 'hidden',
+      display: 'none',
     },
   },
 }));
@@ -79,13 +83,15 @@ export function AboutSection({ data }: Props) {
 
       <Box className={classes.displayOffset} />
 
-      {mappedCards.map((card) => (
-        <AboutSectionBox
-          key={card.uuid}
-          card={card}
-          setCurrentCard={setCurrentCard}
-        />
-      ))}
+      <Stack spacing={128}>
+        {mappedCards.map((card) => (
+          <AboutSectionBox
+            key={card.uuid}
+            card={card}
+            setCurrentCard={setCurrentCard}
+          />
+        ))}
+      </Stack>
     </Box>
   );
 }
@@ -98,7 +104,7 @@ type AboutSectionBoxProps = {
 function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
-    margin: '-100px',
+    margin: '-150px',
   });
 
   const { classes } = useStyles();
@@ -114,7 +120,7 @@ function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
       component="section"
       ref={ref}
       className={classes.contentSectionWrapper}
-      style={{
+      sx={{
         justifyContent: card.alignLeft ? 'flex-start' : 'flex-end',
       }}
     >
@@ -126,15 +132,12 @@ function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
           layout
         >
           <Stack spacing={4}>
-            <MotionTitle order={3} textColor="primary" size={32}>
+            <MotionTitle fw={900} order={3} textColor="white" size={32}>
               {card.title}
-            </MotionTitle>
-            <MotionTitle order={4} textColor="textPrimary">
-              {card.shortDescription}
             </MotionTitle>
           </Stack>
 
-          <Text textColor="textPrimary" size="md" mt={16}>
+          <Text textColor="textSecondary" size="lg" mt={16} lh={1.5}>
             {card.description}
           </Text>
         </motion.div>
@@ -143,7 +146,9 @@ function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className={classes.contentMotionDiv}
-        />
+        >
+          {getCurrentContent(card)}
+        </motion.div>
       </div>
     </Box>
   );

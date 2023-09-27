@@ -1,4 +1,4 @@
-import { rem } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 import React from 'react';
 
 import { Box } from '@/components/common/mantine';
@@ -7,91 +7,93 @@ import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
 
+const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+    minHeight: 500,
+  },
+
+  firstWindow: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '80%',
+    height: '100%',
+    overflow: 'hidden',
+    [theme.fn.smallerThan('md')]: {
+      width: '100%',
+    },
+  },
+
+  secondWindow: {
+    position: 'absolute',
+    height: rem(200),
+    width: rem(200),
+    bottom: -50,
+    left: 50,
+    boxShadow: '8px 16px 40px #28282861',
+  },
+  thirdWindow: {
+    position: 'absolute',
+    height: rem(150),
+    width: rem(150),
+    top: -50,
+    right: 16,
+    backgroundColor: theme.fn.rgba(theme.other.white, 0.2),
+    boxShadow: '8px 16px 40px #28282861',
+  },
+  image: {
+    objectFit: 'cover',
+    height: '100%',
+  },
+  logoImage: {
+    width: 'auto',
+    margin: '0 auto',
+  },
+}));
+
 type Props = {
   image: StrapiImage | undefined;
 };
 
 export function AboutGeneralSlider({ image }: Props) {
+  const { classes, cx } = useStyles();
+
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        display: 'flex',
-        width: '100%',
-        minHeight: 500,
-      }}
-    >
-      <MacWindow
-        withGlassBg
-        sx={{
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          width: '80%',
-          height: '100%',
-          overflow: 'hidden',
-        }}
-      >
+    <Box className={classes.root}>
+      <MacWindow withGlassBg className={classes.firstWindow}>
         {image && (
           <Image
             src={image.url}
             alt={image.alternativeText ?? 'Zdjęcie o mnie'}
             loading="lazy"
             fill
-            sx={{
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-            }}
+            className={classes.image}
           />
         )}
       </MacWindow>
-      <MacWindow
-        sx={{
-          position: 'absolute',
-          height: rem(200),
-          width: rem(200),
-          bottom: -50,
-          left: 50,
-          boxShadow: '8px 16px 40px #28282861',
-        }}
-        withGlassBg
-      >
+      <MacWindow withGlassBg className={classes.secondWindow}>
         <Image
           src="/avatars/me_blink.webp"
           alt="Moja twarz w postaci apple awatara"
           loading="lazy"
           fill
-          sx={{
-            objectFit: 'contain',
-            height: '100%',
-          }}
+          className={classes.image}
         />
       </MacWindow>
-      <MacWindow
-        sx={(theme) => ({
-          position: 'absolute',
-          height: rem(150),
-          width: rem(150),
-          top: -50,
-          right: 16,
-          backgroundColor: theme.fn.rgba(theme.other.white, 0.2),
-          boxShadow: '8px 16px 40px #28282861',
-          // overflow: 'hidden',
-        })}
-        withGlassBg
-      >
+      <MacWindow withGlassBg className={classes.thirdWindow}>
         {image && (
           <Image
             src="/Logo.svg"
             alt="Moje logo, litera B w okręgu o finezyjnych kształtach"
             loading="lazy"
-            fill
-            sx={{
-              padding: 8,
-
-              objectFit: 'contain',
-            }}
+            // fill
+            width="0"
+            height="0"
+            sizes="100vw"
+            className={cx(classes.image, classes.logoImage)}
           />
         )}
       </MacWindow>

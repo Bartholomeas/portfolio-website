@@ -24,6 +24,11 @@ const useStyles = createStyles(
       overflow: 'visible',
     },
 
+    topBar: {
+      backgroundColor: theme.colors.dark[6],
+      borderRadius: `${rem(8)} ${rem(8)} 0 0`,
+      zIndex: 990,
+    },
     actionMacButton: { height: rem(12), width: rem(12), borderRadius: '100%' },
     red: {
       backgroundColor: '#FF605B',
@@ -34,6 +39,16 @@ const useStyles = createStyles(
     green: {
       backgroundColor: '#00CA4E',
     },
+
+    content: {
+      width: '100%',
+      height: 'calc(100% - 32px)',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      borderRadius: rem(8),
+    },
   })
 );
 
@@ -43,37 +58,20 @@ export function MacWindow({ children, withGlassBg, ...props }: Props) {
   const { classes, cx } = useStyles({ withGlassBg });
 
   return (
-    <Card p={0} className={classes.windowBody} {...props}>
+    <Card p={0} className={cx(classes.windowBody, props.className)} {...props}>
       <Group
         w="100%"
         noWrap
         spacing={8}
         p={8}
-        sx={(theme) => ({
-          backgroundColor: theme.colors.dark[6],
-          borderRadius: '8px 8px 0 0',
-          zIndex: 0,
-        })}
+        h={32}
+        className={classes.topBar}
       >
         <Box className={cx(classes.actionMacButton, classes.red)} />
         <Box className={cx(classes.actionMacButton, classes.yellow)} />
         <Box className={cx(classes.actionMacButton, classes.green)} />
       </Group>
-      <Box
-        // p={8}
-        w="100%"
-        h="100%"
-        sx={{
-          position: 'relative',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          borderRadius: rem(8),
-        }}
-      >
-        {children}
-      </Box>
+      <Box className={classes.content}>{children}</Box>
     </Card>
   );
 }
