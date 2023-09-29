@@ -1,93 +1,170 @@
 'use client';
 
+import { createStyles, rem, Stack } from '@mantine/core';
+import { IconArrowRight } from '@tabler/icons-react';
+import { motion, useInView } from 'framer-motion';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-
+import { Box } from '@/components/common/mantine';
+import { ButtonLink } from '@/components/common/mantine/Button';
 import { Text } from '@/components/common/mantine/Text';
-import { Glow } from '@/components/common/ornaments/Glow';
-import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
-import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
+import { MotionTitle } from '@/components/common/mantine/Title';
 
+import { AboutSectionSlider, getCurrentContent } from './AboutSectionSlider';
 
-import { AboutMeSection } from '@/types/pages';
-
-import { Box, createStyles, Image, Stack } from '@mantine/core';
-import React from 'react';
-
-import { AboutSpecializationsGrid } from './AboutSpecializationsGrid';
+import { AboutMeCard, AboutMeSection } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
-  wrapper: {
+  sectionWrapper: {
     position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '70vh',
-    height: '100%',
-    width: '100%',
-    padding: '100px 0',
+    margin: '0 auto',
   },
-
-  grid: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 40,
+  displayOffset: {
     [theme.fn.largerThan('md')]: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 2fr',
+      marginTop: '-100vh',
+      display: 'block',
     },
   },
-  bgImage: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    maxWidth: 900,
-    margin: '0 auto',
-    zIndex: -100,
-    opacity: 0.3,
+  contentSectionWrapper: {
+    position: 'relative',
+    display: 'flex',
+    height: 'fit-content',
+    zIndex: 0,
+    [theme.fn.largerThan('md')]: {
+      height: '100vh',
+    },
   },
-
-  shapePosition: {
-    position: 'absolute',
-    zIndex: 100,
-    top: 0,
-    right: 0,
-    transform: 'translateY(-75%)',
+  contentGridContainer: {
+    display: 'grid',
+    height: '100%',
+    width: '100%',
+    padding: `${rem(8)} ${rem(16)}`,
+    placeContent: 'center',
+    [theme.fn.largerThan('md')]: {
+      width: '40%',
+      padding: `${rem(12)} ${rem(12)}`,
+    },
+  },
+  contentMotionDiv: {
+    display: 'block',
+    marginTop: 8,
+    width: '100%',
+    [theme.fn.smallerThan('md')]: {
+      marginTop: '40%',
+    },
+    [theme.fn.largerThan('md')]: {
+      display: 'none',
+    },
   },
 }));
 
+export type AboutMeCardWithAlignment = AboutMeCard & { alignLeft: boolean };
+
 type Props = {
-  data: AboutMeSection;
+  data?: AboutMeSection;
 };
+
 export function AboutSection({ data }: Props) {
   const { classes } = useStyles();
+  const { aboutmeCards = [] } = data || {};
+
+  const mappedCards: AboutMeCardWithAlignment[] = aboutmeCards.map(
+    (card, index) => ({
+      ...card,
+      alignLeft: index % 2 === 0,
+    })
+  );
+
+  const [currentCard, setCurrentCard] = useState<AboutMeCardWithAlignment>(
+    mappedCards[0]
+  );
 
   return (
-    <section className={classes.wrapper}>
-      <Box sx={{ position: 'relative' }}>
-        <ShapeWithGlow className={classes.shapePosition} size={120} />
-        <Glow
-          position={{ top: 200, left: -50, right: 0, bottom: 0 }}
-          size={400}
-          zIndex={-10}
-        />
-        <Stack>
-          <div className={classes.grid}>
-            <Image
-              src={data.sectionImage.url}
-              alt={data.sectionImage.alternativeText ?? 'Moje zdjęcie'}
-              sx={{ borderRadius: 8, overflow: 'hidden' }}
-            />
-            <Stack justify="center">
-              <SectionHeading
-                title={data.heading.title}
-                subtext={data.heading.subtitle}
-              />
-              <Text size={16}>{data.aboutMeDescription}</Text>
-            </Stack>
-          </div>
-          <AboutSpecializationsGrid skills={data.skillCards} />
-        </Stack>
-      </Box>
-    </section>
+    <Box component="section" className={classes.sectionWrapper}>
+      <AboutSectionSlider sectionCard={currentCard} />
+
+      <Box className={classes.displayOffset} />
+
+      <Stack spacing={128}>
+        {mappedCards.map((card) => (
+          <AboutSectionContent
+            key={card.uuid}
+            card={card}
+            setCurrentCard={setCurrentCard}
+          />
+        ))}
+      </Stack>
+    </Box>
+  );
+}
+
+type AboutSectionContentProps = {
+  card: AboutMeCardWithAlignment;
+  setCurrentCard: Dispatch<SetStateAction<AboutMeCardWithAlignment>>;
+};
+
+function AboutSectionContent({
+  card,
+  setCurrentCard,
+}: AboutSectionContentProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    margin: '-150px',
+  });
+
+  const { classes } = useStyles();
+
+  useEffect(() => {
+    if (isInView) {
+      setCurrentCard(card);
+    }
+  }, [isInView]);
+
+  return (
+    <Box
+      component="section"
+      ref={ref}
+      className={classes.contentSectionWrapper}
+      sx={{
+        justifyContent: card.alignLeft ? 'flex-start' : 'flex-end',
+      }}
+    >
+      <div className={classes.contentGridContainer}>
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          layout
+        >
+          <Stack spacing={4}>
+            <MotionTitle fw={900} order={3} textColor="white" size={32}>
+              {card.title}
+            </MotionTitle>
+          </Stack>
+
+          <Text textColor="textSecondary" size="lg" mt={16} lh={1.5}>
+            {card.description}
+          </Text>
+          {card.code === 'summary' && (
+            <ButtonLink
+              mt={32}
+              variant="outline"
+              href="/blog"
+              rightIcon={<IconArrowRight />}
+            >
+              Sprawdź Blog!
+            </ButtonLink>
+          )}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className={classes.contentMotionDiv}
+        >
+          {getCurrentContent(card)}
+        </motion.div>
+      </div>
+    </Box>
   );
 }

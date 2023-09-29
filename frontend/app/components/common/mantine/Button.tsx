@@ -59,7 +59,7 @@ export function Button({
 }
 
 type ButtonLinkProps = {
-  variant: string;
+  // variant: string;
   href: string;
   children: React.ReactNode;
 } & ButtonProps;

@@ -1,7 +1,5 @@
 'use client';
 
-import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
-
 import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
@@ -27,6 +25,7 @@ import {
 import { Button, ButtonLink } from '../mantine/Button';
 import { Link } from '../special/Link';
 
+import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -190,6 +189,7 @@ function HeaderMobile() {
     </Group>
   );
 }
+
 function HeaderDesktop() {
   const { classes: modalClasses } = useModalStyles();
   const { classes } = useStyles();

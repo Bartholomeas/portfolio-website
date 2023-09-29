@@ -35,7 +35,7 @@ export function SectionHeading({
       <Text color="white" fw={700}>
         {subtext}
       </Text>
-      <Title order={2} className={classes.heading}>
+      <Title order={2} className={classes.heading} fw={900}>
         {title}
       </Title>
     </Stack>

@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_homepage_aboutme_cards",
+  "info": {
+    "displayName": "AboutmeCard",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
+    },
+    "code": {
+      "type": "enumeration",
+      "enum": [
+        "general",
+        "frontend",
+        "design",
+        "summary"
+      ],
+      "required": true
+    }
+  }
+}

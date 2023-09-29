@@ -1,22 +1,24 @@
 'use client';
 
-import { ThemeColors } from '@/theme/types';
-
 import { createStyles, TitleProps } from '@mantine/core';
 
 import { motion } from 'framer-motion';
+
 import React from 'react';
 
 import { Title as MantineTitle } from '.';
 
+import { ThemeColors } from '@/theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;
 };
 
 const useStyles = createStyles((theme, { textColor }: StylesProps) => ({
-  textColor: {
+  title: {
     color: theme.other[textColor],
+    lineHeight: 1.2,
+    fontWeight: 900,
   },
 }));
 
@@ -33,7 +35,7 @@ export function Title({
   const { classes } = useStyles({ textColor });
 
   return (
-    <MantineTitle className={classes.textColor} {...props}>
+    <MantineTitle className={classes.title} {...props}>
       {children}
     </MantineTitle>
   );

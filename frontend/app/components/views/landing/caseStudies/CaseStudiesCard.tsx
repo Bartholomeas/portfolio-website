@@ -1,3 +1,13 @@
+import { createStyles, Stack, TypographyStylesProvider } from '@mantine/core';
+
+import { motion } from 'framer-motion';
+
+import Image from 'next/image';
+
+import Markdown from 'react-markdown';
+
+import remarkGfm from 'remark-gfm';
+
 import { HEADER_HEIGHT } from '@/components/common/appShell/Header';
 
 import { Box, Card, Group } from '@/components/common/mantine';
@@ -7,16 +17,6 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { CaseStudiesItem } from '@/types/pages';
-
-import { createStyles, Stack, TypographyStylesProvider } from '@mantine/core';
-
-import { motion } from 'framer-motion';
-
-import Image from 'next/image';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-
-
 
 const useStyles = createStyles(() => ({
   card: {
@@ -75,11 +75,11 @@ const closeSpring = {
   damping: 35,
 };
 
-interface Props {
+type Props = {
   item: CaseStudiesItem;
   onClick: (cardId: string | null) => void;
   isSelected?: boolean;
-}
+};
 
 export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
   const { classes, cx } = useStyles();

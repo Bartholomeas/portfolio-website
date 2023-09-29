@@ -28,8 +28,8 @@ const themeSizes: MantineThemeOther = {
 
   fontSizes: {
     xs: 10,
-    sm: 12,
-    md: 14,
+    sm: 14,
+    md: 16,
     lg: 18,
     xl: 24,
   },
@@ -53,7 +53,6 @@ export const basicTheme: MantineThemeOther = {
   primaryShade: 6,
   lineHeight: 1.8,
   fontFamily: 'Poppins, sans-serif',
-
   colors: {
     primary: [
       '#95F9C9',
@@ -76,8 +75,8 @@ export const basicTheme: MantineThemeOther = {
           width: '100%',
           backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
           borderRadius: 8,
-          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-          backdropFilter: 'blur(10px)',
+          border: `1px solid ${theme.fn.rgba(theme.other.white, 0.1)}`,
+          backdropFilter: 'blur(20px)',
           overflow: 'none',
         },
       }),
