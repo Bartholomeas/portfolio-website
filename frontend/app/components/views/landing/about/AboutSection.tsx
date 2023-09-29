@@ -1,10 +1,12 @@
 'use client';
 
 import { createStyles, rem, Stack } from '@mantine/core';
+import { IconArrowRight } from '@tabler/icons-react';
 import { motion, useInView } from 'framer-motion';
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { Box } from '@/components/common/mantine';
+import { ButtonLink } from '@/components/common/mantine/Button';
 import { Text } from '@/components/common/mantine/Text';
 import { MotionTitle } from '@/components/common/mantine/Title';
 
@@ -85,7 +87,7 @@ export function AboutSection({ data }: Props) {
 
       <Stack spacing={128}>
         {mappedCards.map((card) => (
-          <AboutSectionBox
+          <AboutSectionContent
             key={card.uuid}
             card={card}
             setCurrentCard={setCurrentCard}
@@ -96,12 +98,15 @@ export function AboutSection({ data }: Props) {
   );
 }
 
-type AboutSectionBoxProps = {
+type AboutSectionContentProps = {
   card: AboutMeCardWithAlignment;
   setCurrentCard: Dispatch<SetStateAction<AboutMeCardWithAlignment>>;
 };
 
-function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
+function AboutSectionContent({
+  card,
+  setCurrentCard,
+}: AboutSectionContentProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     margin: '-150px',
@@ -140,6 +145,16 @@ function AboutSectionBox({ card, setCurrentCard }: AboutSectionBoxProps) {
           <Text textColor="textSecondary" size="lg" mt={16} lh={1.5}>
             {card.description}
           </Text>
+          {card.code === 'summary' && (
+            <ButtonLink
+              mt={32}
+              variant="outline"
+              href="/blog"
+              rightIcon={<IconArrowRight />}
+            >
+              Sprawdź Blog!
+            </ButtonLink>
+          )}
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 25 }}

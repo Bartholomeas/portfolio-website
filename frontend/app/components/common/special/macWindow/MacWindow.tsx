@@ -41,6 +41,7 @@ const useStyles = createStyles(
     },
 
     content: {
+      position: 'relative',
       width: '100%',
       height: 'calc(100% - 32px)',
       top: 0,

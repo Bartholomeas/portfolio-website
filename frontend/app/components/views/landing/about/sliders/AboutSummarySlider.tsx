@@ -59,7 +59,6 @@ export function AboutSummarySlider() {
             src="/avatars/me_hallo.webp"
             alt="Emoji wykonujące gest dzwonienia."
             loading="lazy"
-            // fill
             width="0"
             height="0"
             sizes="100vw"

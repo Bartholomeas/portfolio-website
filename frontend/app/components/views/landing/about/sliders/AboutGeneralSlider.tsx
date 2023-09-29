@@ -46,11 +46,19 @@ const useStyles = createStyles((theme) => ({
   },
   image: {
     objectFit: 'cover',
-    height: '100%',
+    height: 'auto',
+    width: '100%',
   },
   logoImage: {
-    width: 'auto',
-    margin: '0 auto',
+    width: '100%',
+    height: '100%',
+    padding: rem(4),
+    objectFit: 'contain',
+    backgroundColor: theme.fn.rgba(theme.other.primary, 0.4),
+  },
+
+  imageWithBackground: {
+    backgroundColor: theme.fn.rgba(theme.colors.blue[4], 0.4),
   },
 }));
 
@@ -80,22 +88,27 @@ export function AboutGeneralSlider({ image }: Props) {
           alt="Moja twarz w postaci apple awatara"
           loading="lazy"
           fill
-          className={classes.image}
+          className={cx(classes.logoImage, classes.imageWithBackground)}
         />
       </MacWindow>
       <MacWindow withGlassBg className={classes.thirdWindow}>
-        {image && (
+        <Box
+          sx={{
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+          }}
+        >
           <Image
             src="/Logo.svg"
             alt="Moje logo, litera B w okręgu o finezyjnych kształtach"
             loading="lazy"
-            // fill
             width="0"
             height="0"
             sizes="100vw"
-            className={cx(classes.image, classes.logoImage)}
+            className={classes.logoImage}
           />
-        )}
+        </Box>
       </MacWindow>
     </Box>
   );
