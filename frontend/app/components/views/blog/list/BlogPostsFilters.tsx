@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { IconSearch } from '@tabler/icons-react';
 
