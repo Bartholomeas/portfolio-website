@@ -1,8 +1,8 @@
-'use client';
+// 'use client';
 
 import { IconSearch } from '@tabler/icons-react';
 
-import React, { use } from 'react';
+import React from 'react';
 
 import { Chip, Group, Stack } from '@/components/common/mantine';
 import { TextInput } from '@/components/common/mantine/TextInput';
@@ -10,28 +10,19 @@ import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
-import { BlogCategory, FetchResponse } from '@/types';
+import { getBlogCategories } from '@/lib/blog/getBlogCategories';
 
 import { createQueryClient } from '@/utils/createQueryClient';
-import { API_URL } from '@/utils/variables';
-
-async function getCategories(): Promise<FetchResponse<BlogCategory[]>> {
-  try {
-    const res = await fetch(
-      `${API_URL}/api/blog-categories?fields[0]=code&fields[1]=name`
-    );
-    return res.json();
-  } catch (err) {
-    throw new Error('getCategories: error');
-  }
-}
 
 const queryClient = createQueryClient();
 
-export function BlogPostsFilters() {
+export async function BlogPostsFilters() {
   const { handleFilters } = useFiltersCtx();
 
-  const { data } = use(queryClient('blogCategories', () => getCategories()));
+  const blogCategoriesData = queryClient('blogCategories', () =>
+    getBlogCategories()
+  );
+  const { data } = await blogCategoriesData;
 
   return (
     <Stack>

@@ -5,9 +5,13 @@ export async function getSingleBlogPost(
   slug: string
 ): Promise<FetchResponse<Post>> {
   try {
-    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {});
-    return res.json();
+    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`);
+
+    if (!res.ok) {
+      throw new Error('getSingleBlogPost: error');
+    }
+    return await res.json();
   } catch (err) {
-    throw new Error('getBlogPost: error');
+    throw new Error('getSingleBlogPost: error');
   }
 }
