@@ -52,6 +52,5 @@ export type AboutMeCard = {
   description: string;
   image: StrapiImage | undefined;
   uuid: string;
-  icon: string;
   code: keyof AboutMeSectionCardCodes;
 };

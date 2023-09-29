@@ -26,10 +26,6 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "customField",
-      "customField": "plugin::react-icons.icon"
-    },
     "code": {
       "type": "enumeration",
       "enum": [

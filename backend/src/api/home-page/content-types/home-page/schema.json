@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "homepageHeading": {
-      "type": "component",
-      "repeatable": false,
-      "component": "homepage.homepage-heading"
-    },
     "aboutMeSection": {
       "type": "component",
       "repeatable": false,
