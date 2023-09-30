@@ -1,5 +1,13 @@
 'use client';
 
+import {
+  Divider,
+  Stack,
+  TypographyStylesProvider,
+} from '@/components/common/mantine';
+
+import { Post } from '@/types';
+
 import { createStyles, rem } from '@mantine/core';
 import React from 'react';
 
@@ -7,15 +15,7 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import {
-  Divider,
-  Stack,
-  TypographyStylesProvider,
-} from '@/components/common/mantine';
-
 import { BlogPostBanner } from './BlogPostBanner';
-
-import { Post } from '@/types';
 
 const useStyles = createStyles((theme) => ({
   postContent: {

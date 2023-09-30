@@ -1,11 +1,11 @@
-import React from 'react';
-
 import { Stack } from '@/components/common/mantine';
 import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 
-import { CaseStudiesCards } from './CaseStudiesCards';
-
 import { HomePageSections } from '@/types/pages';
+
+import React from 'react';
+
+import { CaseStudiesCards } from './CaseStudiesCards';
 
 type Props = {
   data: HomePageSections['caseStudiesSection'] | undefined;

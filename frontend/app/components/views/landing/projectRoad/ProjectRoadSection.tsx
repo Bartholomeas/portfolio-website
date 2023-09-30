@@ -1,7 +1,11 @@
 'use client';
 
-import { createStyles } from '@mantine/core';
+import { Box, Group, Stack } from '@/components/common/mantine';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
+import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 
+import { createStyles } from '@mantine/core';
 import {
   Icon,
   IconBrain,
@@ -10,13 +14,7 @@ import {
   IconMoodCheck,
   IconProgress,
 } from '@tabler/icons-react';
-
 import React from 'react';
-
-import { Box, Group, Stack } from '@/components/common/mantine';
-import { Text } from '@/components/common/mantine/Text';
-import { Title } from '@/components/common/mantine/Title';
-import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 
 const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({

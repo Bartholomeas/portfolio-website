@@ -1,6 +1,3 @@
-import { createStyles, rem } from '@mantine/core';
-import React, { useEffect, useRef, useState } from 'react';
-
 import { Box } from '@/components/common/mantine';
 
 import { Image } from '@/components/common/mantine/Image';
@@ -8,6 +5,9 @@ import { Text } from '@/components/common/mantine/Text';
 import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
+
+import { createStyles, rem } from '@mantine/core';
+import React, { useEffect, useRef, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -91,7 +91,6 @@ export function AboutFrontendSlider({ image }: Props) {
           <Image
             src={image?.url}
             alt={image?.alternativeText ?? 'Zdjęcie w sliderze'}
-            loading="lazy"
             fill
             className={classes.firstImage}
           />

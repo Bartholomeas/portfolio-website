@@ -3,7 +3,6 @@ import { Box, Card } from '@/components/common/mantine';
 import { createStyles } from '@mantine/core';
 import { Icon } from '@tabler/icons-react';
 
-
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',

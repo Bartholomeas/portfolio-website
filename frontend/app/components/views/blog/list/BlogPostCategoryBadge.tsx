@@ -1,4 +1,3 @@
-
 import { Badge } from '@/components/common/mantine';
 
 import { BlogCategoryCodes } from '@/types';

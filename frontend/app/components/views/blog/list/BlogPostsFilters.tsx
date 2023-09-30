@@ -6,30 +6,25 @@ import React from 'react';
 
 import { Chip, Group, Stack } from '@/components/common/mantine';
 import { TextInput } from '@/components/common/mantine/TextInput';
-import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
-import { getBlogCategories } from '@/lib/blog/getBlogCategories';
+import { useQueryParams } from '@/hooks/useQueryParams';
+import { BlogCategory } from '@/types';
 
-import { createQueryClient } from '@/utils/createQueryClient';
+type Props = {
+  categories: BlogCategory[] | undefined;
+};
 
-const queryClient = createQueryClient();
-
-export async function BlogPostsFilters() {
-  const { handleFilters } = useFiltersCtx();
-
-  const blogCategoriesData = queryClient('blogCategories', () =>
-    getBlogCategories()
-  );
-  const { data } = await blogCategoriesData;
+export function BlogPostsFilters({ categories }: Props) {
+  const { setQueryParams } = useQueryParams();
 
   return (
     <Stack>
       <Group align="end">
         <TextInput
           icon={<IconSearch size={16} />}
-          onChange={(e) => handleFilters!('Search', e.target.value)}
+          onChange={(e) => setQueryParams({ Search: e.target.value })}
           sx={{ flexGrow: 1 }}
           label="Szukaj"
           placeholder="Wyszukaj wpis!"
@@ -39,11 +34,11 @@ export async function BlogPostsFilters() {
       <Chip.Group
         multiple
         onChange={(e) => {
-          handleFilters!('Categories', e);
+          setQueryParams({ Categories: e });
         }}
       >
         <Group>
-          {data.map((category) => (
+          {categories?.map((category) => (
             <BlogPostFiltersChip
               key={category.code}
               value={category.code}

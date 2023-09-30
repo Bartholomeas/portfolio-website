@@ -15,7 +15,6 @@ import { Container, Image, Stack } from '../mantine';
 
 import { Button } from '../mantine/Button';
 
-
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',

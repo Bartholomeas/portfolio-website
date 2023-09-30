@@ -1,8 +1,8 @@
-import { createStyles } from '@mantine/core';
-
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
+
+import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   root: {
@@ -58,7 +58,6 @@ export function AboutSummarySlider() {
           <Image
             src="/avatars/me_hallo.webp"
             alt="Emoji wykonujące gest dzwonienia."
-            loading="lazy"
             width="0"
             height="0"
             sizes="100vw"
@@ -74,14 +73,12 @@ export function AboutSummarySlider() {
           <Image
             src="/avatars/me_blink.webp"
             alt="Emoji mrugające lewym okiem."
-            loading="lazy"
             fill
             className={cx(classes.image, classes.firstImage)}
           />
           <Image
             src="/avatars/me_peace.webp"
             alt="Emoji pokazujące znak pokoju."
-            loading="lazy"
             fill
             className={cx(classes.image, classes.secondImage)}
           />

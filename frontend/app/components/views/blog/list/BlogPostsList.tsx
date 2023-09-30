@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+'use client';
+
+import React from 'react';
 
 import { SimpleGrid } from '@/components/common/mantine';
-import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
 
 import { BlogCard } from './BlogCard';
+
+import { useBlogPostsFilters } from '@/hooks/usePostsFilters';
 
 import { Post } from '@/types';
 
@@ -12,11 +15,7 @@ type BlogPostsListProps = {
 };
 
 export function BlogPostsList({ posts }: BlogPostsListProps) {
-  const { searchParams, filterArray, filteredData } = useFiltersCtx();
-
-  useEffect(() => {
-    if (filterArray) filterArray(['Search', 'Categories'], posts);
-  }, [searchParams]);
+  const { filteredPosts } = useBlogPostsFilters(posts);
 
   return (
     <SimpleGrid
@@ -26,8 +25,8 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
         { minWidth: 'lg', cols: 3 },
       ]}
     >
-      {filteredData &&
-        filteredData.map((post) => <BlogCard key={post.id} post={post} />)}
+      {filteredPosts &&
+        filteredPosts.map((post) => <BlogCard key={post.uuid} post={post} />)}
     </SimpleGrid>
   );
 }

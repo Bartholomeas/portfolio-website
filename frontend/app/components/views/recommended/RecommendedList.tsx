@@ -1,11 +1,3 @@
-import { IconExternalLink } from '@tabler/icons-react';
-
-import React from 'react';
-
-import Markdown from 'react-markdown';
-
-import remarkGfm from 'remark-gfm';
-
 import {
   ActionIcon,
   Card,
@@ -15,12 +7,22 @@ import {
   Tooltip,
   TypographyStylesProvider,
 } from '@/components/common/mantine';
+
 import { Text } from '@/components/common/mantine/Text';
+
 import { Title } from '@/components/common/mantine/Title';
 
-import { RecommendedTimeline } from './RecommendedTimeline';
-
 import { RecommendedItems } from '@/types';
+
+import { IconExternalLink } from '@tabler/icons-react';
+
+import React from 'react';
+
+import Markdown from 'react-markdown';
+
+import remarkGfm from 'remark-gfm';
+
+import { RecommendedTimeline } from './RecommendedTimeline';
 
 type RecommendedListProps = {
   list: RecommendedItems;

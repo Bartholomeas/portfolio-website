@@ -1,8 +1,8 @@
+import { Box, Card } from '@/components/common/mantine';
+
 import { CardProps, createStyles, Group, rem } from '@mantine/core';
 
 import { PropsWithChildren } from 'react';
-
-import { Box, Card } from '@/components/common/mantine';
 
 type StyleProps = { withGlassBg?: boolean };
 
