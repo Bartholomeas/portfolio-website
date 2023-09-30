@@ -1,13 +1,17 @@
 'use client';
 
 import { BoxProps, createStyles } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
 
 import React from 'react';
 
-import { Box, Image } from '../mantine';
+import { Box } from '../mantine';
+import { Image } from '../mantine/Image';
 
-const useStyles = createStyles(() => ({
+type StyleProps = {
+  size: number;
+};
+
+const useStyles = createStyles((theme, { size }: StyleProps) => ({
   wrapper: {
     position: 'relative',
     display: 'flex',
@@ -26,6 +30,14 @@ const useStyles = createStyles(() => ({
     filter: 'blur(95.5px)',
     borderRadius: '100%',
   },
+  image: {
+    height: `${size * 0.6}px`,
+    width: 'auto',
+    objectFit: 'contain',
+    [theme.fn.largerThan('sm')]: {
+      height: `${size}px`,
+    },
+  },
 }));
 
 type Shapes = 'circle1' | 'circle2';
@@ -40,8 +52,7 @@ export function ShapeWithGlow({
   shape = 'circle1',
   ...props
 }: ShapeWithGlowProps) {
-  const { classes } = useStyles();
-  const desktop = useMediaQuery(`(min-width: 576px)`);
+  const { classes } = useStyles({ size });
 
   const shapes: Record<Shapes, string> = {
     circle1: '/ball.svg',
@@ -51,11 +62,14 @@ export function ShapeWithGlow({
   return (
     <Box sx={{ zIndex: -10000 }} className={classes.wrapper} {...props}>
       <span className={classes.glow} />
+
       <Image
         src={shapes[shape]}
-        height={desktop ? size : size * 0.6}
-        fit="contain"
-        alt="Abstract shape"
+        height="0"
+        width="0"
+        sizes="100vw"
+        alt="Abstrakcyjny i kolorowy kształt"
+        className={classes.image}
       />
     </Box>
   );

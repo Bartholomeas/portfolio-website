@@ -41,10 +41,15 @@ const filterPostByQuery = (post: Post, queryEntries: [string, string][]) => {
 };
 
 const filterFunctions: Record<keyof SearchParamsCodes, any> = {
-  Categories: (value: string, post: Post) =>
-    post.blogCategories.every(
-      (category: BlogCategory) => value.split(',').indexOf(category.code) !== -1
-    ),
+  Categories: (value: string, post: Post) => {
+    const valuesArray = value.split(',');
+    return valuesArray.every((selectedCategory) =>
+      post.blogCategories.some(
+        (postCategory) =>
+          postCategory.code.toLowerCase() === selectedCategory.toLowerCase()
+      )
+    );
+  },
   Search: (value: string, post: Post) =>
     post.title.toLowerCase().includes(value.toLowerCase()),
 };
