@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { SearchParamsCodes } from './types';
 
 import { useQueryParams } from '@/hooks/useQueryParams';
-import { BlogCategory, Post } from '@/types';
+import { Post } from '@/types';
 
 export const useBlogPostsFilters = (posts: Post[] | undefined) => {
   const { queryParams } = useQueryParams();
