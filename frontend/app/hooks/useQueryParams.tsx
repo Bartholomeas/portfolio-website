@@ -4,9 +4,7 @@ import {
   useRouter,
 } from 'next/navigation';
 
-import { SearchParamsCodes } from './usePostsFilters';
-
-export type SearchParams = Record<keyof SearchParamsCodes, string | string[]>;
+import { SearchParams } from './types';
 
 export const useQueryParams = () => {
   const searchParams = useNextSearchParams();

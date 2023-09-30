@@ -1,12 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import { SearchParamsCodes } from './types';
+
 import { useQueryParams } from '@/hooks/useQueryParams';
 import { BlogCategory, Post } from '@/types';
-
-export type SearchParamsCodes = {
-  Search: 'Search';
-  Categories: 'Categories';
-};
 
 export const useBlogPostsFilters = (posts: Post[] | undefined) => {
   const { queryParams } = useQueryParams();
@@ -24,7 +21,6 @@ export const useBlogPostsFilters = (posts: Post[] | undefined) => {
       setFilteredPosts(filteredArray);
     }
   }, [filterPosts, posts, queryParams]);
-  console.log('cycle');
 
   return { filteredPosts };
 };
