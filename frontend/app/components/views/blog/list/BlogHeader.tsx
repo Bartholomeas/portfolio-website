@@ -1,8 +1,5 @@
 'use client';
 
-
-
-
 import { Box, List, Stack, ThemeIcon } from '@/components/common/mantine';
 
 import { Text } from '@/components/common/mantine/Text';

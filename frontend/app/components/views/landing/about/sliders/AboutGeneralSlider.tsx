@@ -1,11 +1,11 @@
-import { createStyles, rem } from '@mantine/core';
-import React from 'react';
-
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
+
+import { createStyles, rem } from '@mantine/core';
+import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -76,7 +76,6 @@ export function AboutGeneralSlider({ image }: Props) {
           <Image
             src={image.url}
             alt={image.alternativeText ?? 'Zdjęcie o mnie'}
-            loading="lazy"
             fill
             className={classes.image}
           />
@@ -86,7 +85,6 @@ export function AboutGeneralSlider({ image }: Props) {
         <Image
           src="/avatars/me_blink.webp"
           alt="Moja twarz w postaci apple awatara"
-          loading="lazy"
           fill
           className={cx(classes.logoImage, classes.imageWithBackground)}
         />
@@ -102,7 +100,6 @@ export function AboutGeneralSlider({ image }: Props) {
           <Image
             src="/Logo.svg"
             alt="Moje logo, litera B w okręgu o finezyjnych kształtach"
-            loading="lazy"
             width="0"
             height="0"
             sizes="100vw"

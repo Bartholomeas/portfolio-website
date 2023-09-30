@@ -1,16 +1,16 @@
 'use client';
 
+import { Box } from '@/components/common/mantine';
+
+import { AboutMeCard } from '@/types/pages';
+
 import { createStyles } from '@mantine/core';
 import { motion } from 'framer-motion';
-
-import { Box } from '@/components/common/mantine';
 
 import { AboutDesignSlider } from './sliders/AboutDesignSlider';
 import { AboutFrontendSlider } from './sliders/AboutFrontendSlider';
 import { AboutGeneralSlider } from './sliders/AboutGeneralSlider';
 import { AboutSummarySlider } from './sliders/AboutSummarySlider';
-
-import { AboutMeCard } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
   aboutSlider: {

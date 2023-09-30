@@ -1,6 +1,5 @@
 'use client';
 
-
 import { Box, Card, Stack } from '@/components/common/mantine';
 
 import { Text } from '@/components/common/mantine/Text';

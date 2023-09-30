@@ -1,7 +1,3 @@
-import { createStyles, rem } from '@mantine/core';
-
-import React from 'react';
-
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 
@@ -9,6 +5,9 @@ import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 import { MacWindowGraphicTools } from '@/components/common/special/macWindow/MacWindowGraphicTools';
 
 import { StrapiImage } from '@/types';
+
+import { createStyles, rem } from '@mantine/core';
+import React from 'react';
 
 const useStyles = createStyles(() => ({
   root: {
@@ -63,7 +62,6 @@ export function AboutDesignSlider({ image }: Props) {
           <Image
             src="/abstract/spring_1.webp"
             alt="Abstrakcyjny kolorowy kształt przypominający sprężynę"
-            loading="lazy"
             fill
             className={classes.image}
           />
@@ -74,7 +72,6 @@ export function AboutDesignSlider({ image }: Props) {
           <Image
             src={image?.url}
             alt={image?.alternativeText ?? 'Zdjęcie'}
-            loading="lazy"
             width={300}
             height={300}
             className={classes.image}

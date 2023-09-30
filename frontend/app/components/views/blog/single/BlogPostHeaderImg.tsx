@@ -4,7 +4,6 @@ import { Image } from '@/components/common/mantine/Image';
 
 import React from 'react';
 
-
 type Props = {
   imgUrl: string;
   imgAlt: string;

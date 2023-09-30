@@ -1,12 +1,12 @@
 'use client';
 
+import { ThemeColors } from '@/theme/types';
+
 import { createStyles, TextProps } from '@mantine/core';
 
 import React, { forwardRef } from 'react';
 
 import { Text as MantineText } from '.';
-
-import { ThemeColors } from '@/theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;

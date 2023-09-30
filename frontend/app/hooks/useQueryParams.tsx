@@ -3,7 +3,6 @@ import {
   usePathname,
   useRouter,
 } from 'next/navigation';
-import { useCallback } from 'react';
 
 export const useQueryParams = <T,>() => {
   const searchParams = useNextSearchParams();
@@ -12,22 +11,22 @@ export const useQueryParams = <T,>() => {
 
   const urlSearchParams = new URLSearchParams(searchParams.toString());
 
-  const setQueryParams = useCallback(
-    (params: Partial<T>) => {
-      Object.entries(params).forEach(([key, value]) => {
-        if (value === undefined || value === null) {
-          urlSearchParams.delete(key);
-        } else {
-          urlSearchParams.set(key, value.toString());
-        }
-      });
+  const setQueryParams = (params: Partial<T>) => {
+    Object.entries(params).forEach(([key, value]) => {
+      if (!value) {
+        urlSearchParams.delete(key);
+      } else {
+        urlSearchParams.set(key, value.toString().toLowerCase());
+      }
+      if (Array.isArray(value) && !value.length) {
+        urlSearchParams.delete(key);
+      }
+    });
 
-      const search = urlSearchParams.toString();
-      const query = search ? `?${search}` : '';
-      router.replace(`${pathname}${query}`, { scroll: false });
-    },
-    [searchParams]
-  );
+    const search = urlSearchParams.toString();
+    const query = search ? `?${search}` : '';
+    router.replace(`${pathname}${query}`, { scroll: false });
+  };
 
   return { queryParams: searchParams, setQueryParams };
 };

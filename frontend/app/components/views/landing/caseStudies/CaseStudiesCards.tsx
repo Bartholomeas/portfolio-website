@@ -15,8 +15,6 @@ import { useState } from 'react';
 
 import { CaseStudiesCard } from './CaseStudiesCard';
 
-
-
 type Props = {
   data: CaseStudiesItem[];
 };

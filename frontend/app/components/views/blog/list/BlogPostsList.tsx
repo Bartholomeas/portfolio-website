@@ -1,22 +1,41 @@
-import React, { useEffect } from 'react';
-
 import { SimpleGrid } from '@/components/common/mantine';
-import { useFiltersCtx } from '@/components/templates/FiltersContextProvider';
-
-import { BlogCard } from './BlogCard';
 
 import { Post } from '@/types';
+
+import React from 'react';
+
+import { useBlogPostsFilters } from '../../../../hooks/usePostsFilters';
+
+import { BlogCard } from './BlogCard';
 
 type BlogPostsListProps = {
   posts: Post[] | undefined;
 };
 
 export function BlogPostsList({ posts }: BlogPostsListProps) {
-  const { searchParams, filterArray, filteredData } = useFiltersCtx();
+  // const [filteredPosts, setFilteredPosts] = useState(posts);
+  // const { queryParams } = useQueryParams();
 
-  useEffect(() => {
-    if (filterArray) filterArray(['Search', 'Categories'], posts);
-  }, [searchParams]);
+  const { filteredPosts } = useBlogPostsFilters(posts);
+
+  // useEffect(() => {
+  //   if (posts) {
+  //     const queryKeys = queryParams.get('Categories');
+  //     if (!queryKeys) {
+  //       setFilteredPosts(posts);
+  //       return;
+  //     }
+  //     const categoriesArr =
+  //       (queryKeys.split(',') as (keyof BlogCategoryCodes)[]) || [];
+
+  //     const matchedPosts = posts.filter((post) =>
+  //       post.blogCategories.every(
+  //         (cat) => categoriesArr.indexOf(cat.code) !== -1
+  //       )
+  //     );
+  //     setFilteredPosts(matchedPosts);
+  //   }
+  // }, [posts, queryParams]);
 
   return (
     <SimpleGrid
@@ -26,8 +45,10 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
         { minWidth: 'lg', cols: 3 },
       ]}
     >
-      {filteredData &&
-        filteredData.map((post) => <BlogCard key={post.id} post={post} />)}
+      {/* {filteredData &&
+        filteredData.map((post) => <BlogCard key={post.id} post={post} />)} */}
+      {filteredPosts &&
+        filteredPosts.map((post) => <BlogCard key={post.id} post={post} />)}
     </SimpleGrid>
   );
 }

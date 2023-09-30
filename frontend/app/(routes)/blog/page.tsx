@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Box, Container, Stack } from '@/components/common/mantine';
 import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
 
@@ -7,6 +5,8 @@ import { BlogHeader } from '@/components/views/blog/list/BlogHeader';
 import { BlogPostsSection } from '@/components/views/blog/list/BlogPostsSection';
 
 import { getBlogPosts } from '@/lib/blog/getBlogPosts';
+
+import React from 'react';
 
 async function Blog() {
   const blogPostsPromise = getBlogPosts();

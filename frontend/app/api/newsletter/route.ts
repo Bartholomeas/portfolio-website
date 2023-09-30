@@ -2,7 +2,6 @@ import { CONVERTKIT_FORM_ID, CONVERTKIT_KEY } from '@/utils/variables';
 
 import { NextResponse } from 'next/server';
 
-
 const BASE_URL = 'https://api.convertkit.com/v3';
 
 export async function POST(req: Request) {

@@ -1,6 +1,6 @@
-import React from 'react';
-
 import { Loader, Stack } from '@/components/common/mantine';
+
+import React from 'react';
 
 export default function Loading() {
   return (

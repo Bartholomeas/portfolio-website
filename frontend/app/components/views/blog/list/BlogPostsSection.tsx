@@ -9,10 +9,8 @@ import { Post } from '@/types';
 import { Loader } from '@mantine/core';
 import React, { Suspense } from 'react';
 
-
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
-
 
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
