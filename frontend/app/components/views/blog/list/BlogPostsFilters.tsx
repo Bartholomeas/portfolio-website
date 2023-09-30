@@ -2,29 +2,22 @@
 
 import { IconSearch } from '@tabler/icons-react';
 
-import React, { use } from 'react';
+import React from 'react';
 
 import { Chip, Group, Stack } from '@/components/common/mantine';
 import { TextInput } from '@/components/common/mantine/TextInput';
 
 import { BlogPostFiltersChip } from './BlogPostFiltersChip';
 
-import { SearchParamsCodes } from '@/hooks/usePostsFilters';
 import { useQueryParams } from '@/hooks/useQueryParams';
-import { getBlogCategories } from '@/lib/blog/getBlogCategories';
+import { BlogCategory } from '@/types';
 
-import { createQueryClient } from '@/utils/createQueryClient';
+type Props = {
+  categories: BlogCategory[] | undefined;
+};
 
-const queryClient = createQueryClient();
-
-type SearchParams = Record<keyof SearchParamsCodes, string | string[]>;
-
-export function BlogPostsFilters() {
-  const { setQueryParams } = useQueryParams<SearchParams>();
-
-  const { data } = use(
-    queryClient('blogCategories', () => getBlogCategories())
-  );
+export function BlogPostsFilters({ categories }: Props) {
+  const { setQueryParams } = useQueryParams();
 
   return (
     <Stack>
@@ -45,7 +38,7 @@ export function BlogPostsFilters() {
         }}
       >
         <Group>
-          {data.map((category) => (
+          {categories?.map((category) => (
             <BlogPostFiltersChip
               key={category.code}
               value={category.code}

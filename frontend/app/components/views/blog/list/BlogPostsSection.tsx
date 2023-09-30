@@ -1,22 +1,19 @@
-'use client';
+import React from 'react';
 
 import { Stack } from '@/components/common/mantine';
-
 import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
-
-import { Post } from '@/types';
-
-import { Loader } from '@mantine/core';
-import React, { Suspense } from 'react';
 
 import { BlogPostsFilters } from './BlogPostsFilters';
 import { BlogPostsList } from './BlogPostsList';
 
+import { BlogCategory, Post } from '@/types';
+
 type BlogPostsSectionProps = {
   posts: Post[] | undefined;
+  categories: BlogCategory[] | undefined;
 };
 
-export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
+export function BlogPostsSection({ posts, categories }: BlogPostsSectionProps) {
   return (
     <section style={{ minHeight: '50vh' }}>
       <Stack>
@@ -25,9 +22,7 @@ export function BlogPostsSection({ posts }: BlogPostsSectionProps) {
           subtext="Z pewnością znajdziesz coś dla siebie, sprawdź"
         />
         <Stack spacing={32}>
-          <Suspense fallback={<Loader />}>
-            <BlogPostsFilters />
-          </Suspense>
+          <BlogPostsFilters categories={categories} />
 
           <BlogPostsList posts={posts} />
         </Stack>

@@ -1,13 +1,15 @@
+import { Metadata } from 'next';
+
+import { Poppins } from 'next/font/google';
+
+import React from 'react';
+
 import { Notifications } from '@/components/common/mantine';
 
 import { AppModalsProvider } from '@/components/templates/AppModalsProvider';
 import { AppShell } from '@/components/templates/AppShell';
 
 import RootStyleRegistry from '@/components/templates/RootStyleRegistry';
-
-import { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import React from 'react';
 
 const poppins = Poppins({
   weight: ['400', '700', '900'],
@@ -32,10 +34,8 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       >
         <RootStyleRegistry>
           <AppModalsProvider>
-            {/* <FiltersContextProvider> */}
             <Notifications zIndex={9999} />
             <AppShell>{children}</AppShell>
-            {/* </FiltersContextProvider> */}
           </AppModalsProvider>
         </RootStyleRegistry>
       </body>

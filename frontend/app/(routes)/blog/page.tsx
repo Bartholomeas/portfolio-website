@@ -1,22 +1,28 @@
+import React from 'react';
+
 import { Box, Container, Stack } from '@/components/common/mantine';
 import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
 
 import { BlogHeader } from '@/components/views/blog/list/BlogHeader';
 import { BlogPostsSection } from '@/components/views/blog/list/BlogPostsSection';
 
+import { getBlogCategories } from '@/lib/blog/getBlogCategories';
 import { getBlogPosts } from '@/lib/blog/getBlogPosts';
-
-import React from 'react';
 
 async function Blog() {
   const blogPostsPromise = getBlogPosts();
-  const { data } = await blogPostsPromise;
+  const blogCategoriesPromise = getBlogCategories();
+
+  const [{ data: blogPostsData }, { data: blogCategoriesData }] =
+    await Promise.all([blogPostsPromise, blogCategoriesPromise]);
 
   return (
     <Container size="md" mt={32}>
       <Stack spacing={128}>
         <Box sx={{ position: 'relative' }}>
-          <BlogHeader featuredPost={(data && data[0]) ?? {}} />
+          <BlogHeader
+            featuredPost={(blogPostsData && blogPostsData[0]) ?? {}}
+          />
           <Box
             sx={{
               position: 'absolute',
@@ -37,7 +43,10 @@ async function Blog() {
           </Box>
         </Box>
 
-        <BlogPostsSection posts={data} />
+        <BlogPostsSection
+          posts={blogPostsData}
+          categories={blogCategoriesData}
+        />
       </Stack>
     </Container>
   );

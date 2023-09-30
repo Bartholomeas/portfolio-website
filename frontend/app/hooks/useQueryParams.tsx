@@ -4,14 +4,18 @@ import {
   useRouter,
 } from 'next/navigation';
 
-export const useQueryParams = <T,>() => {
+import { SearchParamsCodes } from './usePostsFilters';
+
+export type SearchParams = Record<keyof SearchParamsCodes, string | string[]>;
+
+export const useQueryParams = () => {
   const searchParams = useNextSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
   const urlSearchParams = new URLSearchParams(searchParams.toString());
 
-  const setQueryParams = (params: Partial<T>) => {
+  const setQueryParams = (params: Partial<SearchParams>) => {
     Object.entries(params).forEach(([key, value]) => {
       if (!value) {
         urlSearchParams.delete(key);

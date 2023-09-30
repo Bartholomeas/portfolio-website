@@ -1,4 +1,18 @@
 import {
+  IconArrowRight,
+  IconBookmark,
+  IconHeart,
+  IconShare,
+} from '@tabler/icons-react';
+
+import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
+
+import Image from 'next/image';
+
+import React from 'react';
+
+import {
   ActionIcon,
   Box,
   Card,
@@ -10,19 +24,10 @@ import { ButtonLink } from '@/components/common/mantine/Button';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 import { Link } from '@/components/common/special/Link';
-import { Post } from '@/types';
-
-import {
-  IconArrowRight,
-  IconBookmark,
-  IconHeart,
-  IconShare,
-} from '@tabler/icons-react';
-import dayjs from 'dayjs';
-import Image from 'next/image';
-import React from 'react';
 
 import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
+
+import { Post } from '@/types';
 
 type BlogCardProps = {
   post: Post | undefined;
@@ -30,7 +35,19 @@ type BlogCardProps = {
 
 export function BlogCard({ post }: BlogCardProps) {
   return (
-    <Card withBorder pb={8} pt={0}>
+    <Card
+      component={motion.div}
+      withBorder
+      pb={8}
+      pt={0}
+      initial={{ opacity: 0, y: 150 }}
+      animate={{ opacity: 1, y: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+      }}
+    >
       <Stack justify="space-between" h="100%">
         <Card.Section>
           <Link href={`/blog/${post?.slug}`}>
