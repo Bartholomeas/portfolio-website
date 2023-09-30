@@ -41,6 +41,7 @@ export function BlogCard({ post }: BlogCardProps) {
       pb={8}
       pt={0}
       initial={{ opacity: 0, y: 150 }}
+      exit={{ opacity: 0, y: 150 }}
       animate={{ opacity: 1, y: 1 }}
       transition={{
         type: 'spring',

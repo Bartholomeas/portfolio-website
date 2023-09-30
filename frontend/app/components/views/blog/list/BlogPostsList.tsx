@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 
 import { SimpleGrid } from '@/components/common/mantine';
@@ -26,7 +27,7 @@ export function BlogPostsList({ posts }: BlogPostsListProps) {
       ]}
     >
       {filteredPosts &&
-        filteredPosts.map((post) => <BlogCard key={post.id} post={post} />)}
+        filteredPosts.map((post) => <BlogCard key={post.uuid} post={post} />)}
     </SimpleGrid>
   );
 }

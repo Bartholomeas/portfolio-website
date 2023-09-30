@@ -24,6 +24,7 @@ export const useBlogPostsFilters = (posts: Post[] | undefined) => {
       setFilteredPosts(filteredArray);
     }
   }, [filterPosts, posts, queryParams]);
+  console.log('cycle');
 
   return { filteredPosts };
 };
