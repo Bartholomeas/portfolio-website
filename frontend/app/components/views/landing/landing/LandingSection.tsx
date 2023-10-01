@@ -4,13 +4,18 @@ import { createStyles, rem } from '@mantine/core';
 
 import React from 'react';
 
-import { Stack } from '@/components/common/mantine';
+import { Container, Stack } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 
 import { LandingButtons } from './components/LandingButtons';
 import { LandingHeader } from './components/LandingHeader';
 
 const useStyles = createStyles((theme) => ({
+  container: {
+    [theme.fn.smallerThan('sm')]: {
+      overflowX: 'hidden',
+    },
+  },
   wrapper: {
     position: 'relative',
     display: 'flex',
@@ -52,7 +57,8 @@ const useStyles = createStyles((theme) => ({
     position: 'absolute',
     right: 0,
     bottom: 0,
-    width: rem(300),
+    width: '100%',
+    maxWidth: rem(300),
     height: 'auto',
     objectFit: 'contain',
     transform: 'translateX(40%) scaleX(-1)',
@@ -76,30 +82,32 @@ export function LandingSection() {
   const { classes } = useStyles();
 
   return (
-    <section className={classes.wrapper}>
-      <div className={classes.contentContainer}>
-        <Image
-          src="/abstract/serpent_landing.webp"
-          alt="Kształt przypominający węża, z kolorowym gradientem"
-          height="0"
-          width="0"
-          sizes="100vw"
-          className={classes.backgroundImage}
-        />
-        <Image
-          src="/abstract/serpent_2.webp"
-          alt="Półokragły, kolorowy kształt"
-          height="0"
-          width="0"
-          sizes="100vw"
-          className={classes.smallImage}
-        />
+    <Container size="xl" className={classes.container}>
+      <section className={classes.wrapper}>
+        <div className={classes.contentContainer}>
+          <Image
+            src="/abstract/serpent_landing.webp"
+            alt="Kształt przypominający węża, z kolorowym gradientem"
+            height="0"
+            width="0"
+            sizes="100vw"
+            className={classes.backgroundImage}
+          />
+          <Image
+            src="/abstract/serpent_2.webp"
+            alt="Półokragły, kolorowy kształt"
+            height="0"
+            width="0"
+            sizes="100vw"
+            className={classes.smallImage}
+          />
 
-        <Stack>
-          <LandingHeader />
-          <LandingButtons />
-        </Stack>
-      </div>
-    </section>
+          <Stack>
+            <LandingHeader />
+            <LandingButtons />
+          </Stack>
+        </div>
+      </section>
+    </Container>
   );
 }

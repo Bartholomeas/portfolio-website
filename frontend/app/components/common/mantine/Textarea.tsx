@@ -62,7 +62,8 @@ export function Textarea({ ...props }: TextareaProps) {
   const inputRef = React.useRef<HTMLTextAreaElement | null>(null);
 
   const { classes } = useStyles({
-    floating: inputRef.current?.value.trim().length !== 0 || focused,
+    // floating: inputRef.current?.value.trim().length !== 0 || focused,
+    floating: focused,
     isError: !!props.error,
   });
 

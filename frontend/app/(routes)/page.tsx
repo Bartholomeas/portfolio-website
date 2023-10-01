@@ -15,9 +15,7 @@ async function Home() {
 
   return (
     <Stack spacing={64}>
-      <Container size="xl">
-        <LandingSection />
-      </Container>
+      <LandingSection />
       <Container size="xl" sx={{ overflow: 'visible' }}>
         <AboutSection data={data.aboutMeSection} />
       </Container>
