@@ -1,19 +1,19 @@
-import { createStyles, Stack, TypographyStylesProvider } from '@mantine/core';
-
+import {
+  createStyles,
+  rem,
+  Stack,
+  TypographyStylesProvider,
+} from '@mantine/core';
 import { motion } from 'framer-motion';
 
 import Image from 'next/image';
 
 import Markdown from 'react-markdown';
-
 import remarkGfm from 'remark-gfm';
 
 import { HEADER_HEIGHT } from '@/components/common/appShell/Header/Header';
-
 import { Box, Card, Group } from '@/components/common/mantine';
-
 import { Text } from '@/components/common/mantine/Text';
-
 import { Title } from '@/components/common/mantine/Title';
 
 import { CaseStudiesItem } from '@/types/pages';
@@ -125,7 +125,7 @@ export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
           </motion.div>
 
           {isSelected && (
-            <Stack p={24} spacing={8}>
+            <Stack p={24} spacing={8} w="100%">
               <Title order={2} textColor="primary">
                 {item.title}
               </Title>
@@ -178,7 +178,7 @@ function CaseStudiesCardOverlay({
         top: '0',
         bottom: '0',
         left: '50%',
-        minHeight: 500,
+        minHeight: rem(500),
         backgroundColor: theme.fn.rgba(theme.other.bg, 0.95),
         zIndex: 105,
         pointerEvents: isSelected ? 'auto' : 'none',

@@ -1,14 +1,14 @@
-import { IconArrowRight, IconPhone } from '@tabler/icons-react';
+import { IconArrowDown, IconArrowRight } from '@tabler/icons-react';
 import React from 'react';
 
-import { Group } from '@/components/common/mantine';
-import { Button, ButtonLink } from '@/components/common/mantine/Button';
+import { Stack } from '@/components/common/mantine';
+import { ButtonLink } from '@/components/common/mantine/Button';
 
 import { routes } from '@/misc/routes';
 
 export function LandingButtons() {
   return (
-    <Group spacing={8} my={16} w="100%">
+    <Stack spacing={8} my={16} align="flex-start">
       <ButtonLink
         href={routes.blog}
         color="primary"
@@ -17,15 +17,13 @@ export function LandingButtons() {
       >
         Sprawdź bloga
       </ButtonLink>
-      <Button
-        onClick={() => {
-          console.log('contact');
-        }}
+      <ButtonLink
+        href="#about"
         variant="outline"
-        rightIcon={<IconPhone size={16} />}
+        rightIcon={<IconArrowDown size={16} />}
       >
-        Skontaktuj się!
-      </Button>
-    </Group>
+        Dowiedz się więcej
+      </ButtonLink>
+    </Stack>
   );
 }

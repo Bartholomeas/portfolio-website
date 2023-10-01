@@ -1,20 +1,16 @@
 'use client';
 
 import { createStyles, rem, Stack } from '@mantine/core';
-
 import { IconArrowRight } from '@tabler/icons-react';
-
 import { motion, useInView } from 'framer-motion';
-
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { Box } from '@/components/common/mantine';
-
 import { ButtonLink } from '@/components/common/mantine/Button';
-
 import { Text } from '@/components/common/mantine/Text';
-
 import { MotionTitle } from '@/components/common/mantine/Title';
+
+import { AccentSpan } from '@/components/common/special/AccentSpan';
 
 import { AboutSectionSlider, getCurrentContent } from './AboutSectionSlider';
 
@@ -86,7 +82,7 @@ export function AboutSection({ data }: Props) {
   );
 
   return (
-    <Box component="section" className={classes.sectionWrapper}>
+    <Box component="section" className={classes.sectionWrapper} id="about">
       <AboutSectionSlider sectionCard={currentCard} />
 
       <Box className={classes.displayOffset} />
@@ -144,7 +140,7 @@ function AboutSectionContent({
         >
           <Stack spacing={4}>
             <MotionTitle fw={900} order={3} textColor="white" size={32}>
-              {card.title}
+              <AccentSpan wrapText>{card.title}</AccentSpan>
             </MotionTitle>
           </Stack>
 
