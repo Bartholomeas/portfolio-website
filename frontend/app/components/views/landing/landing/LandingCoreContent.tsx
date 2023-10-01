@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 import React from 'react';
 
@@ -21,14 +21,42 @@ const useStyles = createStyles((theme) => ({
 
   backgroundImage: {
     position: 'absolute',
+    top: '20%',
     width: '100vw',
     height: 'auto',
-    transform: 'translateX(-20%) scale(1.5)',
+    transform: 'translateX(-20%) translateY(-20%) scale(1.5)',
     objectFit: 'contain',
     zIndex: -10,
 
     [theme.fn.largerThan('md')]: {
-      transform: 'translateX(-20%) translateY(-10%)',
+      transform: 'translateX(-20%) translateY(-40%)',
+    },
+    [theme.fn.largerThan('xl')]: {
+      transform: 'translateX(-50%) translateY(-30%)',
+      maxWidth: '50vw',
+    },
+  },
+
+  smallImage: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: rem(300),
+    height: 'auto',
+    objectFit: 'contain',
+    transform: 'translateX(40%) scaleX(-1)',
+    zIndex: -10,
+
+    [theme.fn.largerThan('md')]: {
+      width: '50%',
+      bottom: '10%',
+      transform: 'translateX(20%) scaleX(-1)',
+    },
+
+    [theme.fn.largerThan('xl')]: {
+      width: '70%',
+      bottom: '10%',
+      transform: 'translateX(50%) scaleX(-1)',
     },
   },
 }));
@@ -44,6 +72,14 @@ export function LandingCoreContent() {
         width="0"
         sizes="100vw"
         className={classes.backgroundImage}
+      />
+      <Image
+        src="/abstract/serpent_2.webp"
+        alt="Półokragły, kolorowy kształt"
+        height="0"
+        width="0"
+        sizes="100vw"
+        className={classes.smallImage}
       />
 
       <Stack>

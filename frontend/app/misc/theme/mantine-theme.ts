@@ -1,8 +1,11 @@
 import { MantineTheme, MantineThemeOther } from '@mantine/core';
 
 export const darkThemeColors: MantineThemeOther = {
-  primary: '#00F680',
-  secondary: '#00FFE0',
+  primary: '#E0B322',
+  secondary: '#EE5466',
+  accent: '#6C31A7',
+  // primary: '#00F680',
+  // secondary: '#00FFE0',
 
   bg: '#0A0F0D',
   bgDark: '#15151E',
@@ -43,19 +46,32 @@ export const basicTheme: MantineThemeOther = {
   primaryShade: 6,
   lineHeight: 1.8,
   fontFamily: 'Poppins, sans-serif',
+
   colors: {
     primary: [
-      '#95F9C9',
-      '#78F8BA',
-      '#5AF6AB',
-      '#42F59F',
-      '#25F893',
-      '#00F680',
-      '#03E277',
-      '#06D06F',
-      '#08C46A',
-      '#0BAD5F',
+      '#FBF16D',
+      '#FAEE57',
+      '#F9EB41',
+      '#F8E82B',
+      '#F7E515',
+      '#F7DA19',
+      '#E0C417',
+      '#C9AE15',
+      '#B29813',
+      '#9B8211',
     ],
+    // primary: [ // Old primary
+    //   '#95F9C9',
+    //   '#78F8BA',
+    //   '#5AF6AB',
+    //   '#42F59F',
+    //   '#25F893',
+    //   '#00F680',
+    //   '#03E277',
+    //   '#06D06F',
+    //   '#08C46A',
+    //   '#0BAD5F',
+    // ],
   },
 
   components: {

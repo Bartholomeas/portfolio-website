@@ -25,7 +25,7 @@ const useStyles = createStyles((theme, { size }: StyleProps) => ({
     top: 0,
     right: 0,
     bottom: 0,
-    background: 'radial-gradient(50% 50% at 50% 50%, #14FFFF 0%, #00F680 100%)',
+    background: `radial-gradient(50% 50% at 50% 50%, ${theme.other.secondary} 0%, ${theme.other.primary} 100%)`,
     opacity: 0.7,
     filter: 'blur(95.5px)',
     borderRadius: '100%',

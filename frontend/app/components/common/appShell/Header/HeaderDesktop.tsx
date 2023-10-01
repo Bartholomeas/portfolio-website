@@ -28,7 +28,11 @@ export function HeaderDesktop() {
 
   return (
     <div className={cx(classes.desktopWrapper, classes.showDesktop)}>
-      <Link href={routes.home} className={classes.logoLink}>
+      <Link
+        href={routes.home}
+        className={classes.logoLink}
+        aria-label="Moje logo, powrót do strony głównej"
+      >
         <Image
           src="/Logo_color.svg"
           alt="Moje logo, litera B o finezyjnych kształtach"
@@ -48,6 +52,7 @@ export function HeaderDesktop() {
           component="a"
           href={routes.github}
           target="_blank"
+          aria-label="Ikona przenosząca do mojego profilu github"
         >
           <IconBrandGithub size={18} />
         </ActionIcon>
@@ -56,6 +61,7 @@ export function HeaderDesktop() {
           component="a"
           href={routes.linkedin}
           target="_blank"
+          aria-label="Ikona przenosząca do mojego profilu linkedin"
         >
           <IconBrandLinkedin size={18} />
         </ActionIcon>
@@ -64,11 +70,13 @@ export function HeaderDesktop() {
           component="a"
           href={routes.discord}
           target="_blank"
+          aria-label="Ikona przenosząca do mojego profilu discord"
         >
           <IconBrandDiscord size={18} />
         </ActionIcon>
         <ActionIcon
           color="primary"
+          aria-label="Telefon otwierający modal z możliwością kontaktu."
           onClick={() =>
             openContactModal({
               title: modalClasses.title,
