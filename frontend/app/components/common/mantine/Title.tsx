@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeColors } from '@/theme/types';
+import { ThemeColors } from '@/misc/theme/types';
 
 import { createStyles, TitleProps } from '@mantine/core';
 

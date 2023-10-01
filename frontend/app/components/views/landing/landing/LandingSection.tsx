@@ -1,14 +1,10 @@
 'use client';
 
-import { ChevronIcon, createStyles } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 
 import React from 'react';
 
-import { Stack } from '@/components/common/mantine';
-import { Anchor } from '@/components/common/mantine/Anchor';
-import { ButtonLink } from '@/components/common/mantine/Button';
-import { Title } from '@/components/common/mantine/Title';
-import { ShapeWithGlow } from '@/components/common/ornaments/ShapeWithGlow';
+import { LandingCoreContent } from './LandingCoreContent';
 
 const useStyles = createStyles(() => ({
   wrapper: {
@@ -26,9 +22,10 @@ export function LandingSection() {
 
   return (
     <section className={classes.wrapper}>
-      <Stack align="center" spacing={8}>
-        <ShapeWithGlow size={250} />
-        <Title order={1}>bstfnc.</Title>
+      {/* <Stack align="center" spacing={8}> */}
+      {/* <ShapeWithGlow size={250} /> */}
+      <LandingCoreContent />
+      {/* <Title order={1}>bstfnc.</Title>
         <Title order={2} textColor="textSecondary">
           front-end development
         </Title>
@@ -52,7 +49,7 @@ export function LandingSection() {
         }}
       >
         Dowiedz się więcej <ChevronIcon />
-      </Anchor>
+      </Anchor> */}
     </section>
   );
 }

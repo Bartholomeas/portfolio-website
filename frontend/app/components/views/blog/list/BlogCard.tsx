@@ -27,6 +27,7 @@ import { Link } from '@/components/common/special/Link';
 
 import { BlogPostCategoryBadge } from './BlogPostCategoryBadge';
 
+import { routes } from '@/misc/routes';
 import { Post } from '@/types';
 
 type BlogCardProps = {
@@ -50,7 +51,7 @@ export function BlogCard({ post }: BlogCardProps) {
     >
       <Stack justify="space-between" h="100%">
         <Card.Section>
-          <Link href={`/blog/${post?.slug}`}>
+          <Link href={routes.blogPost(post?.slug)}>
             <Box
               w="100%"
               sx={{
@@ -75,7 +76,7 @@ export function BlogCard({ post }: BlogCardProps) {
             ))}
           </Group>
 
-          <Link href={`/blog/${post?.slug}`}>
+          <Link href={routes.blogPost(post?.slug)}>
             <Title order={3} textColor="primary">
               {post?.title}
             </Title>
@@ -85,7 +86,7 @@ export function BlogCard({ post }: BlogCardProps) {
             {post?.shortDescription}
           </Text>
           <ButtonLink
-            href={`/blog/${post?.slug}`}
+            href={routes.blogPost(post?.slug)}
             variant="subtle"
             sx={{ alignSelf: 'end' }}
             compact

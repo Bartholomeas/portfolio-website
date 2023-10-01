@@ -8,6 +8,7 @@ import React from 'react';
 const useStyles = createStyles((theme) => ({
   link: {
     color: theme.other.textSecondary,
+    fontWeight: 600,
 
     [`&:hover`]: {
       color: theme.other.textPrimary,
