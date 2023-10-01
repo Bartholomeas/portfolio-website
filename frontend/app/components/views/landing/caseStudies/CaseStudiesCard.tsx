@@ -8,7 +8,7 @@ import Markdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 
-import { HEADER_HEIGHT } from '@/components/common/appShell/Header';
+import { HEADER_HEIGHT } from '@/components/common/appShell/Header/Header';
 
 import { Box, Card, Group } from '@/components/common/mantine';
 

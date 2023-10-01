@@ -1,5 +1,4 @@
 import { createStyles } from '@mantine/core';
-import { motion, useAnimation } from 'framer-motion';
 
 import React from 'react';
 
@@ -47,7 +46,7 @@ export function LandingCoreContent() {
         className={classes.backgroundImage}
       />
 
-      <Stack maw="50vw">
+      <Stack>
         <LandingHeader />
         <LandingButtons />
       </Stack>
