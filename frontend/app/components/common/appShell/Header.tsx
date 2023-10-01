@@ -21,7 +21,7 @@ import {
   Header as MantineHeader,
   Stack,
 } from '../mantine';
-import { Button, ButtonLink } from '../mantine/Button';
+import { Button } from '../mantine/Button';
 import { Image } from '../mantine/Image';
 import { Link } from '../special/Link';
 
@@ -36,7 +36,8 @@ const useStyles = createStyles((theme) => ({
   },
   desktopWrapper: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: 'min-content 1fr 1fr',
+    gap: rem(24),
     width: '100%',
   },
 
@@ -86,6 +87,10 @@ const useStyles = createStyles((theme) => ({
       fontSize: rem(16),
     },
   },
+
+  logoLink: {
+    margin: '0 auto',
+  },
 }));
 
 export const HEADER_HEIGHT = 56;
@@ -129,9 +134,17 @@ function HeaderMobile() {
 
   return (
     <Group align="center" position="apart" w="100%">
-      <ButtonLink variant="subtle" href="/" size="lg" pl={0}>
-        bstfnc.
-      </ButtonLink>
+      <Link href={routes.home}>
+        <Image
+          src="/Logo_color.svg"
+          alt="Moje logo, litera B o finezyjnych kształtach"
+          height={50}
+          width={50}
+          py={6}
+          sx={{ objectFit: 'contain' }}
+        />
+      </Link>
+
       <Burger
         opened={opened}
         onClick={toggle}
@@ -203,19 +216,19 @@ function HeaderDesktop() {
 
   return (
     <div className={classes.desktopWrapper}>
-      <Group spacing={16} noWrap>
-        {items}
-      </Group>
-      <Link href={routes.home}>
+      <Link href={routes.home} className={classes.logoLink}>
         <Image
-          src="/Logo.svg"
-          height={50}
-          width={20}
-          // sizes="100vw"
+          src="/Logo_color.svg"
           alt="Moje logo, litera B o finezyjnych kształtach"
+          height={45}
+          width={45}
+          p={8}
           sx={{ objectFit: 'contain' }}
         />
       </Link>
+      <Group spacing={16} noWrap>
+        {items}
+      </Group>
 
       <Group spacing={16} position="right" noWrap>
         <ActionIcon

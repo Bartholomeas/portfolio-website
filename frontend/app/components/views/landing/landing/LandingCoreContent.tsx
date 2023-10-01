@@ -1,4 +1,5 @@
-import { createStyles, rem } from '@mantine/core';
+import { createStyles } from '@mantine/core';
+import { motion, useAnimation } from 'framer-motion';
 
 import React from 'react';
 
@@ -16,24 +17,19 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     height: '100%',
     width: '100%',
-    padding: `${rem(8)} ${rem(24)}`,
     color: theme.other.textPrimary,
-
-    [theme.fn.largerThan('md')]: {
-      padding: `${rem(12)} ${rem(32)}`,
-    },
   },
 
   backgroundImage: {
-    minHeight: '80vh',
-    height: '100%',
-    width: '100%',
+    position: 'absolute',
+    width: '100vw',
+    height: 'auto',
     transform: 'translateX(-20%) scale(1.5)',
     objectFit: 'contain',
     zIndex: -10,
 
     [theme.fn.largerThan('md')]: {
-      transform: 'translateX(-30%) translateY(-10%)',
+      transform: 'translateX(-20%) translateY(-10%)',
     },
   },
 }));
@@ -45,11 +41,13 @@ export function LandingCoreContent() {
       <Image
         src="/abstract/serpent_landing.webp"
         alt="Kształt przypominający węża, z kolorowym gradientem"
-        fill
+        height="0"
+        width="0"
+        sizes="100vw"
         className={classes.backgroundImage}
       />
 
-      <Stack>
+      <Stack maw="50vw">
         <LandingHeader />
         <LandingButtons />
       </Stack>

@@ -5,7 +5,7 @@ import NextImage, { ImageProps as NextImageProps } from 'next/image';
 import { forwardRef } from 'react';
 
 const ImageComponent = forwardRef<HTMLImageElement, NextImageProps>(
-  ({ ...others }, ref) => <Box component={NextImage} ref={ref} {...others} />
+  ({ ...props }, ref) => <Box component={NextImage} ref={ref} {...props} />
 );
 
 export const Image = createPolymorphicComponent<any, NextImageProps>(

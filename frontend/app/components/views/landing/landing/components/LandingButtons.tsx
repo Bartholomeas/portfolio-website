@@ -1,14 +1,14 @@
 import { IconArrowRight, IconPhone } from '@tabler/icons-react';
 import React from 'react';
 
-import { Stack } from '@/components/common/mantine';
+import { Flex } from '@/components/common/mantine';
 import { Button, ButtonLink } from '@/components/common/mantine/Button';
 
 import { routes } from '@/misc/routes';
 
 export function LandingButtons() {
   return (
-    <Stack w="fit-content">
+    <Flex gap={8} justify="space-between" my={16} w="fit-content">
       <ButtonLink
         href={routes.blog}
         color="primary"
@@ -26,6 +26,6 @@ export function LandingButtons() {
       >
         Skontaktuj się!
       </Button>
-    </Stack>
+    </Flex>
   );
 }
