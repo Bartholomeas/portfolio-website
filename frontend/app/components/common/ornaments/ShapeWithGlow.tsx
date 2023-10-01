@@ -34,13 +34,16 @@ const useStyles = createStyles((theme, { size }: StyleProps) => ({
     height: `${size * 0.6}px`,
     width: 'auto',
     objectFit: 'contain',
+    transform: `rotate(${Math.floor(Math.random() * 100)}deg)`,
+    transition: 'transform .3s ease',
+
     [theme.fn.largerThan('sm')]: {
       height: `${size}px`,
     },
   },
 }));
 
-type Shapes = 'circle1' | 'circle2';
+type Shapes = 'firstShape' | 'secondShape';
 
 type ShapeWithGlowProps = {
   size?: number;
@@ -49,14 +52,16 @@ type ShapeWithGlowProps = {
 
 export function ShapeWithGlow({
   size = 150,
-  shape = 'circle1',
+  shape = 'firstShape',
   ...props
 }: ShapeWithGlowProps) {
   const { classes } = useStyles({ size });
 
   const shapes: Record<Shapes, string> = {
-    circle1: '/ball.svg',
-    circle2: '/ball2.svg',
+    firstShape: '/abstract/crisp_1.webp',
+    secondShape: '/abstract/serpent_2.webp',
+    // firstShape: '/ball.svg',
+    // secondShape: '/ball2.svg',
   };
 
   return (
