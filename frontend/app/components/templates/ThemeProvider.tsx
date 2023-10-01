@@ -3,7 +3,7 @@
 import { Global, MantineProvider } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
 
-import { basicTheme } from '../../theme/mantine-theme';
+import { basicTheme } from '../../misc/theme/mantine-theme';
 
 function ThemeProvider({ children }: PropsWithChildren) {
   return (

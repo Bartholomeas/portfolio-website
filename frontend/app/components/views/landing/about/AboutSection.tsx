@@ -1,5 +1,13 @@
 'use client';
 
+import { createStyles, rem, Stack } from '@mantine/core';
+
+import { IconArrowRight } from '@tabler/icons-react';
+
+import { motion, useInView } from 'framer-motion';
+
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+
 import { Box } from '@/components/common/mantine';
 
 import { ButtonLink } from '@/components/common/mantine/Button';
@@ -8,14 +16,9 @@ import { Text } from '@/components/common/mantine/Text';
 
 import { MotionTitle } from '@/components/common/mantine/Title';
 
-import { AboutMeCard, AboutMeSection } from '@/types/pages';
-
-import { createStyles, rem, Stack } from '@mantine/core';
-import { IconArrowRight } from '@tabler/icons-react';
-import { motion, useInView } from 'framer-motion';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-
 import { AboutSectionSlider, getCurrentContent } from './AboutSectionSlider';
+
+import { AboutMeCard, AboutMeSection } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
   sectionWrapper: {

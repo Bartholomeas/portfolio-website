@@ -4,7 +4,6 @@ import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitter,
 } from '@tabler/icons-react';
 
 import React from 'react';
@@ -13,6 +12,8 @@ import { ActionIcon, Container, Group, Stack } from '../mantine';
 import { Text } from '../mantine/Text';
 
 import { FooterNewsletterSection } from './FooterNewsletterSection';
+
+import { routes } from '@/misc/routes';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -49,33 +50,13 @@ export function Footer() {
         <Container className={classes.inner}>
           <Text>bstfnc</Text>
           <Group spacing={0} className={classes.links} position="right" noWrap>
-            <ActionIcon
-              component="a"
-              href="https://github.com/Bartholomeas"
-              target="_blank"
-            >
-              <IconBrandTwitter size={18} />
-            </ActionIcon>
-            <ActionIcon
-              component="a"
-              href="https://github.com/Bartholomeas"
-              target="_blank"
-            >
+            <ActionIcon component="a" href={routes.github} target="_blank">
               <IconBrandGithub size={18} />
             </ActionIcon>
-            <ActionIcon
-              component="a"
-              href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
-              target="_blank"
-            >
+            <ActionIcon component="a" href={routes.linkedin} target="_blank">
               <IconBrandLinkedin size={18} />
             </ActionIcon>
-            <ActionIcon
-              // className={classes.icon}
-              component="a"
-              href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
-              target="_blank"
-            >
+            <ActionIcon component="a" href={routes.discord} target="_blank">
               <IconBrandDiscord size={18} />
             </ActionIcon>
           </Group>

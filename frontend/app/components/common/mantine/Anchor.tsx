@@ -1,4 +1,4 @@
-import { ThemeColors } from '@/theme/types';
+import { ThemeColors } from '@/misc/theme/types';
 
 import { AnchorProps, createStyles } from '@mantine/core';
 

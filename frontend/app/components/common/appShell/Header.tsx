@@ -1,7 +1,5 @@
 'use client';
 
-import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
-
 import { createStyles, rem } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
@@ -9,7 +7,6 @@ import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitter,
   IconPhone,
 } from '@tabler/icons-react';
 
@@ -25,7 +22,11 @@ import {
   Stack,
 } from '../mantine';
 import { Button, ButtonLink } from '../mantine/Button';
+import { Image } from '../mantine/Image';
 import { Link } from '../special/Link';
+
+import { routes } from '@/misc/routes';
+import { openContactModal, useModalStyles } from '@/utils/modalsHandler';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -109,9 +110,9 @@ export function Header() {
 }
 
 const links = [
-  { link: '/', label: 'Strona główna' },
-  { link: '/blog', label: 'Blog' },
-  { link: '/recommended', label: 'Polecane' },
+  { link: routes.home, label: 'Strona główna' },
+  { link: routes.blog, label: 'Blog' },
+  { link: routes.recommended, label: 'Polecane' },
 ];
 
 function HeaderMobile() {
@@ -205,28 +206,22 @@ function HeaderDesktop() {
       <Group spacing={16} noWrap>
         {items}
       </Group>
-      <ButtonLink
-        variant="subtle"
-        href="/"
-        size="lg"
-        mx="auto"
-        sx={{ width: 'fit-content' }}
-      >
-        bstfnc.
-      </ButtonLink>
+      <Link href={routes.home}>
+        <Image
+          src="/Logo.svg"
+          height={50}
+          width={20}
+          // sizes="100vw"
+          alt="Moje logo, litera B o finezyjnych kształtach"
+          sx={{ objectFit: 'contain' }}
+        />
+      </Link>
+
       <Group spacing={16} position="right" noWrap>
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://github.com/Bartholomeas"
-          target="_blank"
-        >
-          <IconBrandTwitter size={18} />
-        </ActionIcon>
-        <ActionIcon
-          className={classes.icon}
-          component="a"
-          href="https://github.com/Bartholomeas"
+          href={routes.github}
           target="_blank"
         >
           <IconBrandGithub size={18} />
@@ -234,7 +229,7 @@ function HeaderDesktop() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+          href={routes.linkedin}
           target="_blank"
         >
           <IconBrandLinkedin size={18} />
@@ -242,14 +237,13 @@ function HeaderDesktop() {
         <ActionIcon
           className={classes.icon}
           component="a"
-          href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+          href={routes.discord}
           target="_blank"
         >
           <IconBrandDiscord size={18} />
         </ActionIcon>
         <ActionIcon
           color="primary"
-          // ml={24}
           onClick={() =>
             openContactModal({
               title: modalClasses.title,
@@ -274,7 +268,7 @@ function HeaderSocialsGroup() {
       <ActionIcon
         className={classes.icon}
         component="a"
-        href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+        href={routes.linkedin}
         target="_blank"
       >
         <IconBrandLinkedin size={32} />
@@ -282,15 +276,7 @@ function HeaderSocialsGroup() {
       <ActionIcon
         className={classes.icon}
         component="a"
-        href="https://github.com/Bartholomeas"
-        target="_blank"
-      >
-        <IconBrandTwitter size={32} />
-      </ActionIcon>
-      <ActionIcon
-        className={classes.icon}
-        component="a"
-        href="https://github.com/Bartholomeas"
+        href={routes.github}
         target="_blank"
       >
         <IconBrandGithub size={32} />
@@ -298,7 +284,7 @@ function HeaderSocialsGroup() {
       <ActionIcon
         className={classes.icon}
         component="a"
-        href="https://www.linkedin.com/in/bartosz-stefaniak-a82727222/"
+        href={routes.discord}
         target="_blank"
       >
         <IconBrandDiscord size={32} />
