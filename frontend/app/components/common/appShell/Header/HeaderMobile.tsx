@@ -52,6 +52,7 @@ export function HeaderMobile() {
         onClick={toggle}
         size="sm"
         className={classes.burger}
+        aria-label="Przycisk menu otwierający panel nawigacji."
       />
 
       <Drawer
@@ -115,6 +116,7 @@ function HeaderSocialsGroup() {
         component="a"
         href={routes.linkedin}
         target="_blank"
+        aria-label="Ikona przenosząca do mojego profilu linkedin"
       >
         <IconBrandLinkedin size={32} />
       </ActionIcon>
@@ -123,6 +125,7 @@ function HeaderSocialsGroup() {
         component="a"
         href={routes.github}
         target="_blank"
+        aria-label="Ikona przenosząca do mojego profilu github"
       >
         <IconBrandGithub size={32} />
       </ActionIcon>
@@ -131,6 +134,7 @@ function HeaderSocialsGroup() {
         component="a"
         href={routes.discord}
         target="_blank"
+        aria-label="Ikona przenosząca do mojego profilu discord"
       >
         <IconBrandDiscord size={32} />
       </ActionIcon>

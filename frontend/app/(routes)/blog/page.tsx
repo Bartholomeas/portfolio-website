@@ -39,7 +39,7 @@ async function Blog() {
               right: 24,
             }}
           >
-            <ShapeWithGlow size={80} shape="circle2" />
+            <ShapeWithGlow size={80} shape="secondShape" />
           </Box>
         </Box>
 

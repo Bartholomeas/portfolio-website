@@ -150,7 +150,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           zIndex: 1000,
         }}
       >
-        <ShapeWithGlow shape="circle1" size={100} />
+        <ShapeWithGlow shape="firstShape" size={100} />
       </Box>
       <Box
         sx={{
@@ -163,7 +163,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           opacity: 0.6,
         }}
       >
-        <ShapeWithGlow shape="circle2" size={80} />
+        <ShapeWithGlow shape="secondShape" size={80} />
       </Box>
       <Box
         sx={{
@@ -174,7 +174,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           zIndex: 1000,
         }}
       >
-        <ShapeWithGlow shape="circle2" size={80} />
+        <ShapeWithGlow shape="secondShape" size={80} />
       </Box>
     </Stack>
   );

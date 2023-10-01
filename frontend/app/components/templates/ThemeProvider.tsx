@@ -14,6 +14,7 @@ function ThemeProvider({ children }: PropsWithChildren) {
             backgroundColor: theme.other.bg,
             color: theme.white,
             fontFamily: 'Poppins, sans-serif',
+            scrollBehavior: 'smooth',
           },
           a: {
             color: 'inherit',
