@@ -15,6 +15,7 @@ export const { Header } = MantineComponents;
 export const { Code } = MantineComponents;
 export const { Chip } = MantineComponents;
 export const { Drawer } = MantineComponents;
+export const { Dialog } = MantineComponents;
 export const { Burger } = MantineComponents;
 export const { Loader } = MantineComponents;
 export const { List } = MantineComponents;

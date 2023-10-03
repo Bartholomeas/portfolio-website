@@ -70,7 +70,7 @@ type ButtonDefaultProps = {
 } & ButtonProps;
 
 export function Button({
-  variant = 'default',
+  variant = 'filled',
   className,
   onClick,
   children,
@@ -83,7 +83,10 @@ export function Button({
       onClick={onClick}
       className={cx(
         classes.buttonBody,
-        variant === 'subtle' && classes.buttonSubtle,
+        {
+          [classes.buttonSubtle]: variant === 'subtle',
+          [classes.buttonFilled]: variant === 'filled',
+        },
         className
       )}
       variant={variant}
