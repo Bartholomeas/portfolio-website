@@ -43,7 +43,7 @@ const useStyles = createStyles((theme, { size }: StyleProps) => ({
   },
 }));
 
-type Shapes = 'firstShape' | 'secondShape';
+type Shapes = 'firstShape' | 'secondShape' | 'thirdShape';
 
 type ShapeWithGlowProps = {
   size?: number;
@@ -60,8 +60,7 @@ export function ShapeWithGlow({
   const shapes: Record<Shapes, string> = {
     firstShape: '/abstract/crisp_1.webp',
     secondShape: '/abstract/serpent_2.webp',
-    // firstShape: '/ball.svg',
-    // secondShape: '/ball2.svg',
+    thirdShape: '/abstract/spring_1.webp',
   };
 
   return (

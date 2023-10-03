@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { Box, createPolymorphicComponent } from '@mantine/core';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';

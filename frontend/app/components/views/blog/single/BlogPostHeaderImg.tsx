@@ -1,8 +1,8 @@
 'use client';
 
-import { Image } from '@/components/common/mantine/Image';
-
 import React from 'react';
+
+import { Image } from '@/components/common/mantine/Image';
 
 type Props = {
   imgUrl: string;

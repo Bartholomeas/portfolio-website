@@ -118,6 +118,7 @@ export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
               layout="responsive"
               width={600}
               height={300}
+              loading="lazy"
               className={classes.image}
               src={item?.mainImg?.url}
               alt={item?.mainImg?.alternativeText ?? 'Zdjęcie projektu'}
