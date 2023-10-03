@@ -33,9 +33,9 @@
           "external",
           "parent",
           "sibling",
-          "index",
           "object",
-          "type"
+          "type",
+          "index"
         ],
         "pathGroups": [
           {

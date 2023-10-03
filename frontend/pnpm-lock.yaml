@@ -46,6 +46,9 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.3
     version: 18.2.3
+  client-only:
+    specifier: ^0.0.1
+    version: 0.0.1
   dayjs:
     specifier: ^1.11.7
     version: 1.11.7
@@ -93,6 +96,9 @@ devDependencies:
   '@svgr/webpack':
     specifier: ^7.0.0
     version: 7.0.0
+  '@types/gtag.js':
+    specifier: ^0.0.14
+    version: 0.0.14
   '@types/qs':
     specifier: ^6.9.7
     version: 6.9.7
@@ -2246,6 +2252,10 @@ packages:
     dependencies:
       '@types/ms': 0.7.31
     dev: false
+
+  /@types/gtag.js@0.0.14:
+    resolution: {integrity: sha512-NcR9rf3B93ie5T086NIpXGTtoIJeOeQ14+IBIBwfNBztb175e/0gONc60ywUU4+f9dwctgz9L3I4h5Gs/hl31g==}
+    dev: true
 
   /@types/hast@2.3.5:
     resolution: {integrity: sha512-SvQi0L/lNpThgPoleH53cdjB3y9zpLlVjRbqB3rH8hx1jiRSBGAhyjV3H+URFjNVRqt2EdYNrbZE5IsGlNfpRg==}
