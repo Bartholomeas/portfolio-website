@@ -1,19 +1,16 @@
 'use client';
 
-import { Box, Grid, Group, Stack } from '@/components/common/mantine';
-
-import { Text } from '@/components/common/mantine/Text';
-
-import { Title } from '@/components/common/mantine/Title';
-
-import { CaseStudiesItem } from '@/types/pages';
-
 import { useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-
 import { useState } from 'react';
 
+import { Box, Grid, Group, Stack } from '@/components/common/mantine';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
+
 import { CaseStudiesCard } from './CaseStudiesCard';
+
+import { CaseStudiesItem } from '@/types/pages';
 
 type Props = {
   data: CaseStudiesItem[];

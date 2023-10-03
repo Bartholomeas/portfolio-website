@@ -18,7 +18,7 @@ async function Blog() {
 
   return (
     <Container size="md" mt={32}>
-      <Stack spacing={128}>
+      <Stack spacing={160}>
         <Box sx={{ position: 'relative' }}>
           <BlogHeader
             featuredPost={(blogPostsData && blogPostsData[0]) ?? {}}
@@ -39,7 +39,16 @@ async function Blog() {
               right: 24,
             }}
           >
-            <ShapeWithGlow size={80} shape="secondShape" />
+            <ShapeWithGlow size={120} shape="secondShape" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              left: 16,
+            }}
+          >
+            <ShapeWithGlow size={90} shape="firstShape" />
           </Box>
         </Box>
 

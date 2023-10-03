@@ -48,6 +48,7 @@ export function BlogCard({ post }: BlogCardProps) {
         stiffness: 260,
         damping: 20,
       }}
+      sx={{ zIndex: 999 }}
     >
       <Stack justify="space-between" h="100%">
         <Card.Section>

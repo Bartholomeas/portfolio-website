@@ -1,21 +1,19 @@
 'use client';
 
+import { createStyles, rem } from '@mantine/core';
+import React from 'react';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import {
   Divider,
   Stack,
   TypographyStylesProvider,
 } from '@/components/common/mantine';
 
-import { Post } from '@/types';
-
-import { createStyles, rem } from '@mantine/core';
-import React from 'react';
-
-import Markdown from 'react-markdown';
-
-import remarkGfm from 'remark-gfm';
-
 import { BlogPostBanner } from './BlogPostBanner';
+
+import { Post } from '@/types';
 
 const useStyles = createStyles((theme) => ({
   postContent: {
@@ -39,12 +37,7 @@ export function BlogPostContent({ data }: Props) {
       <Divider />
 
       <TypographyStylesProvider>
-        <Markdown
-          // transformImageUri={(src) => `${API_URL}${src}`}
-          remarkPlugins={[remarkGfm]}
-        >
-          {data?.content}
-        </Markdown>
+        <Markdown remarkPlugins={[remarkGfm]}>{data?.content}</Markdown>
       </TypographyStylesProvider>
     </Stack>
   );
