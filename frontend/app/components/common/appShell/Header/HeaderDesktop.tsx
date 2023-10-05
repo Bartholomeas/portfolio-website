@@ -6,6 +6,7 @@ import {
 } from '@tabler/icons-react';
 
 import { ActionIcon, Group } from '../../mantine';
+import { Button } from '../../mantine/Button';
 import { Image } from '../../mantine/Image';
 import { Link } from '../../special/Link';
 
@@ -74,9 +75,11 @@ export function HeaderDesktop() {
         >
           <IconBrandDiscord size={18} />
         </ActionIcon>
-        <ActionIcon
+        <Button
+          variant="outline"
           color="primary"
           aria-label="Telefon otwierający modal z możliwością kontaktu."
+          leftIcon={<IconPhone size={16} />}
           onClick={() =>
             openContactModal({
               title: modalClasses.title,
@@ -86,8 +89,8 @@ export function HeaderDesktop() {
             })
           }
         >
-          <IconPhone size={18} />
-        </ActionIcon>
+          Kontakt
+        </Button>
       </Group>
     </div>
   );

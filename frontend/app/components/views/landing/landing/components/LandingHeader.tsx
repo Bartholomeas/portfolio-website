@@ -11,6 +11,7 @@ import { LandingAnimationReveal } from './LandingAnimationReveal';
 const useStyles = createStyles((theme) => ({
   title: {
     fontSize: rem(48),
+    width: '100%',
 
     [theme.fn.largerThan('md')]: {
       fontSize: rem(64),
@@ -29,27 +30,33 @@ const useStyles = createStyles((theme) => ({
 
 export function LandingHeader() {
   const { classes } = useStyles();
+
   return (
-    <Stack spacing={16}>
+    <Stack w="100%" spacing={16}>
       <LandingAnimationReveal>
         <Title
           order={1}
+          size={96}
           fw={900}
           lh={1}
+          ta={{ base: 'center', md: 'left' }}
           textColor="white"
           className={classes.title}
         >
-          Cześć, tu Bartosz Stefaniak<AccentSpan>.</AccentSpan>
+          Bartosz Stefaniak<AccentSpan>.</AccentSpan>
         </Title>
       </LandingAnimationReveal>
       <LandingAnimationReveal>
         <Title
           order={2}
+          size={48}
           textColor="textSecondary"
+          ta={{ base: 'center', md: 'left' }}
           className={classes.secondText}
         >
-          Jestem <AccentSpan>Front-end developerem </AccentSpan> i{' '}
-          <AccentSpan>grafikiem</AccentSpan>.
+          Jestem <AccentSpan>front-end developerem </AccentSpan> i{' '}
+          <AccentSpan>grafikiem</AccentSpan>. Tworzę{' '}
+          <AccentSpan>strony i aplikacje internetowe</AccentSpan>
         </Title>
       </LandingAnimationReveal>
     </Stack>

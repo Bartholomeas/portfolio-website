@@ -14,7 +14,7 @@ export const darkThemeColors: MantineThemeOther = {
   white: '#FFFFFF',
 
   textPrimary: '#EEEEEE',
-  textSecondary: '#CFCFCF',
+  textSecondary: '#bab8b8',
 
   error: '#FF4264',
   success: '#00F680',
@@ -79,7 +79,7 @@ export const basicTheme: MantineThemeOther = {
       styles: (theme: MantineTheme) => ({
         root: {
           width: '100%',
-          backgroundColor: theme.fn.rgba(theme.other.white, 0.03),
+          backgroundColor: theme.fn.rgba(theme.other.bg, 0.5),
           borderRadius: 8,
           border: `1px solid ${theme.fn.rgba(theme.other.white, 0.1)}`,
           backdropFilter: 'blur(20px)',

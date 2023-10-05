@@ -20,7 +20,7 @@ export function Header() {
       withBorder={false}
       className={classes.wrapper}
     >
-      <Container className={classes.inner}>
+      <Container size="lg" className={classes.inner}>
         <HeaderDesktop />
         <HeaderMobile />
       </Container>

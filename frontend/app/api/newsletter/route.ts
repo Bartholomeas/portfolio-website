@@ -1,6 +1,6 @@
-import { CONVERTKIT_FORM_ID, CONVERTKIT_KEY } from '@/utils/variables';
-
 import { NextResponse } from 'next/server';
+
+import { CONVERTKIT_FORM_ID, CONVERTKIT_KEY } from '@/utils/variables';
 
 const BASE_URL = 'https://api.convertkit.com/v3';
 

@@ -22,6 +22,8 @@ const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({
     wrapper: {
       position: 'relative',
+      width: 'fit-content',
+      margin: '0 auto',
 
       '&::before': {
         content: '""',

@@ -7,9 +7,7 @@ import {
 
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
-
 import Image from 'next/image';
-
 import React from 'react';
 
 import {
@@ -40,7 +38,7 @@ export function BlogCard({ post }: BlogCardProps) {
       component={motion.div}
       withBorder
       pb={8}
-      pt={0}
+      p={16}
       initial={{ opacity: 0, y: 150 }}
       animate={{ opacity: 1, y: 1 }}
       transition={{
@@ -48,27 +46,27 @@ export function BlogCard({ post }: BlogCardProps) {
         stiffness: 260,
         damping: 20,
       }}
-      sx={{ zIndex: 999 }}
+      sx={{ position: 'relative', zIndex: 999 }}
     >
       <Stack justify="space-between" h="100%">
-        <Card.Section>
-          <Link href={routes.blogPost(post?.slug)}>
-            <Box
-              w="100%"
-              sx={{
-                position: 'relative',
-                aspectRatio: '16/9',
-              }}
-            >
-              <Image
-                src={`${post?.headerImg?.url ?? ''}`}
-                alt={`${post?.title}`}
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </Box>
-          </Link>
-        </Card.Section>
+        <Link href={routes.blogPost(post?.slug)}>
+          <Box
+            w="100%"
+            sx={{
+              position: 'relative',
+              aspectRatio: '16/9',
+              borderRadius: 8,
+              overflow: 'hidden',
+            }}
+          >
+            <Image
+              src={`${post?.headerImg?.url ?? ''}`}
+              alt={`${post?.title}`}
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </Box>
+        </Link>
 
         <Stack h="100%" spacing={16} justify="space-between">
           <Group spacing={4} align="center">
