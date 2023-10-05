@@ -2,10 +2,7 @@
 
 import { createStyles, rem } from '@mantine/core';
 
-import { IconCheck } from '@tabler/icons-react';
-
-import { List, Stack, ThemeIcon } from '@/components/common/mantine';
-import { Text } from '@/components/common/mantine/Text';
+import { Stack } from '@/components/common/mantine';
 import { Title } from '@/components/common/mantine/Title';
 import { AccentSpan } from '@/components/common/special/AccentSpan';
 
@@ -15,14 +12,15 @@ import { Post } from '@/types';
 
 const useStyles = createStyles((theme) => ({
   inner: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: '2fr 1.5fr',
     justifyContent: 'space-between',
     gap: rem(24),
     paddingTop: `calc(${theme.spacing.xl} * 4)`,
     paddingBottom: `calc(${theme.spacing.xl} * 4)`,
 
     [theme.fn.smallerThan('md')]: {
-      flexDirection: 'column',
+      gridTemplateColumns: '1fr',
     },
   },
 
@@ -66,41 +64,16 @@ export function BlogHeader({ featuredPost }: BlogHeaderProps) {
 
   return (
     <div className={classes.inner}>
-      <Stack className={classes.content} miw={300}>
-        <Title order={1}>
-          Witaj na blogu! <br /> <AccentSpan>Front-end</AccentSpan>, kawa, słabe
-          żarty i <AccentSpan>web design</AccentSpan>.{' '}
+      <Stack className={classes.content} miw={300} spacing={8}>
+        <Title order={1} size={72}>
+          <AccentSpan>Front-endowy</AccentSpan> i fajowy blog
         </Title>
-        <Text textColor="textSecondary" size="md">
-          Zagadnienia ze świata front-endu są tutaj pierwszym planie, ale
-          czasami zdarza się, że odwiedzamy inne rejony świata technologii.
-          Zaparz kawę, usiądź wygodnie i zacznijmy tę przygodę!
-        </Text>
-
-        <List
-          spacing="sm"
-          size="sm"
-          icon={
-            <ThemeIcon size={20} radius="xl">
-              <IconCheck size={rem(12)} stroke={1.5} />
-            </ThemeIcon>
-          }
-        >
-          <List.Item className={classes.listItem}>
-            <b>Spostrzeżenia</b> – Dzielę się swoimi spotrzeżeniami i
-            doświadczeniami, zachęcam do dyskusji, możemy się od siebie wiele
-            nauczyć!
-          </List.Item>
-          <List.Item className={classes.listItem}>
-            <b>Ciekawostki</b> – Czy wiedziałeś, że orzeszkom ziemnym dalej do
-            orzechów niż do... no, dowiesz się tego z bloga
-          </List.Item>
-          <List.Item className={classes.listItem}>
-            <b>Kawa i kodowanie</b> – Moje dwa ulubione &quot;K&quot;, no bo jak
-            to tak, bez kawy?
-          </List.Item>
-        </List>
+        <Title textColor="textSecondary" order={2}>
+          Front-end, design, kawa i szeroko pojęte IT. <br />
+          Tego Ci tutaj napewno nie zabraknie!
+        </Title>
       </Stack>
+
       <BlogCard post={featuredPost} />
     </div>
   );

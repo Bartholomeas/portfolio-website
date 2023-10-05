@@ -1,6 +1,8 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { PropsWithChildren, useEffect, useRef } from 'react';
 
+import { Box } from '@/components/common/mantine';
+
 type Props = PropsWithChildren<{}>;
 
 export function LandingAnimationReveal({ children }: Props) {
@@ -18,7 +20,10 @@ export function LandingAnimationReveal({ children }: Props) {
   }, [isInView]);
 
   return (
-    <div ref={ref} className="relative w-fit overflow-hidden">
+    <Box
+      sx={{ position: 'relative', width: 'fit-content', overflow: 'hidden' }}
+      ref={ref}
+    >
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -40,6 +45,6 @@ export function LandingAnimationReveal({ children }: Props) {
         transition={{ duration: 0.5, ease: 'easeIn' }}
         className="absolute bottom-1 left-0 right-0 top-1 z-20 bg-indigo-600"
       />
-    </div>
+    </Box>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { createStyles, rem } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
 

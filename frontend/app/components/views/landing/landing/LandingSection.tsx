@@ -1,10 +1,10 @@
 'use client';
 
-import { createStyles, rem } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 
 import React from 'react';
 
-import { Container, Stack } from '@/components/common/mantine';
+import { Box, Container, Stack } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 
 import { LandingButtons } from './components/LandingButtons';
@@ -12,7 +12,7 @@ import { LandingHeader } from './components/LandingHeader';
 
 const useStyles = createStyles((theme) => ({
   container: {
-    [theme.fn.smallerThan('sm')]: {
+    [theme.fn.smallerThan('md')]: {
       overflowX: 'hidden',
     },
   },
@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     height: '100vh',
     width: '100%',
   },
@@ -58,7 +58,6 @@ const useStyles = createStyles((theme) => ({
     right: 0,
     bottom: 0,
     width: '100%',
-    maxWidth: rem(300),
     height: 'auto',
     objectFit: 'contain',
     transform: 'translateX(40%) scaleX(-1)',
@@ -82,32 +81,30 @@ export function LandingSection() {
   const { classes } = useStyles();
 
   return (
-    <Container size="xl" className={classes.container}>
-      <section className={classes.wrapper}>
-        <div className={classes.contentContainer}>
-          <Image
-            src="/abstract/serpent_landing.webp"
-            alt="Kształt przypominający węża, z kolorowym gradientem"
-            height="0"
-            width="0"
-            sizes="100vw"
-            className={classes.backgroundImage}
-          />
-          <Image
-            src="/abstract/serpent_2.webp"
-            alt="Półokragły, kolorowy kształt"
-            height="0"
-            width="0"
-            sizes="100vw"
-            className={classes.smallImage}
-          />
+    <Container size="lg" className={classes.container}>
+      <Box component="section" className={classes.wrapper}>
+        <Image
+          src="/abstract/serpent_3.webp"
+          alt="Kształt przypominający węża, z kolorowym gradientem"
+          height="0"
+          width="0"
+          sizes="100vw"
+          className={classes.backgroundImage}
+        />
+        <Image
+          src="/abstract/serpent_2.webp"
+          alt="Półokragły, kolorowy kształt"
+          height="0"
+          width="0"
+          sizes="100vw"
+          className={classes.smallImage}
+        />
 
-          <Stack>
-            <LandingHeader />
-            <LandingButtons />
-          </Stack>
-        </div>
-      </section>
+        <Stack w="100%">
+          <LandingHeader />
+          <LandingButtons />
+        </Stack>
+      </Box>
     </Container>
   );
 }

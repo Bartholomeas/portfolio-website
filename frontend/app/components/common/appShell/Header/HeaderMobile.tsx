@@ -4,6 +4,7 @@ import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconPhone,
 } from '@tabler/icons-react';
 
 import { ActionIcon, Burger, Drawer, Group, Stack } from '../../mantine';
@@ -84,10 +85,10 @@ export function HeaderMobile() {
             {items}
 
             <Button
-              variant="subtle"
+              variant="outline"
               color="primary"
-              fw={400}
-              className={classes.contactButton}
+              aria-label="Telefon otwierający modal z możliwością kontaktu."
+              leftIcon={<IconPhone size={16} />}
               onClick={() =>
                 openContactModal({
                   title: modalClasses.title,

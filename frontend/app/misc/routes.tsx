@@ -7,6 +7,7 @@ const socials = {
 export const routes = {
   home: '/',
   blog: '/blog',
+  about: '/o-mnie',
   blogPost: (slug: string | undefined) => `/blog/${slug}`,
   recommended: '/polecane',
   ...socials,

@@ -9,32 +9,25 @@ import { Image } from '../mantine/Image';
 
 type StyleProps = {
   size: number;
+  rotate: number;
 };
 
-const useStyles = createStyles((theme, { size }: StyleProps) => ({
+const useStyles = createStyles((theme, { size, rotate }: StyleProps) => ({
   wrapper: {
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '35px',
+    zIndex: -99,
   },
-  glow: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    background: `radial-gradient(50% 50% at 50% 50%, ${theme.other.secondary} 0%, ${theme.other.primary} 100%)`,
-    opacity: 0.7,
-    filter: 'blur(95.5px)',
-    borderRadius: '100%',
-  },
+
   image: {
     height: `${size * 0.6}px`,
     width: 'auto',
     objectFit: 'contain',
-    transform: `rotate(${Math.floor(Math.random() * 100)}deg)`,
+    transform: `rotate(${rotate}deg)`,
+
     transition: 'transform .3s ease',
 
     [theme.fn.largerThan('sm')]: {
@@ -45,28 +38,29 @@ const useStyles = createStyles((theme, { size }: StyleProps) => ({
 
 type Shapes = 'firstShape' | 'secondShape' | 'thirdShape';
 
-type ShapeWithGlowProps = {
+export type FloatingShapeProps = {
   size?: number;
   shape?: Shapes;
+  rotate?: number;
 } & BoxProps;
 
-export function ShapeWithGlow({
+export function FloatingShape({
   size = 150,
   shape = 'firstShape',
+  rotate = 0,
+
   ...props
-}: ShapeWithGlowProps) {
-  const { classes } = useStyles({ size });
+}: FloatingShapeProps) {
+  const { classes } = useStyles({ size, rotate });
 
   const shapes: Record<Shapes, string> = {
     firstShape: '/abstract/crisp_1.webp',
     secondShape: '/abstract/serpent_2.webp',
-    thirdShape: '/abstract/spring_1.webp',
+    thirdShape: '/abstract/serpent_3.webp',
   };
 
   return (
     <Box sx={{ zIndex: -10000 }} className={classes.wrapper} {...props}>
-      <span className={classes.glow} />
-
       <Image
         src={shapes[shape]}
         height="0"

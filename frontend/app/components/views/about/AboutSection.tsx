@@ -20,6 +20,7 @@ const useStyles = createStyles((theme) => ({
   sectionWrapper: {
     position: 'relative',
     margin: '0 auto',
+    width: '100%',
   },
   displayOffset: {
     [theme.fn.largerThan('md')]: {
@@ -40,8 +41,8 @@ const useStyles = createStyles((theme) => ({
     display: 'grid',
     height: '100%',
     width: '100%',
-    padding: `${rem(8)} ${rem(16)}`,
     placeContent: 'center',
+
     [theme.fn.largerThan('md')]: {
       width: '40%',
       padding: `${rem(12)} ${rem(12)}`,
@@ -63,7 +64,7 @@ const useStyles = createStyles((theme) => ({
 export type AboutMeCardWithAlignment = AboutMeCard & { alignLeft: boolean };
 
 type Props = {
-  data?: AboutMeSection;
+  data: AboutMeSection | undefined;
 };
 
 export function AboutSection({ data }: Props) {
@@ -82,7 +83,7 @@ export function AboutSection({ data }: Props) {
   );
 
   return (
-    <Box component="section" className={classes.sectionWrapper} id="about">
+    <Box component="section" className={classes.sectionWrapper}>
       <AboutSectionSlider sectionCard={currentCard} />
 
       <Box className={classes.displayOffset} />
@@ -139,7 +140,7 @@ function AboutSectionContent({
           layout
         >
           <Stack spacing={4}>
-            <MotionTitle fw={900} order={3} textColor="white" size={32}>
+            <MotionTitle fw={900} order={2} textColor="white" size={32}>
               <AccentSpan wrapText>{card.title}</AccentSpan>
             </MotionTitle>
           </Stack>

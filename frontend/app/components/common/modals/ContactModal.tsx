@@ -20,7 +20,7 @@ import { Button } from '../mantine/Button';
 import { Textarea } from '../mantine/Textarea';
 
 import { TextInput } from '../mantine/TextInput';
-import { ShapeWithGlow } from '../ornaments/ShapeWithGlow';
+import { FloatingShape } from '../ornaments/FloatingShape';
 
 export function ContactModal({ context, id }: ContextModalProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -150,7 +150,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           zIndex: 1000,
         }}
       >
-        <ShapeWithGlow shape="firstShape" size={100} />
+        <FloatingShape shape="firstShape" size={100} />
       </Box>
       <Box
         sx={{
@@ -163,7 +163,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           opacity: 0.6,
         }}
       >
-        <ShapeWithGlow shape="secondShape" size={80} />
+        <FloatingShape shape="secondShape" size={80} />
       </Box>
       <Box
         sx={{
@@ -174,7 +174,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
           zIndex: 1000,
         }}
       >
-        <ShapeWithGlow shape="secondShape" size={80} />
+        <FloatingShape shape="secondShape" size={80} />
       </Box>
     </Stack>
   );

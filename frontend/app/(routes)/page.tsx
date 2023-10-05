@@ -1,5 +1,4 @@
 import { Container, Stack } from '@/components/common/mantine';
-import { AboutSection } from '@/components/views/landing/about/AboutSection';
 
 import { BenefitsSection } from '@/components/views/landing/benefits/BenefitsSection';
 import { CaseStudiesSection } from '@/components/views/landing/caseStudies/CaseStudiesSection';
@@ -14,18 +13,11 @@ async function Home() {
   const { data } = await homePageData;
 
   return (
-    <Stack spacing={64}>
+    <Stack spacing={64} w="100%">
       <LandingSection />
-      <Container size="xl" sx={{ overflow: 'visible' }}>
-        <AboutSection data={data.aboutMeSection} />
-      </Container>
-      <Container size="xl">
+      <Container size="lg" w="100%" sx={{ overflow: 'visible' }}>
         <CaseStudiesSection data={data.caseStudiesSection} />
-      </Container>
-      <Container size="xl">
         <BenefitsSection />
-      </Container>
-      <Container size="xl">
         <ProjectRoadSection />
       </Container>
     </Stack>

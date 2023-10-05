@@ -1,8 +1,9 @@
 'use client';
 
+import { IconX } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react';
 
-import { Dialog, Divider, Group, Stack } from '../mantine';
+import { ActionIcon, Dialog, Divider, Group, Stack } from '../mantine';
 import { Button } from '../mantine/Button';
 import { Text } from '../mantine/Text';
 
@@ -22,17 +23,29 @@ export function CookiesConsent({ consent }: Props) {
   }, [consent, cookiesConsentOpened]);
 
   return (
-    <Dialog opened={cookiesConsentOpened} size="xl">
-      <Stack spacing={16}>
-        <Text>Ciasteczka 🍪</Text>
-        <Text>
+    <Dialog opened={cookiesConsentOpened} size="xl" p={24}>
+      <Stack spacing={24}>
+        <Group position="apart" align="center" w="100%">
+          <Text textColor="primary" size="xl" fw={700} lh={1}>
+            Ciasteczka 🍪
+          </Text>
+          <ActionIcon
+            color="primary"
+            variant="subtle"
+            onClick={() => setCookiesConsentOpened(false)}
+          >
+            <IconX />
+          </ActionIcon>
+        </Group>
+        <Divider my={0} />
+        <Text textColor="textPrimary">
           Niektóre funkcje naszej strony mogą nie działać w pełni poprawnie bez
           Twojej zgody na pliki cookies. Pliki cookies pomagają nam również
           analizować ruch na stronie. Klikając {`'Akceptuję'`}, zgadzasz się na
           używanie plików cookies.
         </Text>
         <Divider />
-        <Group w="100%">
+        <Group w="100%" grow>
           <Button
             variant="outline"
             color="primary"

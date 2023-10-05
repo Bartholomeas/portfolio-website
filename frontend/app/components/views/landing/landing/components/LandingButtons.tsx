@@ -1,14 +1,21 @@
 import { IconArrowDown, IconArrowRight } from '@tabler/icons-react';
 import React from 'react';
 
-import { Stack } from '@/components/common/mantine';
+import { Flex } from '@/components/common/mantine';
 import { ButtonLink } from '@/components/common/mantine/Button';
 
 import { routes } from '@/misc/routes';
 
 export function LandingButtons() {
   return (
-    <Stack spacing={8} my={16} align="flex-start">
+    <Flex
+      direction="row"
+      gap={8}
+      my={16}
+      align="center"
+      justify={{ base: 'center', md: 'flex-start' }}
+      w="100%"
+    >
       <ButtonLink
         href={routes.blog}
         color="primary"
@@ -18,12 +25,12 @@ export function LandingButtons() {
         Sprawdź bloga
       </ButtonLink>
       <ButtonLink
-        href="#about"
+        href={routes.about}
         variant="outline"
         rightIcon={<IconArrowDown size={16} />}
       >
         Dowiedz się więcej
       </ButtonLink>
-    </Stack>
+    </Flex>
   );
 }
