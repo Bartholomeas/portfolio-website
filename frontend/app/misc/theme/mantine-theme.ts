@@ -4,8 +4,6 @@ export const darkThemeColors: MantineThemeOther = {
   primary: '#E0B322',
   secondary: '#EE5466',
   accent: '#6C31A7',
-  // primary: '#00F680',
-  // secondary: '#00FFE0',
 
   bg: '#0A0F0D',
   bgDark: '#15151E',

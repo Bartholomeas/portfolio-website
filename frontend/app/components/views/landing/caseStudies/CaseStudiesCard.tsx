@@ -1,3 +1,5 @@
+'use client';
+
 import {
   createStyles,
   rem,
@@ -18,7 +20,17 @@ import { Title } from '@/components/common/mantine/Title';
 
 import { CaseStudiesItem } from '@/types/pages';
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles((theme) => ({
+  cardWrapper: {
+    marginBottom: rem(100),
+    padding: rem(12),
+    border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+    borderRadius: theme.radius.md,
+
+    [theme.fn.largerThan('sm')]: {
+      marginBottom: 0,
+    },
+  },
   card: {
     width: '100%',
     border: 'none',
@@ -31,8 +43,8 @@ const useStyles = createStyles(() => ({
     justifyContent: 'flex-start',
     flexDirection: 'column',
     height: `calc(100vh - ${HEADER_HEIGHT}px - 2rem)`,
-    width: 'min(40rem, 95%)',
-    maxWidth: 800,
+    width: `min(${40}, 95%)`,
+    maxWidth: rem(800),
     top: `calc(${HEADER_HEIGHT}px + 1rem)`,
     right: 0,
     left: 0,
@@ -57,9 +69,10 @@ const useStyles = createStyles(() => ({
     overflow: 'hidden',
   },
   image: {
+    width: '100%',
+    height: 'auto',
     objectFit: 'cover',
     objectPosition: 'center',
-    minHeight: 300,
     aspectRatio: '16 / 9',
   },
 }));
@@ -85,76 +98,93 @@ export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
   const { classes, cx } = useStyles();
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      <CaseStudiesCardOverlay
-        isSelected={isSelected}
-        onClick={() => {
-          onClick(null);
-          document.body.classList.remove(classes.disableScroll);
-        }}
-      />
+    <Stack className={classes.cardWrapper}>
+      <Box sx={{ position: 'relative' }}>
+        <CaseStudiesCardOverlay
+          isSelected={isSelected}
+          onClick={() => {
+            onClick(null);
+            document.body.classList.remove(classes.disableScroll);
+          }}
+        />
 
-      <Card
-        p={0}
-        component={motion.div}
-        layout
-        layoutId={item.uuid}
-        transition={isSelected ? openSpring : closeSpring}
-        animate={{ zIndex: isSelected ? 150 : 0 }}
-        onClick={() => {
-          onClick(item.uuid);
-          document.body.classList.add(classes.disableScroll);
-        }}
-        className={cx({ [classes.opened]: isSelected }, classes.card)}
-      >
-        <Stack spacing={8} align="center">
-          <motion.div
-            layout
-            className={classes.imageWrapper}
-            initial={false}
-            transition={isSelected ? openSpring : closeSpring}
-          >
-            <Image
-              layout="responsive"
-              width={600}
-              height={300}
-              loading="lazy"
-              className={classes.image}
-              src={item?.mainImg?.url}
-              alt={item?.mainImg?.alternativeText ?? 'Zdjęcie projektu'}
-            />
-          </motion.div>
+        <Card
+          p={0}
+          component={motion.div}
+          layout
+          layoutId={item.uuid}
+          transition={isSelected ? openSpring : closeSpring}
+          animate={{ zIndex: isSelected ? 150 : 0 }}
+          onClick={() => {
+            onClick(item.uuid);
+            document.body.classList.add(classes.disableScroll);
+          }}
+          className={cx({ [classes.opened]: isSelected }, classes.card)}
+        >
+          <Stack spacing={8} align="center">
+            <motion.div
+              layout
+              className={classes.imageWrapper}
+              initial={false}
+              transition={isSelected ? openSpring : closeSpring}
+            >
+              <Image
+                width={640}
+                height={360}
+                sizes="100vw"
+                loading="lazy"
+                className={classes.image}
+                src={item?.mainImg?.url}
+                alt={item?.mainImg?.alternativeText ?? 'Zdjęcie projektu'}
+              />
+            </motion.div>
 
-          {isSelected && (
-            <Stack p={24} spacing={8} w="100%">
-              <Title order={2} textColor="primary">
-                {item.title}
-              </Title>
-              <Group>
-                {item.tools.map((tool) => (
-                  <Text size="sm" textColor="white" key={tool.uuid}>
-                    #{tool.name}
-                  </Text>
-                ))}
-              </Group>
-              <motion.div
-                style={{ originY: 0, originX: -100, zIndex: 300 }}
-                layout="position"
-              >
-                <TypographyStylesProvider>
-                  <Markdown
-                    // transformImageUri={(src) => `${API_URL}${src}`}
-                    remarkPlugins={[remarkGfm]}
-                  >
-                    {item?.description}
-                  </Markdown>
-                </TypographyStylesProvider>
-              </motion.div>
-            </Stack>
-          )}
+            {isSelected && (
+              <Stack p={24} spacing={8} w="100%">
+                <Title order={2} textColor="primary">
+                  {item.title}
+                </Title>
+                <Group>
+                  {item.tools.map((tool) => (
+                    <Text size="sm" textColor="white" fw={700} key={tool.uuid}>
+                      #{tool.name}
+                    </Text>
+                  ))}
+                </Group>
+                <motion.div
+                  style={{ originY: 0, originX: -100, zIndex: 300 }}
+                  layout="position"
+                >
+                  <TypographyStylesProvider>
+                    <Markdown
+                      // transformImageUri={(src) => `${API_URL}${src}`}
+                      remarkPlugins={[remarkGfm]}
+                    >
+                      {item?.description}
+                    </Markdown>
+                  </TypographyStylesProvider>
+                </motion.div>
+              </Stack>
+            )}
+          </Stack>
+        </Card>
+      </Box>
+      <Stack h="100%" spacing={8}>
+        <Stack spacing={4}>
+          <Title order={3} textColor="primary">
+            {item.title}
+          </Title>
+          <Group spacing={8}>
+            {item.tools.map((tool) => (
+              <Text key={tool.uuid} textColor="textPrimary">
+                #{tool.name}
+              </Text>
+            ))}
+          </Group>
+          <Text textColor="textSecondary">{item.shortDescription}</Text>
         </Stack>
-      </Card>
-    </Box>
+      </Stack>
+    </Stack>
   );
 }
 

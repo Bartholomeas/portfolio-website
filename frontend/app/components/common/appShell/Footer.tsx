@@ -1,19 +1,14 @@
+'use client';
+
 import { createStyles, rem } from '@mantine/core';
 
-import {
-  IconBrandDiscord,
-  IconBrandGithub,
-  IconBrandLinkedin,
-} from '@tabler/icons-react';
-
+import dayjs from 'dayjs';
 import React from 'react';
 
-import { ActionIcon, Container, Group, Stack } from '../mantine';
+import { Container, Group, Stack } from '../mantine';
 import { Text } from '../mantine/Text';
 
 import { FooterNewsletterSection } from './FooterNewsletterSection';
-
-import { routes } from '@/misc/routes';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -26,8 +21,8 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: theme.spacing.xl,
-    paddingBottom: theme.spacing.xl,
+    paddingTop: theme.spacing.sm,
+    paddingBottom: theme.spacing.sm,
 
     [theme.fn.smallerThan('xs')]: {
       flexDirection: 'column',
@@ -43,22 +38,25 @@ const useStyles = createStyles((theme) => ({
 
 export function Footer() {
   const { classes } = useStyles();
+
   return (
     <Stack spacing={0} mt={120}>
       <FooterNewsletterSection />
       <div className={classes.footer}>
         <Container className={classes.inner}>
-          <Text>bstfnc</Text>
+          <Text size="sm" textColor="textSecondary">
+            Bartosz Stefaniak Ⓒ {dayjs(new Date()).format('YYYY')}
+          </Text>
           <Group spacing={0} className={classes.links} position="right" noWrap>
-            <ActionIcon component="a" href={routes.github} target="_blank">
-              <IconBrandGithub size={18} />
-            </ActionIcon>
-            <ActionIcon component="a" href={routes.linkedin} target="_blank">
-              <IconBrandLinkedin size={18} />
-            </ActionIcon>
-            <ActionIcon component="a" href={routes.discord} target="_blank">
-              <IconBrandDiscord size={18} />
-            </ActionIcon>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              rel="noreferrer"
+            >
+              <Text size="sm" fw={400} textColor="textSecondary">
+                Polityka prywatności
+              </Text>
+            </a>
           </Group>
         </Container>
       </div>
