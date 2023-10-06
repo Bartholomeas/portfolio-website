@@ -22,8 +22,8 @@ import { CaseStudiesItem } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
   cardWrapper: {
-    marginBottom: rem(100),
     padding: rem(12),
+    marginBottom: rem(100),
     border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
     borderRadius: theme.radius.md,
 
