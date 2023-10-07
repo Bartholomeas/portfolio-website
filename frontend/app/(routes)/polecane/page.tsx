@@ -13,7 +13,7 @@ export default async function Recommended() {
   return (
     <Container
       size="sm"
-      mih={'100vh'}
+      mih="100vh"
       h="100%"
       sx={{
         position: 'relative',

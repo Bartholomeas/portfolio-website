@@ -15,29 +15,14 @@ export interface BlocksAboutMe extends Schema.Component {
 export interface BlocksRecommendedGroup extends Schema.Component {
   collectionName: 'components_blocks_recommended_groups';
   info: {
-    displayName: 'RecommendedItem';
+    displayName: 'RecommendedGroup';
     description: '';
-    icon: 'puzzle';
   };
   attributes: {
     title: Attribute.String;
     link: Attribute.String;
     uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
-  };
-}
-
-export interface BlocksRecommendedItemsGroup extends Schema.Component {
-  collectionName: 'components_blocks_recommended_items_groups';
-  info: {
-    displayName: 'RecommendedItemsGroup';
-    icon: 'crown';
-    description: '';
-  };
-  attributes: {
-    items: Attribute.Component<'blocks.recommended-group', true>;
-    title: Attribute.String & Attribute.Required;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
   };
 }
 
@@ -75,12 +60,12 @@ export interface HomepageAboutmeCard extends Schema.Component {
 export interface HomepageAboutmeSection extends Schema.Component {
   collectionName: 'components_homepage_aboutme_sections';
   info: {
-    displayName: 'AboutMeSection';
+    displayName: 'AboutmeSection';
     icon: 'alien';
     description: '';
   };
   attributes: {
-    aboutMeCards: Attribute.Component<'homepage.aboutme-card', true>;
+    aboutmeCards: Attribute.Component<'homepage.aboutme-card', true>;
   };
 }
 
@@ -123,7 +108,6 @@ declare module '@strapi/types' {
     export interface Components {
       'blocks.about-me': BlocksAboutMe;
       'blocks.recommended-group': BlocksRecommendedGroup;
-      'blocks.recommended-items-group': BlocksRecommendedItemsGroup;
       'blocks.title-with-description': BlocksTitleWithDescription;
       'homepage.aboutme-card': HomepageAboutmeCard;
       'homepage.aboutme-section': HomepageAboutmeSection;
