@@ -1,13 +1,13 @@
 {
   "collectionName": "components_homepage_aboutme_sections",
   "info": {
-    "displayName": "AboutmeSection",
+    "displayName": "AboutMeSection",
     "icon": "alien",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "aboutmeCards": {
+    "aboutMeCards": {
       "type": "component",
       "repeatable": true,
       "component": "homepage.aboutme-card"

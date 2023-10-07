@@ -32,6 +32,7 @@ export function CaseStudiesCards({ data }: Props) {
 
         return (
           <CaseStudiesCard
+            key={item.uuid}
             item={item}
             onClick={setCardId}
             isSelected={isSelected}

@@ -7,15 +7,15 @@ export async function getAboutMePage(): Promise<
 > {
   try {
     const res = await fetch(
-      `${API_URL}/api/home-page?populate[0]=aboutmeCards,aboutMeSection.aboutmeCards.image`
+      `${API_URL}/api/about-me-page?populate[0]=aboutMeCards,aboutMeCards.image`
     );
 
     if (!res.ok) {
-      throw new Error('getRecommendedPage: error');
+      return Promise.reject(new Error('getAboutMePage: error').message);
     }
 
     return await res.json();
   } catch (err: any) {
-    throw new Error(`getHomepageData: ${err}`);
+    throw new Error(`getAboutMePage: ${err}`);
   }
 }

@@ -1,14 +1,16 @@
 import { Container } from '@/components/common/mantine';
-import { Glow } from '@/components/common/ornaments/Glow';
 
 import { RecommendedHeader } from '@/components/views/recommended/RecommendedHeader';
 import { RecommendedListsSection } from '@/components/views/recommended/RecommendedListsSection';
+import { RecommendedShapesWrapper } from '@/components/views/recommended/RecommendedShapesWrapper';
 
 import { getRecommendedPage } from '@/lib/getRecommendedPage';
 
 export default async function Recommended() {
-  const recommendedPromise = getRecommendedPage();
-  const { data } = await recommendedPromise;
+  const data = await getRecommendedPage().catch((err) => {
+    console.log(err);
+  });
+  console.log(data);
 
   return (
     <Container
@@ -21,10 +23,10 @@ export default async function Recommended() {
         },
       }}
     >
-      <Glow size={500} position={{ top: -150, left: -150 }} />
-      <RecommendedHeader />
-      <RecommendedListsSection data={data} />
-      <Glow size={350} position={{ bottom: -150, right: -200 }} />
+      <RecommendedShapesWrapper>
+        <RecommendedHeader />
+        {/* {data && <RecommendedListsSection data={data} />} */}
+      </RecommendedShapesWrapper>
     </Container>
   );
 }

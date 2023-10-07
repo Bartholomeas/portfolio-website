@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing.xl,
-    backgroundColor: theme.other.bgDark,
+    backgroundColor: theme.other.box,
     borderTop: `1px solid ${theme.other.primary}`,
     overflow: 'hidden',
 

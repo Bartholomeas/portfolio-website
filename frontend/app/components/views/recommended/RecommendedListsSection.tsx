@@ -1,11 +1,11 @@
+import React from 'react';
+
 import { Stack } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 
-import { RecommendedItems } from '@/types';
-
-import React from 'react';
-
 import { RecommendedList } from './RecommendedList';
+
+import { RecommendedItems } from '@/types';
 
 type Props = {
   data: RecommendedItems[];

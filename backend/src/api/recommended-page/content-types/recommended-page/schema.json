@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "recommended_pages",
   "info": {
     "singularName": "recommended-page",
@@ -12,14 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "items": {
-      "type": "dynamiczone",
-      "components": [
-        "blocks.recommended-group"
-      ]
-    },
-    "title": {
-      "type": "string"
+    "recommendedItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.recommended-items-group"
     }
   }
 }

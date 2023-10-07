@@ -1,8 +1,9 @@
 {
   "collectionName": "components_blocks_recommended_groups",
   "info": {
-    "displayName": "RecommendedGroup",
-    "description": ""
+    "displayName": "RecommendedItem",
+    "description": "",
+    "icon": "puzzle"
   },
   "options": {},
   "attributes": {

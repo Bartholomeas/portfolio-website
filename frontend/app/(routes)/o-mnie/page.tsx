@@ -9,11 +9,12 @@ import {
 import { AboutHeader } from '@/components/views/about/AboutHeader';
 import { AboutSection } from '@/components/views/about/AboutSection';
 
-import { getHomePage } from '@/lib/getHomePage';
+import { getAboutMePage } from '@/lib/aboutMe/getAboutMePage';
 
 export default async function AboutMe() {
-  const homePageData = getHomePage();
-  const { data } = await homePageData;
+  const { data } = await getAboutMePage();
+
+  console.log(data);
 
   return (
     <Container size="lg" h="100%" w="100%">
@@ -24,7 +25,7 @@ export default async function AboutMe() {
         sx={{ position: 'relative' }}
       >
         <AboutHeader />
-        <AboutSection data={data.aboutMeSection} />
+        {/* <AboutSection data={data.aboutMeSection} /> */}
 
         {pageShapes.map((shape) => (
           <FloatingShape key={`${shape.shape}-${shape.size}`} {...shape} />

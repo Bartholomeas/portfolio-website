@@ -21,11 +21,14 @@ import { Title } from '@/components/common/mantine/Title';
 import { CaseStudiesItem } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
+  border: {
+    border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
+    borderRadius: theme.radius.md,
+  },
+
   cardWrapper: {
     padding: rem(12),
     marginBottom: rem(100),
-    border: `1px solid ${theme.fn.rgba(theme.other.white, 0.2)}`,
-    borderRadius: theme.radius.md,
 
     [theme.fn.largerThan('sm')]: {
       marginBottom: 0,
@@ -98,7 +101,7 @@ export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
   const { classes, cx } = useStyles();
 
   return (
-    <Stack className={classes.cardWrapper}>
+    <Stack className={cx(classes.cardWrapper, classes.border)}>
       <Box sx={{ position: 'relative' }}>
         <CaseStudiesCardOverlay
           isSelected={isSelected}
@@ -119,7 +122,11 @@ export function CaseStudiesCard({ item, onClick, isSelected = false }: Props) {
             onClick(item.uuid);
             document.body.classList.add(classes.disableScroll);
           }}
-          className={cx({ [classes.opened]: isSelected }, classes.card)}
+          className={cx(
+            { [classes.opened]: isSelected },
+            classes.card,
+            classes.border
+          )}
         >
           <Stack spacing={8} align="center">
             <motion.div

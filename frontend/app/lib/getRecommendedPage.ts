@@ -6,15 +6,15 @@ export async function getRecommendedPage(): Promise<
 > {
   try {
     const res = await fetch(
-      `${API_URL}/api/recommended-pages?fields[0]=title&populate[items]=items`
+      `${API_URL}/api/recommended-page?populate[0]=recommendedItems,recommendedItems.recommendedItem`
     );
 
     if (!res.ok) {
-      throw new Error('getRecommendedPage: error');
+      return Promise.reject(new Error('getRecommendedPage: error').message);
     }
 
     return await res.json();
   } catch (err: any) {
-    throw new Error(`getRecommendedPage: ${err}`);
+    return Promise.reject(new Error(`getRecommendedPage: ${err}`));
   }
 }
