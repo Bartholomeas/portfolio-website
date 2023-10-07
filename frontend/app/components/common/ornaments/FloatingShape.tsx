@@ -65,7 +65,7 @@ export function FloatingShape({
         src={shapes[shape]}
         height="0"
         width="0"
-        sizes="100vw"
+        // sizes="100vw"
         alt="Abstrakcyjny i kolorowy kształt"
         className={classes.image}
       />

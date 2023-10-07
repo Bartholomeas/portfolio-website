@@ -722,6 +722,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutMePageAboutMePage extends Schema.SingleType {
+  collectionName: 'about_me_pages';
+  info: {
+    singularName: 'about-me-page';
+    pluralName: 'about-me-pages';
+    displayName: 'AboutMePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    aboutMeCards: Attribute.Component<'homepage.aboutme-card', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-me-page.about-me-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-me-page.about-me-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
   collectionName: 'blog_categories';
   info: {
@@ -869,7 +899,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    aboutMeSection: Attribute.Component<'homepage.aboutme-section'>;
     caseStudiesSection: Attribute.Component<'homepage.case-studies-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -889,8 +918,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
-export interface ApiRecommendedPageRecommendedPage
-  extends Schema.CollectionType {
+export interface ApiRecommendedPageRecommendedPage extends Schema.SingleType {
   collectionName: 'recommended_pages';
   info: {
     singularName: 'recommended-page';
@@ -902,8 +930,10 @@ export interface ApiRecommendedPageRecommendedPage
     draftAndPublish: false;
   };
   attributes: {
-    items: Attribute.DynamicZone<['blocks.recommended-group']>;
-    title: Attribute.String;
+    recommendedGroups: Attribute.Component<
+      'blocks.recommended-items-group',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -961,6 +991,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-me-page.about-me-page': ApiAboutMePageAboutMePage;
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::home-page.home-page': ApiHomePageHomePage;
