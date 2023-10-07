@@ -29,8 +29,8 @@ const useStyles = createStyles(() => ({
     position: 'absolute',
     width: 'auto',
     height: 'auto',
-    bottom: -100,
-    right: 32,
+    bottom: rem(-100),
+    right: rem(32),
     backgroundColor: '#0b0866',
   },
 
@@ -38,9 +38,9 @@ const useStyles = createStyles(() => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    transform: 'translateY(-40px)',
     top: 0,
     right: 0,
+    transform: 'translateY(-40px)',
   },
   image: {
     objectFit: 'contain',
@@ -63,6 +63,7 @@ export function AboutDesignSlider({ image }: Props) {
             src="/abstract/spring_1.webp"
             alt="Abstrakcyjny kolorowy kształt przypominający sprężynę"
             fill
+            sizes="50vw"
             className={classes.image}
           />
         </Box>

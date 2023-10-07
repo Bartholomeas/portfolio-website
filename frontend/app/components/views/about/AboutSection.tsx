@@ -14,7 +14,7 @@ import { AccentSpan } from '@/components/common/special/AccentSpan';
 
 import { AboutSectionSlider, getCurrentContent } from './AboutSectionSlider';
 
-import { AboutMeCard, AboutMeSection } from '@/types/pages';
+import { AboutMeCard, AboutMePage } from '@/types/pages';
 
 const useStyles = createStyles((theme) => ({
   sectionWrapper: {
@@ -64,19 +64,17 @@ const useStyles = createStyles((theme) => ({
 export type AboutMeCardWithAlignment = AboutMeCard & { alignLeft: boolean };
 
 type Props = {
-  data: AboutMeSection | undefined;
+  cards: AboutMePage['aboutMeCards'] | undefined;
 };
 
-export function AboutSection({ data }: Props) {
+export function AboutSection({ cards }: Props) {
   const { classes } = useStyles();
-  const { aboutmeCards = [] } = data || {};
 
-  const mappedCards: AboutMeCardWithAlignment[] = aboutmeCards.map(
-    (card, index) => ({
+  const mappedCards: AboutMeCardWithAlignment[] =
+    cards?.map((card, index) => ({
       ...card,
       alignLeft: index % 2 === 0,
-    })
-  );
+    })) || [];
 
   const [currentCard, setCurrentCard] = useState<AboutMeCardWithAlignment>(
     mappedCards[0]

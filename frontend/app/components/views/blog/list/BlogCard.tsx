@@ -63,6 +63,7 @@ export function BlogCard({ post }: BlogCardProps) {
               src={`${post?.headerImg?.url ?? ''}`}
               alt={`${post?.title}`}
               fill
+              sizes="50vw"
               style={{ objectFit: 'cover' }}
             />
           </Box>

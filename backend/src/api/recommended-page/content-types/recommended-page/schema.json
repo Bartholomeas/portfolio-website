@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "recommendedItems": {
+    "recommendedGroups": {
       "type": "component",
       "repeatable": true,
       "component": "blocks.recommended-items-group"

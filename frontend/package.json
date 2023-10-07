@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "next dev",
-    "dev:backend": "cd .. && cd backend && pnpm run develop",
+    "dev:backend": "cd .. && cd backend && yarn develop",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

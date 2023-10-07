@@ -7,7 +7,7 @@ import { Glow } from '@/components/common/ornaments/Glow';
 export function RecommendedShapesWrapper({ children }: PropsWithChildren) {
   return (
     <Box component="div" sx={{ position: 'relative' }} w="100%" h="100%">
-      <Glow size={500} position={{ top: -150, left: -150 }} />
+      <Glow size={600} position={{ top: -150, left: -150 }} />
       <Glow size={350} position={{ bottom: -150, right: -200 }} />
 
       <FloatingShape
@@ -18,7 +18,7 @@ export function RecommendedShapesWrapper({ children }: PropsWithChildren) {
           position: 'absolute',
           top: -50,
           left: 16,
-          opacity: 0.5,
+          opacity: 0.2,
         }}
       />
       {children}
@@ -30,6 +30,7 @@ export function RecommendedShapesWrapper({ children }: PropsWithChildren) {
           position: 'absolute',
           top: '20%',
           right: '10%',
+          opacity: 0.4,
         }}
       />
       <FloatingShape
@@ -40,7 +41,7 @@ export function RecommendedShapesWrapper({ children }: PropsWithChildren) {
           position: 'absolute',
           bottom: '5%',
           right: '35%',
-          opacity: 0.6,
+          opacity: 0.2,
         }}
       />
     </Box>

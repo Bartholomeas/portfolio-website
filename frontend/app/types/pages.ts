@@ -10,7 +10,6 @@ type SectionHeading = {
 export type HomePageSections = {
   homepageHeading: any;
   caseStudiesSection: CaseStudiesSection;
-  aboutMeSection: AboutMeSection;
 };
 
 export type CaseStudiesSection = {
@@ -34,9 +33,9 @@ type Tool = {
   uuid: string;
 };
 
-export type AboutMeSection = {
+export type AboutMePage = {
   id: number;
-  aboutmeCards: AboutMeCard[];
+  aboutMeCards: AboutMeCard[];
 };
 
 export type AboutMeSectionCardCodes = {
@@ -53,4 +52,21 @@ export type AboutMeCard = {
   image: StrapiImage | undefined;
   uuid: string;
   code: keyof AboutMeSectionCardCodes;
+};
+
+export type RecommendedItemsGroup = {
+  id: number;
+  title: string;
+  uuid: string;
+  items: {
+    id: number;
+    title: string;
+    description: string;
+    link: string;
+    __component: string;
+  }[];
+};
+
+export type RecommendedPage = {
+  recommendedGroups: RecommendedItemsGroup[];
 };

@@ -8,7 +8,9 @@ export async function getBlogCategories(): Promise<
     const res = await fetch(
       `${API_URL}/api/blog-categories?fields[0]=code&fields[1]=name`
     );
-    if (!res.ok) throw new Error('getBlogCategories: error');
+    if (!res.ok) {
+      return Promise.reject(new Error('getBlogCategories: error').message);
+    }
 
     return await res.json();
   } catch (err: any) {

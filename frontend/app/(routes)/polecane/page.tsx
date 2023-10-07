@@ -7,14 +7,14 @@ import { RecommendedShapesWrapper } from '@/components/views/recommended/Recomme
 import { getRecommendedPage } from '@/lib/getRecommendedPage';
 
 export default async function Recommended() {
-  const data = await getRecommendedPage().catch((err) => {
-    console.log(err);
-  });
-  console.log(data);
+  const getRecommendedPagePromise = getRecommendedPage();
+  const { data } = await getRecommendedPagePromise;
 
   return (
     <Container
       size="sm"
+      mih={'100vh'}
+      h="100%"
       sx={{
         position: 'relative',
         '@media (max-width: 576px)': {
@@ -25,7 +25,7 @@ export default async function Recommended() {
     >
       <RecommendedShapesWrapper>
         <RecommendedHeader />
-        {/* {data && <RecommendedListsSection data={data} />} */}
+        {data && <RecommendedListsSection data={data.recommendedGroups} />}
       </RecommendedShapesWrapper>
     </Container>
   );

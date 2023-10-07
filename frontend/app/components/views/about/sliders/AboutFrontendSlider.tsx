@@ -92,6 +92,7 @@ export function AboutFrontendSlider({ image }: Props) {
             src={image?.url}
             alt={image?.alternativeText ?? 'Zdjęcie w sliderze'}
             fill
+            sizes="50vw"
             className={classes.firstImage}
           />
         )}
