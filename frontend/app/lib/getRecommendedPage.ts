@@ -12,7 +12,7 @@ export async function getRecommendedPage(): Promise<
 
     if (!res.ok) {
       return Promise.reject(
-        new Error('getRecommendedPage: error: ' + res.status).message
+        new Error(`getRecommendedPage: error ${res.status}`).message
       );
     }
 
