@@ -46,7 +46,7 @@ export function BlogCard({ post }: BlogCardProps) {
         stiffness: 260,
         damping: 20,
       }}
-      sx={{ position: 'relative', zIndex: 999 }}
+      sx={{ position: 'relative', zIndex: 90 }}
     >
       <Stack justify="space-between" h="100%">
         <Link href={routes.blogPost(post?.slug)}>
@@ -63,6 +63,7 @@ export function BlogCard({ post }: BlogCardProps) {
               src={`${post?.headerImg?.url ?? ''}`}
               alt={`${post?.title}`}
               fill
+              sizes="50vw"
               style={{ objectFit: 'cover' }}
             />
           </Box>

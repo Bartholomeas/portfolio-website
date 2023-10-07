@@ -19,11 +19,10 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { RecommendedTimeline } from './RecommendedTimeline';
-
-import { RecommendedItems } from '@/types';
+import { RecommendedItemsGroup } from '@/types/pages';
 
 type RecommendedListProps = {
-  list: RecommendedItems;
+  list: RecommendedItemsGroup;
 };
 export function RecommendedList({ list }: RecommendedListProps) {
   return (

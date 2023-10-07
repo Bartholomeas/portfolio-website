@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_blocks_recommended_items_groups",
+  "info": {
+    "displayName": "RecommendedItemsGroup",
+    "icon": "crown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.recommended-group"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    }
+  }
+}

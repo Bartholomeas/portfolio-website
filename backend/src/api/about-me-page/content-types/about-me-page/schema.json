@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_me_pages",
+  "info": {
+    "singularName": "about-me-page",
+    "pluralName": "about-me-pages",
+    "displayName": "AboutMePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "aboutMeCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.aboutme-card"
+    }
+  }
+}

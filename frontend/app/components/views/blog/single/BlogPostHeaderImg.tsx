@@ -15,6 +15,7 @@ export function BlogPostHeaderImg({ imgUrl, imgAlt }: Props) {
       src={`${imgUrl}` ?? '/'}
       alt={imgAlt}
       fill
+      sizes="50vw"
       loading="lazy"
       sx={{
         objectFit: 'cover',

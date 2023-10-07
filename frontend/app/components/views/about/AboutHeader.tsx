@@ -10,10 +10,7 @@ export function AboutHeader() {
     <Stack align="center" w="100%" sx={{ position: 'relative' }}>
       <Stack>
         <Title size={64} order={1} color="primary">
-          <AccentSpan>O mnie słów kilka</AccentSpan>
-        </Title>
-        <Title textColor="textSecondary" order={2}>
-          hehehe
+          <AccentSpan>Kilka słów o mnie</AccentSpan>
         </Title>
       </Stack>
 

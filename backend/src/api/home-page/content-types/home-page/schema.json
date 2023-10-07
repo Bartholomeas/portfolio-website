@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "aboutMeSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "homepage.aboutme-section"
-    },
     "caseStudiesSection": {
       "type": "component",
       "repeatable": false,

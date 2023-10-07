@@ -1,16 +1,19 @@
-import { FetchResponse, RecommendedItems } from '@/types';
+import { FetchResponse } from '@/types';
+import { RecommendedPage } from '@/types/pages';
 import { API_URL } from '@/utils/variables';
 
 export async function getRecommendedPage(): Promise<
-  FetchResponse<RecommendedItems[]>
+  FetchResponse<RecommendedPage>
 > {
   try {
     const res = await fetch(
-      `${API_URL}/api/recommended-pages?fields[0]=title&populate[items]=items`
+      `${API_URL}/api/recommended-page?populate[0]=recommendedGroups.items`
     );
 
     if (!res.ok) {
-      throw new Error('getRecommendedPage: error');
+      return Promise.reject(
+        new Error('getRecommendedPage: error: ' + res.status).message
+      );
     }
 
     return await res.json();

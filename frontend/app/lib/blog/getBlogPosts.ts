@@ -8,7 +8,7 @@ export async function getBlogPosts(): Promise<FetchResponse<Post[]>> {
     );
 
     if (!res.ok) {
-      throw new Error('getBlogPosts: error');
+      Promise.reject(new Error('getBlogPosts: error').message);
     }
 
     return await res.json();

@@ -35,7 +35,7 @@ const useStyles = createStyles(() => ({
     transform: 'translate(30%,-40%) scale(0.4) rotate(20deg)',
   },
   secondImage: {
-    transform: 'translate(-120px,-60%) scale(0.6) rotate(-10deg)',
+    transform: 'translate(-100px,-60%) scale(0.6) rotate(-10deg)',
   },
 }));
 
@@ -48,6 +48,7 @@ export function AboutSummarySlider() {
         src="/abstract/serpent_2.webp"
         alt="Abstrakcyjny kolorowy kształt przypominający węża"
         fill
+        sizes="50vw"
         sx={{
           position: 'absolute',
         }}
@@ -74,12 +75,14 @@ export function AboutSummarySlider() {
             src="/avatars/me_blink.webp"
             alt="Emoji mrugające lewym okiem."
             fill
+            sizes="50vw"
             className={cx(classes.image, classes.firstImage)}
           />
           <Image
             src="/avatars/me_peace.webp"
             alt="Emoji pokazujące znak pokoju."
             fill
+            sizes="50vw"
             className={cx(classes.image, classes.secondImage)}
           />
         </Box>

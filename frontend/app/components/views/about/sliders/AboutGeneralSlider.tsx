@@ -77,6 +77,7 @@ export function AboutGeneralSlider({ image }: Props) {
             src={image.url}
             alt={image.alternativeText ?? 'Zdjęcie o mnie'}
             fill
+            sizes="50vw"
             className={classes.image}
           />
         )}
@@ -86,6 +87,7 @@ export function AboutGeneralSlider({ image }: Props) {
           src="/avatars/me_blink.webp"
           alt="Moja twarz w postaci apple awatara"
           fill
+          sizes="50vw"
           className={cx(classes.logoImage, classes.imageWithBackground)}
         />
       </MacWindow>
