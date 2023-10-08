@@ -6,7 +6,8 @@ const nextConfig = {
     domains: [
       '127.0.0.1',
       'localhost',
-      'res.cloudinary.com, bstefaniak.pl',
+      'res.cloudinary.com',
+      'bstefaniak.pl',
       'bstefaniak.me',
     ],
     remotePatterns: [
