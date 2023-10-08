@@ -23,8 +23,10 @@ const useStyles = createStyles((theme, { size, rotate }: StyleProps) => ({
   },
 
   image: {
-    height: `${size * 0.6}px`,
-    width: 'auto',
+    // height: `${size * 0.6}px`,
+    // width: 'auto',
+    height: 300,
+    width: 150,
     objectFit: 'contain',
     transform: `rotate(${rotate}deg)`,
 
@@ -63,9 +65,11 @@ export function FloatingShape({
     <Box sx={{ zIndex: -10000 }} className={classes.wrapper} {...props}>
       <Image
         src={shapes[shape]}
-        height="0"
-        width="0"
-        sizes="50vw"
+        width={300}
+        height={400}
+        // height="0"
+        // width="0"
+        // sizes="50vw"
         alt="Abstrakcyjny i kolorowy kształt"
         className={classes.image}
       />

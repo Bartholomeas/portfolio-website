@@ -5,7 +5,7 @@ import { createStyles } from '@mantine/core';
 import React from 'react';
 
 import { Box, Container, Stack } from '@/components/common/mantine';
-// import { Image } from '@/components/common/mantine/Image';
+import { Image } from '@/components/common/mantine/Image';
 
 import { LandingButtons } from './components/LandingButtons';
 import { LandingHeader } from './components/LandingHeader';
@@ -83,7 +83,7 @@ export function LandingSection() {
   return (
     <Container size="lg" className={classes.container}>
       <Box component="section" className={classes.wrapper}>
-        {/* <Image
+        <Image
           src="/abstract/serpent_3.webp"
           alt="Kształt przypominający węża, z kolorowym gradientem"
           height="0"
@@ -97,24 +97,6 @@ export function LandingSection() {
           height="0"
           width="0"
           sizes="100vw"
-          className={classes.smallImage}
-        /> */}
-        <img
-          style={{ height: 'auto', width: '100%' }}
-          src="/abstract/serpent_3.webp"
-          alt="Kształt przypominający węża, z kolorowym gradientem"
-          // height="0"
-          // width="0"
-          // sizes="100vw"
-          className={classes.backgroundImage}
-        />
-        <img
-          style={{ height: 'auto', width: '100%' }}
-          src="/abstract/serpent_2.webp"
-          alt="Półokragły, kolorowy kształt"
-          // height="0"
-          // width="0"
-          // sizes="100vw"
           className={classes.smallImage}
         />
 
