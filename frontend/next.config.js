@@ -3,16 +3,14 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'res.cloudinary.com'],
+    domains: ['127.0.0.1', 'localhost', 'res.cloudinary.com'],
   },
+
   experimental: {
     serverActions: true,
   },
   compiler: {
     styledComponents: true,
-  },
-  serverRuntimeConfig: {
-    protocol: 'https',
   },
 
   webpack(config) {
