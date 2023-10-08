@@ -11,6 +11,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  serverRuntimeConfig: {
+    protocol: 'https',
+  },
 
   webpack(config) {
     config.resolve.alias['@'] = path.join(__dirname, 'app');
