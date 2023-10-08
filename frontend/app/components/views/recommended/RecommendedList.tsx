@@ -19,6 +19,7 @@ import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 
 import { RecommendedTimeline } from './RecommendedTimeline';
+
 import { RecommendedItemsGroup } from '@/types/pages';
 
 type RecommendedListProps = {

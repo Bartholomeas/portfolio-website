@@ -6,6 +6,7 @@ import { Stack } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 
 import { RecommendedList } from './RecommendedList';
+
 import { RecommendedItemsGroup } from '@/types/pages';
 
 type Props = {

@@ -22,7 +22,6 @@ export interface BlocksRecommendedGroup extends Schema.Component {
   attributes: {
     title: Attribute.String;
     link: Attribute.String;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
   };
 }
