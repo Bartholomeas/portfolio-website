@@ -10,16 +10,11 @@ const nextConfig = {
       'bstefaniak.pl',
       'bstefaniak.me',
     ],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
-    ],
+
+    webp: {
+      preset: 'default',
+      quality: 100,
+    },
   },
 
   experimental: {
