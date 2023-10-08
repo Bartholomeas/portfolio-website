@@ -3,7 +3,18 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['127.0.0.1', 'localhost', 'res.cloudinary.com'],
+    domains: [
+      '127.0.0.1',
+      'localhost',
+      'res.cloudinary.com, bstefaniak.pl',
+      'bstefaniak.me',
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 
   experimental: {
