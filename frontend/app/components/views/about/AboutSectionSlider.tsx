@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
     position: 'sticky',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '70vh',
+    height: '100vh',
     width: '100%',
     top: 0,
     pointerEvents: 'none',

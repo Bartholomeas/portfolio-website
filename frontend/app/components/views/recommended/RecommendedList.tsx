@@ -2,10 +2,6 @@ import { IconExternalLink } from '@tabler/icons-react';
 
 import React from 'react';
 
-import Markdown from 'react-markdown';
-
-import remarkGfm from 'remark-gfm';
-
 import {
   ActionIcon,
   Card,
@@ -13,21 +9,23 @@ import {
   Stack,
   TimelineItem,
   Tooltip,
-  TypographyStylesProvider,
 } from '@/components/common/mantine';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
+
+import { MarkdownContent } from '@/components/common/special/MarkdownContent';
 
 import { RecommendedTimeline } from './RecommendedTimeline';
 
 import { RecommendedItemsGroup } from '@/types/pages';
 
-type RecommendedListProps = {
+type Props = {
   list: RecommendedItemsGroup;
 };
-export function RecommendedList({ list }: RecommendedListProps) {
+
+export function RecommendedList({ list }: Props) {
   return (
-    <Stack>
+    <Stack w="100%">
       <Title textColor="textPrimary" order={2}>
         {list.title}
       </Title>
@@ -68,12 +66,8 @@ export function RecommendedList({ list }: RecommendedListProps) {
               }
             >
               {item.description && (
-                <Card py={8} px={16}>
-                  <TypographyStylesProvider color="white">
-                    <Markdown remarkPlugins={[remarkGfm]}>
-                      {item.description}
-                    </Markdown>
-                  </TypographyStylesProvider>
+                <Card p={8}>
+                  <MarkdownContent content={item.description} />
                 </Card>
               )}
             </TimelineItem>

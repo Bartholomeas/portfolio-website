@@ -28,7 +28,6 @@ const useStyles = createStyles((theme) => ({
 
   cardWrapper: {
     padding: rem(12),
-    marginBottom: rem(100),
 
     [theme.fn.largerThan('sm')]: {
       marginBottom: 0,
