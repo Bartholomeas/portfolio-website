@@ -15,7 +15,7 @@ type Props = {
 
 export function RecommendedListsSection({ data }: Props) {
   return (
-    <Stack spacing={48}>
+    <Stack spacing={48} h="100%" w="100%">
       {data ? (
         data.map((list) => <RecommendedList list={list} key={list.uuid} />)
       ) : (

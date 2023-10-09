@@ -7,7 +7,8 @@ export async function getRecommendedPage(): Promise<
 > {
   try {
     const res = await fetch(
-      `${API_URL}/api/recommended-page?populate[0]=recommendedGroups.items`
+      `${API_URL}/api/recommended-page?populate[0]=recommendedGroups.items`,
+      { next: { revalidate: 60 * 60 * 24 } }
     );
 
     if (!res.ok) {

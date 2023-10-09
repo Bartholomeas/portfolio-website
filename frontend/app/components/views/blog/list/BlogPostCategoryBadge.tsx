@@ -1,8 +1,8 @@
+import React from 'react';
+
 import { Badge } from '@/components/common/mantine';
 
 import { BlogCategoryCodes } from '@/types';
-
-import React from 'react';
 
 type CategoryColors = Record<keyof BlogCategoryCodes, string>;
 

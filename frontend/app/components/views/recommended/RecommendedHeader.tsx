@@ -1,43 +1,17 @@
-'use client';
-
+import { Stack } from '@/components/common/mantine';
 import { Title } from '@/components/common/mantine/Title';
-
-import { createStyles, rem } from '@mantine/core';
-
-const useStyles = createStyles((theme) => ({
-  inner: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    gap: rem(24),
-    paddingTop: `calc(${theme.spacing.xl} * 4)`,
-    paddingBottom: `calc(${theme.spacing.xl} * 4)`,
-
-    [theme.fn.smallerThan('md')]: {
-      flexDirection: 'column',
-    },
-  },
-
-  highlight: {
-    background: `linear-gradient(to right, ${theme.other.primary}, ${theme.other.secondary})`,
-    fontWeight: 700,
-    whiteSpace: 'nowrap',
-    backgroundClip: 'text',
-    paddingBottom: rem(4),
-    WebkitTextFillColor: 'transparent',
-  },
-}));
+import { AccentSpan } from '@/components/common/special/AccentSpan';
 
 export function RecommendedHeader() {
-  const { classes } = useStyles();
-
   return (
-    <div className={classes.inner}>
-      <Title order={1}>
-        Znajdziesz tutaj wszystkie rzeczy, które{' '}
-        <span className={classes.highlight}>lubię</span>,{' '}
-        <span className={classes.highlight}>używam</span> i{' '}
-        <span className={classes.highlight}>polecam</span>.
+    <Stack spacing={16} mb={48}>
+      <Title order={1} size={64} textColor="textPrimary">
+        Polecane
       </Title>
-    </div>
+      <Title order={2} textColor="textPrimary">
+        Znajdziesz tutaj wszystkie rzeczy, które <AccentSpan>lubię</AccentSpan>,{' '}
+        <AccentSpan>używam</AccentSpan> i <AccentSpan>polecam</AccentSpan>.
+      </Title>
+    </Stack>
   );
 }

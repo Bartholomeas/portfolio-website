@@ -3,14 +3,13 @@ import React from 'react';
 import { Stack } from '@/components/common/mantine';
 import { Title } from '@/components/common/mantine/Title';
 import { FloatingShape } from '@/components/common/ornaments/FloatingShape';
-import { AccentSpan } from '@/components/common/special/AccentSpan';
 
 export function AboutHeader() {
   return (
     <Stack align="center" w="100%" sx={{ position: 'relative' }}>
       <Stack>
         <Title size={64} order={1} color="primary">
-          <AccentSpan>Kilka słów o mnie</AccentSpan>
+          Kilka słów o mnie
         </Title>
       </Stack>
 

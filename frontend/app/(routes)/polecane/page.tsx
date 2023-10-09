@@ -11,18 +11,7 @@ export default async function Recommended() {
   const { data } = await getRecommendedPagePromise;
 
   return (
-    <Container
-      size="sm"
-      mih="100vh"
-      h="100%"
-      sx={{
-        position: 'relative',
-        '@media (max-width: 576px)': {
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        },
-      }}
-    >
+    <Container size="sm" mih="100vh" h="100%" px={24} py={64}>
       <RecommendedShapesWrapper>
         <RecommendedHeader />
         {data && <RecommendedListsSection data={data.recommendedGroups} />}

@@ -13,7 +13,14 @@ async function Home() {
   const { data } = await homePageData;
 
   return (
-    <Stack spacing={64} w="100%">
+    <Stack
+      align="center"
+      spacing={64}
+      w="100%"
+      sx={{
+        overflow: 'hidden',
+      }}
+    >
       <LandingSection />
       <Container size="lg" w="100%" sx={{ overflow: 'visible' }}>
         <CaseStudiesSection data={data.caseStudiesSection} />

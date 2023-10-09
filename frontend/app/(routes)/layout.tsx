@@ -23,7 +23,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Frontend Developer i freelancer | Bartosz Stefaniak',
+  title: 'Frontend developer i freelancer | Bartosz Stefaniak',
   description:
     'Tworzę profesjonalne i kreatywne strony internetowe oraz projekty graficzne. Chcesz się przekonać? Napisz do mnie!',
   keywords:
