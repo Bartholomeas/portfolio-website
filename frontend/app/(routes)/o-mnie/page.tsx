@@ -1,4 +1,5 @@
 import React from 'react';
+import { Metadata } from 'next';
 
 import { Container, Stack } from '@/components/common/mantine';
 
@@ -10,6 +11,12 @@ import { AboutHeader } from '@/components/views/about/AboutHeader';
 import { AboutSection } from '@/components/views/about/AboutSection';
 
 import { getAboutMePage } from '@/lib/aboutMe/getAboutMePage';
+
+export const metadata: Metadata = {
+  title: 'O mnie | Bartosz Stefaniak',
+  description:
+    'Strona przedstawiająca zbiór informacji o mnie.',
+};
 
 export default async function AboutMe() {
   const aboutMePromise = getAboutMePage();

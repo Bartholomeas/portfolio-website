@@ -17,6 +17,7 @@ async function Home() {
       align="center"
       spacing={64}
       w="100%"
+      h="100%"
       sx={{
         overflow: 'hidden',
       }}

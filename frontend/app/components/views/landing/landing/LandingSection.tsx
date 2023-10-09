@@ -81,7 +81,7 @@ export function LandingSection() {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg" className={classes.container}>
+    <Container size="lg" className={classes.container} h="100%">
       <Box component="section" className={classes.wrapper}>
         <Image
           src="/abstract/serpent_3.webp"

@@ -8,6 +8,7 @@ export const useModalStyles = createStyles((theme) => ({
   },
 
   body: {
+    marginTop: 50,
     position: 'relative',
     overflowY: 'visible',
     backgroundColor: theme.other.bg,
@@ -32,6 +33,7 @@ export const openContactModal = (
   modals.openContextModal({
     modal: 'contactModal',
     title: 'Skontaktuj się ze mną!',
+
     centered: true,
     transitionProps: {
       transition: 'pop',
