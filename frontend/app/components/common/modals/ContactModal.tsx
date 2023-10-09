@@ -51,29 +51,13 @@ export function ContactModal({ context, id }: ContextModalProps) {
 
     if (!form.isValid()) return form.validate();
     setIsLoading(true);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify({
-          email: form.values.email,
-          title: form.values.title,
-          name: form.values.name,
-          message: form.values.message,
-        }),
-      });
 
-      notifications.show({
-        title: 'Dziękuję za kontakt!',
-        message:
-          'Wiadomość została wysłana, odpiszę najprędzej jak tylko będę mógł!',
-        color: 'teal',
-      });
-      return res.json();
-    } catch (err: any) {
-      throw new Error(`Error: ${err.message}`);
-    } finally {
-      setIsLoading(false);
-    }
+    sendMessage({
+      email: form.values.email,
+      title: form.values.title,
+      name: form.values.name,
+      message: form.values.message,
+    }).finally(() => setIsLoading(false));
   };
   return (
     <Stack sx={{ position: 'relative' }}>
@@ -141,7 +125,10 @@ export function ContactModal({ context, id }: ContextModalProps) {
           </Button>
         </Flex>
       </form>
-      <Box
+
+      <FloatingShape
+        shape="firstShape"
+        size={100}
         sx={{
           position: 'absolute',
           top: 0,
@@ -149,23 +136,36 @@ export function ContactModal({ context, id }: ContextModalProps) {
           transform: 'translate(-60%, -120%)',
           zIndex: 1000,
         }}
-      >
-        <FloatingShape shape="firstShape" size={100} />
-      </Box>
-      <Box
+      />
+      <FloatingShape
+        shape="firstShape"
+        size={200}
+        rotate={90}
+        sx={{
+          position: 'absolute',
+          top: '30%',
+          right: -24,
+          transform: 'translateX(100%)',
+          zIndex: -99,
+        }}
+      />
+
+      <FloatingShape
+        shape="secondShape"
+        size={150}
         sx={{
           position: 'absolute',
           bottom: 0,
           left: 0,
-          transform: 'translate(0, 140%)',
-          zIndex: 1000,
-          filter: 'blur(5px)',
-          opacity: 0.6,
+          transform: 'translate(-100%, 100%)',
+          zIndex: -9999,
         }}
-      >
-        <FloatingShape shape="secondShape" size={80} />
-      </Box>
-      <Box
+      />
+
+      <FloatingShape
+        shape="secondShape"
+        size={80}
+        rotate={145}
         sx={{
           position: 'absolute',
           bottom: 0,
@@ -173,9 +173,32 @@ export function ContactModal({ context, id }: ContextModalProps) {
           transform: 'translate(70%, 95%)',
           zIndex: 1000,
         }}
-      >
-        <FloatingShape shape="secondShape" size={80} />
-      </Box>
+      />
     </Stack>
   );
 }
+
+type SendMessageRequestBody = {
+  email: string;
+  name: string;
+  title: string;
+  message: string;
+};
+const sendMessage = async (requestBody: SendMessageRequestBody) => {
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+    });
+
+    notifications.show({
+      title: 'Dziękuję za kontakt!',
+      message:
+        'Wiadomość została wysłana, odpiszę najprędzej jak tylko będę mógł!',
+      color: 'teal',
+    });
+    return res.json();
+  } catch (err: any) {
+    throw new Error(`Error: ${err.message}`);
+  }
+};

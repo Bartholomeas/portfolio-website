@@ -10,11 +10,6 @@ const nextConfig = {
       'bstefaniak.pl',
       'bstefaniak.me',
     ],
-
-    webp: {
-      preset: 'default',
-      quality: 100,
-    },
   },
 
   experimental: {
