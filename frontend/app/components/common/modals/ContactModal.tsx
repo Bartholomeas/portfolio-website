@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Checkbox, Flex, Stack } from '@mantine/core';
+import { Checkbox, Flex, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import { ContextModalProps } from '@mantine/modals';
@@ -52,7 +52,7 @@ export function ContactModal({ context, id }: ContextModalProps) {
     if (!form.isValid()) return form.validate();
     setIsLoading(true);
 
-    sendMessage({
+    return sendMessage({
       email: form.values.email,
       title: form.values.title,
       name: form.values.name,
