@@ -26,7 +26,6 @@ const useStyles = createStyles((theme) => ({
 
   content: {
     maxWidth: rem(480),
-    marginRight: `calc(${theme.spacing.xl} * 3)`,
 
     [theme.fn.smallerThan('md')]: {
       marginRight: 0,
@@ -65,7 +64,7 @@ export function BlogHeader({ featuredPost }: BlogHeaderProps) {
   return (
     <div className={classes.inner}>
       <Stack className={classes.content} miw={300} spacing={8}>
-        <Title order={1} size={72}>
+        <Title order={1} size={64} lh={1}>
           <AccentSpan>Front-endowy</AccentSpan> i fajowy blog
         </Title>
         <Title textColor="textSecondary" order={2}>

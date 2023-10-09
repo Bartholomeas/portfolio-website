@@ -5,12 +5,11 @@ import { AccentSpan } from '@/components/common/special/AccentSpan';
 export function RecommendedHeader() {
   return (
     <Stack spacing={16} mb={48}>
-      <Title order={1} size={64} textColor="textPrimary">
-        Polecane
+      <Title order={1} size={64} lh={1} textColor="textPrimary">
+        Rzeczy, które <AccentSpan>polecam!</AccentSpan>
       </Title>
-      <Title order={2} textColor="textPrimary">
-        Znajdziesz tutaj wszystkie rzeczy, które <AccentSpan>lubię</AccentSpan>,{' '}
-        <AccentSpan>używam</AccentSpan> i <AccentSpan>polecam</AccentSpan>.
+      <Title order={2} textColor="textSecondary">
+        Znajdziesz tutaj wszystkie rzeczy, które lubię, używam i polecam.
       </Title>
     </Stack>
   );
