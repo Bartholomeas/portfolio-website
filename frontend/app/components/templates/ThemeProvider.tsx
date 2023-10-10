@@ -13,22 +13,22 @@ function ThemeProvider({ children }: PropsWithChildren) {
           body: {
             backgroundColor: theme.other.bg,
             color: theme.white,
-            fontFamily: 'Poppins, sans-serif',
             scrollBehavior: 'smooth',
           },
           a: {
             color: 'inherit',
+            fontFamily: 'inherit',
             textDecoration: 'none',
-            fontFamily: 'Poppins, sans-serif',
           },
           button: {
             color: 'inherit',
+            fontFamily: 'inherit',
             textDecoration: 'none',
-            fontFamily: 'Poppins, sans-serif',
           },
 
           'h1,h2,h3,h4,h5,h6': {
-            fontFamily: 'Oswald, sans-serif',
+            fontFamily: 'inherit',
+            //   // fontFamily: 'Oswald, sans-serif',
           },
         })}
       />

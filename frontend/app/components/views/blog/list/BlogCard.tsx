@@ -1,9 +1,4 @@
-import {
-  IconArrowRight,
-  IconBookmark,
-  IconHeart,
-  IconShare,
-} from '@tabler/icons-react';
+import { IconArrowRight, IconShare } from '@tabler/icons-react';
 
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
@@ -107,17 +102,9 @@ export function BlogCard({ post }: BlogCardProps) {
               </Text>
             </Group>
 
-            <Group spacing={8} mr={0}>
-              <ActionIcon>
-                <IconHeart size="1rem" />
-              </ActionIcon>
-              <ActionIcon>
-                <IconBookmark size="1rem" />
-              </ActionIcon>
-              <ActionIcon>
-                <IconShare size="1rem" />
-              </ActionIcon>
-            </Group>
+            <ActionIcon>
+              <IconShare size="1rem" />
+            </ActionIcon>
           </Group>
         </Stack>
       </Stack>

@@ -45,7 +45,7 @@ export function Footer() {
       <div className={classes.footer}>
         <Container className={classes.inner}>
           <Text size="sm" textColor="textSecondary">
-            Bartosz Stefaniak Ⓒ {dayjs(new Date()).format('YYYY')}
+            Bartosz Stefaniak &copy; {dayjs(new Date()).format('YYYY')}
           </Text>
           <Group spacing={0} className={classes.links} position="right" noWrap>
             <a
