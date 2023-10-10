@@ -1,16 +1,20 @@
 import { createStyles, rem } from '@mantine/core';
 
-import { notifications } from '@mantine/notifications';
 import { IconMail, IconSend } from '@tabler/icons-react';
 
 import { useState } from 'react';
 
-import { Container, Image, Stack } from '../mantine';
+import { Container, Stack } from '../mantine';
 
 import { Button } from '../mantine/Button';
+import { Image } from '../mantine/Image';
+import { MacWindow } from '../special/macWindow/MacWindow';
+
 import { Text } from '@/components/common/mantine/Text';
 import { TextInput } from '@/components/common/mantine/TextInput';
 import { Title } from '@/components/common/mantine/Title';
+
+import { subscribeToNewsletter } from '@/utils/subscribeToNewsletter';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -19,12 +23,44 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing.xl,
-    backgroundColor: theme.other.box,
-    borderTop: `1px solid ${theme.other.primary}`,
-    overflow: 'hidden',
+    paddingBottom: 0,
+
+    '&::before': {
+      position: 'absolute',
+      content: "''",
+      background: `linear-gradient(175deg, ${theme.other.primary} -12.04%, ${theme.other.secondary} 58.47%, ${theme.other.secondary} 58.48%, ${theme.other.accent} 125.19%)`,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: '50%',
+
+      [theme.fn.largerThan('sm')]: {
+        height: '30%',
+      },
+    },
 
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column',
+    },
+  },
+
+  gridWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: '3fr 1.5fr',
+      alignItems: 'flex-end',
+      gap: rem(32),
+    },
+  },
+
+  macWindow: {
+    width: '100%',
+    [theme.fn.largerThan('sm')]: {
+      transform: `translateY(-${rem(24)})`,
     },
   },
 
@@ -38,23 +74,16 @@ const useStyles = createStyles((theme) => ({
     zIndex: 99,
   },
 
-  bgImg: {
-    ...theme.fn.cover(-40),
-    opacity: 0.2,
-  },
-
-  body: {
-    display: 'grid',
-    gridTemplateColumns: '1fr min-content',
-    [theme.fn.smallerThan('sm')]: {
-      paddingRight: 0,
-      marginTop: theme.spacing.xl,
-    },
-  },
-
   title: {
-    color: theme.other.primary,
+    color: theme.other.secondary,
     marginBottom: rem(8),
+    fontWeight: 700,
+  },
+
+  newsletterImage: {
+    height: 'auto',
+    width: '100%',
+    bottom: 0,
   },
 }));
 
@@ -85,7 +114,9 @@ export function FooterNewsletterSection() {
   return (
     <div className={classes.wrapper}>
       <Container
-        size="md"
+        size="lg"
+        p={0}
+        className={classes.gridWrapper}
         sx={{
           position: 'relative',
           display: 'flex',
@@ -93,12 +124,12 @@ export function FooterNewsletterSection() {
           justifyContent: 'center',
         }}
       >
-        <div className={classes.body}>
-          <Stack spacing={8}>
-            <Title order={3} color="primary" className={classes.title}>
+        <MacWindow className={classes.macWindow}>
+          <Stack spacing={8} p={24}>
+            <Title order={2} className={classes.title}>
               Bądź na bieżąco!
             </Title>
-            <Text size="sm" textColor="textPrimary">
+            <Text size="lg" fw={500} textColor="textPrimary">
               Zapisz się do mojego newslettera, aby otrzymywać najświeższe
               wiadomości i aktualizacje prosto na swoją skrzynkę mailową! Tak
               jak Ty, też nie przepadam za spamem - zapewniam, że moje
@@ -126,13 +157,15 @@ export function FooterNewsletterSection() {
               </Button>
             </div>
           </Stack>
-        </div>
+        </MacWindow>
+
         <Image
-          src="/newsletterPath.svg"
-          height={150}
-          fit="contain"
-          alt="Abstract shape"
-          className={classes.bgImg}
+          src="/avatars/me_hallo.webp"
+          alt="Emoji wykonujące gest dzwonienia."
+          width="0"
+          height="0"
+          sizes="100vw"
+          className={classes.newsletterImage}
         />
       </Container>
     </div>
@@ -143,47 +176,4 @@ const checkEmailIsValid = (email: string) => {
   if (!email.trim()) return false;
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$/;
   return regex.test(email);
-};
-
-const subscribeToNewsletter = async (email: string) => {
-  notifications.show({
-    id: 'fetching-newsletter',
-    title: 'Prosimy o cierpliwość',
-    message: 'Trwa zapisywanie do newslettera..',
-    loading: true,
-    color: 'teal',
-    autoClose: false,
-    withCloseButton: false,
-  });
-  try {
-    const res = await fetch('/api/newsletter', {
-      body: JSON.stringify({ email }),
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-      method: 'POST',
-    });
-
-    setTimeout(() => {
-      notifications.update({
-        id: 'fetching-newsletter',
-        title: 'Potwierdź zapisanie się do newslettera na swoim e-mailu!',
-        message:
-          'Dzieli Cię tylko jeden krok od otrzymywania wiadomości, potwierdź swoje członkostwo w newsletterze poprzez wiadomość, która wysłaliśmy na Twoją skrzynkę pocztową.',
-      });
-    }, 100);
-    return res.json();
-  } catch (err: any) {
-    notifications.clean();
-    setTimeout(() => {
-      notifications.update({
-        id: 'fetching-newsletter',
-        title: 'Ajajaj',
-        message:
-          'Wystąpił jakiś błąd, nie mogliśmy zapisać Cię do newslettera. :(',
-        color: 'red',
-      });
-    }, 100);
-    throw new Error(`Error${err.message}`);
-  }
 };

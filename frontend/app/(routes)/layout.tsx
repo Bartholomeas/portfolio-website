@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Poppins } from 'next/font/google';
+import { Dosis } from 'next/font/google';
 
 import { cookies } from 'next/headers';
 import React from 'react';
@@ -16,10 +16,11 @@ import RootStyleRegistry from '@/components/templates/RootStyleRegistry';
 
 import { GTAG_ID } from '@/utils/variables';
 
-const poppins = Poppins({
-  weight: ['400', '700', '900'],
+const inter = Dosis({
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-variable',
 });
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" suppressHydrationWarning>
       <body
-        className={poppins.className}
+        className={inter.className}
         style={{ overflowX: 'hidden', width: '100vw' }}
       >
         <GoogleAnalytics GA_MEASUREMENT_ID={GTAG_ID!} />

@@ -1,8 +1,8 @@
+import { createStyles } from '@mantine/core';
+
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
-
-import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   root: {
