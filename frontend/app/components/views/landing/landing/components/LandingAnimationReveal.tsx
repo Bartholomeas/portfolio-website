@@ -1,11 +1,12 @@
+import { BoxProps } from '@mantine/core';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { PropsWithChildren, useEffect, useRef } from 'react';
 
 import { Box } from '@/components/common/mantine';
 
-type Props = PropsWithChildren<{}>;
+type Props = PropsWithChildren<BoxProps>;
 
-export function LandingAnimationReveal({ children }: Props) {
+export function LandingAnimationReveal({ children, ...props }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -23,6 +24,7 @@ export function LandingAnimationReveal({ children }: Props) {
     <Box
       sx={{ position: 'relative', width: 'fit-content', overflow: 'hidden' }}
       ref={ref}
+      {...props}
     >
       <motion.div
         variants={{

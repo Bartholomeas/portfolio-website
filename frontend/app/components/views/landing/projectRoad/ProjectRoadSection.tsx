@@ -13,7 +13,8 @@ import {
 
 import React from 'react';
 
-import { Box, Group, Stack } from '@/components/common/mantine';
+import { Box, Flex, Group, Stack } from '@/components/common/mantine';
+import { Image } from '@/components/common/mantine/Image';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
 import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
@@ -22,8 +23,6 @@ const useStyles = createStyles(
   (theme, { iconSize = 64 }: { iconSize?: number }) => ({
     wrapper: {
       position: 'relative',
-      width: 'fit-content',
-      margin: '0 auto',
 
       '&::before': {
         content: '""',
@@ -46,6 +45,11 @@ const useStyles = createStyles(
       backgroundColor: theme.other.bg,
       color: theme.other.primary,
       borderRadius: '50%',
+    },
+
+    avatarImage: {
+      transform: 'scaleX(-100%)',
+      objectFit: 'contain',
     },
   })
 );
@@ -88,11 +92,29 @@ export function ProjectRoadSection() {
         subtext="Droga od pomysłu do produktu"
       />
 
-      <Stack className={classes.wrapper} spacing={64}>
-        {itemsData.map(({ title, text, icon }) => (
-          <ProjectRoadItem key={title} title={title} text={text} icon={icon} />
-        ))}
-      </Stack>
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        align="center"
+        justify="space-between"
+      >
+        <Stack className={classes.wrapper} spacing={64}>
+          {itemsData.map(({ title, text, icon }) => (
+            <ProjectRoadItem
+              key={title}
+              title={title}
+              text={text}
+              icon={icon}
+            />
+          ))}
+        </Stack>
+        <Image
+          width={350}
+          height={350}
+          src="/avatars/me_confetti.webp"
+          alt="Moja twarz z urodzinową trąbką i konfetti."
+          className={classes.avatarImage}
+        />
+      </Flex>
     </Stack>
   );
 }

@@ -1,4 +1,4 @@
-import { ThemeColors } from '@/misc/theme/types';
+'use client';
 
 import { AnchorProps, createStyles } from '@mantine/core';
 
@@ -6,6 +6,8 @@ import { LinkProps } from 'next/link';
 import React from 'react';
 
 import { Anchor as MantineAnchor } from './index';
+
+import { ThemeColors } from '@/misc/theme/types';
 
 type StylesProps = {
   textColor: ThemeColors;

@@ -1,3 +1,5 @@
+'use client';
+
 import { ButtonProps, createStyles, rem } from '@mantine/core';
 
 import React from 'react';

@@ -32,13 +32,14 @@ export function LandingHeader() {
   const { classes } = useStyles();
 
   return (
-    <Stack w="100%" spacing={16}>
-      <LandingAnimationReveal>
+    <Stack w="100%" spacing={16} align="center">
+      <LandingAnimationReveal w="100%">
         <Title
           order={1}
           size={96}
           fw={900}
           lh={1}
+          w="100%"
           ta={{ base: 'center', md: 'left' }}
           textColor="white"
           className={classes.title}

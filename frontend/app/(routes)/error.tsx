@@ -13,6 +13,9 @@ import { Title } from '@/components/common/mantine/Title';
 
 const useStyles = createStyles((theme) => ({
   root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     paddingTop: rem(80),
     paddingBottom: rem(80),
   },

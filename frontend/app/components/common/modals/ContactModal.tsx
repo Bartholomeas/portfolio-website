@@ -2,9 +2,9 @@
 
 import { Checkbox, Flex, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
-
 import { ContextModalProps } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
+
 import {
   IconAt,
   IconHeading,
@@ -16,10 +16,13 @@ import {
 
 import React, { useState } from 'react';
 
+import { Divider } from '../mantine';
+import { Anchor } from '../mantine/Anchor';
 import { Button } from '../mantine/Button';
+import { Text } from '../mantine/Text';
 import { Textarea } from '../mantine/Textarea';
-
 import { TextInput } from '../mantine/TextInput';
+
 import { FloatingShape } from '../ornaments/FloatingShape';
 
 export function ContactModal({ context, id }: ContextModalProps) {
@@ -61,8 +64,21 @@ export function ContactModal({ context, id }: ContextModalProps) {
   };
   return (
     <Stack sx={{ position: 'relative' }}>
+      <Flex gap={8} w="100%" align="center">
+        <Text size="sm" textColor="textPrimary" sx={{ whiteSpace: 'nowrap' }}>
+          Lub skontaktuj się poprzez e-mail:
+        </Text>
+        <Anchor
+          textColor="textSecondary"
+          size="sm"
+          href="mailto:kontakt@bstefaniak.pl"
+        >
+          kontakt@bstefaniak.pl
+        </Anchor>
+      </Flex>
+      <Divider my={0} />
       <form onSubmit={handleSubmit}>
-        <Stack py={24} spacing={24}>
+        <Stack pb={24} spacing={24}>
           <TextInput
             id="contact_name"
             label="Twoje imie"

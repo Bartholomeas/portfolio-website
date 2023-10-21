@@ -12,6 +12,7 @@ const useStyles = createStyles((theme, { wrapText }: StyleProps) => ({
     backgroundClip: 'text',
     paddingBottom: rem(4),
     WebkitTextFillColor: 'transparent',
+    lineHeight: 1.2,
   },
 }));
 
