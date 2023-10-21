@@ -32,7 +32,7 @@ const useStyles = createStyles(
         ? `translate(-${rem(32)}, ${rem(-40)})`
         : 'translate(0, -50%)',
       top: '50%',
-      fontSize: floating ? theme.fontSizes.xs : theme.fontSizes.sm,
+      fontSize: floating ? theme.fontSizes.sm : theme.fontSizes.md,
     },
 
     required: {

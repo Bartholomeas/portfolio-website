@@ -1,18 +1,11 @@
-import { IconArrowRight, IconShare } from '@tabler/icons-react';
+import { IconArrowRight } from '@tabler/icons-react';
 
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-import {
-  ActionIcon,
-  Box,
-  Card,
-  Divider,
-  Group,
-  Stack,
-} from '@/components/common/mantine';
+import { Box, Card, Flex, Group, Stack } from '@/components/common/mantine';
 import { ButtonLink } from '@/components/common/mantine/Button';
 import { Text } from '@/components/common/mantine/Text';
 import { Title } from '@/components/common/mantine/Title';
@@ -65,11 +58,23 @@ export function BlogCard({ post }: BlogCardProps) {
         </Link>
 
         <Stack h="100%" spacing={16} justify="space-between">
-          <Group spacing={4} align="center">
-            {post?.blogCategories.map(({ uuid, code, name }) => (
-              <BlogPostCategoryBadge key={uuid} code={code} name={name} />
-            ))}
-          </Group>
+          <Flex w="100%" justify="space-between">
+            <Group spacing={4} align="center">
+              {post?.blogCategories.map(({ uuid, code, name }) => (
+                <BlogPostCategoryBadge key={uuid} code={code} name={name} />
+              ))}
+            </Group>
+            <Group>
+              <Group spacing={8}>
+                <Text ta="center" size="sm" textColor="textSecondary">
+                  {dayjs(post?.publishedAt).format('DD.MM.YYYY')}
+                </Text>
+                <Text size="sm" textColor="textSecondary">
+                  ~ {post?.readTime} min
+                </Text>
+              </Group>
+            </Group>
+          </Flex>
 
           <Link href={routes.blogPost(post?.slug)}>
             <Title order={3} textColor="primary">
@@ -82,30 +87,12 @@ export function BlogCard({ post }: BlogCardProps) {
           </Text>
           <ButtonLink
             href={routes.blogPost(post?.slug)}
-            variant="subtle"
+            variant="outline"
             sx={{ alignSelf: 'end' }}
-            compact
             rightIcon={<IconArrowRight size={16} />}
           >
             Przeczytaj
           </ButtonLink>
-        </Stack>
-        <Stack spacing={8}>
-          <Divider />
-          <Group position="apart">
-            <Group spacing={8}>
-              <Text ta="center" size="sm" textColor="textSecondary">
-                {dayjs(post?.publishedAt).format('DD.MM.YYYY')},
-              </Text>
-              <Text size="sm" textColor="textSecondary">
-                ~ {post?.readTime} min
-              </Text>
-            </Group>
-
-            <ActionIcon>
-              <IconShare size="1rem" />
-            </ActionIcon>
-          </Group>
         </Stack>
       </Stack>
     </Card>

@@ -5,7 +5,8 @@ import { createStyles, rem } from '@mantine/core';
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { Container, Group, Stack } from '../mantine';
+import { Container, Divider, Group, Stack } from '../mantine';
+import { Anchor } from '../mantine/Anchor';
 import { Text } from '../mantine/Text';
 
 import { FooterNewsletterSection } from './FooterNewsletterSection';
@@ -47,7 +48,15 @@ export function Footer() {
           <Text size="sm" textColor="textSecondary">
             Bartosz Stefaniak &copy; {dayjs(new Date()).format('YYYY')}
           </Text>
-          <Group spacing={0} className={classes.links} position="right" noWrap>
+          <Group spacing={16} className={classes.links} position="right" noWrap>
+            <Anchor
+              textColor="textSecondary"
+              size="sm"
+              href="mailto:kontakt@bstefaniak.pl"
+            >
+              kontakt@bstefaniak.pl
+            </Anchor>
+            <Divider mx={0} orientation="vertical" />
             <a
               target="_blank"
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"

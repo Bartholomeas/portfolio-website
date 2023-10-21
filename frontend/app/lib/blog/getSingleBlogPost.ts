@@ -5,7 +5,9 @@ export async function getSingleBlogPost(
   slug: string
 ): Promise<FetchResponse<Post>> {
   try {
-    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`);
+    const res = await fetch(`${API_URL}/api/blog-posts/${slug}`, {
+      next: { revalidate: 60 * 60 * 24 },
+    });
 
     if (!res.ok) {
       throw new Error('getSingleBlogPost: error');
