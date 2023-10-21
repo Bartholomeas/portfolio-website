@@ -89,6 +89,7 @@ export function LandingSection() {
           height="0"
           width="0"
           sizes="100vw"
+          priority
           className={classes.backgroundImage}
         />
         <Image
@@ -97,6 +98,7 @@ export function LandingSection() {
           height="0"
           width="0"
           sizes="100vw"
+          priority
           className={classes.smallImage}
         />
 

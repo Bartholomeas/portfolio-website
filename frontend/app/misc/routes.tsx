@@ -1,7 +1,7 @@
 const socials = {
   github: 'https://github.com/Bartholomeas',
   linkedin: 'https://www.linkedin.com/in/bartosz-stefaniak-a82727222/',
-  discord: '/',
+  discord: 'https://discord.com/users/202136460818776064',
 };
 
 export const routes = {

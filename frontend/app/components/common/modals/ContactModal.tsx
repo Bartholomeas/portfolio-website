@@ -2,9 +2,9 @@
 
 import { Checkbox, Flex, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
-
 import { ContextModalProps } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
+
 import {
   IconAt,
   IconHeading,
@@ -18,9 +18,10 @@ import React, { useState } from 'react';
 
 import { Button } from '../mantine/Button';
 import { Textarea } from '../mantine/Textarea';
-
 import { TextInput } from '../mantine/TextInput';
+
 import { FloatingShape } from '../ornaments/FloatingShape';
+import { MacWindow } from '../special/macWindow/MacWindow';
 
 export function ContactModal({ context, id }: ContextModalProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -60,121 +61,127 @@ export function ContactModal({ context, id }: ContextModalProps) {
     }).finally(() => setIsLoading(false));
   };
   return (
-    <Stack sx={{ position: 'relative' }}>
-      <form onSubmit={handleSubmit}>
-        <Stack py={24} spacing={24}>
-          <TextInput
-            id="contact_name"
-            label="Twoje imie"
-            placeholder="Wpisz swoje imie"
-            icon={<IconUser size={16} />}
-            onChange={(e) => form.setFieldValue('name', e.target.value)}
-            error={form.getInputProps('name').error}
-          />
-          <TextInput
-            id="contact_email"
-            label="Twój e-mail"
-            placeholder="Oraz swój e-mail!"
-            icon={<IconAt size={16} />}
-            error={form.getInputProps('email').error}
-            onChange={(e) => form.setFieldValue('email', e.target.value)}
-          />
-          <TextInput
-            id="contact_title"
-            label="Tytuł wiadomości"
-            placeholder="Jak chcesz zatytułować tę wiadomość?"
-            icon={<IconHeading size={16} />}
-            error={form.getInputProps('title').error}
-            onChange={(e) => form.setFieldValue('title', e.target.value)}
-          />
-          <Textarea
-            id="contact_message"
-            label="Treść wiadomości"
-            placeholder="Tutaj jest miejsce na Twoją wiadomość! Daj się poznać! :)"
-            icon={<IconMessage size={16} />}
-            error={form.getInputProps('message').error}
-            onChange={(e) => form.setFieldValue('message', e.target.value)}
-          />
-          <Checkbox
-            label="Zgadzam się na przetwarzanie moich danych osobowych"
-            error={form.getInputProps('agree', { type: 'checkbox' }).error}
-            onChange={(e) => form.setFieldValue('agree', e.target.checked)}
-          />
-        </Stack>
-        <Flex direction={{ base: 'column', sm: 'row' }} gap={16} justify="end">
-          <Button
-            onClick={() => {
-              context.closeModal(id);
-              form.reset();
-            }}
-            color="gray"
-            variant="outline"
-            leftIcon={<IconX size={16} />}
+    <MacWindow withGlassBg>
+      <Stack sx={{ position: 'relative' }}>
+        <form onSubmit={handleSubmit}>
+          <Stack py={24} spacing={24}>
+            <TextInput
+              id="contact_name"
+              label="Twoje imie"
+              placeholder="Wpisz swoje imie"
+              icon={<IconUser size={16} />}
+              onChange={(e) => form.setFieldValue('name', e.target.value)}
+              error={form.getInputProps('name').error}
+            />
+            <TextInput
+              id="contact_email"
+              label="Twój e-mail"
+              placeholder="Oraz swój e-mail!"
+              icon={<IconAt size={16} />}
+              error={form.getInputProps('email').error}
+              onChange={(e) => form.setFieldValue('email', e.target.value)}
+            />
+            <TextInput
+              id="contact_title"
+              label="Tytuł wiadomości"
+              placeholder="Jak chcesz zatytułować tę wiadomość?"
+              icon={<IconHeading size={16} />}
+              error={form.getInputProps('title').error}
+              onChange={(e) => form.setFieldValue('title', e.target.value)}
+            />
+            <Textarea
+              id="contact_message"
+              label="Treść wiadomości"
+              placeholder="Tutaj jest miejsce na Twoją wiadomość! Daj się poznać! :)"
+              icon={<IconMessage size={16} />}
+              error={form.getInputProps('message').error}
+              onChange={(e) => form.setFieldValue('message', e.target.value)}
+            />
+            <Checkbox
+              label="Zgadzam się na przetwarzanie moich danych osobowych"
+              error={form.getInputProps('agree', { type: 'checkbox' }).error}
+              onChange={(e) => form.setFieldValue('agree', e.target.checked)}
+            />
+          </Stack>
+          <Flex
+            direction={{ base: 'column', sm: 'row' }}
+            gap={16}
+            justify="end"
           >
-            Anuluj
-          </Button>
-          <Button
-            type="submit"
-            color="primary"
-            variant="outline"
-            leftIcon={<IconSend size={16} />}
-            onClick={() => {}}
-            loading={isLoading}
-          >
-            Wyślij wiadomość
-          </Button>
-        </Flex>
-      </form>
+            <Button
+              onClick={() => {
+                context.closeModal(id);
+                form.reset();
+              }}
+              color="gray"
+              variant="outline"
+              leftIcon={<IconX size={16} />}
+            >
+              Anuluj
+            </Button>
+            <Button
+              type="submit"
+              color="primary"
+              variant="outline"
+              leftIcon={<IconSend size={16} />}
+              onClick={() => {}}
+              loading={isLoading}
+            >
+              Wyślij wiadomość
+            </Button>
+          </Flex>
+        </form>
 
-      <FloatingShape
-        shape="firstShape"
-        size={100}
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          transform: 'translate(-60%, -120%)',
-          zIndex: 1000,
-        }}
-      />
-      <FloatingShape
-        shape="firstShape"
-        size={200}
-        rotate={90}
-        sx={{
-          position: 'absolute',
-          top: '30%',
-          right: -24,
-          transform: 'translateX(100%)',
-          zIndex: -99,
-        }}
-      />
+        <FloatingShape
+          shape="firstShape"
+          size={100}
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            transform: 'translate(-60%, -120%)',
+            zIndex: 1000,
+          }}
+        />
+        <FloatingShape
+          shape="firstShape"
+          size={200}
+          rotate={90}
+          sx={{
+            position: 'absolute',
+            top: '30%',
+            right: -24,
+            transform: 'translateX(100%)',
+            zIndex: -99,
+          }}
+        />
 
-      <FloatingShape
-        shape="secondShape"
-        size={150}
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          transform: 'translate(-100%, 100%)',
-          zIndex: -9999,
-        }}
-      />
+        <FloatingShape
+          shape="secondShape"
+          size={150}
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            transform: 'translate(-100%, 100%)',
+            zIndex: -9999,
+          }}
+        />
 
-      <FloatingShape
-        shape="secondShape"
-        size={80}
-        rotate={145}
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          right: 0,
-          transform: 'translate(70%, 95%)',
-          zIndex: 1000,
-        }}
-      />
-    </Stack>
+        <FloatingShape
+          shape="secondShape"
+          size={80}
+          rotate={145}
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            transform: 'translate(70%, 95%)',
+            zIndex: 1000,
+          }}
+        />
+      </Stack>
+    </MacWindow>
   );
 }
 
