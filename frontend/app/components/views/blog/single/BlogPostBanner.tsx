@@ -43,7 +43,17 @@ export function BlogPostBanner({ data }: Props) {
             ))}
         </Group>
       </Group>
-      <Text textColor="textPrimary">{shortDescription}</Text>
+      <Text
+        textColor="textSecondary"
+        sx={(theme) => ({
+          fontWeight: 500,
+          fontSize: theme.fontSizes.lg,
+          lineHeight: 1.7,
+          letterSpacing: '0.03rem',
+        })}
+      >
+        {shortDescription}
+      </Text>
     </Stack>
   );
 }
