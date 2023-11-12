@@ -26,6 +26,15 @@ export async function generateMetadata({
   return {
     title: data.title,
     description: data.shortDescription,
+    openGraph: {
+      authors: 'Bartosz Stefaniak',
+      description: data.shortDescription,
+      images: [data.headerImg.url],
+    },
+    authors: {
+      name: 'Bartosz Stefaniak',
+    },
+    creator: 'Bartosz Stefaniak',
   };
 }
 
