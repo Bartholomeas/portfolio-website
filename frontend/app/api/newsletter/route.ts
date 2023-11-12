@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { CONVERTKIT_FORM_ID, CONVERTKIT_KEY } from '@/utils/variables';
 
 const BASE_URL = 'https://api.convertkit.com/v3';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
 
