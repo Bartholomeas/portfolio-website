@@ -1,7 +1,7 @@
 'use client';
 
-import { Box, createStyles } from '@mantine/core';
 import React from 'react';
+import { Box, createStyles } from '@mantine/core';
 
 type Positions = {
   top?: number | string;

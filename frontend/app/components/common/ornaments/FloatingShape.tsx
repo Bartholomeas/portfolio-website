@@ -1,8 +1,8 @@
 'use client';
 
+import React from 'react';
 import { BoxProps, createStyles } from '@mantine/core';
 
-import React from 'react';
 
 import { Box } from '../mantine';
 import { Image } from '../mantine/Image';

@@ -1,7 +1,7 @@
 'use client';
 
-import { createStyles, rem } from '@mantine/core';
 import React, { PropsWithChildren } from 'react';
+import { createStyles, rem } from '@mantine/core';
 
 type StyleProps = { wrapText: boolean };
 const useStyles = createStyles((theme, { wrapText }: StyleProps) => ({

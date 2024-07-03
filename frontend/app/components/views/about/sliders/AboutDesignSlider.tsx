@@ -1,3 +1,5 @@
+import React from 'react';
+import { createStyles, rem } from '@mantine/core';
 import { Box } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';
 
@@ -6,8 +8,6 @@ import { MacWindowGraphicTools } from '@/components/common/special/macWindow/Mac
 
 import { StrapiImage } from '@/types';
 
-import { createStyles, rem } from '@mantine/core';
-import React from 'react';
 
 const useStyles = createStyles(() => ({
   root: {

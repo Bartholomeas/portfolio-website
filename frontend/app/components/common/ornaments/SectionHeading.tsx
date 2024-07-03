@@ -1,7 +1,7 @@
 'use client';
 
-import { createStyles, Stack } from '@mantine/core';
 import React from 'react';
+import { createStyles, Stack } from '@mantine/core';
 
 import { Text } from '../mantine/Text';
 import { Title } from '../mantine/Title';

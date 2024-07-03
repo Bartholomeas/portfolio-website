@@ -1,9 +1,9 @@
 'use client';
 
+import React, { PropsWithChildren } from 'react';
 import { CacheProvider } from '@emotion/react';
 import { useEmotionCache } from '@mantine/core';
 import { useServerInsertedHTML } from 'next/navigation';
-import React, { PropsWithChildren } from 'react';
 
 import ThemeProvider from './ThemeProvider';
 

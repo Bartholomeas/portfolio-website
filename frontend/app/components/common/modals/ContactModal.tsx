@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useState } from 'react';
 import { Checkbox, Flex, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { ContextModalProps } from '@mantine/modals';
@@ -14,7 +15,6 @@ import {
   IconX,
 } from '@tabler/icons-react';
 
-import React, { useState } from 'react';
 
 import { Divider } from '../mantine';
 import { Anchor } from '../mantine/Anchor';

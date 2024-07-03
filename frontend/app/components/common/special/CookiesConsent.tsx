@@ -1,7 +1,7 @@
 'use client';
 
-import { IconX } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react';
+import { IconX } from '@tabler/icons-react';
 
 import { ActionIcon, Dialog, Divider, Group, Stack } from '../mantine';
 import { Button } from '../mantine/Button';

@@ -1,13 +1,13 @@
 'use client';
 
+import React from 'react';
 import { AnchorProps, createStyles } from '@mantine/core';
 
 import { LinkProps } from 'next/link';
-import React from 'react';
-
-import { Anchor as MantineAnchor } from './index';
 
 import { ThemeColors } from '@/misc/theme/types';
+import { Anchor as MantineAnchor } from './index';
+
 
 type StylesProps = {
   textColor: ThemeColors;

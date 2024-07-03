@@ -2,31 +2,31 @@
 
 import React from 'react';
 
-import { SimpleGrid } from '@/components/common/mantine';
+import {Post} from '@/types';
+import {slugify} from "@/utils/slugify";
+import {useBlogPostsFilters} from '@/hooks/usePostsFilters';
 
-import { BlogCard } from './BlogCard';
-
-import { useBlogPostsFilters } from '@/hooks/usePostsFilters';
-
-import { Post } from '@/types';
+import {SimpleGrid} from '@/components/common/mantine';
+import {BlogCard} from './BlogCard';
 
 type BlogPostsListProps = {
-  posts: Post[] | undefined;
+    posts: Post[] | undefined;
 };
 
-export function BlogPostsList({ posts }: BlogPostsListProps) {
-  const { filteredPosts } = useBlogPostsFilters(posts);
+export function BlogPostsList({posts}: BlogPostsListProps) {
+    const {filteredPosts} = useBlogPostsFilters(posts);
 
-  return (
-    <SimpleGrid
-      cols={1}
-      breakpoints={[
-        { minWidth: 'sm', cols: 2 },
-        { minWidth: 'lg', cols: 3 },
-      ]}
-    >
-      {filteredPosts &&
-        filteredPosts.map((post) => <BlogCard key={post.uuid} post={post} />)}
-    </SimpleGrid>
-  );
+    return (
+        <SimpleGrid
+            cols={1}
+            breakpoints={[
+                {minWidth: 'sm', cols: 2},
+                {minWidth: 'lg', cols: 3},
+            ]}
+        >
+            {filteredPosts &&
+                filteredPosts.map((post) => <BlogCard key={`blogCard-${slugify(`${post?.title}-${post?.slug}`)}`}
+                                                      post={post}/>)}
+        </SimpleGrid>
+    );
 }

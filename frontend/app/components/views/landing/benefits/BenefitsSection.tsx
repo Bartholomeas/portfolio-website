@@ -1,8 +1,8 @@
+import React from 'react';
 import { SimpleGrid, Stack } from '@/components/common/mantine';
 
 import { SectionHeading } from '@/components/common/ornaments/SectionHeading';
 
-import React from 'react';
 
 import { BenefitsBox } from './BenefitsBox';
 

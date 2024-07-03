@@ -1,10 +1,10 @@
+import React from 'react';
 import {
   IconBrandDiscord,
   IconBrandGithub,
   IconBrandLinkedin,
 } from '@tabler/icons-react';
 
-import React from 'react';
 
 import { Button, Flex, Stack } from '@/components/common/mantine';
 import { Title } from '@/components/common/mantine/Title';

@@ -882,7 +882,6 @@ export interface ApiBlogCategoryBlogCategory extends Schema.CollectionType {
       'api::blog-post.blog-post'
     >;
     code: Attribute.String & Attribute.Required & Attribute.Unique;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -965,13 +964,6 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
     >;
     slug: Attribute.UID<'api::blog-post.blog-post', 'title'> &
       Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    uuid: Attribute.UID &
-      Attribute.CustomField<'plugin::field-uuid.uuid'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1078,7 +1070,6 @@ export interface ApiToolTool extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::tool.tool', 'oneToOne', 'admin::user'> &

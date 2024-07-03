@@ -36,7 +36,6 @@ export interface BlocksRecommendedItemsGroup extends Schema.Component {
   attributes: {
     items: Attribute.Component<'blocks.recommended-group', true>;
     title: Attribute.String & Attribute.Required;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
   };
 }
 
@@ -62,7 +61,6 @@ export interface HomepageAboutmeCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
     image: Attribute.Media<'images'>;
     title: Attribute.String & Attribute.Required;
@@ -113,7 +111,6 @@ export interface HomepageCaseStudies extends Schema.Component {
     >;
     mainImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Attribute.Required;
-    uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
   };
 }

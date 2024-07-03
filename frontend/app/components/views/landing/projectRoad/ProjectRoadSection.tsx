@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { createStyles } from '@mantine/core';
 
 import {
@@ -11,7 +12,6 @@ import {
   IconProgress,
 } from '@tabler/icons-react';
 
-import React from 'react';
 
 import { Box, Flex, Group, Stack } from '@/components/common/mantine';
 import { Image } from '@/components/common/mantine/Image';

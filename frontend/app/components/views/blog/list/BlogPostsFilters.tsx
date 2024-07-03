@@ -1,8 +1,8 @@
 'use client';
 
+import React from 'react';
 import { IconSearch } from '@tabler/icons-react';
 
-import React from 'react';
 
 import { Chip, Group, Stack } from '@/components/common/mantine';
 import { TextInput } from '@/components/common/mantine/TextInput';

@@ -1,9 +1,9 @@
 'use client';
 
+import React, { useEffect } from 'react';
 import { createStyles, rem } from '@mantine/core';
 
 
-import React, { useEffect } from 'react';
 
 import { Container, Group } from '@/components/common/mantine';
 import { Button } from '@/components/common/mantine/Button';

@@ -1,9 +1,9 @@
 'use client';
 
+import React, { PropsWithChildren } from 'react';
+import { createStyles } from '@mantine/core';
 import { Timeline } from '@/components/common/mantine';
 
-import { createStyles } from '@mantine/core';
-import React, { PropsWithChildren } from 'react';
 
 const useStyles = createStyles((theme) => ({
   itemBullet: {

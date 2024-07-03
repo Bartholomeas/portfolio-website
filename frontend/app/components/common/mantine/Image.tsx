@@ -1,8 +1,8 @@
 // 'use client';
 
+import { forwardRef } from 'react';
 import { Box, createPolymorphicComponent } from '@mantine/core';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
-import { forwardRef } from 'react';
 
 const ImageComponent = forwardRef<HTMLImageElement, NextImageProps>(
   ({ ...props }, ref) => <Box component={NextImage} ref={ref} {...props} />

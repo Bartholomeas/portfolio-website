@@ -1,6 +1,6 @@
+import React from 'react';
 import dayjs from 'dayjs';
 
-import React from 'react';
 
 import { BlogPostCategoryBadge } from '../list/BlogPostCategoryBadge';
 import { Group, Stack } from '@/components/common/mantine';

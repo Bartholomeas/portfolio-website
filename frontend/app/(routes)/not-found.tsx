@@ -3,13 +3,13 @@
 
 import React, {useCallback} from 'react';
 
+import {createStyles, rem} from '@mantine/core';
+import {useRouter} from "next/navigation";
 import {Container, Group} from '@/components/common/mantine';
 import {Button} from '@/components/common/mantine/Button';
 import {Text} from '@/components/common/mantine/Text';
 import {Title} from '@/components/common/mantine/Title';
-import {createStyles, rem} from '@mantine/core';
 
-import {useRouter} from "next/navigation";
 
 const useStyles = createStyles((theme) => ({
     root: {

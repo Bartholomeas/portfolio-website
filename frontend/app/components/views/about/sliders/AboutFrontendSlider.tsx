@@ -1,3 +1,5 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { createStyles, rem } from '@mantine/core';
 import { Box } from '@/components/common/mantine';
 
 import { Image } from '@/components/common/mantine/Image';
@@ -6,8 +8,6 @@ import { MacWindow } from '@/components/common/special/macWindow/MacWindow';
 
 import { StrapiImage } from '@/types';
 
-import { createStyles, rem } from '@mantine/core';
-import React, { useEffect, useRef, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
   root: {
