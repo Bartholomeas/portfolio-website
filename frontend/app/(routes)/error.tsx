@@ -2,7 +2,6 @@
 
 import { createStyles, rem } from '@mantine/core';
 
-import Error from 'next/error';
 
 import React, { useEffect } from 'react';
 

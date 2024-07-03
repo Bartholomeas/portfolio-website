@@ -38,6 +38,7 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ res });
   } catch (err: any) {
+    console.log({ err });
     return NextResponse.json({
       message: `Error: ${err?.message}`,
     });

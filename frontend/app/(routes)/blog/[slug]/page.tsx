@@ -1,78 +1,89 @@
 import React from 'react';
 
-import { Box, Stack } from '@/components/common/mantine';
-import { Breadcrumbs } from '@/components/common/mantine/Breadcrumbs';
+import {Box, Stack} from '@/components/common/mantine';
+import {Breadcrumbs} from '@/components/common/mantine/Breadcrumbs';
 
-import { BlogPostContent } from '@/components/views/blog/single/BlogPostContent';
-import { BlogPostHeaderImg } from '@/components/views/blog/single/BlogPostHeaderImg';
+import {BlogPostContent} from '@/components/views/blog/single/BlogPostContent';
+import {BlogPostHeaderImg} from '@/components/views/blog/single/BlogPostHeaderImg';
 
-import type { Metadata } from 'next';
+import type {Metadata} from 'next';
 
-import { getBlogPosts } from '@/lib/blog/getBlogPosts';
-import { getSingleBlogPost } from '@/lib/blog/getSingleBlogPost';
+import {getBlogPosts} from '@/lib/blog/getBlogPosts';
+import {getSingleBlogPost} from '@/lib/blog/getSingleBlogPost';
 
-import { createQueryClient } from '@/utils/createQueryClient';
+import {createQueryClient} from '@/utils/createQueryClient';
+import {notFound} from "next/navigation";
 
 const queryClient = createQueryClient();
 
 export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
+                                           params,
+                                       }: {
+    params: { slug: string };
 }): Promise<Metadata> {
-  const singleBlogPostData = getSingleBlogPost(params.slug);
-  const { data } = await singleBlogPostData;
+    const singleBlogPostData = getSingleBlogPost(params.slug).catch(() => {
+            notFound()
+        }
+    )
+    const {data} = await singleBlogPostData;
 
-  return {
-    title: data.title,
-    description: data.shortDescription,
-    openGraph: {
-      authors: 'Bartosz Stefaniak',
-      description: data.shortDescription,
-      images: [data.headerImg.url],
-    },
-    authors: {
-      name: 'Bartosz Stefaniak',
-    },
-    creator: 'Bartosz Stefaniak',
-  };
+    const images = data?.headerImg?.url ? [data?.headerImg?.url] : []
+
+    return {
+        title: data?.title,
+        description: data?.shortDescription,
+        openGraph: {
+            authors: 'Bartosz Stefaniak',
+            description: data?.shortDescription,
+            images,
+        },
+        authors: {
+            name: 'Bartosz Stefaniak',
+        },
+        creator: 'Bartosz Stefaniak',
+    };
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const singleBlogPostData = queryClient(`blogPost-${params.slug}`, () =>
-    getSingleBlogPost(params.slug)
-  );
-  const { data } = await singleBlogPostData;
+export default async function Page({params}: { params: { slug: string } }) {
+    const singleBlogPostData = queryClient(`blogPost-${params.slug}`, () =>
+        getSingleBlogPost(params?.slug).catch(() => {
+            notFound()
+        })
+    );
+    const {data} = await singleBlogPostData;
 
-  const items = [
-    { title: 'Blog', href: '/blog' },
-    { title: data?.title ?? '' },
-  ];
+    const items = [
+        {title: 'Blog', href: '/blog'},
+        {title: data?.title ?? ''},
+    ];
 
-  return (
-    <Stack maw={1000} mx="auto" px={16}>
-      <Breadcrumbs items={items} />
+    return (
+        <Stack maw={1000} mx="auto" px={16}>
+            <Breadcrumbs items={items}/>
 
-      <Box
-        w="100%"
-        h="auto"
-        sx={{
-          aspectRatio: '16/8',
-          position: 'relative',
-          borderRadius: 8,
-          overflow: 'hidden',
-        }}
-      >
-        <BlogPostHeaderImg imgUrl={data.headerImg.url} imgAlt="alt text" />
-      </Box>
-      <BlogPostContent data={data} />
-    </Stack>
-  );
+            <Box
+                w="100%"
+                h="auto"
+                sx={{
+                    aspectRatio: '16/8',
+                    position: 'relative',
+                    borderRadius: 8,
+                    overflow: 'hidden',
+                }}
+            >
+                {data?.headerImg?.url ?
+                    <BlogPostHeaderImg imgUrl={data?.headerImg?.url} imgAlt="Nagłówek posta na Blogu"/> : null}
+            </Box>
+            <BlogPostContent data={data}/>
+        </Stack>
+    );
 }
 
 export async function generateStaticParams() {
-  const blogPostsPromise = getBlogPosts();
-  const { data } = await blogPostsPromise;
+    const blogPostsPromise = getBlogPosts().catch(() => ({
+        data: undefined
+    }));
+    const {data} = await blogPostsPromise;
 
-  return data.map((post) => ({ slug: post.slug }));
+    return data ? data.map((post) => ({slug: post.slug})) : [];
 }
