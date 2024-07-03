@@ -1,9 +1,9 @@
+import React from 'react';
 import { Metadata } from 'next';
 
 import { Dosis } from 'next/font/google';
 
 import { cookies } from 'next/headers';
-import React from 'react';
 
 import { Notifications } from '@/components/common/mantine';
 

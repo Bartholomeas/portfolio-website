@@ -1,12 +1,12 @@
 'use client';
 
-import {Divider, Stack, TypographyStylesProvider,} from '@/components/common/mantine';
-import {Post} from '@/types';
 
-import {createStyles, rem} from '@mantine/core';
 import React from 'react';
+import {createStyles, rem} from '@mantine/core';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import {Post} from '@/types';
+import {Divider, Stack, TypographyStylesProvider,} from '@/components/common/mantine';
 
 
 import {BlogPostBanner} from './BlogPostBanner';

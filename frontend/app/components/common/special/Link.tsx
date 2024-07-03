@@ -1,9 +1,9 @@
+import React from 'react';
 import { createStyles, rem } from '@mantine/core';
 
 import NextLink, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   link: {

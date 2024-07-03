@@ -1,5 +1,5 @@
-import {Metadata} from 'next';
 import React from 'react';
+import {Metadata} from 'next';
 
 import {Container, Stack} from '@/components/common/mantine';
 import {BlogHeader} from '@/components/views/blog/list/BlogHeader';

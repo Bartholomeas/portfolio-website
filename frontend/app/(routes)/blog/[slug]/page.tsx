@@ -1,18 +1,18 @@
 import React from 'react';
 
+import type {Metadata} from 'next';
+import {notFound} from "next/navigation";
 import {Box, Stack} from '@/components/common/mantine';
 import {Breadcrumbs} from '@/components/common/mantine/Breadcrumbs';
 
 import {BlogPostContent} from '@/components/views/blog/single/BlogPostContent';
 import {BlogPostHeaderImg} from '@/components/views/blog/single/BlogPostHeaderImg';
 
-import type {Metadata} from 'next';
 
 import {getBlogPosts} from '@/lib/blog/getBlogPosts';
 import {getSingleBlogPost} from '@/lib/blog/getSingleBlogPost';
 
 import {createQueryClient} from '@/utils/createQueryClient';
-import {notFound} from "next/navigation";
 
 const queryClient = createQueryClient();
 

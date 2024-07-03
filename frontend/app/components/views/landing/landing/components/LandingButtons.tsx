@@ -1,5 +1,5 @@
-import { IconArrowDown, IconArrowRight } from '@tabler/icons-react';
 import React from 'react';
+import { IconArrowDown, IconArrowRight } from '@tabler/icons-react';
 
 import { Flex } from '@/components/common/mantine';
 import { ButtonLink } from '@/components/common/mantine/Button';

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   createStyles,
   InputProps,
@@ -8,7 +9,6 @@ import {
   TextInputProps,
 } from '@mantine/core';
 
-import React, { useEffect, useState } from 'react';
 
 const useStyles = createStyles(
   (theme, { floating, isError }: { floating: boolean; isError: boolean }) => ({

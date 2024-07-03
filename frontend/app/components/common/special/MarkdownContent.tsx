@@ -1,7 +1,7 @@
 'use client';
 
-import { createStyles, rem } from '@mantine/core';
 import React from 'react';
+import { createStyles, rem } from '@mantine/core';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 

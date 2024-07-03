@@ -1,6 +1,6 @@
+import { PropsWithChildren } from 'react';
 import { CardProps, createStyles, Group, rem } from '@mantine/core';
 
-import { PropsWithChildren } from 'react';
 
 import { Box, Card } from '@/components/common/mantine';
 

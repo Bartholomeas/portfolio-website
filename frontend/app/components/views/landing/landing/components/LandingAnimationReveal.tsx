@@ -1,6 +1,6 @@
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import { BoxProps } from '@mantine/core';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { PropsWithChildren, useEffect, useRef } from 'react';
 
 import { Box } from '@/components/common/mantine';
 

@@ -1,6 +1,6 @@
+import React from 'react';
 import { createStyles, rem } from '@mantine/core';
 
-import React from 'react';
 
 import { Stack } from '@/components/common/mantine';
 import { Title } from '@/components/common/mantine/Title';

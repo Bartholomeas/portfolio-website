@@ -1,3 +1,8 @@
+import React from 'react';
+import {IconArrowRight} from '@tabler/icons-react';
+import dayjs from 'dayjs';
+import {motion} from 'framer-motion';
+import Image from 'next/image';
 import {Box, Card, Flex, Group, Stack} from '@/components/common/mantine';
 import {ButtonLink} from '@/components/common/mantine/Button';
 import {Text} from '@/components/common/mantine/Text';
@@ -8,14 +13,9 @@ import {Link} from '@/components/common/special/Link';
 import {routes} from '@/misc/routes';
 import {Post} from '@/types';
 
-import {IconArrowRight} from '@tabler/icons-react';
-
-import dayjs from 'dayjs';
-import {motion} from 'framer-motion';
-import Image from 'next/image';
-import React from 'react';
 
 import {BlogPostCategoryBadge} from './BlogPostCategoryBadge';
+import {slugify} from "@/utils/slugify";
 
 type BlogCardProps = {
     post: Post | undefined;
@@ -61,8 +61,9 @@ export function BlogCard({post}: BlogCardProps) {
                 <Stack h="100%" spacing={16} justify="space-between">
                     <Flex w="100%" justify="space-between">
                         <Group spacing={4} align="center">
-                            {post?.blogCategories?.map(({uuid, code, name}) => (
-                                <BlogPostCategoryBadge key={uuid} code={code} name={name}/>
+                            {post?.blogCategories?.map(({code, name}) => (
+                                <BlogPostCategoryBadge key={`blogPostCategoryBadge-${slugify(`${code} ${name}`)}`}
+                                                       code={code} name={name}/>
                             ))}
                         </Group>
                         <Group>

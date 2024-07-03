@@ -7,10 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "uuid": {
-      "type": "customField",
-      "customField": "plugin::field-uuid.uuid"
-    },
     "description": {
       "type": "richtext"
     },

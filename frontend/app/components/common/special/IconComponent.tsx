@@ -1,5 +1,5 @@
-import * as TablerIcons from '@tabler/icons-react';
 import { ComponentType } from 'react';
+import * as TablerIcons from '@tabler/icons-react';
 
 type Props = {
   icon: string;

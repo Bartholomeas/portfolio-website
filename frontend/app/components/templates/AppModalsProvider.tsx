@@ -1,7 +1,7 @@
 'use client';
 
-import { ContextModalProps, ModalsProvider } from '@mantine/modals';
 import React, { FC, PropsWithChildren } from 'react';
+import { ContextModalProps, ModalsProvider } from '@mantine/modals';
 
 import { ContactModal } from '../common/modals/ContactModal';
 

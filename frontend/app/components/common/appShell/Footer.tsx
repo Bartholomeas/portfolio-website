@@ -1,9 +1,9 @@
 'use client';
 
+import React from 'react';
 import { createStyles, rem } from '@mantine/core';
 
 import dayjs from 'dayjs';
-import React from 'react';
 
 import { Container, Divider, Group, Stack } from '../mantine';
 import { Anchor } from '../mantine/Anchor';
