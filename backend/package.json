@@ -4,22 +4,27 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
+    "develop": "NODE_ENV=development strapi develop",
+    "start": "NODE_ENV=production strapi start",
+    "build": "NODE_ENV=production strapi build",
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.14.3",
-    "@strapi/plugin-i18n": "4.14.3",
-    "@strapi/plugin-users-permissions": "4.14.3",
-    "@strapi/provider-upload-cloudinary": "^4.14.3",
-    "@strapi/strapi": "4.14.3",
-    "better-sqlite3": "8.0.1",
+    "@strapi/plugin-graphql": "^4.25.2",
+    "@strapi/plugin-i18n": "4.25.2",
+    "@strapi/plugin-users-permissions": "4.25.2",
+    "@strapi/provider-upload-cloudinary": "^4.25.2",
+    "@strapi/strapi": "4.25.2",
+    "better-sqlite3": "11.1.2",
     "pg": "^8.11.3",
-    "strapi-auto-uuid": "^0.0.8",
-    "strapi-plugin-react-icons": "^0.2.0",
-    "strapi-plugin-transformer": "^3.1.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^5.2.0",
+    "strapi-plugin-react-icons": "^0.3.1",
+    "strapi-plugin-transformer": "^3.1.0",
+    "styled-components": "^5.2.1",
+    "strapi-auto-uuid": "^0.0.8"
+
   },
   "author": {
     "name": "A Strapi developer"
@@ -28,7 +33,7 @@
     "uuid": "995a3309-ac5c-4666-b1ad-0e1c5d868d0e"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=16.x.x <=18.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
