@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import {IconArrowRight} from '@tabler/icons-react';
 import dayjs from 'dayjs';

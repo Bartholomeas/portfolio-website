@@ -160,7 +160,7 @@ export function FooterNewsletterSection() {
         </MacWindow>
 
         <Image
-          src="/avatars/me_hallo.webp"
+          src="/avatars/me_hallo.png"
           alt="Emoji wykonujące gest dzwonienia."
           width="0"
           height="0"

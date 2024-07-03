@@ -84,7 +84,7 @@ export function AboutGeneralSlider({ image }: Props) {
       </MacWindow>
       <MacWindow withGlassBg className={classes.secondWindow}>
         <Image
-          src="/avatars/me_blink.webp"
+          src="/avatars/me_blink.png"
           alt="Moja twarz w postaci apple awatara"
           fill
           sizes="50vw"
