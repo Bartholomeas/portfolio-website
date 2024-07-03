@@ -64,7 +64,7 @@ export interface HomepageAboutmeCard extends Schema.Component {
   attributes: {
     uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     title: Attribute.String & Attribute.Required;
     code: Attribute.Enumeration<['general', 'frontend', 'design', 'summary']> &
       Attribute.Required;
@@ -111,7 +111,8 @@ export interface HomepageCaseStudies extends Schema.Component {
       'oneToMany',
       'api::tool.tool'
     >;
-    mainImg: Attribute.Media & Attribute.Required;
+    mainImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
     uuid: Attribute.UID & Attribute.CustomField<'plugin::field-uuid.uuid'>;
     description: Attribute.RichText;
   };

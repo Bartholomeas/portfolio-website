@@ -10,16 +10,21 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.14.3",
-    "@strapi/plugin-i18n": "4.14.3",
-    "@strapi/plugin-users-permissions": "4.14.3",
-    "@strapi/provider-upload-cloudinary": "^4.14.3",
-    "@strapi/strapi": "4.14.3",
-    "better-sqlite3": "8.0.1",
+    "@strapi/plugin-graphql": "^4.25.2",
+    "@strapi/plugin-i18n": "4.25.2",
+    "@strapi/plugin-users-permissions": "4.25.2",
+    "@strapi/provider-upload-cloudinary": "^4.25.2",
+    "@strapi/strapi": "4.25.2",
+    "better-sqlite3": "11.1.2",
     "pg": "^8.11.3",
-    "strapi-auto-uuid": "^0.0.8",
-    "strapi-plugin-react-icons": "^0.2.0",
-    "strapi-plugin-transformer": "^3.1.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^5.2.0",
+    "strapi-plugin-react-icons": "^0.3.1",
+    "strapi-plugin-transformer": "^3.1.0",
+    "styled-components": "^5.2.1",
+    "strapi-auto-uuid": "^0.0.8"
+
   },
   "author": {
     "name": "A Strapi developer"
