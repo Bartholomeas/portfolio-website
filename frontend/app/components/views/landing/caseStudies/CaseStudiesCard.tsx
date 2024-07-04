@@ -9,6 +9,8 @@ import Image from 'next/image';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+import {SpecialComponents} from "react-markdown/lib/ast-to-react";
+import {NormalComponents} from "react-markdown/lib/complex-types";
 import {HEADER_HEIGHT} from '@/components/common/appShell/Header/Header';
 import {Box, Card, Group} from '@/components/common/mantine';
 import {Text} from '@/components/common/mantine/Text';
@@ -93,6 +95,16 @@ type Props = {
     isSelected?: boolean;
 };
 
+
+const markdownComponents: Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents> | undefined = {
+    img: (props) =>
+        <Image src={props?.src ?? '/'} alt={props?.alt ?? 'Zdjęcie z Case Study'} width={780} height={0} loading='lazy'
+               style={{
+                   borderRadius: 8, objectFit: 'contain', objectPosition: 'center', height: 'auto', width: '100%'
+               }}/>
+
+};
+
 export function CaseStudiesCard({item, onClick, isSelected = false}: Props) {
     const {classes, cx} = useStyles();
     const slugId = useMemo(() => slugify(item?.title), [item?.title])
@@ -135,7 +147,6 @@ export function CaseStudiesCard({item, onClick, isSelected = false}: Props) {
                             <Image
                                 width={640}
                                 height={360}
-                                sizes="100vw"
                                 loading="lazy"
                                 className={classes.image}
                                 src={item?.mainImg?.url}
@@ -162,6 +173,8 @@ export function CaseStudiesCard({item, onClick, isSelected = false}: Props) {
                                 >
                                     <TypographyStylesProvider>
                                         <Markdown
+                                            linkTarget='_blank'
+                                            components={markdownComponents}
                                             // transformImageUri={(src) => `${API_URL}${src}`}
                                             remarkPlugins={[remarkGfm]}
                                         >
