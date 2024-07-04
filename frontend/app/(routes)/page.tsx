@@ -9,7 +9,6 @@ import {ProjectRoadSection} from '@/components/views/landing/projectRoad/Project
 import {getHomePage} from '@/lib/getHomePage';
 import {BlogPostsSection} from "@/components/views/landing/blogPosts/BlogPostsSection";
 import {getBlogPosts} from "@/lib/blog/getBlogPosts";
-import {API_URL} from "@/utils/variables";
 
 async function Home() {
     const homePageData = getHomePage().catch(() => ({
