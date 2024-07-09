@@ -7,7 +7,7 @@ import { ActionIcon, Dialog, Divider, Group, Stack } from '../mantine';
 import { Button } from '../mantine/Button';
 import { Text } from '../mantine/Text';
 
-import { setCookie } from '@/lib/setCookie';
+import { setCookie } from '@/requests/setCookie';
 
 type Props = {
   consent: boolean;

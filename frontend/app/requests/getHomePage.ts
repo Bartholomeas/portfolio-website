@@ -1,7 +1,7 @@
 import {FetchResponse} from '@/types';
 import {HomePageSections} from '@/types/pages';
 import {API_URL} from '@/utils/variables';
-import {GET_HOMEPAGE_KEY} from "@/lib/keys";
+import {GET_HOMEPAGE_KEY} from "@/requests/keys";
 
 export async function getHomePage(): Promise<FetchResponse<HomePageSections>> {
     try {

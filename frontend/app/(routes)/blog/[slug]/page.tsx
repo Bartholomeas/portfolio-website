@@ -9,8 +9,8 @@ import {BlogPostContent} from '@/components/views/blog/single/BlogPostContent';
 import {BlogPostHeaderImg} from '@/components/views/blog/single/BlogPostHeaderImg';
 
 
-import {getBlogPosts} from '@/lib/blog/getBlogPosts';
-import {getSingleBlogPost} from '@/lib/blog/getSingleBlogPost';
+import {getBlogPosts} from '@/requests/blog/getBlogPosts';
+import {getSingleBlogPost} from '@/requests/blog/getSingleBlogPost';
 
 import {createQueryClient} from '@/utils/createQueryClient';
 

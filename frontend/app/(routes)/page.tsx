@@ -6,9 +6,9 @@ import {LandingSection} from '@/components/views/landing/landing/LandingSection'
 
 import {ProjectRoadSection} from '@/components/views/landing/projectRoad/ProjectRoadSection';
 
-import {getHomePage} from '@/lib/getHomePage';
+import {getHomePage} from '@/requests/getHomePage';
 import {BlogPostsSection} from "@/components/views/landing/blogPosts/BlogPostsSection";
-import {getBlogPosts} from "@/lib/blog/getBlogPosts";
+import {getBlogPosts} from "@/requests/blog/getBlogPosts";
 
 async function Home() {
     const homePageData = getHomePage().catch(() => ({

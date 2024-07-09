@@ -1,6 +1,6 @@
 import {FetchResponse, Post} from '@/types';
 import {API_URL} from '@/utils/variables';
-import {GET_BLOG_POSTS_KEY} from "@/lib/keys";
+import {GET_BLOG_POSTS_KEY} from "@/requests/keys";
 
 export async function getBlogPosts(isHomepage?: boolean): Promise<FetchResponse<Post[]>> {
     const homepageParams = '&pagination[limit]=3'
