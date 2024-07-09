@@ -11,7 +11,9 @@ const nextConfig = {
             'bstefaniak.me',
         ],
     },
-  
+    experimental: {
+        serverActions: true
+    },
     compiler: {
         styledComponents: true,
     },
