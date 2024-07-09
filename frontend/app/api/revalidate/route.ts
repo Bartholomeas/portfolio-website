@@ -29,6 +29,7 @@ export async function POST(req: Request) {
         revalidatePath(routes.home, 'page');
         revalidatePath(routes.about, 'page');
         revalidatePath(routes.recommended, 'page');
+        revalidatePath(routes.privacyPolicy, 'page');
 
         revalidateTag(GET_BLOG_POSTS_KEY)
         revalidateTag(GET_HOMEPAGE_KEY)
