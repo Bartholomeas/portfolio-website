@@ -9,6 +9,7 @@ import {Container, Group} from '@/components/common/mantine';
 import {Button} from '@/components/common/mantine/Button';
 import {Text} from '@/components/common/mantine/Text';
 import {Title} from '@/components/common/mantine/Title';
+import {Metadata} from "next";
 
 
 const useStyles = createStyles((theme) => ({
@@ -53,6 +54,11 @@ const useStyles = createStyles((theme) => ({
         marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
     },
 }));
+
+export const metadata:Metadata = { 
+    title:'404 nie znaleziono strony',
+    
+}
 export default function NotFoundPage() {
     const router = useRouter()
 
