@@ -10,8 +10,7 @@ import {CookiesConsent} from '@/components/common/special/CookiesConsent';
 import {AppModalsProvider} from '@/components/templates/AppModalsProvider';
 import {AppShell} from '@/components/templates/AppShell';
 import RootStyleRegistry from '@/components/templates/RootStyleRegistry';
-
-import {GTAG_ID} from "@/utils/variables";
+import {GoogleAnalytics} from "@/lib/gtag/GoogleAnalytics";
 
 const inter = Dosis({
     weight: ['400', '500', '700'],
@@ -38,7 +37,7 @@ function RootLayout({children}: { children: React.ReactNode }) {
             className={inter.className}
             style={{overflowX: 'hidden', width: '100vw'}}
         >
-        {GTAG_ID ? <GoogleAnalytics gaId={GTAG_ID}/> : null}
+        <GoogleAnalytics/>
         {/* <GoogleAnalytics GA_MEASUREMENT_ID={GTAG_ID!} /> */}
         <RootStyleRegistry>
             <AppModalsProvider>
