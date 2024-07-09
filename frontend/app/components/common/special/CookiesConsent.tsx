@@ -3,17 +3,36 @@
 import React, {useEffect, useState} from 'react';
 import {IconX} from '@tabler/icons-react';
 
+import {createStyles} from "@mantine/core";
+
 import {ActionIcon, Dialog, Divider, Group, Stack} from '../mantine';
 import {Button} from '../mantine/Button';
 import {Text} from '../mantine/Text';
 
+import {routes} from "@/misc/routes";
 import {setCookie} from '@/requests/setCookie';
+
+import {Link} from "@/components/common/special/Link";
+
+const useStyles = createStyles((theme) => ({
+    spanLink: {
+        display: 'inline-block'
+    },
+    primaryLink: {
+        fontSize: theme.fontSizes.lg,
+        color: theme.other.primary
+    },
+    bolder: {
+        fontWeight: 600
+    }
+}))
 
 type Props = {
     consent: boolean;
 };
 
 export function CookiesConsent({consent}: Props) {
+    const {classes} = useStyles()
     const [cookiesConsentOpened, setCookiesConsentOpened] = useState(!consent);
 
     useEffect(() => {
@@ -39,11 +58,14 @@ export function CookiesConsent({consent}: Props) {
                     </ActionIcon>
                 </Group>
                 <Divider my={0}/>
-                <Text textColor="textPrimary">
-                    Niektóre funkcje naszej strony mogą nie działać w pełni poprawnie bez
-                    Twojej zgody na pliki cookies. Pliki cookies pomagają nam również
-                    analizować ruch na stronie. Klikając {`'Akceptuję'`}, zgadzasz się na
-                    używanie plików cookies.
+                <Text textColor="textPrimary"
+                      className={classes.spanLink}>
+                    Używamy plików cookies, w tym Google Analytics, do analizowania ruchu na naszej stronie, co pomaga
+                    nam ulepszać jej funkcjonalność i treści. Twoje dane są przetwarzane zgodnie z naszą <Link
+                    href={routes.privacyPolicy} className={classes.primaryLink}>polityką
+                    prywatności.</Link> Klikając <span className={classes.bolder}>{`'Akceptuję'`}</span>, zgadzasz się
+                    na używanie plików cookies. Jeśli nie zgadzasz się, kliknij <span
+                    className={classes.bolder}>{`'Odrzuć'`}</span>.
                 </Text>
                 <Divider/>
                 <Group w="100%" grow>

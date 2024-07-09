@@ -29,7 +29,7 @@ const themeSizes: MantineThemeOther = {
 
   fontSizes: {
     xs: 10,
-    sm: 14,
+    sm: 16,
     md: 16,
     lg: 18,
     xl: 24,
