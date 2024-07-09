@@ -8,8 +8,8 @@ import {RecommendedShapesWrapper} from '@/components/views/recommended/Recommend
 import {getRecommendedPage} from '@/requests/getRecommendedPage';
 
 export const metadata: Metadata = {
-    title: 'Polecane | Bartosz Stefaniak',
-    description: 'Polecany przeze mnie aplikacje, sprzęt i wtyczki.',
+    title: 'Polecane aplikacje i sprzęt | Bartosz Stefaniak',
+    description: "Odkryj moje wybory w aplikacjach i sprzęcie! W sekcji 'Polecane' znajdziesz sprawdzone produkty, które polecam ze względu na ich wydajność i jakość!",
 };
 
 export default async function Recommended() {

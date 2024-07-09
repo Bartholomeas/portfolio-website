@@ -10,9 +10,9 @@ import {getBlogCategories} from '@/requests/blog/getBlogCategories';
 import {getBlogPosts} from '@/requests/blog/getBlogPosts';
 
 export const metadata: Metadata = {
-    title: 'Blog Front-end | Bartosz Stefaniak',
+    title: 'Blog front-end, design, back-end | Bartosz Stefaniak',
     description:
-        'Na tym blogu znajdziesz wpisy dotyczące IT, z naciskiem na front-end. Ponadto rady, ciekawostki i przemyślenia.',
+        'Odkryj najnowsze treści na moim blogu! Znajdziesz tu inspiracje, porady i dogłębne analizy z zakresu IT. Zajrzyj i bądź na bieżąco, nie pożałujesz!',
 };
 
 async function Blog() {

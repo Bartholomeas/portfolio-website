@@ -10,9 +10,9 @@ import {AboutSection} from '@/components/views/about/AboutSection';
 import {getAboutMePage} from '@/requests/aboutMe/getAboutMePage';
 
 export const metadata: Metadata = {
-    title: 'O mnie | Bartosz Stefaniak',
+    title: 'Informacje o mnie | Bartosz Stefaniak',
     description:
-        'Strona przedstawiająca zbiór informacji o mnie.',
+        'Poznaj mnie bliżej i odkryj, co mnie napędza! W sekcji ‘O mnie’ dowiesz się więcej o moich pasjach, projektach i unikalnym podejściu. Zajrzyj i zainspiruj się!',
 };
 
 export default async function AboutMe() {
