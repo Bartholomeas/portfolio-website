@@ -6,8 +6,8 @@ import {BlogHeader} from '@/components/views/blog/list/BlogHeader';
 import {BlogPostsSection} from '@/components/views/blog/list/BlogPostsSection';
 import {BlogShapesWrapper} from '@/components/views/blog/list/BlogShapesWrapper';
 
-import {getBlogCategories} from '@/lib/blog/getBlogCategories';
-import {getBlogPosts} from '@/lib/blog/getBlogPosts';
+import {getBlogCategories} from '@/requests/blog/getBlogCategories';
+import {getBlogPosts} from '@/requests/blog/getBlogPosts';
 
 export const metadata: Metadata = {
     title: 'Blog Front-end | Bartosz Stefaniak',

@@ -5,7 +5,7 @@ import {RecommendedHeader} from '@/components/views/recommended/RecommendedHeade
 import {RecommendedListsSection} from '@/components/views/recommended/RecommendedListsSection';
 import {RecommendedShapesWrapper} from '@/components/views/recommended/RecommendedShapesWrapper';
 
-import {getRecommendedPage} from '@/lib/getRecommendedPage';
+import {getRecommendedPage} from '@/requests/getRecommendedPage';
 
 export const metadata: Metadata = {
     title: 'Polecane | Bartosz Stefaniak',

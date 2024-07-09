@@ -3,7 +3,7 @@ import {NextResponse} from 'next/server';
 
 import {routes} from '@/misc/routes';
 import {REVALIDATE_BLOG_SECRET} from '@/utils/variables';
-import {GET_BLOG_POSTS_KEY, GET_HOMEPAGE_KEY} from "@/lib/keys";
+import {GET_BLOG_POSTS_KEY, GET_HOMEPAGE_KEY} from "@/requests/keys";
 
 export async function POST(req: Request) {
     try {

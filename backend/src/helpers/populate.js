@@ -1,4 +1,4 @@
-const { createCoreController } = require("@strapi/strapi/lib/factories");
+const { createCoreController } = require("@strapi/strapi/requests/factories");
 
 function populateAttribute({ components }) {
   if (components) {

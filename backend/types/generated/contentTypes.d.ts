@@ -1024,6 +1024,38 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiPrivacyPolicyPagePrivacyPolicyPage
+  extends Schema.SingleType {
+  collectionName: 'privacy_policy_pages';
+  info: {
+    singularName: 'privacy-policy-page';
+    pluralName: 'privacy-policy-pages';
+    displayName: 'PrivacyPolicyPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy-page.privacy-policy-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy-page.privacy-policy-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRecommendedPageRecommendedPage extends Schema.SingleType {
   collectionName: 'recommended_pages';
   info: {
@@ -1102,6 +1134,7 @@ declare module '@strapi/types' {
       'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::recommended-page.recommended-page': ApiRecommendedPageRecommendedPage;
       'api::tool.tool': ApiToolTool;
     }

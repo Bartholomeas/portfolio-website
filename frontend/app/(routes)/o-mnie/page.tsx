@@ -7,7 +7,7 @@ import {FloatingShape, FloatingShapeProps,} from '@/components/common/ornaments/
 import {AboutHeader} from '@/components/views/about/AboutHeader';
 import {AboutSection} from '@/components/views/about/AboutSection';
 
-import {getAboutMePage} from '@/lib/aboutMe/getAboutMePage';
+import {getAboutMePage} from '@/requests/aboutMe/getAboutMePage';
 
 export const metadata: Metadata = {
     title: 'O mnie | Bartosz Stefaniak',
