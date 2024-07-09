@@ -20,9 +20,9 @@ const inter = Dosis({
 });
 
 export const metadata: Metadata = {
-    title: 'Frontend developer i freelancer | Bartosz Stefaniak',
+    title: 'Strony i aplikacje internetowe, programista | Bartosz Stefaniak',
     description:
-        'Tworzę profesjonalne i kreatywne strony internetowe oraz projekty graficzne. Chcesz się przekonać? Napisz do mnie!',
+        'Odkryj profesjonalizm i kreatywność moich projektów! Specjalizuję się w tworzeniu stron internetowych, aplikacji oraz projektach graficznych. Skontaktuj się ze mną, aby dowiedzieć się więcej!',
     keywords:
         'Frontend Developer, Freelancer, Web Design, JavaScript, CSS, React, Next.js',
 };
