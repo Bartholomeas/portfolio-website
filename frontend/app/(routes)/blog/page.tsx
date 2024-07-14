@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: 'Blog front-end, design, back-end | Bartosz Stefaniak',
     description:
         'Odkryj najnowsze treści na moim blogu! Znajdziesz tu inspiracje, porady i dogłębne analizy z zakresu IT. Zajrzyj i bądź na bieżąco, nie pożałujesz!',
+    alternates: {
+        canonical: '/blog'
+    },
 };
 
 async function Blog() {

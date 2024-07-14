@@ -20,11 +20,15 @@ const inter = Dosis({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://www.bstefaniak.pl/'),
     title: 'Strony i aplikacje internetowe, programista | Bartosz Stefaniak',
     description:
         'Odkryj profesjonalizm i kreatywność moich projektów! Specjalizuję się w tworzeniu stron internetowych, aplikacji oraz projektach graficznych. Skontaktuj się ze mną, aby dowiedzieć się więcej!',
     keywords:
         'Frontend Developer, Freelancer, Web Design, JavaScript, CSS, React, Next.js',
+    alternates: {
+        canonical: './'
+    }
 };
 
 function RootLayout({children}: { children: React.ReactNode }) {

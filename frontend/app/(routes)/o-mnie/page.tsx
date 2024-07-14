@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: 'Informacje o mnie | Bartosz Stefaniak',
     description:
         'Poznaj mnie bliżej i odkryj, co mnie napędza! W sekcji ‘O mnie’ dowiesz się więcej o moich pasjach, projektach i unikalnym podejściu. Zajrzyj i zainspiruj się!',
+    alternates: {
+        canonical: '/o-mnie'
+    },
 };
 
 export default async function AboutMe() {

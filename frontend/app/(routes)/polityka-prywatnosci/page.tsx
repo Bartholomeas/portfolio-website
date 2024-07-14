@@ -9,11 +9,13 @@ import {MarkdownContent} from "@/components/common/special/MarkdownContent";
 export const metadata: Metadata = {
     title: 'Polityka prywatności | Bartosz Stefaniak',
     description: 'Obowiązująca polityka prywatności',
-    
+    robots: {
+        index: false
+    }
 };
 
 export default async function PrivacyPolicyPage() {
-    
+
     const {data} = await getPrivacyPolicyPage().catch((err) => {
         console.error('Error: ', err)
         return {data: undefined}

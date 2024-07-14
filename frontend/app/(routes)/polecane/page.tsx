@@ -10,6 +10,9 @@ import {getRecommendedPage} from '@/requests/getRecommendedPage';
 export const metadata: Metadata = {
     title: 'Polecane aplikacje i sprzęt | Bartosz Stefaniak',
     description: "Odkryj moje wybory w aplikacjach i sprzęcie! W sekcji 'Polecane' znajdziesz sprawdzone produkty, które polecam ze względu na ich wydajność i jakość!",
+    alternates: {
+        canonical: '/polecane'
+    },
 };
 
 export default async function Recommended() {

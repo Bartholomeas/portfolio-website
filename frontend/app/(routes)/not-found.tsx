@@ -55,9 +55,11 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-export const metadata:Metadata = { 
-    title:'404 nie znaleziono strony',
-    
+export const metadata: Metadata = {
+    title: `404 nie znaleziono strony | Bartosz Stefaniak`,
+    robots: {
+        index: false, follow: false
+    }
 }
 export default function NotFoundPage() {
     const router = useRouter()

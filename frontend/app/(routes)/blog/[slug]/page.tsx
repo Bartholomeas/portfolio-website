@@ -40,6 +40,9 @@ export async function generateMetadata({
         authors: {
             name: 'Bartosz Stefaniak',
         },
+        alternates: {
+            canonical: `/blog/${params?.slug}`
+        },
         creator: 'Bartosz Stefaniak',
     };
 }
