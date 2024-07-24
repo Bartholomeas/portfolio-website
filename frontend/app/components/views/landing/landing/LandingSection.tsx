@@ -97,8 +97,7 @@ export function LandingSection() {
                     src="/abstract/serpent_2.webp"
                     alt="Półokragły, kolorowy kształt"
                     height={550}
-                    width={550s
-                    }
+                    width={550}
                     sizes="50vw"
                     loading='eager'
                     priority
