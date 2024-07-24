@@ -23,8 +23,8 @@ const useStyles = createStyles((theme) => ({
 
     stylesProvider: {
         p: {
-            color: theme.other.textSecondary,
-            fontWeight: 500,
+            color: theme.other.textPrimary,
+            fontWeight: 400,
             fontSize: theme.fontSizes.lg,
             lineHeight: 1.7,
             letterSpacing: '0.03rem',
