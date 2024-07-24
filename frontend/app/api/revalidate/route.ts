@@ -4,6 +4,7 @@ import {NextResponse} from 'next/server';
 import {routes} from '@/misc/routes';
 import {REVALIDATE_BLOG_SECRET} from '@/utils/variables';
 import {GET_BLOG_POSTS_KEY, GET_HOMEPAGE_KEY} from "@/requests/keys";
+import {getBlogPosts} from "@/requests/blog/getBlogPosts";
 
 export async function POST(req: Request) {
     try {
@@ -24,6 +25,16 @@ export async function POST(req: Request) {
                 message: 'Wrong secret',
             })
         }
+
+        const blogPostsPromise = getBlogPosts().catch(() => ({
+            data: undefined
+        }));
+        const {data} = await blogPostsPromise;
+        const blogPostSlugs = data?.map((post) => post?.slug)
+        blogPostSlugs?.forEach((slug) => {
+            revalidatePath(routes.blogPost(slug), 'page');
+
+        })
 
         revalidatePath(routes.blog, 'page');
         revalidatePath(routes.home, 'page');
