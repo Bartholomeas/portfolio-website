@@ -6,3 +6,4 @@ export const headerLinks = [
   { link: routes.about, label: 'O mnie' },
   { link: routes.recommended, label: 'Polecane' },
 ];
+
