@@ -12,7 +12,7 @@ import { getBlogPosts } from '@/requests/blog/getBlogPosts';
 export const metadata: Metadata = {
   title: 'Blog o Frontend, Design i Web Development | Bartosz Stefaniak',
   description:
-    'Odkryj inspirujące artykuły, praktyczne porady i dogłębne analizy z zakresu frontend developmentu, web designu i najnowszych technologii webowych. Poszerzaj swoją wiedzę z ekspertem w dziedzinie React, Next.js i nowoczesnego web developmentu.',
+    'Odkryj inspirujące artykuły i praktyczne porady z zakresu frontend developmentu, web designu i najnowszych technologii webowych. Poszerzaj swoją wiedzę.',
   keywords: [
     'Frontend Development',
     'Web Design',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: 'https://www.bstefaniak.pl/blog',
     title: 'Blog o Frontend, Design i Web Development | Bartosz Stefaniak',
     description:
-      'Odkryj inspirujące artykuły i praktyczne porady z zakresu frontend developmentu, web designu i najnowszych technologii webowych. Poszerzaj swoją wiedzę z ekspertem.',
+      'Odkryj inspirujące artykuły i praktyczne porady z zakresu frontend developmentu, web designu i najnowszych technologii webowych. Poszerzaj swoją wiedzę.',
     images: [
       {
         url: '/og_img.webp',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog o Frontend, Design i Web Development | Bartosz Stefaniak',
     description:
-      'Odkryj inspirujące artykuły i praktyczne porady z zakresu frontend developmentu, web designu i najnowszych technologii webowych.',
+      'Odkryj inspirujące artykuły i praktyczne porady z zakresu frontend developmentu, web designu i najnowszych technologii webowych. Poszerzaj swoją wiedzę.',
     images: ['/og_img.webp'],
   },
   robots: {

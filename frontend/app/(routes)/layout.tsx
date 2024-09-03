@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.bstefaniak.pl/'),
   title: 'Bartosz Stefaniak | Frontend Developer & Web Designer',
   description:
-    'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Kompleksowe usługi od projektu UI/UX po implementację frontend i backend. Ekspert w React, Next.js i najnowszych technologiach webowych.',
+    'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Ekspert w najnowszych technologiach webowych.',
   keywords: [
     'Frontend Developer',
     'Web Designer',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: 'https://www.bstefaniak.pl/',
     title: 'Bartosz Stefaniak | Frontend Developer & Web Designer',
     description:
-      'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Kompleksowe usługi od projektu UI/UX po implementację frontend i backend. Ekspert w React, Next.js i najnowszych technologiach webowych.',
+      'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Ekspert w najnowszych technologiach webowych.',
     images: [
       {
         url: 'og_img.webp',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bartosz Stefaniak | Frontend Developer & Web Designer',
     description:
-      'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Kompleksowe usługi od projektu UI/UX po implementację frontend i backend. Ekspert w React, Next.js i najnowszych technologiach webowych.',
+      'Programista i grafik specjalizujący się w tworzeniu nowoczesnych stron i aplikacji internetowych. Ekspert w najnowszych technologiach webowych.',
     images: ['og_img.webp'],
   },
   robots: {

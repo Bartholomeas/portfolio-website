@@ -15,7 +15,7 @@ import { getAboutMePage } from '@/requests/aboutMe/getAboutMePage';
 export const metadata: Metadata = {
   title: 'O mnie | Bartosz Stefaniak - Frontend Developer & Web Designer',
   description:
-    'Poznaj mnie bliżej i odkryj, co mnie napędza! Dowiedz się więcej o moich pasjach, projektach i unikalnym podejściu do tworzenia stron internetowych i aplikacji webowych. Ekspert w React, Next.js i nowoczesnych technologiach frontendowych.',
+    'Poznaj mnie bliżej! Frontend Developer i Web Designer z pasją do innowacyjnych rozwiązań. Ekspert w React, Next.js i nowoczesnych technologiach webowych.',
   keywords: [
     'O mnie',
     'Bartosz Stefaniak',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     url: 'https://www.bstefaniak.pl/o-mnie',
     title: 'O mnie | Bartosz Stefaniak - Frontend Developer & Web Designer',
     description:
-      'Poznaj mnie bliżej i odkryj, co mnie napędza! Dowiedz się więcej o moich pasjach, projektach i unikalnym podejściu do tworzenia stron internetowych i aplikacji webowych.',
+      'Poznaj mnie bliżej! Frontend Developer i Web Designer z pasją do innowacyjnych rozwiązań. Ekspert w React, Next.js i nowoczesnych technologiach webowych.',
     images: [
       {
         url: '/og_img.webp',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'O mnie | Bartosz Stefaniak - Frontend Developer & Web Designer',
     description:
-      'Poznaj mnie bliżej i odkryj, co mnie napędza! Dowiedz się więcej o moich pasjach, projektach i unikalnym podejściu do tworzenia stron internetowych i aplikacji webowych.',
+      'Poznaj mnie bliżej! Frontend Developer i Web Designer z pasją do innowacyjnych rozwiązań. Ekspert w React, Next.js i nowoczesnych technologiach webowych.',
     images: ['/og_img.webp'],
   },
   robots: {

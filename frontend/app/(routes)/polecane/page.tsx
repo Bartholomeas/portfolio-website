@@ -10,7 +10,7 @@ import { getRecommendedPage } from '@/requests/getRecommendedPage';
 export const metadata: Metadata = {
   title: 'Polecane aplikacje i sprzęt | Bartosz Stefaniak - Frontend Developer',
   description:
-    "Odkryj moje rekomendacje w świecie technologii! W sekcji 'Polecane' znajdziesz starannie wybrane aplikacje i sprzęt, które cenię za ich wydajność, jakość i przydatność w pracy frontend developera i web designera.",
+    'Odkryj moje rekomendacje technologiczne! Sprawdzone aplikacje i sprzęt, które cenię za wydajność w pracy developera.',
   keywords: [
     'Polecane aplikacje',
     'Rekomendowany sprzęt',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title:
       'Polecane aplikacje i sprzęt | Bartosz Stefaniak - Frontend Developer',
     description:
-      'Odkryj moje rekomendacje w świecie technologii! Sprawdzone aplikacje i sprzęt, które cenię za ich wydajność i jakość w pracy frontend developera.',
+      'Odkryj moje rekomendacje technologiczne! Sprawdzone aplikacje i sprzęt, które cenię za wydajność w pracy developera.',
     images: [
       {
         url: '/og_img.webp',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title:
       'Polecane aplikacje i sprzęt | Bartosz Stefaniak - Frontend Developer',
     description:
-      'Odkryj moje rekomendacje w świecie technologii! Sprawdzone aplikacje i sprzęt, które cenię za ich wydajność i jakość w pracy frontend developera.',
+      'Odkryj moje rekomendacje technologiczne! Sprawdzone aplikacje i sprzęt, które cenię za wydajność w pracy developera.',
     images: ['/og_img.webp'],
   },
   robots: {
