@@ -19,7 +19,7 @@ const sitemap = (): MetadataRoute.Sitemap => [
         priority: 0.8,
         lastModified: new Date()
     },
-    {
+    { 
         url: 'https://bstefaniak.pl/polecane',
         changeFrequency: 'weekly',
         priority: 0.6,
