@@ -1,92 +1,92 @@
 'use client';
 
+import React, { useCallback } from 'react';
 
-import React, {useCallback} from 'react';
-
-import {createStyles, rem} from '@mantine/core';
-import {useRouter} from "next/navigation";
-import {Container, Group} from '@/components/common/mantine';
-import {Button} from '@/components/common/mantine/Button';
-import {Text} from '@/components/common/mantine/Text';
-import {Title} from '@/components/common/mantine/Title';
-import {Metadata} from "next";
-
+import { createStyles, rem } from '@mantine/core';
+import { useRouter } from 'next/navigation';
+import { Metadata } from 'next';
+import { Container, Group } from '@/components/common/mantine';
+import { Button } from '@/components/common/mantine/Button';
+import { Text } from '@/components/common/mantine/Text';
+import { Title } from '@/components/common/mantine/Title';
 
 const useStyles = createStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        paddingTop: rem(80),
-        paddingBottom: rem(80),
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingTop: rem(80),
+    paddingBottom: rem(80),
+  },
+
+  label: {
+    textAlign: 'center',
+    fontWeight: 900,
+    fontSize: rem(220),
+    lineHeight: 1,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.dark[4]
+        : theme.colors.gray[2],
+
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: rem(120),
     },
+  },
 
-    label: {
-        textAlign: 'center',
-        fontWeight: 900,
-        fontSize: rem(220),
-        lineHeight: 1,
-        marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
-        color:
-            theme.colorScheme === 'dark'
-                ? theme.colors.dark[4]
-                : theme.colors.gray[2],
+  title: {
+    textAlign: 'center',
+    fontWeight: 900,
+    fontSize: rem(38),
 
-        [theme.fn.smallerThan('sm')]: {
-            fontSize: rem(120),
-        },
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: rem(32),
     },
+  },
 
-    title: {
-        textAlign: 'center',
-        fontWeight: 900,
-        fontSize: rem(38),
-
-        [theme.fn.smallerThan('sm')]: {
-            fontSize: rem(32),
-        },
-    },
-
-    description: {
-        maxWidth: rem(500),
-        margin: 'auto',
-        marginTop: theme.spacing.xl,
-        marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
-    },
+  description: {
+    maxWidth: rem(500),
+    margin: 'auto',
+    marginTop: theme.spacing.xl,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
+  },
 }));
 
 export const metadata: Metadata = {
-    title: `404 nie znaleziono strony | Bartosz Stefaniak`,
-    robots: {
-        index: false, follow: false
-    }
-}
+  title: `404 nie znaleziono strony | Bartosz Stefaniak`,
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 export default function NotFoundPage() {
-    const router = useRouter()
+  const router = useRouter();
 
-    const getUserToPreviousPage = useCallback(() => {
-        router.back()
-    }, [])
+  const getUserToPreviousPage = useCallback(() => {
+    router.back();
+  }, []);
 
-    const {classes} = useStyles();
+  const { classes } = useStyles();
 
-    return (
-        <Container className={classes.root}>
-            <div className={classes.label}>Błąd 404</div>
-            <Title className={classes.title}>Nie znaleźliśmy tej strony</Title>
-            <Text
-                color="dimmed"
-                size="lg"
-                align="center"
-                className={classes.description}
-            >
-                Czasem się tak zdarza, że strona znika w niewyjaśnionych okolicznościach.
-            </Text>
-            <Group position="center">
-                <Button onClick={getUserToPreviousPage} variant="subtle" size="md">
-                    Wróć do poprzedniej strony
-                </Button>
-            </Group>
-        </Container>
-    );
+  return (
+    <Container className={classes.root}>
+      <div className={classes.label}>Błąd 404</div>
+      <Title className={classes.title}>Nie znaleźliśmy tej strony</Title>
+      <Text
+        color="dimmed"
+        size="lg"
+        align="center"
+        className={classes.description}
+      >
+        Czasem się tak zdarza, że strona znika w niewyjaśnionych
+        okolicznościach.
+      </Text>
+      <Group position="center">
+        <Button onClick={getUserToPreviousPage} variant="subtle" size="md">
+          Wróć do poprzedniej strony
+        </Button>
+      </Group>
+    </Container>
+  );
 }
